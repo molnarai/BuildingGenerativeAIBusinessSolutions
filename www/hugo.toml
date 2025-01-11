@@ -1,4 +1,4 @@
-baseURL = 'http://www.insight.gsu.edu/MSA8700'
+baseURL = 'http://www.insight.gsu.edu'
 languageCode = 'en-us'
 title = 'MSA 8700'
 theme = 'pmolnar'

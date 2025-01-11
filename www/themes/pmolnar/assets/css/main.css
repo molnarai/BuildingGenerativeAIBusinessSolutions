@@ -106,3 +106,63 @@ a {
 .breadcrumbs a {
   transition: color 0.2s ease-in-out;
 }
+
+/* h2.listing-title {
+  margin-top: 3rex;
+  font-size: x-large;
+} */
+
+.summary {
+  margin: 1rem 0;
+  line-height: 1.6;
+  color: #444;
+}
+
+.topic-item, .assignment-item, .resource-item {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.topic-item:last-child, 
+.assignment-item:last-child, 
+.resource-item:last-child {
+  border-bottom: none;
+}
+
+.topic-item h2, 
+.assignment-item h2, 
+.resource-item h2 {
+  font-size: x-large;
+  margin-bottom: 0.5rem;
+}
+
+.topic-item h2 a, 
+.resource-item h2 a, 
+.assignment-item h2 a, 
+.resource-item h2 a {
+  text-decoration: none;
+  /* color: #333; */
+  /* color: #blue; */
+  color: #0066cc;
+  font-weight: bold;
+}
+
+.topic-item h2 a:hover, 
+.assignment-item h2 a:hover, 
+.resource-item h2 a:hover {
+  text-decoration: underline;
+}
+
+.read-more {
+  margin-top: 1rem;
+}
+
+.read-more a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.read-more a:hover {
+  text-decoration: underline;
+}
