@@ -1,0 +1,56 @@
+baseURL = 'http://www.insight.gsu.edu/MSA8700'
+languageCode = 'en-us'
+title = 'MSA 8700'
+theme = 'pmolnar'
+
+[Params]
+  description = "MSA 8700 - Building Generative AI Business Solutions"
+  images = ['/digital-garden-logo.png']
+  enableSearch = true
+
+[menu]
+[[menu.main]]
+  name = 'Home'
+  url = '/'
+  weight = 1
+[[menu.main]]
+  name = 'Topics'
+  url = '/topics'
+  weight = 2
+[[menu.main]]
+  name = 'Readings'
+   url = '/readings'
+  weight = 3
+[[menu.main]]
+  name = 'Homework'
+  url = '/assignments'
+  weight = 4
+[[menu.main]]
+  name = 'Project'
+  url = '/project'
+  weight = 5
+[[menu.main]]
+  name = 'AI-Resources'
+  url = '/resources'
+  weight = 6
+[[menu.main]]
+  name = 'GitHub'
+  url = 'https://github.com/molnarai/BuildingGenerativeAIBusinessSolutions'
+  html = '<i class="fab fa-github" style="font-size:24px"></i>'
+  weight = 7
+
+
+# syntax highlight settings
+[markup]
+  [markup.highlight]
+    style = "dracula"
+  [markup.goldmark.renderer]
+    # Enable to include inline HTML
+    unsafe = true
+
+
+[sitemap]
+  changeFreq = ''
+  disable = false
+  filename = 'sitemap.xml'
+  priority = -1

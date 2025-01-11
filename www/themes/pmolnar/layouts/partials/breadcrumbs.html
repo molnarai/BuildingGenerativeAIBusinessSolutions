@@ -1,0 +1,17 @@
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    <li>
+      <a href="{{ .Site.Home.RelPermalink }}">Home</a>
+      <span class="separator">/</span>
+    </li>
+    {{ range .Ancestors.Reverse }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span class="separator">/</span>
+      </li>
+    {{ end }}
+    <li class="current">
+      {{ .Title }}
+    </li>
+  </ol>
+</nav>

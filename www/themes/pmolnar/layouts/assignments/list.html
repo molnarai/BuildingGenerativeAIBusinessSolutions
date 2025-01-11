@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="assignments-list">
+    <h1>Assignments</h1>
+    {{ range .Pages.ByDate }}
+    <article class="assignment-item">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        {{ if .Params.due_date }}
+        <div class="due-date">Due: {{ .Params.due_date | time.Format "January 2, 2006" }}</div>
+        {{ end }}
+    </article>
+    {{ end }}
+</div>
+{{ end }}
