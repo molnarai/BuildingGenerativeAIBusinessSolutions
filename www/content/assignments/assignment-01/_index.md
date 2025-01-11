@@ -5,9 +5,9 @@ draft = false
 title = 'Homework 1: Prompt Engineering'
 weight = 10
 +++
-
-**Objective**:  
+<p>
 In this assignment, you will explore and refine several common prompt engineering techniques for large language models (LLMs). The goal is to experiment with different methods and observe how they influence the quality of the model's output. You will focus on natural language tasks, and your experiments should include **few-shot learning**, **chain-of-thought prompting**, **defining a persona**, **adjusting tone**, and additional tasks such as **summarization** and **narrative creation from bullet points**.
+</p>
 
 ---
 
