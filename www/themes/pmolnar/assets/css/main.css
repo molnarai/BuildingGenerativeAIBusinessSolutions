@@ -1,0 +1,108 @@
+body {
+  color: #222;
+  font-family: sans-serif;
+  line-height: 1.5;
+  margin: 1rem 3rem;
+  /* max-width: 768px; */
+  max-width: 100%;
+}
+
+header {
+  border-bottom: 1px solid #222;
+  margin-bottom: 1rem;
+}
+
+footer {
+  border-top: 1px solid #222;
+  margin-top: 1rem;
+}
+
+a {
+  color: #00e;
+  text-decoration: none;
+}
+
+/* .external-link {
+    padding-right: 1.5em;
+    position: relative;
+}
+
+.external-link::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1em;
+    height: 1em;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+} */
+
+/* External link styling */
+.external-link {
+    padding-right: 1.2em;
+    position: relative;
+}
+
+.external-link::after {
+    content: '↗';
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 0.8em;
+}
+
+/* Optional: change color on hover */
+.external-link:hover {
+    color: #0066cc;
+}
+
+.breadcrumbs {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.breadcrumbs ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.breadcrumbs li {
+    display: inline-flex;
+    align-items: center;
+}
+
+.breadcrumbs a {
+    color: #666;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.breadcrumbs .separator {
+    margin: 0 0.5rem;
+    color: #666;
+}
+
+/* .breadcrumbs .separator::after {
+  content: '›';
+  font-size: 1.2em;
+} */
+
+.breadcrumbs .current {
+    color: #333;
+    font-weight: 500;
+}
+
+.breadcrumbs a {
+  transition: color 0.2s ease-in-out;
+}

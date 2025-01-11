@@ -1,0 +1,19 @@
+.assignment {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.assignment-header {
+    margin-bottom: 2rem;
+}
+
+.due-date {
+    color: #d32f2f;
+    margin: 1rem 0;
+    font-size: 1.1em;
+}
+
+.assignment-content {
+    line-height: 1.6;
+}
