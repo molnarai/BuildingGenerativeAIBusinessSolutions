@@ -55,7 +55,7 @@ jobs:
           cd www/tools
           pwd
           ls -l
-          python bitex2bibjson.py ../assets/publications.bib ../data/publications.json
+          ./bitex2bibjson.py ../assets/publications.bib ../data/publications.json
       
       - name: Setup Pages
         id: pages
