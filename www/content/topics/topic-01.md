@@ -1,8 +1,10 @@
 +++
-date = '2025-01-06T18:20:46-05:00'
+date = '2025-01-13'
 draft = false
 title = 'Introduction to Large Language Models'
 weight = 10
+numsession = 1
 +++
 
-Lorem ipsum
+(Content not yet posted. Please check back.)
+

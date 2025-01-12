@@ -1,3 +1,8 @@
++++
+title = 'Project Ideas'
+description = 'A variety of innovative AI business solutions leveraging large language models'
+weight = 10
++++
 Students in the course can explore a variety of innovative AI business solutions leveraging large language models (LLMs) and generative AI technologies. These projects can address real-world challenges across industries, combining creativity with technical implementation. Here are some potential ideas for their group projects:
 
 1. **AI-Powered Customer Support System**: Develop a multilingual chatbot that provides personalized, 24/7 customer support for businesses in retail, healthcare, or education. The chatbot could use LLMs to handle complex queries, anticipate user needs, and escalate issues to human agents when necessary. This solution could enhance customer satisfaction and reduce operational costs<a href="https://www.softwebsolutions.com/resources/potential-ai-large-language-models.html" target="_blank">[1]</a><a href="https://www.eweek.com/artificial-intelligence/generative-ai-for-business/" target="_blank">[2]</a>.

@@ -12,13 +12,14 @@
     
     <table class="table">
         <tr>
-            <th>Due Date</th><th>Assignment</th>
+            <th>Title</th><th>Description</th>
         </tr>
             {{ range .Pages.ByWeight }}
-                <tr><td>{{ .Params.due_date }}</td><td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td></tr>
+                <tr><td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+                    <td>{{ .Params.description }}</td></tr>
             {{ end }}
     </table>
-    <p style="margin-bottom: 5rex">
+    <!-- <p style="margin-bottom: 5rex">
         Please review instructions for completing and submitting each of the assigments. 
     </p>
     {{ range .Pages.ByWeight }}
@@ -27,17 +28,7 @@
         {{ if .Params.due_date }}
             <div class="due-date" style="font-weight: bold;">Due: {{ .Params.due_date | time.Format "January 2, 2006" }}</div>
         {{ end }}
-        <!-- {{ with .Content }}
-            {{ $paragraphs := split . "<p>" }}
-            {{ range $index, $paragraph := $paragraphs }}
-                {{ if and (gt $index 0) (not (findRE "^\\s*$" $paragraph)) }}
-                    <div class="summary">
-                        {{ $paragraph | replaceRE "</p>.*" "" | markdownify | safeHTML }}
-                    </div>
-                    {{ break }}
-                {{ end }}
-            {{ end }}
-        {{ end }} -->
+        
         {{ with .Content }}
             {{ $firstParagraph := findRE "<p>(.|\n)*?</p>" . 1 }}
             {{ range $firstParagraph }}
@@ -50,6 +41,6 @@
             <a href="{{ .RelPermalink }}" aria-label="Read more about {{ .Title }}">Read more →</a>
         </div>
     </article>
-    {{ end }}
+    {{ end }} -->
 </div>
 {{ end }}

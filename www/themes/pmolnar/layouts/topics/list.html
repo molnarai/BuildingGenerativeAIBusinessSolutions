@@ -2,7 +2,14 @@
 {{ partial "breadcrumbs.html" . }}
 <div class="assignments-list">
     <h1>{{ .Params.title }}</h1>
-    
+    <!-- Debug information -->
+    <div class="debug" style="display: none;">
+        Total pages: {{ len .Pages }}
+        {{ range .Pages }}
+            File: {{ .File.Path }} - Weight: {{ .Weight }}
+        {{ end }}
+    </div>
+
     <!-- Add the _index.md content at the top -->
     {{ with .Content }}
     <div class="section-description">
@@ -10,11 +17,11 @@
     </div>
     {{ end }}
     
-    {{ range .Pages.ByDate }}
-    <article class="assignment-item">
-        <h2 class="listing-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        {{ if .Params.due_date }}
-            <div class="due-date">Due: {{ .Params.due_date | time.Format "January 2, 2006" }}</div>
+    {{ range .Pages.ByWeight }}
+    <article class="topic-item">
+        <h2 class="listing-title"><a href="{{ .RelPermalink }}">Session {{ .Params.numsession }}: {{ .Title }}</a></h2>
+        {{ if .Params.date }}
+            <div class="due-date">Class Date: {{ .Params.date | time.Format "January 2, 2006" }}</div>
         {{ end }}
         <!-- {{ with .Content }}
             {{ $paragraphs := split . "<p>" }}

@@ -1,6 +1,7 @@
 ---
 title: Homework Assignments
 description: Homework Assignments
+
 ---
 
 Homework assignments in this course are **individual tasks** designed to enhance student learning and

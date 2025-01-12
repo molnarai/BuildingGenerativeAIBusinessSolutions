@@ -1,0 +1,75 @@
+{{ $pub := .item }}
+{{/* Handle author names */}}
+{{ $authors := slice }}
+{{ range $pub.author }}
+    {{ $authors = $authors | append .name }}
+{{ end }}
+{{ delimit $authors " & " }} ({{ $pub.year }}).
+
+{{ if eq $pub.type "article" }}
+    {{ $pub.title }}.
+    {{ with $pub.journal }}
+        <i>{{ .name }}</i>
+        {{- with .volume }}, <b>{{ . }}</b>{{ end -}}
+        {{- with .number }}({{ . }}){{ end -}}
+        {{- with .pages }}, {{ . }}{{ end -}}.
+    {{ end }}
+    {{ with $pub.publisher }}{{ .name }}.{{ end }}
+
+{{ else if eq $pub.type "book" }}
+    {{ $pub.title }}.
+    {{ with $pub.publisher }}{{ .name }}.{{ end }}
+    {{ with $pub.isbn }}ISBN: {{ . }}{{ end }}
+
+{{ else if eq $pub.type "inbook" }}
+    {{- if $pub.chapter }}{{ $pub.chapter }}, {{ end -}}
+    in: 
+    {{ if $pub.editor }}
+        {{ $editors := slice }}
+        {{ range $pub.editor }}
+            {{ $editors = $editors | append .name }}
+        {{ end }}
+        {{ delimit $editors " & " }} (eds.)
+    {{ end }}
+    <i>{{ $pub.title }}</i>.
+    {{ with $pub.publisher }}{{ .name }}.{{ end }}
+
+{{ else if eq $pub.type "incollection" }}
+    {{ $pub.title }}
+    in:
+    {{ if $pub.editor }}
+        {{ $editors := slice }}
+        {{ range $pub.editor }}
+            {{ $editors = $editors | append .name }}
+        {{ end }}
+        {{ delimit $editors " & " }} (eds.)
+    {{ end }}
+    <i>{{ $pub.booktitle }}</i>
+    {{- with $pub.publisher }}, {{ .name }}{{ end -}}
+    {{- with $pub.pages }}, {{ . }}{{ end -}}.
+
+{{ else if eq $pub.type "inproceedings" }}
+    {{ $pub.title }}.
+    {{ with $pub.booktitle }}<i>{{ . }}</i>{{ end -}}
+    {{- with $pub.organization }}, <i>{{ . }}</i>{{ end -}}
+    {{- with $pub.volume }}, <b>{{ . }}</b>{{ end -}}
+    {{- with $pub.number }}({{ . }}){{ end -}}
+    {{- with $pub.pages }}, {{ . }}{{ end -}}.
+
+{{ else if eq $pub.type "misc" }}
+    {{ $pub.title }}.
+    {{ with $pub.publisher }}{{ .name }}.{{ end }} [{{ $pub.type }}]
+
+{{ else if eq $pub.type "techreport" }}
+    {{ $pub.title }}.
+    {{ with $pub.publisher }}<i>{{ .name }}</i>.{{ end }} [{{ $pub.type }}]
+
+{{ else }}
+    {{ $pub.title }}. [Unknown type: {{ $pub.type }}]
+{{ end }}
+
+{{ if $pub.doi }}
+    <a href="">doi:{{ $pub.doi }}</a>
+{{ else if $pub.url }}
+    <a href="">{{ $pub.url }}</a>
+{{ end }}

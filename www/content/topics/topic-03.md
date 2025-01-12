@@ -1,7 +1,10 @@
 +++
-date = '2025-01-06T19:45:02-05:00'
+date = '2025-02-03'
 draft = false
-title = 'Prompt Evaluation and Optimization'
+title = 'Framework for Prompt Evaluation and Optimzation'
 weight = 30
+numsession = 3
 +++
-Prompt Evaluation and Optimization
+
+(Content not yet posted. Please check back.)
+
