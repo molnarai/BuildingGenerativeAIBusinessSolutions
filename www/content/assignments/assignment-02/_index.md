@@ -176,26 +176,26 @@ tokenizer.save_pretrained("./fine_tuned_model")
 
 ### Use Cases
 
-A concrete use case that demonstrates how domain-specific fine-tuning improves question-answering (QA) capabilities is found in the healthcare domain, particularly in medical QA systems. For example, fine-tuning pre-trained LLMs like LLaMA-2 or Mistral using advanced techniques such as rsDoRA+ and ReRAG has been shown to significantly enhance the accuracy and reliability of responses to medical questions. These fine-tuned models leverage domain-specific datasets, such as MediQA and Anki Flashcards, to better understand medical terminology, reasoning, and contextual accuracy. The fine-tuning process enables the models to provide precise answers to complex medical queries, aiding healthcare providers in making faster and more informed decisions. This approach not only improves the quality of information but also fosters greater patient trust by delivering dependable healthcare advice[3][9].
+A concrete use case that demonstrates how domain-specific fine-tuning improves question-answering (QA) capabilities is found in the healthcare domain, particularly in medical QA systems. For example, fine-tuning pre-trained LLMs like LLaMA-2 or Mistral using advanced techniques such as rsDoRA+ and ReRAG has been shown to significantly enhance the accuracy and reliability of responses to medical questions. These fine-tuned models leverage domain-specific datasets, such as MediQA and Anki Flashcards, to better understand medical terminology, reasoning, and contextual accuracy. The fine-tuning process enables the models to provide precise answers to complex medical queries, aiding healthcare providers in making faster and more informed decisions. This approach not only improves the quality of information but also fosters greater patient trust by delivering dependable healthcare advice<a href="https://arxiv.org/html/2410.16088v1" target="_blank">[3]</a><a href="https://www.restack.io/p/fine-tuning-answer-llm-question-answering-cat-ai" target="_blank">[9]</a>.
 
-Another compelling example is the use of fine-tuned LLMs for financial QA tasks. In a study involving the FinanceBench SEC filings dataset, fine-tuned models outperformed generic LLMs in accuracy when answering domain-specific questions. By combining a fine-tuned embedding model with a fine-tuned generative model in a Retrieval-Augmented Generation (RAG) pipeline, researchers observed substantial performance gains. This setup allowed the system to retrieve relevant financial data and synthesize accurate answers, achieving near human-expert quality. Such improvements are critical for applications like financial analysis, where precise and contextually relevant answers are essential[7].
+Another compelling example is the use of fine-tuned LLMs for financial QA tasks. In a study involving the FinanceBench SEC filings dataset, fine-tuned models outperformed generic LLMs in accuracy when answering domain-specific questions. By combining a fine-tuned embedding model with a fine-tuned generative model in a Retrieval-Augmented Generation (RAG) pipeline, researchers observed substantial performance gains. This setup allowed the system to retrieve relevant financial data and synthesize accurate answers, achieving near human-expert quality. Such improvements are critical for applications like financial analysis, where precise and contextually relevant answers are essential<a href="https://arxiv.org/html/2404.11792v1" target="_blank">[7]</a>.
 
 In both cases, domain-specific fine-tuning enables LLMs to overcome the limitations of generic models by adapting to specialized vocabulary, context, and reasoning patterns. This results in more accurate and reliable QA systems tailored to specific industries, demonstrating the transformative potential of fine-tuning for real-world applications.
 
-Citations:
-[1] https://aisera.com/blog/fine-tuning-llms/
-[2] https://kili-technology.com/large-language-models-llms/the-ultimate-guide-to-fine-tuning-llms-2024
-[3] https://arxiv.org/html/2410.16088v1
-[4] https://kili-technology.com/large-language-models-llms/building-domain-specific-llms-examples-and-techniques
-[5] https://arxiv.org/html/2408.12247v2
-[6] https://solutyics.com/fine-tuning-a-language-model-for-question-answering-a-comprehensive-guide/
-[7] https://arxiv.org/html/2404.11792v1
-[8] https://genai.stackexchange.com/questions/1880/how-do-people-fine-tune-llms-to-only-answer-domain-specific-questions
-[9] https://www.restack.io/p/fine-tuning-answer-llm-question-answering-cat-ai
-[10] https://blog.gopenai.com/day-13-fine-tuning-llms-for-specific-use-cases-278c4535a468?gi=48d00f7f6b10
-[11] https://www.datacamp.com/tutorial/fine-tuning-large-language-models
-[12] https://www.linkedin.com/pulse/limits-domain-specific-fine-tuning-large-language-models-zixuan-liu-xs0if
-[13] https://www.superannotate.com/blog/llm-fine-tuning
-[14] https://arxiv.org/html/2401.09168v1
-[15] https://livebook.manning.com/book/ai-powered-search/chapter-14/v-20/
-[16] https://www.turing.com/resources/finetuning-large-language-models
+## Citations
+- [1] https://aisera.com/blog/fine-tuning-llms/
+- [2] https://kili-technology.com/large-language-models-llms/the-ultimate-guide-to-fine-tuning-llms-2024
+- [3] https://arxiv.org/html/2410.16088v1
+- [4] https://kili-technology.com/large-language-models-llms/building-domain-specific-llms-examples-and-techniques
+- [5] https://arxiv.org/html/2408.12247v2
+- [6] https://solutyics.com/fine-tuning-a-language-model-for-question-answering-a-comprehensive-guide/
+- [7] https://arxiv.org/html/2404.11792v1
+- [8] https://genai.stackexchange.com/questions/1880/how-do-people-fine-tune-llms-to-only-answer-domain-specific-questions
+- [9] https://www.restack.io/p/fine-tuning-answer-llm-question-answering-cat-ai
+- [10] https://blog.gopenai.com/day-13-fine-tuning-llms-for-specific-use-cases-278c4535a468?gi=48d00f7f6b10
+- [11] https://www.datacamp.com/tutorial/fine-tuning-large-language-models
+- [12] https://www.linkedin.com/pulse/limits-domain-specific-fine-tuning-large-language-models-zixuan-liu-xs0if
+- [13] https://www.superannotate.com/blog/llm-fine-tuning
+- [14] https://arxiv.org/html/2401.09168v1
+- [15] https://livebook.manning.com/book/ai-powered-search/chapter-14/v-20/
+- [16] https://www.turing.com/resources/finetuning-large-language-models
