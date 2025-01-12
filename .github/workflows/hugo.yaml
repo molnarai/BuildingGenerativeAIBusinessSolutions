@@ -52,7 +52,9 @@ jobs:
       
       - name: Convert BibTeX to JSON
         run: |
-          cd www/tools && ./bibtex2bibjson.py ../assets/publications.bib > ../data/publications.json
+          cd www/tools \
+          && mkdir -p ../data \
+          && ./bibtex2bibjson.py ../assets/publications.bib > ../data/publications.json
       
       - name: Setup Pages
         id: pages
