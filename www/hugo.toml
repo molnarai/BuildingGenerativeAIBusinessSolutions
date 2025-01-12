@@ -19,7 +19,7 @@ theme = 'pmolnar'
   weight = 2
 [[menu.main]]
   name = 'Readings'
-   url = '/publications'
+   url = '/readings'
   weight = 3
 [[menu.main]]
   name = 'Homework'
