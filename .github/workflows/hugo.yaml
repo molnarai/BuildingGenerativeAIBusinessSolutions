@@ -52,8 +52,8 @@ jobs:
       
       - name: Convert BibTeX to JSON
         run: |
-          cd tools
-          python bitex2bibjson.py ../assets/publications.bib ../data/publications.json
+          cd www
+          python tools/bitex2bibjson.py ./assets/publications.bib ./data/publications.json
       
       - name: Setup Pages
         id: pages
