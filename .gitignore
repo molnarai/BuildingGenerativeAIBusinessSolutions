@@ -164,3 +164,5 @@ cython_debug/
 /www/public/*
 *.lock
 .DS_Store
+_hugo_build_lock
+www/data/publications.json
