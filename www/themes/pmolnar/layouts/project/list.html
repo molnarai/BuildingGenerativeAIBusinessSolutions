@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ partial "breadcrumbs.html" . }}
-<div class="resources-list">
+<div class="project-list">
     <h1>{{ .Params.title }}</h1>
     
     <!-- Add the _index.md content at the top -->
@@ -10,23 +10,27 @@
     </div>
     {{ end }}
     
-    {{ range .Pages.ByDate }}
-    <article class="assignment-item">
-        <h2 class="listing-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        {{ if .Params.due_date }}
-            <div class="due-date">Due: {{ .Params.due_date | time.Format "January 2, 2006" }}</div>
-        {{ end }}
-        <!-- {{ with .Content }}
-            {{ $paragraphs := split . "<p>" }}
-            {{ range $index, $paragraph := $paragraphs }}
-                {{ if and (gt $index 0) (not (findRE "^\\s*$" $paragraph)) }}
-                    <div class="summary">
-                        {{ $paragraph | replaceRE "</p>.*" "" | markdownify | safeHTML }}
-                    </div>
-                    {{ break }}
-                {{ end }}
+    <hr>
+    <h3>Supporting Documents</h3>
+    <table class="table">
+        <tr>
+            <th>Title</th><th>Description</th>
+        </tr>
+            {{ range .Pages.ByWeight }}
+                <tr><td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+                    <td>{{ .Params.description }}</td></tr>
             {{ end }}
-        {{ end }} -->
+    </table>
+    <!-- <p style="margin-bottom: 5rex">
+        Please review instructions for completing and submitting each of the assigments. 
+    </p>
+    {{ range .Pages.ByWeight }}
+    <article class="assignment-item">
+        <h2 class="listing-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ if .Params.due_date }}
+            <div class="due-date" style="font-weight: bold;">Due: {{ .Params.due_date | time.Format "January 2, 2006" }}</div>
+        {{ end }}
+        
         {{ with .Content }}
             {{ $firstParagraph := findRE "<p>(.|\n)*?</p>" . 1 }}
             {{ range $firstParagraph }}
@@ -39,6 +43,6 @@
             <a href="{{ .RelPermalink }}" aria-label="Read more about {{ .Title }}">Read more →</a>
         </div>
     </article>
-    {{ end }}
+    {{ end }} -->
 </div>
 {{ end }}

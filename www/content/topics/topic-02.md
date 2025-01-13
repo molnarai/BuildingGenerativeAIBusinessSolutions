@@ -1,8 +1,10 @@
 +++
-date = '2025-01-06T18:19:17-05:00'
+date = '2025-01-27'
 draft = false
 title = 'Prompt Engineering'
 weight = 20
+numsession = 2
 +++
 
-Prompt Engineering refers to the method of ...
+(Content not yet posted. Please check back.)
+

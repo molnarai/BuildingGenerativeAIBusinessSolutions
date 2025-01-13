@@ -1,0 +1,150 @@
++++
+date = '2025-01-06T18:20:46-05:00'
+due_date = '2025-03-10'
+draft = false
+title = 'Homework 3: Curation of Documents Questions-Answer Sets for RAG'
+weight = 30
+status = '*not ready to start*'
++++
+
+The objective of this assignment is to help you build and evaluate a Retrieval-Augmented Generation (RAG) application that demonstrates superior performance compared to using an LLM alone. You will preprocess and organize a text document to serve as the knowledge source, carefully structuring it for effective indexing in a vector database. By crafting a diverse and well-thought-out question-and-answer dataset, you will test the system's ability to retrieve relevant information and generate accurate, grounded responses. Additionally, you will optimize system prompts to ensure the LLM effectively utilizes retrieved content rather than relying solely on its internal knowledge. Through this process, you will analyze how preprocessing strategies, text organization, dataset quality, and prompt engineering contribute to the RAG system's ability to provide more accurate and contextually relevant answers than an LLM operating independently. This assignment will deepen your understanding of building practical GenAI solutions by leveraging retrieval mechanisms to enhance LLM performance.
+ <!-- more -->
+
+### Part 1: Preparing the Knowledge Source
+
+1. **Choose a Topic**  
+   Select a topic that is rich in textual content and suitable for building a RAG application. Examples include:
+   - Historical documents (e.g., the Federalist Papers, U.S. Constitution, or famous speeches).
+   - Technical documentation (e.g., Python libraries or machine learning frameworks).
+   - Scientific papers or summaries on a specific topic (e.g., climate change, neural networks).
+
+2. **Prepare the Document**  
+   - Gather text data from reliable sources (e.g., Project Gutenberg, Wikipedia, or other open-access repositories).
+   - Clean and preprocess the text:
+     - Remove unnecessary headers, footers, or metadata.
+     - Split long paragraphs into smaller chunks (~200-300 words per chunk) to facilitate vectorization.
+     - Save the processed text as a plain `.txt` file.
+
+3. **Submit**  
+   Upload your processed text file to the departmental server or your own RAG system.
+
+---
+
+### Part 2: Creating Questions and Answers
+
+1. **Generate Questions**  
+   Write at least 10 diverse questions that can be answered using the content of your document. Ensure the questions:
+   - Cover different sections and topics within your document.
+   - Include both factual (e.g., "What year was X established?") and interpretive (e.g., "Why was X considered important?") queries.
+
+2. **Provide Answers**  
+   For each question, write an accurate answer based on the content of your document. Answers should be concise but complete.
+
+3. **Submit**  
+   Save your questions and answers in a `.csv` file with the following format:
+   ```
+   Question,Answer
+   What is federalism?,Federalism is a system of government where power is divided between national and state governments.
+   Why did Madison argue for a large republic?,Madison argued that a large republic would better control factions by diluting their influence across a broader population.
+   ```
+
+---
+
+### Part 3: Engineering System Prompts
+
+1. **Design Effective Prompts**  
+   Craft system prompts that guide the LLM to effectively utilize retrieved content from the vector database. Your prompts should:
+   - Clearly instruct the model to base its answers on retrieved information.
+   - Minimize reliance on the LLM’s internal knowledge by emphasizing grounding in external content.
+   - Be structured to handle diverse types of queries (e.g., factual, explanatory).
+
+2. **Iterate and Refine**  
+   Experiment with different prompt structures during testing to observe their impact on response quality. Document your findings and explain why certain prompts work better than others.
+
+---
+
+### Part 4: Evaluating Your RAG System
+
+1. **Deploy the RAG Framework**  
+   Use the provided RAG framework hosted on departmental servers or deploy it locally using OpenAI or Ollama APIs. The framework includes:
+   - A vector database for storing document embeddings.
+   - A retrieval mechanism for fetching relevant chunks based on user queries.
+   - An LLM for generating answers based on retrieved content.
+
+2. **Index Your Document**  
+   Use the provided script to convert your prepared text into embeddings and store them in the vector database.
+
+3. **Test Your System**  
+   Query your RAG system using the questions you created in Part 2 while leveraging your engineered prompts. Compare its responses to your prepared answers:
+   - Note any discrepancies or errors.
+   - Identify areas where retrieval or generation could be improved.
+
+4. **Analyze Performance Against LLM Alone**  
+   Test some of your questions directly with the LLM (without retrieval) and compare its responses to those generated by your RAG system. Highlight specific cases where retrieval improves accuracy or relevance.
+
+5. **Expand Functionality (Optional)**  
+   If time permits, enhance your RAG system by:
+   - Adding support for multi-document indexing.
+   - Implementing filtering mechanisms to improve retrieval accuracy.
+   - Fine-tuning prompts for better answer generation.
+
+---
+
+### Deliverables
+
+1. **Processed Text Document**
+   Submit your cleaned `.txt` file containing the knowledge source.
+
+2. **Questions and Answers**
+   Submit a `.csv` file containing at least 10 questions and their corresponding answers.
+
+3. **Engineered Prompts**
+   Submit a description of at least three different prompt designs you tested, along with examples of their outputs.
+
+4. **Evaluation Report**
+   Write a brief report (1-2 pages) detailing:
+   - The performance of your RAG system based on your test questions.
+   - Observations about its strengths and weaknesses compared to using an LLM alone.
+   - Suggestions for improving the system.
+
+5. (Optional) **Enhanced Code**
+   If you expand on the provided RAG framework, submit your modified code along with documentation explaining the changes.
+
+---
+
+### **Grading Criteria**
+
+| Component                  | Percent |
+|----------------------------|--------:|
+| Processed Text Document    | 15%     |
+| Questions and Answers      | 15%     |
+| Engineered Prompts         | 20%     |
+| Evaluation Report          | 30%     |
+| System Performance         | 20%     |
+| Optional Enhancements      | (extra) 10% |
+
+---
+
+### Example Workflow
+
+#### Step 1: Prepare Text
+You choose "The Federalist Papers" as your topic. After preprocessing, you save it as `federalist_papers.txt`.
+
+#### Step 2: Create Questions
+Example questions:
+- What is Madison's argument in Federalist No. 10?
+- How does Federalist No. 51 explain checks and balances?
+
+#### Step 3: Engineer Prompts
+Example prompt:
+- *Prompt*: "Using only the retrieved information below, answer this question as accurately as possible: {retrieved_content} \n\nQuestion: {user_query}"
+
+#### Step 4: Deploy and Test
+You index `federalist_papers.txt` into the vector database using FAISS, then query it with:
+- *Question*: "What is Madison's argument in Federalist No. 10?"
+- *System Output*: "Madison argues that a large republic helps control factions by diluting their influence."
+
+#### Step 5: Evaluate
+You compare outputs against prepared answers, note discrepancies, test direct queries without retrieval against RAG queries, and suggest improvements like better chunking strategies or refined prompts.
+
+Good luck!

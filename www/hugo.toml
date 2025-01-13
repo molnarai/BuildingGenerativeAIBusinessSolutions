@@ -30,7 +30,7 @@ theme = 'pmolnar'
   url = '/project'
   weight = 5
 [[menu.main]]
-  name = 'AI-Resources'
+  name = 'Resources'
   url = '/resources'
   weight = 6
 [[menu.main]]

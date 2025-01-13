@@ -7,3 +7,5 @@ and deployment of agentic AI applications, image generation, and safeguarding AI
 class activities, students will apply these concepts to real-world scenarios, ensuring a comprehensive
 understanding of generative AI’s business applications.
 
+Visit the web-site at https://molnarai.github.io/BuildingGenerativeAIBusinessSolutions/ or http://www.insight.gau.edu/MSA8700/
+

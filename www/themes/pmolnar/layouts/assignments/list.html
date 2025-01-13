@@ -10,11 +10,29 @@
     </div>
     {{ end }}
     
-    {{ range .Pages.ByDate }}
+    <table class="table">
+        <tr>
+            <th>Due Date</th><th>Assignment</th><th>Status</th>
+        </tr>
+            {{ range .Pages.ByWeight }}
+                <tr>
+                    <td>{{ .Params.due_date }}</td>
+                    <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+                    <td>{{ .Params.status | markdownify }}</td>
+                </tr>
+            {{ end }}
+    </table>
+    <p style="margin-bottom: 5rex">
+        Please review instructions for completing and submitting each of the assigments. 
+    </p>
+    {{ range .Pages.ByWeight }}
     <article class="assignment-item">
-        <h2 class="listing-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <h2 class="listing-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         {{ if .Params.due_date }}
-            <div class="due-date">Due: {{ .Params.due_date | time.Format "January 2, 2006" }}</div>
+            <div class="due-date" >
+                <span style="font-weight: bold;">Due: {{ .Params.due_date | time.Format "January 2, 2006" }}</span>
+                 {{- if .Params.status }}&nbsp;( {{- .Params.status | markdownify }}){{ end }}
+            </div>
         {{ end }}
         <!-- {{ with .Content }}
             {{ $paragraphs := split . "<p>" }}

@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "title": "Schedule",
+    "source": "../../P25/MSA8700P25_Schedule.xlsx",
+    "created": "2025-01-12T13:07:05.436722"
+  },
+  "records": [
+    {
+      "Day": "2025-01-13",
+      "Session": "1",
+      "Topic": "Introduction to Large Language Models",
+      "Reading": "AG 1-3",
+      "InClass": "",
+      "DueBeforeClass": ""
+    },
+    {
+      "Day": "2025-01-20",
+      "Session": "",
+      "Topic": "Holiday",
+      "Reading": "",
+      "InClass": "",
+      "DueBeforeClass": ""
+    },
+    {
+      "Day": "2025-01-27",
+      "Session": "2",
+      "Topic": "Prompt Engineering",
+      "Reading": "AG 7",
+      "InClass": "Q1",
+      "DueBeforeClass": ""
+    },
+    {
+      "Day": "2025-02-03",
+      "Session": "3",
+      "Topic": "Framework for Prompt Evaluation and Optimzation",
+      "Reading": "KH 3",
+      "InClass": "Q2",
+      "DueBeforeClass": ""
+    },
+    {
+      "Day": "2025-02-10",
+      "Session": "4",
+      "Topic": "Training and Finetuning of LLMs",
+      "Reading": "",
+      "InClass": "Q3",
+      "DueBeforeClass": "HW 1 Prompt Engineering"
+    },
+    {
+      "Day": "2025-02-17",
+      "Session": "5",
+      "Topic": "LLM Fine-tunig Frameworks, Benchmark Techniques",
+      "Reading": "AG 11-12, KH 5",
+      "InClass": "Test 1 (1Hr)",
+      "DueBeforeClass": ""
+    },
+    {
+      "Day": "2025-02-24",
+      "Session": "6",
+      "Topic": "Retrieval Augmented Generation (RAG)",
+      "Reading": "AG 8",
+      "InClass": "Q4",
+      "DueBeforeClass": "HW 2 LLM Fine Tuning"
+    },
+    {
+      "Day": "2025-03-03",
+      "Session": "7",
+      "Topic": "Document Porcessing, Vector Data Bases",
+      "Reading": "online resources",
+      "InClass": "Q5",
+      "DueBeforeClass": ""
+    },
+    {
+      "Day": "2025-03-10",
+      "Session": "8",
+      "Topic": "Agentic AI Applications",
+      "Reading": "KH 4+6",
+      "InClass": "Q6",
+      "DueBeforeClass": "HW 3 Document Processing for RAG"
+    },
+    {
+      "Day": "2025-03-17",
+      "Session": "",
+      "Topic": "Spring Break",
+      "Reading": "",
+      "InClass": "",
+      "DueBeforeClass": ""
+    },
+    {
+      "Day": "2025-03-24",
+      "Session": "9",
+      "Topic": "AI Agent Frameworks",
+      "Reading": "online resources",
+      "InClass": "Q7",
+      "DueBeforeClass": ""
+    },
+    {
+      "Day": "2025-03-31",
+      "Session": "10",
+      "Topic": "Symbolic and Neuro-symbolic AI",
+      "Reading": "online resources",
+      "InClass": "Test 2 (1Hr)",
+      "DueBeforeClass": "HW 4 AI Agent"
+    },
+    {
+      "Day": "2025-04-07",
+      "Session": "11",
+      "Topic": "Knowledge Graphs",
+      "Reading": "online resources",
+      "InClass": "Q8",
+      "DueBeforeClass": ""
+    },
+    {
+      "Day": "2025-04-14",
+      "Session": "12",
+      "Topic": "Image Generation, Multi-modal Generative Models",
+      "Reading": "online resources",
+      "InClass": "Q9",
+      "DueBeforeClass": ""
+    },
+    {
+      "Day": "2025-04-21",
+      "Session": "13",
+      "Topic": "Safeguarding LLMS, Detecting BIAS, Privacy, Federated Learning",
+      "Reading": "KH 10",
+      "InClass": "Q10",
+      "DueBeforeClass": ""
+    },
+    {
+      "Day": "2025-04-28",
+      "Session": "14",
+      "Topic": "Project Presentations",
+      "Reading": "",
+      "InClass": "",
+      "DueBeforeClass": ""
+    },
+    {
+      "Day": "2025-05-05",
+      "Session": "",
+      "Topic": "Final Exam",
+      "Reading": "",
+      "InClass": "",
+      "DueBeforeClass": ""
+    }
+  ]
+}

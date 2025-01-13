@@ -1,7 +1,66 @@
 {{ define "main" }}
+  {{ partial "breadcrumbs.html" . }}
+
+  <h1>{{ .Params.extended_title }}</h1>
+  <div class="main-description">
+    {{ .Params.description | markdownify }}
+  </div>
+  <hr />
+  <h3>Schedule</h3>
+  {{ $events := index site.Data.schedule "records" }} 
+  <table class="table">
+    <tr><th>Date</th><th>Session</th><th>Topic</th><th>In Class</th><th>Due Before Class</th></tr>
+  {{ range sort $events "Day" "asc" }}
+    <tr>
+      <td>{{- .Day }}</td><td style="text-align: right;">{{- .Session }}</td><td>{{- .Topic}}</td>
+      <td>{{- .InClass }}</td><td>{{- .DueBeforeClass }}</td>
+    </tr>
+  {{ end }}
+  </table>
+
   {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
+  
+   <!-- Topics -->
+   {{ $topics := where site.RegularPages "Section" "topics" }}
+   {{ if $topics }}
+     <h3>Topics</h3>
+     <ul>
+       {{ range sort $topics "Title" }}
+         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+       {{ end }}
+     </ul>
+   {{ end }}
+ 
+  <!-- Assignments -->
+  {{ $assignments := where site.RegularPages "Section" "assignments" }}
+  {{ if $assignments }}
+    <h3>Assignments</h3>
+    <ul>
+      {{ range sort $assignments "Title" }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  {{ end }}
+
+  <!-- Project -->
+  {{ $projects := where site.RegularPages "Section" "project" }}
+  {{ if $projects }}
+    <h3>Project</h3>
+    <ul>
+      {{ range sort $projects "Title" }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  {{ end }}
+
+  <!-- Resources -->
+  {{ $resources := where site.RegularPages "Section" "resources" }}
+  {{ if $resources }}
+    <h3>Resources</h3>
+    <ul>
+      {{ range sort $resources "Title" }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
   {{ end }}
 {{ end }}

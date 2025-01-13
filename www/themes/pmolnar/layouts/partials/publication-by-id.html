@@ -1,0 +1,31 @@
+<!-- 
+ Data:
+    records:
+    - id: pub-001
+        type: article
+        title: Example Title
+        # ... other publication fields ...
+    - id: pub-002
+        type: book
+        # ... other publication fields ...
+
+Usage:
+    {{ partial "publication-by-id.html" (dict "item" "your-pub-id-here") }}
+    
+-->
+{{ $pub_id := .item }}
+{{ $publications := index site.Data.publications "records" }}
+<!-- Debug info -->
+{{ if not $publications }}
+    <div class="debug">No publications data found</div>
+{{ else }}
+    <!-- Show the publication if found -->
+    {{ $found := false }}
+    {{ range where $publications "id" $pub_id }}
+        {{ $found = true }}
+        {{ partial "publication.html" (dict "item" .) }}
+    {{ end }}
+    {{ if not $found }}
+        <div class="debug">No publication found with ID: {{ $pub_id }}</div>
+    {{ end }}
+{{ end }}
