@@ -13,7 +13,7 @@ WWW_DIR = os.path.abspath(jp(os.path.dirname(__file__), ".."))
 def main(filename: str, dry_run: bool = False, over_write: bool = False):
     df = pd.read_excel(filename, sheet_name="Sheet1")
     df['Session'] = df['Session'].map(lambda x: str(int(x)), na_action="ignore")
-    markdown = df.to_markdown(index=False)
+    markdown = df.rename(lambda s: s.replace(' ', ''), axis=1).to_markdown(index=False)
     html = df.to_html(index=False, classes="table table-striped table-hover")
     df.fillna("", inplace=True)
     df["Day"] = df["Day"].map(lambda x: x.strftime("%Y-%m-%d"))

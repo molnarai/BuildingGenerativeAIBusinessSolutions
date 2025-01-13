@@ -75,7 +75,6 @@ jobs:
               --buildDrafts \
               --buildFuture \
               --buildExpired \
-              --cleanDestinationDir \
               --minify \
               --baseURL "${{ steps.pages.outputs.base_url }}/preview/"
             mkdir -p ../public/preview
