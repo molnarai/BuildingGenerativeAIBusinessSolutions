@@ -15,7 +15,14 @@ Uploading...
 
 EOF
 pushd $WWW_DIR
-hugo --gc --minify --baseURL ${BASE_URL}
+# hugo --gc --minify -D -F --disableFastRender --baseURL ${BASE_URL}
+hugo --gc \
+              --buildDrafts \
+              --buildFuture \
+              --buildExpired \
+              --cleanDestinationDir \
+              --minify \
+              --baseURL ${BASE_URL}
 scp -r public/* ${WEB_USER}@${WEB_SERVER}:${WEB_HTML_DIR}/
 echo "Done."
 popd
