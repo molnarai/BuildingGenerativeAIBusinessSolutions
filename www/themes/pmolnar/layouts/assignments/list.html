@@ -12,10 +12,14 @@
     
     <table class="table">
         <tr>
-            <th>Due Date</th><th>Assignment</th>
+            <th>Due Date</th><th>Assignment</th><th>Status</th>
         </tr>
             {{ range .Pages.ByWeight }}
-                <tr><td>{{ .Params.due_date }}</td><td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td></tr>
+                <tr>
+                    <td>{{ .Params.due_date }}</td>
+                    <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+                    <td>{{ .Params.status | markdownify }}</td>
+                </tr>
             {{ end }}
     </table>
     <p style="margin-bottom: 5rex">
@@ -25,7 +29,10 @@
     <article class="assignment-item">
         <h2 class="listing-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         {{ if .Params.due_date }}
-            <div class="due-date" style="font-weight: bold;">Due: {{ .Params.due_date | time.Format "January 2, 2006" }}</div>
+            <div class="due-date" >
+                <span style="font-weight: bold;">Due: {{ .Params.due_date | time.Format "January 2, 2006" }}</span>
+                 {{- if .Params.status }}&nbsp;( {{- .Params.status | markdownify }}){{ end }}
+            </div>
         {{ end }}
         <!-- {{ with .Content }}
             {{ $paragraphs := split . "<p>" }}

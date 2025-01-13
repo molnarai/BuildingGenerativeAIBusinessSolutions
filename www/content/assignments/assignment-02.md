@@ -4,17 +4,18 @@ due_date = "2025-02-24"
 draft = false
 title = 'Homework 2: LLM Finetuning'
 weight = 20
+status = '*not ready to start*'
 +++
-### Homework Assignment: Fine-Tuning a Large Language Model (LLM)
+<!-- ### Homework Assignment: Fine-Tuning a Large Language Model (LLM) -->
 
-<p>
 The objective of this assignment is to provide hands-on experience in fine-tuning a pre-trained large language model (LLM) using PyTorch.
 You will begin by curating a domain-specific dataset that will serve as the training data for fine-tuning. This step involves identifying a topic of interest, collecting relevant text data, and preprocessing it to ensure it is clean and ready for use in training. Additionally, you will create a separate test dataset to evaluate the performance of the fine-tuned model.
 
 Once the dataset is prepared, you will use the provided Python code template to perform the fine-tuning process. This task includes loading the pre-trained model, configuring hyperparameters such as batch size and learning rate, and running the training as a batch job on a GPU-enabled environment. The goal is to adapt the general-purpose LLM to perform better on tasks specific to the chosen domain.
 
 Finally, you will evaluate the fine-tuned model using the test dataset. They will generate predictions, calculate relevant evaluation metrics such as perplexity or BLEU scores, and assess how well the model performs compared to its pre-trained state. Optionally, you may compare their fine-tuned model's performance with that of API-based LLMs models. Through this assignment, you will gain practical skills in customizing LLMs for specific applications while understanding the nuances of dataset preparation, model training, and evaluation.
-</p>
+
+<!-- more -->
 
 #### **Prerequisites**
 - Familiarity with Python, PyTorch, and Unix command-line tools.

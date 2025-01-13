@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ partial "breadcrumbs.html" . }}
-<div class="assignments-list">
+<div class="project-list">
     <h1>{{ .Params.title }}</h1>
     
     <!-- Add the _index.md content at the top -->
@@ -10,6 +10,8 @@
     </div>
     {{ end }}
     
+    <hr>
+    <h3>Supporting Documents</h3>
     <table class="table">
         <tr>
             <th>Title</th><th>Description</th>

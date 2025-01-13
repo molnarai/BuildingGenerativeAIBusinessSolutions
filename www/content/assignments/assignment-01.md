@@ -4,10 +4,12 @@ due_date = "2025-02-10"
 draft = false
 title = 'Homework 1: Prompt Engineering'
 weight = 10
+status = '*not ready to start*'
 +++
-<p>
+
 In this assignment, you will explore and refine several common prompt engineering techniques for large language models (LLMs). The goal is to experiment with different methods and observe how they influence the quality of the model's output. You will focus on natural language tasks, and your experiments should include **few-shot learning**, **chain-of-thought prompting**, **defining a persona**, **adjusting tone**, and additional tasks such as **summarization** and **narrative creation from bullet points**.
-</p>
+
+<!-- more -->
 
 ---
 
@@ -147,11 +149,11 @@ Ask the LLM to explain complex topics in simple terms. For example, ask it to ex
 ---
 
 ### Submission Guidelines:
-
-1. **Format:** Submit your work in a document that includes all prompts, outputs, and explanations for each part.
+(The details for submitting your assignment have not been posted, yet. Please check back.)
+<!-- 1. **Format:** Submit your work in a document that includes all prompts, outputs, and explanations for each part.
 2. **Reflection Questions (Optional):**
    - Which prompting technique did you find most effective? Why?
-   - Did any technique produce unexpected results? If so, explain what happened and why you think it occurred.
+   - Did any technique produce unexpected results? If so, explain what happened and why you think it occurred. -->
 
 ---
 
