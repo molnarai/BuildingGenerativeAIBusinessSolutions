@@ -12,8 +12,23 @@
     <tr><th>Date</th><th>Session</th><th>Topic</th><th>In Class</th><th>Due Before Class</th></tr>
   {{ range sort $events "Day" "asc" }}
     <tr>
-      <td>{{- .Day }}</td><td style="text-align: right;">{{- .Session }}</td><td>{{- .Topic}}</td>
-      <td>{{- .InClass }}</td><td>{{- .DueBeforeClass }}</td>
+      <td>{{- .Day }}</td>
+      <td style="text-align: right;">{{- .Session }}</td>
+      <td>
+        {{ if .Session }}
+          {{ $sessionNum := 0 }}
+          {{ if eq (printf "%T" .Session) "string" }}
+            {{ $sessionNum = int .Session }}
+          {{ else }}
+            {{ $sessionNum = .Session }}
+          {{ end }}
+          <a href="/topics/topic-{{ printf "%02d" $sessionNum }}/">{{ .Topic }}</a>
+        {{ else }}
+          {{ .Topic }}
+        {{ end }}
+      </td>
+      <td>{{- .InClass }}</td>
+      <td>{{- .DueBeforeClass }}</td>
     </tr>
   {{ end }}
   </table>

@@ -9,7 +9,7 @@ numsession = 1
 This session provides a comprehensive overview of artificial intelligence (AI), focusing on the evolution, concepts, and applications of Generative AI. The session explores topics such as the history of AI, different types of machine learning, neural networks, deep learning, large language models, and AI agents. It examines various generative models, including Generative Adversarial Networks (GANs) and Variational Autoencoders (VAEs). The session emphasizes prompt engineering and transfer learning techniques for optimizing the performance of these models.
 
 <!-- more -->
-*This content has been created based on the slide deck by [NotebookLLM](notebookllm.google.com)*
+*This content has been created based on the slide deck by [NotebookLM](https://notebooklm.google.com/)*
 
 The slide deck is posted on the [iCollege](https://icollege.gsu.edu/) class site.
 
