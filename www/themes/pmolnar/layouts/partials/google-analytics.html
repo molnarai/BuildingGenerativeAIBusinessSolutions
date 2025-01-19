@@ -1,5 +1,5 @@
 {{ if ne hugo.Environment "development" }}
-  {{ with .Site.GoogleAnalytics }}
+  {{ with .Site.Config.Services.GoogleAnalytics.ID }}
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
   <script>
