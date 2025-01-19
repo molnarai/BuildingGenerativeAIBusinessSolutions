@@ -87,8 +87,8 @@ jobs:
               --buildFuture \
               --minify \
               --baseURL "${{ steps.pages.outputs.base_url }}/"
-            mkdir -p ../public/github-pages
-            mv public/* ../public/github-pages
+            mkdir -p ../public
+            mv public/* ../public
           fi
       
       - name: Upload artifact
@@ -97,7 +97,7 @@ jobs:
         with:
           path: ./public
           ## --- change?
-          name: ${{ github.ref == 'refs/heads/pages' && 'preview' || 'github-pages' }}
+          # name: ${{ github.ref == 'refs/heads/pages' && 'preview' || 'github-pages' }}
 
   deploy:
     environment:
