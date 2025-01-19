@@ -67,9 +67,10 @@ jobs:
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
-          TZ: America/Los_Angeles
+          TZ: America/New_York
         run: |
           if [[ "${{ github.ref }}" == "refs/heads/pages" ]]; then
+            # Preview build (pages branch)
             cd www && hugo \
               --gc \
               --buildDrafts \
@@ -80,12 +81,10 @@ jobs:
             mkdir -p ../public/preview
             mv public/* ../public/preview/
           else
+            # Production build (main branch)
             cd www && hugo \
               --gc \
-              --buildDrafts \
               --buildFuture \
-              --buildExpired \
-              --cleanDestinationDir \
               --minify \
               --baseURL "${{ steps.pages.outputs.base_url }}/"
             mkdir -p ../public
