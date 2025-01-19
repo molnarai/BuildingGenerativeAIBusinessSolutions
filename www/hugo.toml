@@ -3,6 +3,10 @@ languageCode = 'en-us'
 title = 'MSA 8700'
 theme = 'pmolnar'
 
+[services]
+  [services.googleAnalytics]
+    ID = "G-76SMSN09P2"
+
 [Params]
   description = "MSA 8700 - Building Generative AI Business Solutions"
   images = ['/digital-garden-logo.png']
@@ -54,3 +58,12 @@ theme = 'pmolnar'
   disable = false
   filename = 'sitemap.xml'
   priority = -1
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params.wiki]
+  enableSearch = true
+  enableTOC = true
+  enableBreadcrumbs = true
