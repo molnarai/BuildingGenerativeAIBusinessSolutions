@@ -1,0 +1,51 @@
+{{ define "main" }}
+{{ partial "breadcrumbs.html" . }}
+<div class="topics-list">
+    <h1>{{ .Params.title }}</h1>
+    <!-- Debug information -->
+    <div class="debug" style="display: none;">
+        Total pages: {{ len .Pages }}
+        {{ range .Pages }}
+            File: {{ .File.Path }} - Weight: {{ .Weight }}
+        {{ end }}
+    </div>
+
+    <!-- Add the _index.md content at the top -->
+    {{ with .Content }}
+    <div class="section-description">
+        {{ . }}
+    </div>
+    {{ end }}
+    
+    {{ range .Pages.ByWeight }}
+    <article class="topic-item">
+        <h2 class="listing-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ if .Params.date }}
+            <div class="due-date">Class Date: {{ .Params.date | time.Format "January 2, 2006" }}</div>
+        {{ end }}
+        <!-- {{ with .Content }}
+            {{ $paragraphs := split . "<p>" }}
+            {{ range $index, $paragraph := $paragraphs }}
+                {{ if and (gt $index 0) (not (findRE "^\\s*$" $paragraph)) }}
+                    <div class="summary">
+                        {{ $paragraph | replaceRE "</p>.*" "" | markdownify | safeHTML }}
+                    </div>
+                    {{ break }}
+                {{ end }}
+            {{ end }}
+        {{ end }} -->
+        {{ with .Content }}
+            {{ $firstParagraph := findRE "<p>(.|\n)*?</p>" . 1 }}
+            {{ range $firstParagraph }}
+                <div class="summary">
+                    {{ . | replaceRE "</?p>" "" | markdownify | safeHTML }}
+                </div>
+            {{ end }}
+        {{ end }}
+        <div class="read-more">
+            <a href="{{ .RelPermalink }}" aria-label="Read more about {{ .Title }}">Read more →</a>
+        </div>
+    </article>
+    {{ end }}
+</div>
+{{ end }}

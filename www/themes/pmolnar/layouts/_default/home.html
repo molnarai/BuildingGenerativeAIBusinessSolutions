@@ -22,7 +22,7 @@
           {{ else }}
             {{ $sessionNum = .Session }}
           {{ end }}
-          <a href="/topics/topic-{{ printf "%02d" $sessionNum }}/">{{ .Topic }}</a>
+          <a href="{{- .RelPermalink }}/topics/topic-{{ printf "%02d" $sessionNum }}/">{{ .Topic }}</a>
         {{ else }}
           {{ .Topic }}
         {{ end }}

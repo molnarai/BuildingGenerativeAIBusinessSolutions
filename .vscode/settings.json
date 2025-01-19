@@ -1,0 +1,5 @@
+{
+    "hugo-runner.showDrafts": true,
+    "hugo-runner.siteFolder": "www",
+    "hugo-runner.hugoExecutablePath": ""
+}

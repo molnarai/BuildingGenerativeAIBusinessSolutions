@@ -231,3 +231,12 @@ a {
 .red {
   color: red;
 }
+
+table {
+  border-color: #eee;
+  border-width: 1px;
+}
+
+table td,th {
+  padding: 2px 2px;  
+}
