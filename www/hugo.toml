@@ -2,6 +2,7 @@ baseURL = 'http://www.insight.gsu.edu'
 languageCode = 'en-us'
 title = 'MSA 8700'
 theme = 'pmolnar'
+googleAnalytics = "G-76SMSN09P2"  # For GA4
 
 [Params]
   description = "MSA 8700 - Building Generative AI Business Solutions"
@@ -54,3 +55,12 @@ theme = 'pmolnar'
   disable = false
   filename = 'sitemap.xml'
   priority = -1
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params.wiki]
+  enableSearch = true
+  enableTOC = true
+  enableBreadcrumbs = true
