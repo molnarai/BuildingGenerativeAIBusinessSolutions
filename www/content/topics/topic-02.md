@@ -34,9 +34,9 @@ Listen to the podcast:
 </audio>
 
 Read the following:
-- Summary Page: [Generative AI Prompts](https://www.perplexity.ai/page/popular-generative-ai-prompts-vON3yQq5QaGXhVf8gJPmkA)
-- Paper: [Prompt Engineering For Chatgpt: A Quick Guide To Techniques, Tips, And Best Practices](https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/docs/Prompt_Engineering_For_ChatGPT_A_Quick_Guide_To_Te.pdf)
-- Textbook: **Chapter 6. Prompt Engineering** in Allamar and Grotendorst, "Hands-On Large Language Models", O'Reilly Media Inc., September 2024
+1. Summary Page: [Generative AI Prompts](https://www.perplexity.ai/page/popular-generative-ai-prompts-vON3yQq5QaGXhVf8gJPmkA)
+2. Paper: [Prompt Engineering For Chatgpt: A Quick Guide To Techniques, Tips, And Best Practices](https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/docs/Prompt_Engineering_For_ChatGPT_A_Quick_Guide_To_Te.pdf)
+3. Textbook: **Chapter 6. Prompt Engineering** in Allamar and Grotendorst, "Hands-On Large Language Models", O'Reilly Media Inc., September 2024
 
 
 ## Additional Resources

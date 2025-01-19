@@ -95,6 +95,8 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
+          ## --- change?
+          name: ${{ github.ref == 'refs/heads/pages' && 'preview' || 'github-pages' }}
 
   deploy:
     environment:
