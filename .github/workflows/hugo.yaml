@@ -84,20 +84,18 @@ jobs:
             # Production build (main branch)
             cd www && hugo \
               --gc \
-              --buildFuture \
               --minify \
+              --buildFuture \
               --baseURL "${{ steps.pages.outputs.base_url }}/"
             mkdir -p ../public
-            mv public/* ../public
+            mv public/* ../public/
           fi
       
       - name: Upload artifact
-        # uses: actions/upload-pages-artifact@v3
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
-          ## --- change?
-          # name: ${{ github.ref == 'refs/heads/pages' && 'preview' || 'github-pages' }}
+          name: github-pages
 
   deploy:
     environment:
@@ -109,3 +107,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages
