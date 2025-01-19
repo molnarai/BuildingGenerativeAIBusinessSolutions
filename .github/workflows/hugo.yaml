@@ -87,8 +87,8 @@ jobs:
               --buildFuture \
               --minify \
               --baseURL "${{ steps.pages.outputs.base_url }}/"
-            mkdir -p ../public
-            mv public/* ../public/
+            mkdir -p ../public/github-pages
+            mv public/* ../public/github-pages
           fi
       
       - name: Upload artifact
