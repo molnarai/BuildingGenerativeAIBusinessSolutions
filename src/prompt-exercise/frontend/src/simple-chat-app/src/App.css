@@ -1,0 +1,125 @@
+/*
+ * Copyright (c) 2025 Péter Molnár
+ * LinkedIn: https://www.linkedin.com/in/petermolnar/
+ *
+ * This code is licensed under the Creative Commons license. 
+ * You are free to use, modify, and distribute it as long as proper attribution is provided.
+ * 
+ * Authorship: Péter Molnár with assistance from AI tools.
+ * 
+ * Disclaimer: This code is provided "as is", without any guarantees of correctness or functionality.
+ * Use it at your own risk. The author assumes no liability for any issues arising from its use.
+ * 
+ */
+ 
+.App {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.chat-container {
+  height: 60vh;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.user {
+  background-color: #e6f2ff;
+}
+
+.assistant {
+  background-color: #f0f0f0;
+}
+
+.input-form {
+  display: flex;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+}
+label {
+  /* flex-grow: 1; */
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  /* width: 10em; */
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Styles for rendered Markdown */
+.message.assistant .markdown-body {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.message.assistant .markdown-body pre {
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  padding: 16px;
+  overflow: auto;
+}
+
+.message.assistant .markdown-body code {
+  background-color: rgba(27,31,35,0.05);
+  border-radius: 3px;
+  font-size: 85%;
+  margin: 0;
+  padding: 0.2em 0.4em;
+}
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} 
