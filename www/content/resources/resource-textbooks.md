@@ -13,7 +13,8 @@ The two textbooks recommended for this class were chosen for their complementary
 
 1. Jay Alammar, Maarten Grootendorst, **Hands-On Large Language Models: Language Understand-
 ing and Generation**, 1st ed., Published by O’Reilly Media, Inc., ISBN-13 978-1098150969.<br />
-This books is available in print and digital on O’Reilly Media.
+This books is available in print and digital on O’Reilly Media.<br />
+[GSU Library Link](https://go.oreilly.com/georgia-state-university/library/view/hands-on-large-language/9781098150952/) *(Requires active GSU student/faculty/staff account)*
 
 2. Ken Huang, **Practical Guide for AI Engineers**, Independently published (May 18, 2024), ISBN-13
 979-8325962455.<br />
