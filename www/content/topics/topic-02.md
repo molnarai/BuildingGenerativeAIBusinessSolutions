@@ -32,6 +32,7 @@ Listen to the podcast:
     <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Generative+AI+Prompt+Engineering+Techniques.wav" type="audio/wav">
     Your browser does not support the audio element.
 </audio>
+[(Click here for transcript)](../podcasts/podcast-03-prompt-ptimization.md)
 
 Read the following:
 1. Summary Page: [Generative AI Prompts](https://www.perplexity.ai/page/popular-generative-ai-prompts-vON3yQq5QaGXhVf8gJPmkA)
