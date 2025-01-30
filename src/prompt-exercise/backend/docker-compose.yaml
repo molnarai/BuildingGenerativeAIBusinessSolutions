@@ -1,0 +1,136 @@
+services:
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile.fastapi
+    container_name: ${CONTAINER_NAME}-fastapi
+    networks:
+      - backend
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_APP_USER=${POSTGRES_APP_USER}
+      - POSTGRES_APP_PASSWORD=${POSTGRES_APP_PASSWORD}
+      - LDAP_SERVER_URI=${LDAP_SERVER_URI}
+      - LDAP_BASE_DN=${LDAP_BASE_DN}
+    ports:
+      - "${FASTAPI_PORT}:8000"
+    # volumes:
+    #   - ./app:/app
+    depends_on:
+      - db
+      - queue
+
+  # ollama:
+  #   image: ollama/ollama:latest
+  #   container_name: ${CONTAINER_NAME}-ollama
+  #   networks:
+  #     - backend
+  #   volumes:
+  #     - ${PROJECT_DATA_DIR}/${ENVIRONMENT}/ollama:/root/.ollama
+  #   environment:
+  #     - OLLAMA_ORIGINS=*
+  #     - OLLAMA_HOST=0.0.0.0
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: all
+  #             capabilities: [gpu]
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-f", "http://localhost:11434"]
+  #     interval: 30s
+  #     timeout: 10s
+  #     retries: 5
+
+  # proxy:
+  #   image: kong:3.3
+  #   container_name: ${CONTAINER_NAME}-proxy
+  #   networks:
+  #     - backend
+  #   ports:
+  #     - "22701:8000"
+  #   environment:
+  #     - KONG_DATABASE=off
+  #     - KONG_PROXY_ACCESS_LOG=/dev/stdout
+  #     - KONG_ADMIN_ACCESS_LOG=/dev/stdout
+  #     - KONG_PROXY_ERROR_LOG=/dev/stderr
+  #     - KONG_ADMIN_ERROR_LOG=/dev/stderr
+  #     - KONG_ADMIN_LISTEN=0.0.0.0:8001
+  #   depends_on:
+  #     - fastapi
+
+  db:
+    image: postgres:16-alpine
+    container_name: ${CONTAINER_NAME}-db
+    networks:
+      - backend
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-changeme}
+      - POSTGRES_DB=${POSTGRES_DB:-appdb}
+    volumes:
+      - ${PROJECT_DATA_DIR}/${ENVIRONMENT}/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  queue:
+    image: rabbitmq:3.12-management-alpine
+    container_name: ${CONTAINER_NAME}-queue
+    networks:
+      - backend
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER:-guest}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD:-guest}
+    volumes:
+      - ${PROJECT_DATA_DIR}/${ENVIRONMENT}/rabbitmq:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_port_connectivity"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  log:
+    image: elasticsearch:8.10.4
+    container_name: ${CONTAINER_NAME}-log
+    networks:
+      - backend
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - xpack.security.enabled=false
+      - bootstrap.memory_lock=false
+    volumes:
+      - ${PROJECT_DATA_DIR}/${ENVIRONMENT}/elasticsearch:/usr/share/elasticsearch/data
+      - ${PROJECT_DATA_DIR}/${ENVIRONMENT}/elasticsearch-tmp:/tmp
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9200"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+networks:
+  backend:
+    name: ${CONTAINER_NAME}-network
+    driver: bridge
+
+# volumes:
+#   postgres_data:
+#     name: ${PROJECT}-${ENVIRONMENT}-postgres
+#     driver: local
+#   rabbitmq_data:
+#     name: ${PROJECT}-${ENVIRONMENT}-rabbitmq
+#     driver: local
+#   elasticsearch_data:
+#     name: ${PROJECT}-${ENVIRONMENT}-elasticsearch
+#     driver: local
+#   ollama_data:
+#     name: ${PROJECT}-${ENVIRONMENT}-ollama
+#     driver: local

@@ -1,0 +1,25 @@
+fastapi>=0.104.0
+uvicorn>=0.24.0
+pydantic>=2.4.2
+python-multipart>=0.0.6
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+sqlalchemy>=2.0.23
+psycopg2-binary>=2.9.9
+pika>=1.3.2
+elasticsearch>=8.10.0
+langchain==0.2.13
+langchain-community==0.2.12
+langchain-core==0.2.30
+langchain-ollama==0.1.1
+langchain-text-splitters==0.2.2
+python-dotenv==1.0.1
+requests==2.32.3
+
+# New required packages
+asyncpg>=0.29.0  # For async PostgreSQL support
+alembic>=1.13.1  # For database migrations
+sqlalchemy[asyncio]>=2.0.23  # For async SQLAlchemy support
+bcrypt>=4.1.2  # For password hashing
+email-validator>=2.1.0.post1  # For email validation
+ldap3

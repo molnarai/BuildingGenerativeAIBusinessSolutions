@@ -1,0 +1,267 @@
+.App {
+  text-align: center;
+  width: 100%;
+  /* max-width: 1600px; */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.App-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: RGB(151,202,235); /* 0-57-166 Light Blue */
+  z-index: 100;
+  color: white;
+  padding: 20px;
+  color: white;
+  margin-bottom: 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat-container {
+  height: 60vh;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.user {
+  background-color: #e6f2ff;
+}
+
+.assistant {
+  background-color: #f0f0f0;
+}
+
+.input-form {
+  display: flex;
+  /* width: 100%; */
+  /* box-sizing: border-box; */
+  /* padding: 0 20px;  /* adjust padding as needed */
+}
+
+.input-form input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+}
+label {
+  /* flex-grow: 1; */
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  /* width: 10em; */
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Styles for rendered Markdown */
+.message.assistant .markdown-body {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.message.assistant .markdown-body pre {
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  padding: 16px;
+  overflow: auto;
+}
+
+.message.assistant .markdown-body code {
+  background-color: rgba(27,31,35,0.05);
+  border-radius: 3px;
+  font-size: 85%;
+  margin: 0;
+  padding: 0.2em 0.4em;
+}
+
+
+.view-toggle {
+  margin-bottom: 20px;
+}
+
+.view-toggle button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.view-toggle button.active {
+  background: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+.instruct-view {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.instruct-view textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.response-container {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+.response {
+  white-space: pre-wrap;
+}
+
+.chat-view {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} 
+
+.instructions-widget {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 20px;
+  max-height: 600px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+
+.assignment-tabs {
+  display: flex;
+  gap: 10px;
+  /* margin-bottom: -20px; */
+  display: "flex";
+  border-bottom: "2px solid #ddd";
+  /* margin-bottom: "20px"  */
+}
+
+.assignment-tabs button {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+}
+
+.assignment-tabs button.active {
+  background: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+
+.three-column-layout {
+  display: flex;
+  height: calc(100vh - 200px); /* Adjust based on your header height */
+  width: 100%;
+  gap: 20px;
+  margin-top: 200px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.control-panel {
+  flex: 1;
+  max-width: 600px;
+}
+
+.ai-panel {
+  flex: 2;
+  min-width: 400px;
+  max-width: 1200px;
+}
+
+.submission-panel {
+  flex: 1;
+  min-width: 400px;
+  max-width: 1200px;
+}
+
+.widget-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1px;
+}
+
+/* For the control panel with two widgets */
+.control-panel .widget-container:first-child {
+  flex: 2;
+}
+
+.control-panel .widget-container:last-child {
+  flex: 1;
+}
