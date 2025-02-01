@@ -87,7 +87,7 @@ const ModelInferenceParameters = ({ parameters, setParameters }) => {
         <input
           type="range"
           min="0"
-          max="10"
+          max="1.0"
           step="0.1"
           value={parameters.temperature}
           onChange={handleTemperatureChange}

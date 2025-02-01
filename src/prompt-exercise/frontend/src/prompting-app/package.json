@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "copy-to-clipboard": "^3.3.3",
     "cra-template": "1.2.0",
     "dotenv": "^16.4.7",
     "react": "^19.0.0",

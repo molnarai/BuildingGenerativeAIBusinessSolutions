@@ -2,7 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const LoginStatusWidget = ({ username, onLogout, ai_application_url }) => {
+const LoginStatusWidget = ({ userInfo, onLogout, ai_application_url }) => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -32,9 +32,9 @@ const LoginStatusWidget = ({ username, onLogout, ai_application_url }) => {
 
   return (
     <div className="login-status-widget">
-      {username ? (
+      {userInfo.username ? (
         <div className="user-info">
-          <span>Welcome, {username}</span>
+          <span>Welcome, {userInfo.username}</span>
           <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (

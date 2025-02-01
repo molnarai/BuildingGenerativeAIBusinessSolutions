@@ -1,0 +1,116 @@
+.response-archive {
+  padding: 1rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.archive-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.response-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.response-item {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.response-item:hover {
+  background-color: #f5f5f5;
+}
+
+.response-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.truncated-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.model-info {
+  font-size: 0.8em;
+  font-style: italic;
+  text-align: right;
+  color: #666;
+}
+
+.submission-select {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 80%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background: #ddd;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal-row {
+  display: grid;
+  /* display: flex; */
+  grid-template-columns: 0.2fr 0.8fr;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Make the first column right-justified */
+.modal-row > :nth-child(1) {
+  justify-self: end; 
+}
+
+.modal-row > :nth-child(2) {
+  justify-self: left;
+  text-align: left;
+}
