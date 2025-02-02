@@ -16,8 +16,8 @@ One of the key advantages of finetuning is its ability to create more efficient 
 Listen to the podcast ((../../podcasts/podcast-04-fine-tuning/)):
 <!-- Listen to the podcast: -->
 
-<audio controls>
-    <source src="" type="audio/wav">
+ <audio controls>
+    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Fine-Tuning-Language-Models-for-Classification.wav" type="audio/wav">
     Your browser does not support the audio element.
 </audio>
 
