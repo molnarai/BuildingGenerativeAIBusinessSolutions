@@ -23,6 +23,11 @@
   padding: 1rem;
   cursor: pointer;
   transition: background-color 0.2s;
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .response-item:hover {
@@ -46,14 +51,17 @@
 .model-info {
   font-size: 0.8em;
   font-style: italic;
-  text-align: right;
+  /* text-align: right; */
   color: #666;
 }
 
 .submission-select {
-  display: flex;
-  align-items: center;
-  gap: 0.1rem;
+  /* display: flex;
+  align-items: center; */
+  /* display: inline; */
+  /* gap: 0.1rem; */
+  font-size: small;
+  color: #666
 }
 
 /* Modal styles */

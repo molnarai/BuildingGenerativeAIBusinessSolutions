@@ -79,7 +79,7 @@ async def revoke_token(db: AsyncSession, token: str):
 async def create_tokens(db: AsyncSession, user_id: int):
     access_token = os.urandom(24).hex()
     refresh_token = os.urandom(24).hex()
-    expires_at = datetime.now(timezone.utc) + timedelta(hours=1)
+    expires_at = datetime.now(timezone.utc) + timedelta(months=1)
     
     token = AuthToken(
         access_token=access_token,

@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useAuth } from '../AuthProvider';
 import CopyToClipboard from 'copy-to-clipboard';
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import ModelSelector from "./ModelSelector";
 import ModelInferenceParameters from "./ModelInferenceParameters";
-
+import "./AIAssistantWidget.css"
 
 const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, handleAddResponseToArchivement }) => {
     const [prompt, setPrompt] = useState("");
@@ -27,19 +28,20 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
     });
 
     const [aiResponse, setAiResponse] = useState({
-        "problem_id": 0,                    // = Column(Integer, ForeignKey("problems.id"), nullable=False)
-        "user_id": 0,                       // = Column(Integer, ForeignKey("users.id"))
-        "response_prompt": "",              // = Column(String, nullable=False)
-        "response_llm_answer": "",          // = Column(String, nullable=False)
-        "response_ai_provider": "",         // = Column(String, nullable=False)
-        "response_ai_model": "",            // = Column(String, nullable=False)
-        "response_ai_input_tokens": 0,      // = Column(Integer, nullable=False)
-        "response_ai_output_tokens": 0,     //  = Column(Integer, nullable=False)
-        "response_ai_seconds": 0,           // = Column(Integer, nullable=False)
-        "select_for_submission": false,     // = Column(Boolean, default=False)
-        "submission_time": "",              //  = Column(DateTime(timezone=True))
+        // "problem_id": 0,                    // = Column(Integer, ForeignKey("problems.id"), nullable=False)
+        // "user_id": 0,                       // = Column(Integer, ForeignKey("users.id"))
+        // "prompt": "",              // = Column(String, nullable=False)
+        // "llm_answer": "",          // = Column(String, nullable=False)
+        // "ai_provider": "",         // = Column(String, nullable=False)
+        // "ai_model": "",            // = Column(String, nullable=False)
+        // "ai_input_tokens": 0,      // = Column(Integer, nullable=False)
+        // "ai_output_tokens": 0,     //  = Column(Integer, nullable=False)
+        // "ai_seconds": 0,           // = Column(Integer, nullable=False)
+        // "select_for_submission": false,     // = Column(Boolean, default=False)
+        // "submission_time": "",              //  = Column(DateTime(timezone=True))
     });
 
+    const {user} = useAuth();
 
     const handleProviderModelChange = (provider, model) => {
         setSelectedProviderModel({ "provider": provider, "model": model });
@@ -334,20 +336,24 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
                 problem_id: problemDetails.problem_id,
                 problem_title: problemDetails.title,
                 problem_description: problemDetails.description,
-                response_prompt: prompt,
-                response_llm_answer: content,
-                response_ai_provider: selectedProviderModel.provider,
-                response_ai_model: selectedProviderModel.model,
-                response_ai_temperature: parameters.temperature,
-                //response_ai_top_p: parameters.topP,
-                response_ai_max_tokens: parameters.max_tokens,
-                response_ai_stream: parameters.stream,
-                response_ai_stop_sequences: metadata.stop_sequences,
-                response_ai_input_tokens: metadata.usage.prompt_tokens,
-                response_ai_output_tokens: metadata.usage.completion_tokens,
-                response_ai_seconds: (Date.now() - startTime) / 1000,
-                response_ai_timestamp: new Date().toISOString(),
+                prompt: prompt,
+                llm_answer: content,
+                ai_provider: selectedProviderModel.provider,
+                ai_model: selectedProviderModel.model,
+                ai_temperature: parameters.temperature,
+                //ai_top_p: parameters.topP,
+                ai_max_tokens: parameters.max_tokens,
+                ai_stream: parameters.stream,
+                ai_stop_sequences: metadata.stop_sequences,
+                ai_input_tokens: metadata.usage.prompt_tokens,
+                ai_output_tokens: metadata.usage.completion_tokens,
+                ai_seconds: (Date.now() - startTime) / 1000,
+                ai_timestamp: new Date().toISOString(),
                 uuid : crypto.randomUUID(),
+                username: user.username,
+                user_id: user.user_id,
+                user_comment: userComment,
+                select_for_submission: true,
             });
             
 
@@ -412,6 +418,7 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
             </div> */}
             {/* Prompt Input */}
             <textarea
+                className="prompt-input"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder={!selectedProviderModel.model? "Select provider and model first.": "Enter your prompt here..."}
@@ -427,7 +434,21 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
 
             {/* Response Display */}
             <div className="response-container" style={{ marginTop: "20px", padding: "10px", border: "1px solid #ddd", backgroundColor: "#f9f9f9" }}>
-                <h3>AI Response:</h3>
+                <h3>AI Response:
+                <button
+                    style={{ float: "right", marginTop: "5px"  }}
+                    className="smaller-button" onClick={() => setResponseViewType(responseViewType === 'markdown' ? 'raw' : 'markdown')}>
+                {responseViewType === 'markdown' ? 'Change to Raw View' : 'Change to Markdown View'}
+                </button>
+                <button
+                    style={{ float: "right", marginTop: "5px", marginRight: "0.3rem"}}
+                    // className="btn btn-secondary"
+                    className="smaller-button" 
+                    onClick={() => CopyToClipboard(response)}
+                >
+                    <i className="fa fa-clipboard-copy" aria-hidden="true"></i> Copy Response
+                </button>
+                </h3>
                 {responseViewType === "markdown" ? (
                     <ReactMarkdown
                         //  children={response.choices[0].message.content.replace('\\n', '\n')}
@@ -441,24 +462,20 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
 
             {/* User Comment */}
             <textarea
+                className="user-comment-input"
                 value={userComment}
                 onChange={(e) => setUserComment(e.target.value)}
-                placeholder="Write your comment here..."
+                placeholder="It's required to write your comment here before you can save the response..."
                 rows="3"
                 style={{ width: "100%", marginTop: "10px" }}
             />
-            <button onClick={() => setResponseViewType(responseViewType === 'markdown' ? 'raw' : 'markdown')}>
-                {responseViewType === 'markdown' ? 'Toggle to Raw View' : 'Toggle to Markdown View'}
-            </button>
-            <button
-                style={{ marginRight: "10px" }}
-                className="btn btn-secondary"
-                onClick={() => CopyToClipboard(response)}
-            >
-                <i className="fa fa-clipboard-copy" aria-hidden="true"></i> Copy Response
-            </button>
+            
             {/* Save Response Button */}
-            <button onClick={handleSaveResponse} style={{ marginTop: "10px" }}>
+            <button
+                onClick={handleSaveResponse}
+                style={{ marginTop: "10px" }}
+                disabled={userComment.length > 0 ? false : true}
+            >
                 Save Response
             </button>
 

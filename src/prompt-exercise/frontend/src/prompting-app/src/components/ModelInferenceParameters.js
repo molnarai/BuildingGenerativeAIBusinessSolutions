@@ -35,6 +35,7 @@ const ModelInferenceParameters = ({ parameters, setParameters }) => {
   //   max_tokens: 1000
   // });
 
+
   const handleLLMParametersChange = (parameters) => {
     //console.log(`Inference parameters changed: ${JSON.stringify(parameters)}`);
 };
