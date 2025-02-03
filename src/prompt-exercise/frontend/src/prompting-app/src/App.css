@@ -7,10 +7,10 @@
 }
 
 .App-header {
-  position: fixed;
+  /* position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  right: 0; */
   background-color: RGB(151,202,235); /* 0-57-166 Light Blue */
   z-index: 100;
   color: white;
@@ -18,6 +18,12 @@
   color: white;
   margin-bottom: 0px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.App-header-headline{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
 }
 
 .chat-container {
@@ -84,6 +90,11 @@ button:hover {
 button:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
+}
+
+button.smaller-button {
+  padding: 5px 10px;
+  font-size: x-small;
 }
 
 /* Styles for rendered Markdown */
@@ -183,7 +194,7 @@ button:disabled {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 20px;
-  margin: 20px;
+  /* margin: 20px; */
   max-height: 600px;
   overflow-y: auto;
   text-align: left;
@@ -216,10 +227,10 @@ button:disabled {
 
 .three-column-layout {
   display: flex;
-  height: calc(100vh - 200px); /* Adjust based on your header height */
+  /* height: calc(100vh - 200px); Adjust based on your header height */
   width: 100%;
   gap: 20px;
-  margin-top: 200px;
+  /* margin-top: 200px; */
   padding: 20px;
   box-sizing: border-box;
 }
@@ -227,10 +238,10 @@ button:disabled {
 .column {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 15px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
+  gap: 10px;
+  padding: 5px;
+  /* background-color: #159e52; */
+  /* border-radius: 8px; */
 }
 
 .control-panel {
@@ -245,7 +256,7 @@ button:disabled {
 }
 
 .submission-panel {
-  flex: 1;
+  flex: 2;
   min-width: 400px;
   max-width: 1200px;
 }
@@ -259,9 +270,143 @@ button:disabled {
 
 /* For the control panel with two widgets */
 .control-panel .widget-container:first-child {
-  flex: 2;
+  /* flex: 2; */
 }
 
 .control-panel .widget-container:last-child {
-  flex: 1;
+  /* flex: 1; */
+}
+
+/* Add to your existing CSS file */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.login-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+pre.response-container-raw {
+  white-space: pre-wrap;       /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+
+.summary-widget {
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.summary-header h3 {
+    margin: 0;
+}
+
+.refresh-button {
+    padding: 0.1rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: smaller;
+}
+
+.refresh-button:hover {
+    background-color: #0056b3;
+}
+
+.completion-stats {
+    /* display: flex; */
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%
+}
+
+
+.stat-item {
+   /* display: flex; */
+    /* justify-content: space-between; */
+    /* padding: 0.5rem;
+    background-color: white;
+    border-radius: 4px; */
+}
+
+.stat-item-bold {
+  /* display: flex; */
+   align-items: left;
+   font-weight: bolder;
+   color: blue;
+   /* background-color: white;
+   border-radius: 4px; */
+}
+
+.problem-label {
+    font-weight: 500;
+}
+
+.count-value {
+    text-align: right;
+}
+
+.completion-stats-title {
+   text-align: left;
 }

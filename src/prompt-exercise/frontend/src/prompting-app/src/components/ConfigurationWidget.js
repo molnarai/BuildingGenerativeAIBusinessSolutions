@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const ConfigurationWidget = ({ config, handleInputChange }) => {
+const ConfigurationWidget = ({ config, handleInputChange, handleDeleteConfiguration }) => {
   // // State for configuration fields
   // const [config, setConfig] = useState({
   //   openAiApiKey: "",
@@ -63,7 +63,7 @@ const ConfigurationWidget = ({ config, handleInputChange }) => {
             placeholder="Enter OpenAI API Key"
             style={{ flexGrow: 1, marginRight: "10px" }}
           />
-          <button onClick={() => toggleVisibility("openAiApiKey")}>
+          <button className="smaller-button" onClick={() => toggleVisibility("openAiApiKey")}>
             {visibility.openAiApiKey ? "Hide" : "Show"}
           </button>
         </div>
@@ -83,7 +83,7 @@ const ConfigurationWidget = ({ config, handleInputChange }) => {
             placeholder="Enter Gemini API Key"
             style={{ flexGrow: 1, marginRight: "10px" }}
           />
-          <button disabled={true} onClick={() => toggleVisibility("geminiApiKey")}>
+          <button disabled={true} className="smaller-button"  onClick={() => toggleVisibility("geminiApiKey")}>
             {visibility.geminiApiKey ? "Hide" : "Show"}
           </button>
         </div>
@@ -121,6 +121,15 @@ const ConfigurationWidget = ({ config, handleInputChange }) => {
       {/* Summary */}
       <p style={{ fontSize: "12px", color: "#555" }}>
         Your settings are saved locally in your browser and will persist across visits.
+        <button
+        onClick={() => {
+          const isConfirmed = window.confirm("Are you sure you want to delete this configuration?");
+          if (isConfirmed) {handleDeleteConfiguration()};
+          }}
+        className="smaller-button"
+        >
+          Clear Settings
+        </button>
       </p>
     </div>
   );

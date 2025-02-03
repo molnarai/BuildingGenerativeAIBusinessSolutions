@@ -35,6 +35,7 @@ const ModelInferenceParameters = ({ parameters, setParameters }) => {
   //   max_tokens: 1000
   // });
 
+
   const handleLLMParametersChange = (parameters) => {
     //console.log(`Inference parameters changed: ${JSON.stringify(parameters)}`);
 };
@@ -87,7 +88,7 @@ const ModelInferenceParameters = ({ parameters, setParameters }) => {
         <input
           type="range"
           min="0"
-          max="10"
+          max="1.0"
           step="0.1"
           value={parameters.temperature}
           onChange={handleTemperatureChange}

@@ -1,10 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useAuth } from '../AuthProvider';
+import CopyToClipboard from 'copy-to-clipboard';
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import ModelSelector from "./ModelSelector";
 import ModelInferenceParameters from "./ModelInferenceParameters";
+import "./AIAssistantWidget.css"
 
-const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails }) => {
+const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, handleAddResponseToArchivement }) => {
     const [prompt, setPrompt] = useState("");
     const [response, setResponse] = useState("");
     const [userComment, setUserComment] = useState("");
@@ -12,7 +15,9 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails })
     const [isLoading, setIsLoading] = useState(false);
     const responseRef = useRef("");
     const [selectedProviderModel, setSelectedProviderModel]
-        = useState({ "provider": "openai", "model": "gpt-4" });
+        // = useState({ "provider": "openai", "model": "gpt-4" });
+        = useState({ "provider": null, "model": null });
+    const [responseViewType, setResponseViewType] = useState('markdown'); // default view type
 
     const [parameters, setParameters] = useState({
         "stream": false,
@@ -23,43 +28,20 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails })
     });
 
     const [aiResponse, setAiResponse] = useState({
-        "problem_id": 0,                    // = Column(Integer, ForeignKey("problems.id"), nullable=False)
-        "user_id": 0,                       // = Column(Integer, ForeignKey("users.id"))
-        "response_prompt": "",              // = Column(String, nullable=False)
-        "response_llm_answer": "",          // = Column(String, nullable=False)
-        "response_ai_provider": "",         // = Column(String, nullable=False)
-        "response_ai_model": "",            // = Column(String, nullable=False)
-        "response_ai_input_tokens": 0,      // = Column(Integer, nullable=False)
-        "response_ai_output_tokens": 0,     //  = Column(Integer, nullable=False)
-        "response_ai_seconds": 0,           // = Column(Integer, nullable=False)
-        "created_at": "",                   // = Column(DateTime(timezone=True), server_default=func.now())
-        "select_for_submission": false,     // = Column(Boolean, default=False)
-        "submission_time": "",              //  = Column(DateTime(timezone=True))
+        // "problem_id": 0,                    // = Column(Integer, ForeignKey("problems.id"), nullable=False)
+        // "user_id": 0,                       // = Column(Integer, ForeignKey("users.id"))
+        // "prompt": "",              // = Column(String, nullable=False)
+        // "llm_answer": "",          // = Column(String, nullable=False)
+        // "ai_provider": "",         // = Column(String, nullable=False)
+        // "ai_model": "",            // = Column(String, nullable=False)
+        // "ai_input_tokens": 0,      // = Column(Integer, nullable=False)
+        // "ai_output_tokens": 0,     //  = Column(Integer, nullable=False)
+        // "ai_seconds": 0,           // = Column(Integer, nullable=False)
+        // "select_for_submission": false,     // = Column(Boolean, default=False)
+        // "submission_time": "",              //  = Column(DateTime(timezone=True))
     });
 
-    // const updateAiResponse = async (prompt, metadata) => {
-    //     setAiResponse({
-    //         ...aiResponse,
-    //         response_llm_answer: response.llmAnswer,
-    //         response_ai_provider: response.aiProvider,
-    //         response_ai_model: response.aiModel,
-    //         response_ai_input_tokens: response.inputTokens,
-    //         response_ai_output_tokens: response.outputTokens,
-    //         response_ai_seconds: response.seconds
-    //     });
-    //             user_id: userId,
-    //             response_prompt: responsePrompt,
-    //             response_llm_answer: response.llmAnswer,
-    //             response_ai_provider: response.aiProvider,
-    //             response_ai_model: response.aiModel,
-    //             response_ai_input_tokens: response.inputTokens,
-    //             response_ai_output_tokens: response.outputTokens,
-    //             response_ai_seconds: response.seconds,
-    //             created_at: new Date(),
-    //             select_for_submission: false,
-    //             submission_time: ""
-    //         });
-
+    const {user} = useAuth();
 
     const handleProviderModelChange = (provider, model) => {
         setSelectedProviderModel({ "provider": provider, "model": model });
@@ -300,7 +282,22 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails })
                         stream: true,
                     }),
                 });
-            } else {
+            } else if (selectedProviderModel.provider.toLowerCase() === "gsu") {
+                res = await fetch(apiUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
+                    },
+                    body: JSON.stringify({
+                        prompt,
+                        model: "text-davinci-003", // Adjust based on your model
+                        max_tokens: 100,
+                        stream: true,
+                    }),
+                });
+                
+            }else {
                 throw new Error("Unsupported provider");
             }
 
@@ -339,13 +336,24 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails })
                 problem_id: problemDetails.problem_id,
                 problem_title: problemDetails.title,
                 problem_description: problemDetails.description,
-                response_prompt: prompt,
-                response_llm_answer: content,
-                response_ai_provider: selectedProviderModel.provider,
-                response_ai_model: selectedProviderModel.model,
-                response_ai_input_tokens: metadata.usage.prompt_tokens,
-                response_ai_output_tokens: metadata.usage.completion_tokens,
-                response_ai_seconds: (Date.now() - startTime) / 1000,
+                prompt: prompt,
+                llm_answer: content,
+                ai_provider: selectedProviderModel.provider,
+                ai_model: selectedProviderModel.model,
+                ai_temperature: parameters.temperature,
+                //ai_top_p: parameters.topP,
+                ai_max_tokens: parameters.max_tokens,
+                ai_stream: parameters.stream,
+                ai_stop_sequences: metadata.stop_sequences,
+                ai_input_tokens: metadata.usage.prompt_tokens,
+                ai_output_tokens: metadata.usage.completion_tokens,
+                ai_seconds: (Date.now() - startTime) / 1000,
+                ai_timestamp: new Date().toISOString(),
+                uuid : crypto.randomUUID(),
+                username: user.username,
+                user_id: user.user_id,
+                user_comment: userComment,
+                select_for_submission: true,
             });
             
 
@@ -367,6 +375,11 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails })
         // const userComment = promptInputRef.current.value;
         console.log("Saving AI-Response:", aiResponse);
         // Handle saving the comment (e.g., API call or local storage)
+        const responseToSave = {
+            ...aiResponse,
+            user_comment: userComment,
+        };
+        handleAddResponseToArchivement(responseToSave);
     };
 
     useEffect(() => {
@@ -405,37 +418,64 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails })
             </div> */}
             {/* Prompt Input */}
             <textarea
+                className="prompt-input"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
-                placeholder="Enter your prompt here..."
+                placeholder={!selectedProviderModel.model? "Select provider and model first.": "Enter your prompt here..."}
                 rows="20"
                 style={{ width: "100%", marginBottom: "10px" }}
+                // readOnly={() => {return selectedProviderModel.model !== null ? "disabled" : ""}}
+                disabled={!selectedProviderModel.model}
             />
 
-            <button onClick={handleSubmit} disabled={isLoading}>
+            <button onClick={handleSubmit} disabled={isLoading ||( ! selectedProviderModel.model) }>
                 {isLoading ? "Loading..." : "Submit"}
             </button>
 
             {/* Response Display */}
             <div className="response-container" style={{ marginTop: "20px", padding: "10px", border: "1px solid #ddd", backgroundColor: "#f9f9f9" }}>
-                <h3>AI Response:</h3>
-                <ReactMarkdown
-                    //  children={response.choices[0].message.content.replace('\\n', '\n')}
-                    children={response}
-                    remarkPlugins={[remarkGfm]}
-                />
+                <h3>AI Response:
+                <button
+                    style={{ float: "right", marginTop: "5px"  }}
+                    className="smaller-button" onClick={() => setResponseViewType(responseViewType === 'markdown' ? 'raw' : 'markdown')}>
+                {responseViewType === 'markdown' ? 'Change to Raw View' : 'Change to Markdown View'}
+                </button>
+                <button
+                    style={{ float: "right", marginTop: "5px", marginRight: "0.3rem"}}
+                    // className="btn btn-secondary"
+                    className="smaller-button" 
+                    onClick={() => CopyToClipboard(response)}
+                >
+                    <i className="fa fa-clipboard-copy" aria-hidden="true"></i> Copy Response
+                </button>
+                </h3>
+                {responseViewType === "markdown" ? (
+                    <ReactMarkdown
+                        //  children={response.choices[0].message.content.replace('\\n', '\n')}
+                        children={response}
+                        remarkPlugins={[remarkGfm]}
+                    />
+                ) : (
+                    <pre className="response-container-raw">{response}</pre>
+                )}
             </div>
 
             {/* User Comment */}
             <textarea
+                className="user-comment-input"
                 value={userComment}
                 onChange={(e) => setUserComment(e.target.value)}
-                placeholder="Write your comment here..."
+                placeholder="It's required to write your comment here before you can save the response..."
                 rows="3"
                 style={{ width: "100%", marginTop: "10px" }}
             />
-
-            <button onClick={handleSaveResponse} style={{ marginTop: "10px" }}>
+            
+            {/* Save Response Button */}
+            <button
+                onClick={handleSaveResponse}
+                style={{ marginTop: "10px" }}
+                disabled={userComment.length > 0 ? false : true}
+            >
                 Save Response
             </button>
 

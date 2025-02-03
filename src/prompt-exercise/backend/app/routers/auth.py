@@ -4,6 +4,8 @@ from database import get_db
 from services import auth as auth_service
 from models.auth import User
 from utils.security import security
+from dependencies import get_current_user
+
 
 router = APIRouter()
 
@@ -20,7 +22,19 @@ async def login(request: Request, login_data: dict, db: AsyncSession = Depends(g
         raise HTTPException(status_code=401, detail="Incorrect username or password")
     
     tokens = await auth_service.create_tokens(db, user.id)
-    return tokens
+    return {
+        "access_token": tokens[0],
+        "refresh_token": tokens[1],
+        "token_type": "bearer",
+        "user": {
+            "id": user.id,
+            "username": user.username,
+            # "display_name": user.gecos,
+            "email": user.email
+        },
+        "success": True,
+        "message": "Login successful"
+    }
 
 
 @router.post("/token/refresh")
@@ -34,3 +48,14 @@ async def refresh_token(request: dict, current_token: str = Depends(security), d
         return tokens
     except Exception as e:
         raise HTTPException(status_code=401, detail="Token refresh failed")
+    
+
+@router.get("/user/profile")
+async def get_profile(current_user: User = Depends(get_current_user)):
+    return {
+        "id": current_user.id,
+        "email": current_user.email,
+        "username": current_user.username,
+        "display_name": current_user.gecos,
+        "is_admin": current_user.is_admin,
+    }
