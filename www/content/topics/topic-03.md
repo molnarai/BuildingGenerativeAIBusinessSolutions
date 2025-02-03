@@ -12,7 +12,7 @@ The session highlights frameworks like ARES, which uses smaller LLMs as evaluato
 The session also introduces public datasets like KILT and SuperGLUE, along with task-specific datasets such as Natural Questions, HotpotQA, and FEVER. These datasets provide standardized benchmarks to test and refine prompt engineering approaches. The hosts emphasize the need for creativity and experimentation in this evolving field, blending technical expertise with an intuitive understanding of language and machine learning.
 
 ## Required Reading and Listening
-Listen to the podcast ([transcription](../../podcasts/podcast-03-prompt-ptimization/)):
+Listen to the podcast ([transcription](../../podcasts/podcast-03-prompt-optimization/)):
 <!-- Listen to the podcast: -->
 
  <audio controls>
