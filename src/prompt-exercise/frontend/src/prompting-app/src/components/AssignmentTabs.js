@@ -28,6 +28,7 @@ const AssignmentTabs = ({ problems, selectedTab, onAssignmentTabClick }) => {
   // };
 
   return (
+    // <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       {/* Tab Bar */}
       {/* <div style={{ display: "flex", borderBottom: "2px solid #ddd", marginBottom: "20px" }}> */}

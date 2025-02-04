@@ -11,19 +11,26 @@
   top: 0;
   left: 0;
   right: 0; */
-  background-color: RGB(151,202,235); /* 0-57-166 Light Blue */
+  /* background-color: RGB(151,202,235); 0-57-166 Light Blue */
+  background-color: white;
   z-index: 100;
-  color: white;
-  padding: 20px;
-  color: white;
+  /* color: white; */
+  padding: 20px 20px 0px 20px;
+  color: rgb(0,57,166);  /* 0-57-166 GSU Blue */
+  /* padding-bottom: 20px; */
+  /* color: rgb(0,57,166);  0-57-166 Light Blue */
+
   margin-bottom: 0px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
 .App-header-headline{
   display: flex;
   justify-content: space-between;
   padding-left: 20px;
+  /* background-image: url('../public/RCB-LOGO_3spot_300x108.png'); */
+  background-repeat: no-repeat;
+  /* height: 3em; */
 }
 
 .chat-container {
@@ -210,6 +217,13 @@ button.smaller-button {
   /* margin-bottom: "20px"  */
 }
 
+.assignment-tabs div {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-width: 2px;
+  border-style: solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 .assignment-tabs button {
   padding: 10px 20px;
   border: 1px solid #ddd;
@@ -231,7 +245,7 @@ button.smaller-button {
   width: 100%;
   gap: 20px;
   /* margin-top: 200px; */
-  padding: 20px;
+  padding: 0px 20px;
   box-sizing: border-box;
 }
 

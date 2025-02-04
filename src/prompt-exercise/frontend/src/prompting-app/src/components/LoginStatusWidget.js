@@ -32,11 +32,11 @@ const LoginStatusWidget = ({  }) => {
 
   const handleLogout = async () => {
     await logout();
-    navigate('/login');
+    navigate('login');
   };
 
   const handleLoginClick = () => {
-    navigate('/login');
+    navigate('login');
   };
 
   return (

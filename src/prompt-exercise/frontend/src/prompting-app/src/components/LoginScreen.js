@@ -17,38 +17,12 @@ const LoginScreen = ({ onLoginSuccess, ai_application_url }) => {
 
     const success = await login(username, password);
     if (success) {
-      navigate('/');
+      navigate('');
     } else {
       setError('Invalid username or password');
     }
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setError('');
-
-  //   try {
-  //     const response = await fetch(`${ai_application_url}/auth/login`, {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ username, password }),
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error('Login failed');
-  //     }
-
-  //     const data = await response.json();
-  //     localStorage.setItem('authToken', data.token);
-  //     localStorage.setItem('username', username);
-  //     onLoginSuccess(username);
-  //     navigate('/'); // Redirect to home page
-  //   } catch (error) {
-  //     setError('Invalid username or password');
-  //   }
-  // };
 
   return (
     <div className="login-container">
