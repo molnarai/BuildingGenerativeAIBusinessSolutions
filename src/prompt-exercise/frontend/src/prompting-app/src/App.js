@@ -344,6 +344,7 @@ function AppContent() {
         <div className="App">
             <header className="App-header">
                 <div className="App-header-headline">
+                    {/* <img src={'RCB-LOGO_3spot_300x108.png'} alt="RCB Logo" /> */}
                     <h1>{dashToTitle(ai_application_name)}</h1>
                     <LoginStatusWidget />
                 </div>
@@ -357,12 +358,12 @@ function AppContent() {
             </header>
 
             <Routes>
-                <Route path="/login" element={<LoginScreen /> } />
+                <Route path="login" element={<LoginScreen /> } />
                 <Route
-                path="/" 
-                element={
+                    path="" 
+                    element={
                         ! isAuthenticated ? (
-                            <Navigate to="/login" /> 
+                            <Navigate to="login" /> 
                         ) : (
                             <div className="three-column-layout">
                                 {/* Left Column - Control Panel */}
