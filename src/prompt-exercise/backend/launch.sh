@@ -33,6 +33,18 @@ else
     exit 1
 fi
 
+if command -v dotenv &> /dev/null
+then
+    DOTENV="dotenv"
+elif command -v dotenv-rust &> /dev/null
+then
+    DOTENV="dotenv-rust"
+else
+    echo "Neither 'dotenv' nor 'dotenv-rust' is installed."
+    exit 1
+fi
+
+
 function title() {
     local TITLE=$1
     if command -v figlet &> /dev/null
@@ -69,19 +81,19 @@ fi
 
 
 ### Define Variables
-ENVIRONMENT=$(dotenv -f $BACKEND_ROOT/.env get ENVIRONMENT)
-PROJECT=$(dotenv -f $BACKEND_ROOT/.env get PROJECT)
-PROJECT_DATA_DIR=$(dotenv -f $BACKEND_ROOT/.env get PROJECT_DATA_DIR)
+ENVIRONMENT=$(${DOTENV} -f $BACKEND_ROOT/.env get ENVIRONMENT)
+PROJECT=$(${DOTENV} -f $BACKEND_ROOT/.env get PROJECT)
+PROJECT_DATA_DIR=$(${DOTENV} -f $BACKEND_ROOT/.env get PROJECT_DATA_DIR)
 echo "Project: $PROJECT"
 echo "Environment: $ENVIRONMENT"
 echo "Project data directory: $PROJECT_DATA_DIR"
 
 
-POSTGRES_DB=$(dotenv -f $BACKEND_ROOT/.env get POSTGRES_DB)
-POSTGRES_HOST=$(dotenv -f $BACKEND_ROOT/.env get POSTGRES_HOST)
-POSTGRES_PASSWORD=$(dotenv -f $BACKEND_ROOT/.env get POSTGRES_PASSWORD)
-POSTGRES_PORT=$(dotenv -f $BACKEND_ROOT/.env get POSTGRES_PORT)
-POSTGRES_USER=$(dotenv -f $BACKEND_ROOT/.env get POSTGRES_USER)
+POSTGRES_DB=$(${DOTENV} -f $BACKEND_ROOT/.env get POSTGRES_DB)
+POSTGRES_HOST=$(${DOTENV} -f $BACKEND_ROOT/.env get POSTGRES_HOST)
+POSTGRES_PASSWORD=$(${DOTENV} -f $BACKEND_ROOT/.env get POSTGRES_PASSWORD)
+POSTGRES_PORT=$(${DOTENV} -f $BACKEND_ROOT/.env get POSTGRES_PORT)
+POSTGRES_USER=$(${DOTENV} -f $BACKEND_ROOT/.env get POSTGRES_USER)
 
 
 ACTION=${1:-help}
