@@ -65,7 +65,7 @@ services:
   #     - fastapi
 
   db:
-    image: postgres:16-alpine
+    image: docker.io/library/postgres:16-alpine
     container_name: ${CONTAINER_NAME}-db
     networks:
       - backend
@@ -82,7 +82,7 @@ services:
       retries: 5
 
   queue:
-    image: rabbitmq:3.12-management-alpine
+    image: docker.io/library/rabbitmq:3.12-management-alpine
     container_name: ${CONTAINER_NAME}-queue
     networks:
       - backend
@@ -98,7 +98,7 @@ services:
       retries: 5
 
   log:
-    image: elasticsearch:8.10.4
+    image: docker.io/library/elasticsearch:8.10.4
     container_name: ${CONTAINER_NAME}-log
     networks:
       - backend
