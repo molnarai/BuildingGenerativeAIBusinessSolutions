@@ -53,15 +53,15 @@ else
     CMD=$1
 fi
 
-# if [ ! -f  src/$APP_NAME/.env ]
-# then
-#     echo "Creating .env file"
-#     cat << EOF > src/$APP_NAME/.env
-# REACT_APP_OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
-# REACT_APP_AI_APPLICATION_BASE_URL=${AI_APPLICATION_BASE_URL}
-# REACT_APP_AI_APPLICATION_NAME=${AI_APPLICATION_NAME:-$APP_NAME}
-# EOF
-# fi
+if [ ! -f  src/$APP_NAME/.env ]
+then
+    echo "Creating .env file"
+    cat << EOF > src/$APP_NAME/.env
+REACT_APP_OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
+REACT_APP_AI_APPLICATION_BASE_URL=${AI_APPLICATION_BASE_URL}
+REACT_APP_AI_APPLICATION_NAME=${AI_APPLICATION_NAME:-$APP_NAME}
+EOF
+fi
 
 case "$CMD" in 
     install)
