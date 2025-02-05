@@ -357,13 +357,15 @@ function AppContent() {
                 )}
             </header>
 
-            <Routes>
+            {/* <Routes>
                 <Route path="login" element={<LoginScreen /> } />
                 <Route
                     path="" 
-                    element={
-                        ! isAuthenticated ? (
-                            <Navigate to="login" /> 
+                    element={ */}
+                    {(
+                            ! isAuthenticated ? (
+                            // <Navigate to="login" /> 
+                            <LoginScreen />
                         ) : (
                             <div className="three-column-layout">
                                 {/* Left Column - Control Panel */}
@@ -423,9 +425,10 @@ function AppContent() {
                                 </div>
                             </div>
                         )
-                }
+                    )}
+                {/* }
                 />
-            </Routes>
+            </Routes> */}
         </div>
           
     );
