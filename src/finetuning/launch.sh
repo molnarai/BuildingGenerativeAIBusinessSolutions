@@ -2,26 +2,25 @@
 CONTAINER_NAME="${USER}/ftunsloth"
 
 case $1 in
-build):
+build)
 	podman build -t $CONTAINER_NAME -f Dockerfile .
 	;;
 
-jupyter):
+jupyter)
 	PORT=${2:-19034}
 	podman run --rm \
 	-p ${PORT}:8888 \
 	--device nvidia.com/gpu=0 \
 	--security-opt=label=disable \
-	-v $PWD:/myapp/local -v \
+	-v $PWD:/myapp/local \
 	 $CONTAINER_NAME jupyter-lab
 	;;
-run):
-        podman run --rm \
-        -p ${PORT}:8888 \
+run)
+        podman run -it --rm \
         --device nvidia.com/gpu=0 \
         --security-opt=label=disable \
-        -v $PWD:/myapp/local -v \
-         $CONTAINER_NAME /bin/bash
+        -v $PWD:/myapp/local \
+         $CONTAINER_NAME $2 $3 $4 
         ;;
-esac)
+esac
 
