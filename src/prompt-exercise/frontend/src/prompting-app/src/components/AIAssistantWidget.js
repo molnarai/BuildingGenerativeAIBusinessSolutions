@@ -7,7 +7,7 @@ import ModelSelector from "./ModelSelector";
 import ModelInferenceParameters from "./ModelInferenceParameters";
 import "./AIAssistantWidget.css"
 
-const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, handleAddResponseToArchivement }) => {
+const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, handleAddResponseToArchive }) => {
     const [prompt, setPrompt] = useState("");
     const [response, setResponse] = useState("");
     const [userComment, setUserComment] = useState("");
@@ -379,7 +379,7 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
             ...aiResponse,
             user_comment: userComment,
         };
-        handleAddResponseToArchivement(responseToSave);
+        handleAddResponseToArchive(responseToSave);
     };
 
     useEffect(() => {

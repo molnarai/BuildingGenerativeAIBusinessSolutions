@@ -395,7 +395,7 @@ function AppContent() {
                                             config={config}
                                             userInfo={userInfo}
                                             problemDetails={problemDetails}
-                                            handleAddResponseToArchivement={handleAddResponseToArchive}
+                                            handleAddResponseToArchive={handleAddResponseToArchive}
                                         />
                                     </div>
                                 </div>
