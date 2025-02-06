@@ -1,12 +1,12 @@
 // LoginStatusWidget.js
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthProvider';
 import './LoginStatusWidget.css';
 
 // const LoginStatusWidget = ({ userInfo, onLogout, ai_application_url }) => {
 const LoginStatusWidget = ({  }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { user, logout } = useAuth();
 
   // const handleLogout = async () => {

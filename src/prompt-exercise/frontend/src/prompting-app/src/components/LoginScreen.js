@@ -1,13 +1,13 @@
 // LoginScreen.js
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthProvider';
 
 const LoginScreen = ({ onLoginSuccess, ai_application_url }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { login, isLoading } = useAuth();
 
 
@@ -17,7 +17,7 @@ const LoginScreen = ({ onLoginSuccess, ai_application_url }) => {
 
     const success = await login(username, password);
     if (success) {
-      navigate('');
+      // navigate('');
     } else {
       setError('Invalid username or password');
     }

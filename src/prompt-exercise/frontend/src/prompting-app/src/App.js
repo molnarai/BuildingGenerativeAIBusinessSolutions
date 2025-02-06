@@ -439,9 +439,9 @@ function App() {
   
     return (
       <AuthProvider ai_application_url={ai_application_url}>
-        <Router>
+        {/* <Router> */}
           <AppContent />
-        </Router>
+        {/* </Router> */}
       </AuthProvider>
     );
   }
