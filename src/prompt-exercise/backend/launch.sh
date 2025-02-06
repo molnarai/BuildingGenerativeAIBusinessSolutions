@@ -20,27 +20,17 @@ EOT
 #
 
 # Test if docker or podman is installed, define variable COMPOSE with the respctive command
-if command -v docker &> /dev/null
-then
-    COMPOSE="docker compose"
-    CMD="docker"
-elif command -v podman &> /dev/null
+if command -v podman &> /dev/null
 then
     COMPOSE="podman compose"
     CMD="podman"
+elif command -v docker &> /dev/null
+then
+    COMPOSE="docker compose"
+    CMD="docker"
+
 else
     echo "Neither docker nor podman is installed."
-    exit 1
-fi
-
-if command -v dotenv &> /dev/null
-then
-    DOTENV="dotenv"
-elif command -v dotenv-rust &> /dev/null
-then
-    DOTENV="dotenv-rust"
-else
-    echo "Neither 'dotenv' nor 'dotenv-rust' is installed."
     exit 1
 fi
 
@@ -70,30 +60,18 @@ then
 ####                                                                ####
 ########################################################################
 EOT
-    # cat $BACKEND_ROOT/../.env >> $BACKEND_ROOT/.env
-    # source $BACKEND_ROOT/.env
-    (source $BACKEND_ROOT/../.env ; printenv | sort >> $BACKEND_ROOT/.env)
+ 
+    (source $BACKEND_ROOT/../.env ; printenv | awk -F'=' '{st = index($0, "="); print "export " $1 "=\"" substr($0,st+1) "\""}' | sort >>  $BACKEND_ROOT/.env)
+    source $BACKEND_ROOT/.env
 else
     echo "No .env file found. Please run $0 localconf"
     exit 1
 fi
 
 
-
-### Define Variables
-ENVIRONMENT=$(${DOTENV} -f $BACKEND_ROOT/.env get ENVIRONMENT)
-PROJECT=$(${DOTENV} -f $BACKEND_ROOT/.env get PROJECT)
-PROJECT_DATA_DIR=$(${DOTENV} -f $BACKEND_ROOT/.env get PROJECT_DATA_DIR)
 echo "Project: $PROJECT"
 echo "Environment: $ENVIRONMENT"
 echo "Project data directory: $PROJECT_DATA_DIR"
-
-
-POSTGRES_DB=$(${DOTENV} -f $BACKEND_ROOT/.env get POSTGRES_DB)
-POSTGRES_HOST=$(${DOTENV} -f $BACKEND_ROOT/.env get POSTGRES_HOST)
-POSTGRES_PASSWORD=$(${DOTENV} -f $BACKEND_ROOT/.env get POSTGRES_PASSWORD)
-POSTGRES_PORT=$(${DOTENV} -f $BACKEND_ROOT/.env get POSTGRES_PORT)
-POSTGRES_USER=$(${DOTENV} -f $BACKEND_ROOT/.env get POSTGRES_USER)
 
 
 ACTION=${1:-help}
