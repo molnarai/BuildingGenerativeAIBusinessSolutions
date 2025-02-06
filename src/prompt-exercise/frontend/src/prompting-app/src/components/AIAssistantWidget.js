@@ -443,6 +443,7 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
                 />
             </div> */}
             {/* Prompt Input */}
+            <h3>Your Prompt:</h3>
             <textarea
                 className="prompt-input"
                 value={prompt}
@@ -487,11 +488,12 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
             </div>
 
             {/* User Comment */}
+            <h3>Your Observation:</h3>
             <textarea
                 className="user-comment-input"
                 value={userComment}
                 onChange={(e) => setUserComment(e.target.value)}
-                placeholder="It's required to write your comment here before you can save the response..."
+                placeholder="It's required to write your observation here before you can save the response..."
                 rows="3"
                 style={{ width: "100%", marginTop: "10px" }}
             />
