@@ -141,7 +141,7 @@ const ResponseArchiveWidget = ({ problem,
                                             //e.stopPropagation();
                                         }}
                                     />
-                                    Select for submission
+                                    Select for grading
                                 </span>
                                 <span className="model-info">
                                     {/* <strong>Provider:</strong> {response.ai_provider} | 
