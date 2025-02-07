@@ -95,7 +95,10 @@ async def create_completion(
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/v1/chat/completions")
-async def create_chat_completion(request: ChatCompletionRequest):
+async def create_chat_completion(
+    request: ChatCompletionRequest,
+    token_data: dict = Depends(verify_token),
+    db: Session = Depends(get_db)):
     callback = chat_service.StreamingCallbackHandler()
     chat_model = ChatOllama(
         base_url=ollama_base_url,

@@ -35,8 +35,8 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
         console.log('aiResponse changed:', aiResponse);
     }, [aiResponse]);
 
-    const {user} = useAuth();
-
+    const {user, accessToken} = useAuth();
+    
     const handleProviderModelChange = (provider, model) => {
         setSelectedProviderModel({ "provider": provider, "model": model });
         console.log(`Selected provider model: ${provider} - ${model}`);
@@ -282,7 +282,8 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
+                        'Authorization': `Bearer ${accessToken}`
+                        // 'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
                     },
                     body: JSON.stringify({
                         prompt,
