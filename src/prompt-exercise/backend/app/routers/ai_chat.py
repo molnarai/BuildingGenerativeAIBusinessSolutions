@@ -24,7 +24,8 @@ from langchain_ollama import ChatOllama
 import requests
 
 
-ollama_base_url = os.getenv("OLLAMA_BASE_URL")
+ollama_base_url = os.getenv("EXTERNAL_OLLAMA_BASE_URL")
+assert len(ollama_base_url) > 0, "EXTERNAL_OLLAMA_BASE_URL is not set"
 
 router = APIRouter()
 
