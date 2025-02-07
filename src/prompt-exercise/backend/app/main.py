@@ -9,7 +9,8 @@ from database import engine, Base, create_tables, create_async_engine
 from routers import (
     assignment,
     auth,
-    system_test
+    system_test,
+    ai_chat,
 )
 from models import auth as auth_model
 from models import assignment as assignment_model
@@ -32,7 +33,7 @@ app.add_middleware(
 # Include routers
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
 app.include_router(assignment.router, prefix="/assignment", tags=["assignment"])
-# app.include_router(ai_chat.router, tags=["ai"])
+app.include_router(ai_chat.router, tags=["ai"])
 app.include_router(system_test.router, tags=["system"])
 
 @app.on_event("startup")
