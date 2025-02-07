@@ -32,7 +32,7 @@ app.add_middleware(
 # Include routers
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
 app.include_router(assignment.router, prefix="/assignment", tags=["assignment"])
-app.include_router(ai_chat.router, tags=["ai"])
+app.include_router(ai_chat.router, prefix="/ai", tags=["ai"])
 app.include_router(system_test.router, tags=["system"])
 
 @app.on_event("startup")
