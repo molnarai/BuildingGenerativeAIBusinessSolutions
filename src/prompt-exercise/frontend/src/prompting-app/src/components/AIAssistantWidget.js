@@ -381,7 +381,7 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
                 username: user.username,
                 user_id: user.user_id,
                 user_comment: userComment,
-                select_for_submission: true,
+                select_for_submission: false, // true,
             });
 
             const elapsedTime = Date.now() - startTime;

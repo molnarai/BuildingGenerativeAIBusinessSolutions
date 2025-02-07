@@ -367,10 +367,12 @@ function AppContent() {
                 <div className="App-header-headline">
                     {/* <img src={'RCB-LOGO_3spot_300x108.png'} alt="RCB Logo" /> */}
                     <h1>{dashToTitle(ai_application_name)}</h1>
-                    {isAuthenticated && (<button className="help-button" onClick={handleHelpClick}>
-                        Help
-                    </button>)}
-                    <LoginStatusWidget />
+                    <div className='header-right'>
+                        <LoginStatusWidget />
+                        {isAuthenticated && (<button className="help-button" onClick={handleHelpClick}>
+                            Help
+                        </button>)}
+                    </div>
                 </div>
                 {isAuthenticated && (
                     <AssignmentTabs
