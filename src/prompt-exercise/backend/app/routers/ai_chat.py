@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
-from ..services import ai_chat as chat_service
-from ..models.ai_chat import CompletionRequest, ChatCompletionRequest
-from ..utils.security import security
+from services import ai_chat as chat_service
+from models.ai_chat import CompletionRequest, ChatCompletionRequest
+from utils.security import security
 import json
 
 import os

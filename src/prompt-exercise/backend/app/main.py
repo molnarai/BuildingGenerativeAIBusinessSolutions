@@ -4,7 +4,6 @@ from datetime import datetime, date
 from fastapi.responses import JSONResponse
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-# from routers import auth, ai_chat
 from database import engine, Base, create_tables, create_async_engine
 from routers import (
     assignment,
