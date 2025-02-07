@@ -7,6 +7,8 @@ import ModelSelector from "./ModelSelector";
 import ModelInferenceParameters from "./ModelInferenceParameters";
 import "./AIAssistantWidget.css"
 
+const ai_application_url = process.env.REACT_APP_AI_APPLICATION_BASE_URL ? process.env.REACT_APP_AI_APPLICATION_BASE_URL : 'http://localhost:8000';
+
 const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, handleAddResponseToArchive }) => {
     const [prompt, setPrompt] = useState("");
     const [response, setResponse] = useState("");
@@ -269,13 +271,14 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
                     },
                     body: JSON.stringify({
                         prompt,
-                        model: "text-davinci-003", // Adjust based on your model
-                        max_tokens: 100,
-                        stream: true,
+                        model: selectedProviderModel.model,
+                        max_tokens: parameters.max_tokens,
+                        temperature: parameters.temperature,
+                        stream: parameters.stream,
                     }),
                 });
             } else if (selectedProviderModel.provider.toLowerCase() === "gsu") {
-                res = await fetch(apiUrl, {
+                res = await fetch(`${ai_application_url}/ai/v1/completions`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -283,9 +286,10 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
                     },
                     body: JSON.stringify({
                         prompt,
-                        model: "text-davinci-003", // Adjust based on your model
-                        max_tokens: 100,
-                        stream: true,
+                        model: selectedProviderModel.model,
+                        max_tokens: parameters.max_tokens,
+                        temperature: parameters.temperature,
+                        stream: parameters.stream,
                     }),
                 });
                 

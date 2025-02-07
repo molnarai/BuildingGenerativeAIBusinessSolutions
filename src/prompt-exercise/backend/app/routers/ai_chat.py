@@ -52,10 +52,10 @@ async def create_completion(request: CompletionRequest):
     callback = chat_service.StreamingCallbackHandler()
     llm = Ollama(
         base_url=ollama_base_url,
-        model="llama3.1",
+        model=request.model,
         callbacks=[callback],
         temperature=request.temperature,
-        max_tokens=request.max_tokens,
+        # max_tokens=request.max_tokens,
     )
 
     try:
@@ -91,10 +91,10 @@ async def create_chat_completion(request: ChatCompletionRequest):
     callback = chat_service.StreamingCallbackHandler()
     chat_model = ChatOllama(
         base_url=ollama_base_url,
-        model="llama3.1",
+        model=request.model,
         callbacks=[callback],
         temperature=request.temperature,
-        max_tokens=request.max_tokens,
+        # max_tokens=request.max_tokens,
     )
 
     try:

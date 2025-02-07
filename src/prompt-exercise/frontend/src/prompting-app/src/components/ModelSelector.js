@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+const ai_application_url = process.env.REACT_APP_AI_APPLICATION_BASE_URL ? process.env.REACT_APP_AI_APPLICATION_BASE_URL : 'http://localhost:8000';
+
 // Mock FetchModel functions for each provider
 const fetchOpenAIModels = async (apiKey) => {
     if (!apiKey) return [];
@@ -101,7 +103,7 @@ const fetchGSUModels = async (baseUrl) => {
     if (!baseUrl) return [];
     var models = [];
     try {
-        const response = await fetch(`${baseUrl}/v1/models`, {
+        const response = await fetch(`${baseUrl}/ai/v1/models`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -163,7 +165,7 @@ const ModelSelector = ({ config, onProviderModelChange }) => {
             const geminiApiKey = config.geminiApiKey;
             const ollamaBaseUrl = config.ollamaBaseUrl
             const lmStudioBaseUrl = config.lmStudioBaseUrl;
-            const gsuBaseUrl = config.gsuBaseUrl;
+            const gsuBaseUrl = ai_application_url;
             // console.log("openAiApiKey", openAiApiKey);
             // console.log("geminiApiKey", geminiApiKey);
             // console.log("ollamaBaseUrl", ollamaBaseUrl);
@@ -206,14 +208,15 @@ const ModelSelector = ({ config, onProviderModelChange }) => {
                 }
             }
 
-            // if (gsuBaseUrl) {
-            //     const gsuModels = await fetchGSUModels(gsuBaseUrl);
-            //     if (gsuModels && gsuModels.length > 0) {
-            //         providers.push({ Provider: "GSU", Models: gsuModels });
-            //     } else {
-            //         console.log("No GSU models found");
-            //     }
-            // }
+            if (gsuBaseUrl) {
+                console.log("Getting models from GSU provider: ", gsuBaseUrl)
+                const gsuModels = await fetchGSUModels(gsuBaseUrl);
+                if (gsuModels && gsuModels.length > 0) {
+                    providers.push({ Provider: "GSU", Models: gsuModels });
+                } else {
+                    console.log("No GSU models found");
+                }
+            }
             setModelData(providers);
         };
 
