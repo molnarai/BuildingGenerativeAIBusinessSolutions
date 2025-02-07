@@ -22,7 +22,12 @@ from langchain.schema import HumanMessage, SystemMessage, AIMessage, ChatMessage
 # from langchain_community.chat_models import ChatOllama
 from langchain_ollama import ChatOllama
 import requests
+from sqlalchemy.orm import Session
+from sqlalchemy import text, select
 
+from database import get_db
+from dependencies import verify_token, get_current_user
+from models.auth import User
 
 ollama_base_url = os.getenv("EXTERNAL_OLLAMA_BASE_URL")
 assert len(ollama_base_url) > 0, "EXTERNAL_OLLAMA_BASE_URL is not set"
@@ -48,7 +53,10 @@ async def stream_tokens(callback: chat_service.StreamingCallbackHandler):
 
 
 @router.post("/v1/completions")
-async def create_completion(request: CompletionRequest):
+async def create_completion(
+    request: CompletionRequest,
+    token_data: dict = Depends(verify_token),
+    db: Session = Depends(get_db)):
     callback = chat_service.StreamingCallbackHandler()
     llm = Ollama(
         base_url=ollama_base_url,
