@@ -13,7 +13,7 @@ The finetuning process typically involves selecting a pre-trained model, prepari
 One of the key advantages of finetuning is its ability to create more efficient and focused models for specific applications. By adapting a general-purpose LLM to a particular domain or task, organizations can often achieve superior results compared to using the base model with prompt engineering alone. However, finetuning requires more computational resources and expertise than prompt engineering, and care must be taken to avoid overfitting or catastrophic forgetting of the model's original capabilities.
 
 ## Required Reading and Listening
-Listen to the podcast ((../../podcasts/podcast-04-fine-tuning/)):
+Listen to the [podcast](../../podcasts/podcast-04-fine-tuning/):
 <!-- Listen to the podcast: -->
 
  <audio controls>
