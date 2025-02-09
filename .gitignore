@@ -7,7 +7,7 @@
 
 # Byte-compiled / optimized / DLL files
 .env
-.secrets/
+.series/
 src/finetuning/.env
 
 __pycache__/
