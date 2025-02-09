@@ -1,0 +1,5 @@
+trl
+transformers
+unsloth
+datasets
+
