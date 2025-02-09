@@ -15,7 +15,7 @@ In this assignment, you will explore and refine several common prompt engineerin
 
 ** Due on February 17, 2025 before midnight **
 
-Use the *Prompting App* at http://10.230.100.222/app/prompt-exercise/
+Use the *Prompting App* at <http://10.230.100.222/app/prompt-exercise/>
 
 ***Please note:***
 - *There is still a bug that sometimes does show the proper state of the "Select for grading" check-box. Please ignore. The "Completion Summary" shows the your records and selections in the database.*
