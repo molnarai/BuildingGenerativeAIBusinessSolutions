@@ -1,6 +1,6 @@
 +++
 date = '2025-01-06T18:20:46-05:00'
-due_date = "2025-02-24"
+due_date = "2025-03-03"
 draft = false
 title = 'Homework 2: LLM Finetuning'
 weight = 20

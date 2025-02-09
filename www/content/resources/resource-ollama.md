@@ -8,9 +8,11 @@ description: An Application Programming Interface (API) is a set of rules and pr
 <!-- more -->
 Its OpenAI-compatible API allows developers to use the same request formats as OpenAI's Chat Completions API, making it easy to switch between providers or run applications locally without modifying code. Users can interact with the API through HTTP requests or libraries like Python's `openai` library by simply changing the base URL to `http://localhost:11434`.
 
+
 To install Ollama, users visit the official website, download the installer for their operating system, and follow straightforward installation steps. On **Windows**, users run the `.exe` file and use PowerShell or Command Prompt to manage models. On **macOS**, users download a `.zip` file, move it to the Applications folder, and use Terminal to interact with models. For **Linux**, users execute a shell script from the command line to install Ollama and manage models. Once installed, users can download models using commands like `ollama pull llama2`.
 
 Ollama supports a variety of open-source models, including Llama 2 (7B, 13B, 70B), Llama 3, Mistral (7B), WizardLM-2 (7B), Code Llama (7B), Vicuna (7B), and Phi-3 Mini (3.8B). These models cover tasks such as text generation, coding assistance, and conversational AI. Users can also customize or bundle their own GGUF-formatted models for specific needs. With its ease of setup and OpenAI compatibility, Ollama is a powerful solution for hosting LLMs locally while maintaining flexibility and privacy.
+
 
 
 **References:**

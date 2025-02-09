@@ -9,7 +9,7 @@
   <h3>Schedule</h3>
   {{ $events := index site.Data.schedule "records" }} 
   <table class="table">
-    <tr><th>Date</th><th>Session</th><th>Topic</th><th>In Class</th><th>Due Before Class</th></tr>
+    <tr><th>Date</th><th>Session</th><th>Topic</th><th>In Class</th><th>Due Date</th></tr>
   {{ range sort $events "Day" "asc" }}
     <tr>
       <td>{{- .Day }}</td>

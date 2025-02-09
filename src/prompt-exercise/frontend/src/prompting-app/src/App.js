@@ -27,6 +27,8 @@ import LoginStatusWidget from './components/LoginStatusWidget';
 import ResponseArchiveWidget from './components/ResponseArchiveWidget';
 import SummaryWidget from './components/SummaryWidget';
 import HelpWidget from './components/HelpWidget';
+import DueByWidget from './components/DueByWidget';
+
 
 import { useAuth } from './AuthProvider';
 import './App.css';
@@ -367,6 +369,7 @@ function AppContent() {
                 <div className="App-header-headline">
                     {/* <img src={'RCB-LOGO_3spot_300x108.png'} alt="RCB Logo" /> */}
                     <h1>{dashToTitle(ai_application_name)}</h1>
+                    <DueByWidget />
                     <div className='header-right'>
                         <LoginStatusWidget />
                         {isAuthenticated && (<button className="help-button" onClick={handleHelpClick}>

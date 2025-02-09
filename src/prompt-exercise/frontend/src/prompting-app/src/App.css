@@ -435,3 +435,13 @@ pre.response-container-raw {
 .completion-stats-title {
    text-align: left;
 }
+
+.due-by-widget {
+    /* padding: 10px; */
+    /*border-radius: 4px;
+    background-color: #f5f5f5; */
+    display: inline-block;
+    /* margin: 10px; */
+    font-size: 1rem;
+    align-content: center;
+}
