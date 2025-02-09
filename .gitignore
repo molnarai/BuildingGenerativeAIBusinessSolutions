@@ -6,6 +6,10 @@
 #         |___/                       
 
 # Byte-compiled / optimized / DLL files
+.env/
+.secrets/
+src/finetuning/.env/
+
 __pycache__/
 *.py[cod]
 *$py.class
