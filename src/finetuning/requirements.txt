@@ -53,6 +53,7 @@ distributed @ file:///rapids/distributed-2023.11.0-py3-none-any.whl#sha256=44ad1
 dm-tree==0.1.8
 docstring_parser==0.16
 einops==0.7.0
+evaluate==0.4.3
 exceptiongroup==1.2.0
 execnet==2.0.2
 executing==2.0.1
@@ -144,7 +145,7 @@ nvtx @ file:///rapids/nvtx-0.2.5-cp310-cp310-linux_x86_64.whl#sha256=939c7322e7c
 oauthlib==3.2.2
 onnx @ file:///opt/pytorch/pytorch/third_party/onnx
 opencv @ file:///opencv-4.7.0/modules/python/package
-optree==0.10.0
+optree==0.14.0
 packaging==23.2
 pandas @ file:///rapids/pandas-1.5.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=7a0a56cef15fd1586726dace5616db75ebcfec9179a3a55e78f72c5639fa2a23
 pandocfilters==1.5.1
@@ -180,7 +181,6 @@ Pygments==2.17.2
 pylibcugraph @ file:///rapids/pylibcugraph-23.12.0-cp310-cp310-linux_x86_64.whl#sha256=07ba411e9cffd1dac341a42d8ed2962fcee94a5219fdd602fa122d73dee4aaaf
 pylibcugraphops @ file:///rapids/pylibcugraphops-23.12.0-cp310-cp310-linux_x86_64.whl#sha256=60670e596324588a01fb670e030293f06dc5cf7f8d6006e910b8e00df564d683
 pylibraft @ file:///rapids/pylibraft-23.12.0-cp310-cp310-linux_x86_64.whl#sha256=fbcfaa07a175dd0fdd7b65011dc72cbb6b88aaddc156843250ccb7d1c181916a
-PyMuPDF==1.25.3
 pynvml @ file:///rapids/pynvml-11.4.1-py3-none-any.whl#sha256=d27be542cd9d06558de18e2deffc8022ccd7355bc7382255d477038e7e424c6c
 pyparsing==3.1.1
 pytest==7.4.4
@@ -189,7 +189,6 @@ pytest-rerunfailures==13.0
 pytest-shard==0.1.2
 pytest-xdist==3.5.0
 python-dateutil==2.8.2
-python-dotenv==1.0.1
 python-hostlist==1.23.0
 pytorch-quantization==2.1.2
 pytz @ file:///rapids/pytz-2023.3.post1-py2.py3-none-any.whl#sha256=ce42d816b81b68506614c11e8937d3aa9e41007ceb50bfdcb0749b921bf646c7
@@ -208,7 +207,6 @@ rsa==4.9
 safetensors==0.5.2
 scikit-learn @ file:///rapids/scikit_learn-1.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=184a42842a4e698ffa4d849b6019de50a77a0aa24d26afa28fa49c9190bb144b
 scipy @ file:///rapids/scipy-1.12.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=5e32847e08da8d895ce09d108a494d9eb78974cf6de23063f93306a3e419960c
-seaborn==0.13.2
 Send2Trash==1.8.2
 sentencepiece==0.2.0
 shtab==1.7.1
