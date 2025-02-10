@@ -171,7 +171,7 @@ class ResponseData(BaseModel):
     ai_provider: Optional[str] = None
     ai_seconds: Optional[float] = None
     ai_stream: Optional[bool] = None
-    ai_temperature: Optional[int] = None
+    ai_temperature: Optional[float] = None
     ai_timestamp: Optional[str] = None
     llm_answer: Optional[str] = None
     problem_description: Optional[str] = None
