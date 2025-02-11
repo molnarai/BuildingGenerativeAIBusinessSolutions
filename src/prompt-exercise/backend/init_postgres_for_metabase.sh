@@ -36,7 +36,8 @@ GRANT ALL PRIVILEGES ON DATABASE metabase TO metabase;
 
 
 
-\c metabase;
+--\c metabase;
+
 EOF
 
 
