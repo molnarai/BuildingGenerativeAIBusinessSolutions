@@ -119,7 +119,8 @@ services:
 
   metabase:
     restart: "always"
-    image: docker.io/library/metabase/metabase
+    image: docker.io/metabase/metabase:latest
+    container_name: ${CONTAINER_NAME}-metabase
     # env_file:
     #   - ./config/metabase_database.env
     environment:
