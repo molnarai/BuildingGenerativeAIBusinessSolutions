@@ -18,7 +18,7 @@ if [ -z "$METABASE_DB_PASSWORD" ]; then
   echo "METABASE_DB_PASSWORD is not set"
   exit 1
 fi
-cat<<"EOF" > ./sql/configure_metabase.sql
+cat<<EOF > ./sql/configure_metabase.sql
 -- CREATE ROLE metabase NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT LOGIN NOREPLICATION NOBYPASSRLS PASSWORD '${METABASE_DB_PASSWORD}';
 CREATE DATABASE metabase OWNER metabase ENCODING 'UTF8';
 
