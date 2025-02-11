@@ -117,6 +117,31 @@ services:
       timeout: 10s
       retries: 5
 
+  metabase:
+    restart: "always"
+    image: docker.io/library/metabase/metabase
+    # env_file:
+    #   - ./config/metabase_database.env
+    environment:
+      # - MB_DB_FILE=/metabase-data/metabase.db
+      - MB_DB_TYPE=postgres
+      - MB_DB_DBNAME=metabase
+      - MB_DB_PORT=3000
+      - MB_DB_USER=metabase
+      - MB_DB_PASS=${METABASE_PASSWORD}
+      - MB_DB_HOST=db
+      - MB_ENCRYPTION_SECRET_KEY=${METABASE_API_KEY}
+
+    volumes:
+      - ${PROJECT_DATA_DIR}/${ENVIRONMENT}/metabase:/metabase-data
+    ports:
+      - ${METABASE_PORT}:3000
+    networks:
+      - backend
+    depends_on:
+      - db
+
+
 networks:
   backend:
     name: ${CONTAINER_NAME}-network

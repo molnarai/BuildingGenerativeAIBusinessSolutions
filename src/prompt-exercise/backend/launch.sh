@@ -87,7 +87,7 @@ case $ACTION in
     build)
         title Build
         echo "Creating directories..."
-        mkdir -p $PROJECT_DATA_DIR/$PROJECT/$ENVIRONMENT/{postgres,rabbitmq,elasticsearch,elasticsearch-tmp}
+        mkdir -p $PROJECT_DATA_DIR/$PROJECT/$ENVIRONMENT/{postgres,rabbitmq,elasticsearch,elasticsearch-tmp,metabase}
         # ls -l $PROJECT_DATA_DIR/$PROJECT/$ENVIRONMENT
         echo "Buidling container images..."
         $COMPOSE build
