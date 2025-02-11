@@ -29,6 +29,10 @@ const LoginScreen = ({ onLoginSuccess, ai_application_url }) => {
       <form onSubmit={handleSubmit} className="login-form">
         <h2>Login</h2>
         {error && <div className="error-message">{error}</div>}
+        <p>Use your ARC password to login in</p>
+        <p> If you experience issues,
+            try the <a href="http://www.insight.gsu.edu/z/" target="_blank">Password Reset Tool</a>
+        </p>
         <div className="form-group">
           <label htmlFor="username">Username:</label>
           <input
