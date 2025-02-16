@@ -122,7 +122,6 @@ nbformat==5.9.2
 nest-asyncio==1.5.9
 networkx==2.6.3
 ninja==1.11.1.1
-nltk==3.9.1
 notebook==6.4.10
 numba @ file:///rapids/numba-0.57.1%2B1.g1ff679645-cp310-cp310-linux_x86_64.whl#sha256=182b77614c983c4c32db619d849a68ed4c33637e307ebb1a2731a3ae730ae36c
 numpy==1.24.4
@@ -203,13 +202,11 @@ requests==2.32.3
 requests-oauthlib==1.3.1
 rich @ file:///rapids/rich-13.7.0-py3-none-any.whl#sha256=6da14c108c4866ee9520bbffa71f6fe3962e193b7da68720583850cd4548e235
 rmm @ file:///rapids/rmm-23.12.0-cp310-cp310-linux_x86_64.whl#sha256=d59676daa42bcdd9d3b47d8aa96ea43d15c4120c005e6f7d8a2cbfa4a1e2d840
-rouge==1.0.1
 rpds-py==0.17.1
 rsa==4.9
 safetensors==0.5.2
 scikit-learn @ file:///rapids/scikit_learn-1.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=184a42842a4e698ffa4d849b6019de50a77a0aa24d26afa28fa49c9190bb144b
 scipy @ file:///rapids/scipy-1.12.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=5e32847e08da8d895ce09d108a494d9eb78974cf6de23063f93306a3e419960c
-seaborn==0.13.2
 Send2Trash==1.8.2
 sentencepiece==0.2.0
 shtab==1.7.1
@@ -278,3 +275,5 @@ xxhash==3.5.0
 yarl @ file:///rapids/yarl-1.9.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=357495293086c5b6d34ca9616a43d329317feab7917518bc97a08f9e55648455
 zict @ file:///rapids/zict-3.0.0-py2.py3-none-any.whl#sha256=5796e36bd0e0cc8cf0fbc1ace6a68912611c1dbd74750a3f3026b9b9d6a327ae
 zipp @ file:///rapids/zipp-3.17.0-py3-none-any.whl#sha256=0e923e726174922dce09c53c59ad483ff7bbb8e572e00c7f7c46b88556409f31
+rouge
+nltk
