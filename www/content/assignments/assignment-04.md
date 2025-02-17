@@ -1,6 +1,6 @@
 +++
 date = '2025-01-06T18:20:46-05:00'
-due_date = "2025-03-31"
+due_date = "2025-04-07"
 draft = false
 title = 'Homework 4: Extracting Financial Information from SEC 10-K Filing'
 weight = 40

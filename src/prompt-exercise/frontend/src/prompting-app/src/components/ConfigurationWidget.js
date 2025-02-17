@@ -118,6 +118,21 @@ const ConfigurationWidget = ({ config, handleInputChange, handleDeleteConfigurat
         />
       </div>
 
+       {/* GSU Base URL */}
+       {/* <div style={{ marginBottom: "20px" }}>
+        <label>
+          <strong>GSU Base URL:</strong>
+        </label>
+        <input
+          disabled={true}
+          type="text"
+          value={}
+          onChange={(e) => handleInputChange("lmStudioBaseUrl", e.target.value)}
+          placeholder="Enter URL of your local LM-Studio server, e.g.http://localhost:8080"
+          style={{ width: "90%" }}
+        />
+      </div> */}
+
       {/* Summary */}
       <p style={{ fontSize: "12px", color: "#555" }}>
         Your settings are saved locally in your browser and will persist across visits.

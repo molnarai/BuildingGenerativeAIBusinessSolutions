@@ -16,6 +16,7 @@ services:
       - POSTGRES_APP_PASSWORD=${POSTGRES_APP_PASSWORD}
       - LDAP_SERVER_URI=${LDAP_SERVER_URI}
       - LDAP_BASE_DN=${LDAP_BASE_DN}
+      - EXTERNAL_OLLAMA_BASE_URL=${EXTERNAL_OLLAMA_BASE_URL}
     ports:
       - "${FASTAPI_PORT}:8000"
     # volumes:
@@ -65,7 +66,7 @@ services:
   #     - fastapi
 
   db:
-    image: postgres:16-alpine
+    image: docker.io/library/postgres:16-alpine
     container_name: ${CONTAINER_NAME}-db
     networks:
       - backend
@@ -82,7 +83,7 @@ services:
       retries: 5
 
   queue:
-    image: rabbitmq:3.12-management-alpine
+    image: docker.io/library/rabbitmq:3.12-management-alpine
     container_name: ${CONTAINER_NAME}-queue
     networks:
       - backend
@@ -98,7 +99,7 @@ services:
       retries: 5
 
   log:
-    image: elasticsearch:8.10.4
+    image: docker.io/library/elasticsearch:8.10.4
     container_name: ${CONTAINER_NAME}-log
     networks:
       - backend
@@ -115,6 +116,32 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
+
+  metabase:
+    restart: "always"
+    image: docker.io/metabase/metabase:latest
+    container_name: ${CONTAINER_NAME}-metabase
+    # env_file:
+    #   - ./config/metabase_database.env
+    environment:
+      # - MB_DB_FILE=/metabase-data/metabase.db
+      - MB_DB_TYPE=postgres
+      - MB_DB_DBNAME=metabase
+      - MB_DB_PORT=3000
+      - MB_DB_USER=metabase
+      - MB_DB_PASS=${METABASE_PASSWORD}
+      - MB_DB_HOST=db
+      - MB_ENCRYPTION_SECRET_KEY=${METABASE_API_KEY}
+
+    volumes:
+      - ${PROJECT_DATA_DIR}/${ENVIRONMENT}/metabase:/metabase-data
+    ports:
+      - ${METABASE_PORT}:3000
+    networks:
+      - backend
+    depends_on:
+      - db
+
 
 networks:
   backend:

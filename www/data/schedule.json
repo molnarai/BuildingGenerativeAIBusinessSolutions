@@ -43,7 +43,7 @@
       "Topic": "Training and Finetuning of LLMs",
       "Reading": "",
       "InClass": "Q3",
-      "DueBeforeClass": "HW 1 Prompt Engineering"
+      "DueBeforeClass": ""
     },
     {
       "Day": "2025-02-17",
@@ -51,7 +51,7 @@
       "Topic": "LLM Fine-tunig Frameworks, Benchmark Techniques",
       "Reading": "AG 11-12, KH 5",
       "InClass": "Test 1 (1Hr)",
-      "DueBeforeClass": ""
+      "DueBeforeClass": "HW 1 Prompt Engineering"
     },
     {
       "Day": "2025-02-24",
@@ -59,7 +59,7 @@
       "Topic": "Retrieval Augmented Generation (RAG)",
       "Reading": "AG 8",
       "InClass": "Q4",
-      "DueBeforeClass": "HW 2 LLM Fine Tuning"
+      "DueBeforeClass": ""
     },
     {
       "Day": "2025-03-03",
@@ -67,7 +67,7 @@
       "Topic": "Document Porcessing, Vector Data Bases",
       "Reading": "online resources",
       "InClass": "Q5",
-      "DueBeforeClass": ""
+      "DueBeforeClass": "HW 2 LLM Fine Tuning"
     },
     {
       "Day": "2025-03-10",
@@ -75,7 +75,7 @@
       "Topic": "Agentic AI Applications",
       "Reading": "KH 4+6",
       "InClass": "Q6",
-      "DueBeforeClass": "HW 3 Document Processing for RAG"
+      "DueBeforeClass": ""
     },
     {
       "Day": "2025-03-17",
@@ -91,7 +91,7 @@
       "Topic": "AI Agent Frameworks",
       "Reading": "online resources",
       "InClass": "Q7",
-      "DueBeforeClass": ""
+      "DueBeforeClass": "HW 3 Document Processing for RAG"
     },
     {
       "Day": "2025-03-31",
@@ -99,7 +99,7 @@
       "Topic": "Symbolic and Neuro-symbolic AI",
       "Reading": "online resources",
       "InClass": "Test 2 (1Hr)",
-      "DueBeforeClass": "HW 4 AI Agent"
+      "DueBeforeClass": ""
     },
     {
       "Day": "2025-04-07",
@@ -107,7 +107,7 @@
       "Topic": "Knowledge Graphs",
       "Reading": "online resources",
       "InClass": "Q8",
-      "DueBeforeClass": ""
+      "DueBeforeClass": "HW 4 AI Agent"
     },
     {
       "Day": "2025-04-14",

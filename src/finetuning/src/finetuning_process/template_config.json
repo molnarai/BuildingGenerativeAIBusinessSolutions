@@ -1,0 +1,12 @@
+{
+    "model_name": "unsloth/Llama-3.2-1B-bnb-4bit",
+    "max_seq_length": 5020,
+    "load_in_4bit": true,
+    "r": 16,
+    "lora_alpha": 16,
+    "lora_dropout": 0,
+    "target_modules": ["q_proj", "k_proj", "v_proj", "up_proj", "down_proj", "o_proj", "gate_proj"],
+    "use_rslora": true,
+    "use_gradient_checkpointing": "unsloth",
+    "random_state": 32
+}

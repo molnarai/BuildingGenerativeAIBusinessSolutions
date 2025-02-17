@@ -6,6 +6,10 @@
 #         |___/                       
 
 # Byte-compiled / optimized / DLL files
+.env
+.series/
+src/finetuning/.env
+
 __pycache__/
 *.py[cod]
 *$py.class
@@ -130,6 +134,7 @@ celerybeat.pid
 
 # Environments
 .env
+.env*
 .venv
 env/
 venv/

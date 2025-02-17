@@ -171,7 +171,7 @@ class ResponseData(BaseModel):
     ai_provider: Optional[str] = None
     ai_seconds: Optional[float] = None
     ai_stream: Optional[bool] = None
-    ai_temperature: Optional[int] = None
+    ai_temperature: Optional[float] = None
     ai_timestamp: Optional[str] = None
     llm_answer: Optional[str] = None
     problem_description: Optional[str] = None
@@ -261,7 +261,9 @@ async def save_response(
                     problem_id=response_data.problem_id,
                     problem_title=response_data.problem_title,
                     prompt=response_data.prompt,
-                    select_for_submission=response_data.select_for_submission
+                    select_for_submission=response_data.select_for_submission,
+                    user_comment=response_data.user_comment,
+                    username=response_data.username
                 )
                 db.add(new_response)
                 await db.commit()

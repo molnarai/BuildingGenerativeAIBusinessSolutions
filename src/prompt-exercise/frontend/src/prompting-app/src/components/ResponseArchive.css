@@ -15,19 +15,22 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  /* width: 100%; */
 }
 
 .response-item {
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 1rem;
+  padding: 0.5rem;
+  /* margin-right: 20px; */
   cursor: pointer;
   transition: background-color 0.2s;
   /* display: flex; */
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr auto;
   justify-content: space-between;
   align-items: center;
+  /* width: 100%; */
 }
 
 .response-item:hover {
@@ -39,6 +42,7 @@
   flex-direction: column;
   gap: 0.5rem;
   text-align: left;
+  width: 100%;
 }
 
 .truncated-text {
@@ -46,6 +50,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
+  /* padding: 0.5rem 0; */
+  display: block;
 }
 
 .model-info {

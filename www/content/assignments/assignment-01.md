@@ -1,10 +1,10 @@
 +++
 date = '2025-01-06T18:20:46-05:00'
-due_date = "2025-02-10"
+due_date = "2025-02-17"
 draft = false
 title = 'Homework 1: Prompt Engineering'
 weight = 10
-status = '*not ready to start*'
+status = 'Posted'
 +++
 
 In this assignment, you will explore and refine several common prompt engineering techniques for large language models (LLMs). The goal is to experiment with different methods and observe how they influence the quality of the model's output. You will focus on natural language tasks, and your experiments should include **few-shot learning**, **chain-of-thought prompting**, **defining a persona**, **adjusting tone**, and additional tasks such as **summarization** and **narrative creation from bullet points**.
@@ -12,6 +12,17 @@ In this assignment, you will explore and refine several common prompt engineerin
 <!-- more -->
 
 ---
+
+** Due on February 17, 2025 before midnight **
+
+Use the *Prompting App* at <http://10.230.100.222/app/prompt-exercise/>
+
+***Please note:***
+- *There is still a bug that sometimes does show the proper state of the "Select for grading" check-box. Please ignore. The "Completion Summary" shows the your records and selections in the database.*
+- *You can revisit this app and reload at any time until the assignment closes. Your records will be stored in our database.*
+- *Your API keys and Base URLs are stored locally in the browser. If you switch browsers or computers you need to enter them again in the "Configuration Settings".* 
+- *You have access to selected models provided by GSU, though, feel free to explore other models using your OpenAI API key or local installation of Ollama or LM Studio (see [configuration notes](../../resources/resource-cors/))*
+
 
 ### Instructions:
 

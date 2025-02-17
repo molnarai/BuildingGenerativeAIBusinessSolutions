@@ -26,6 +26,9 @@ import LoginScreen from './components/LoginScreen';
 import LoginStatusWidget from './components/LoginStatusWidget';
 import ResponseArchiveWidget from './components/ResponseArchiveWidget';
 import SummaryWidget from './components/SummaryWidget';
+import HelpWidget from './components/HelpWidget';
+import DueByWidget from './components/DueByWidget';
+
 
 import { useAuth } from './AuthProvider';
 import './App.css';
@@ -338,7 +341,27 @@ function AppContent() {
         
         // localStorage.setItem('savedResponses', JSON.stringify(savedResponses));
     }
-    
+
+    //   _  _     _      
+    //  | || |___| |_ __ 
+    //  | __ / -_) | '_ \
+    //  |_||_\___|_| .__/
+    //             |_|   
+    const [showHelp, setShowHelp] = useState(false);
+    useEffect(() => {
+        // Check if user is newly logged in and hasn't dismissed the help
+        const hideHelp = localStorage.getItem('hideHelpWidget');
+        const isLoggedIn = true; // Replace with your actual login check
+        
+        if (isLoggedIn && !hideHelp) {
+            setShowHelp(true);
+        }
+    }, []); // Empty dependency array means this runs once on mount
+
+    const handleHelpClick = () => {
+        setShowHelp(true);
+    };
+
     return (
        
         <div className="App">
@@ -346,7 +369,13 @@ function AppContent() {
                 <div className="App-header-headline">
                     {/* <img src={'RCB-LOGO_3spot_300x108.png'} alt="RCB Logo" /> */}
                     <h1>{dashToTitle(ai_application_name)}</h1>
-                    <LoginStatusWidget />
+                    <DueByWidget />
+                    <div className='header-right'>
+                        <LoginStatusWidget />
+                        {isAuthenticated && (<button className="help-button" onClick={handleHelpClick}>
+                            Help
+                        </button>)}
+                    </div>
                 </div>
                 {isAuthenticated && (
                     <AssignmentTabs
@@ -355,6 +384,10 @@ function AppContent() {
                         onAssignmentTabClick={onAssignmentTabClick}
                     />
                 )}
+                <HelpWidget 
+                    isOpen={isAuthenticated && showHelp} 
+                    onClose={() => setShowHelp(false)}
+                />
             </header>
 
             {/* <Routes>
@@ -395,7 +428,7 @@ function AppContent() {
                                             config={config}
                                             userInfo={userInfo}
                                             problemDetails={problemDetails}
-                                            handleAddResponseToArchivement={handleAddResponseToArchive}
+                                            handleAddResponseToArchive={handleAddResponseToArchive}
                                         />
                                     </div>
                                 </div>
@@ -439,9 +472,9 @@ function App() {
   
     return (
       <AuthProvider ai_application_url={ai_application_url}>
-        <Router>
+        {/* <Router> */}
           <AppContent />
-        </Router>
+        {/* </Router> */}
       </AuthProvider>
     );
   }

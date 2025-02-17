@@ -1,6 +1,6 @@
 +++
 date = '2025-01-06T18:20:46-05:00'
-due_date = '2025-03-10'
+due_date = '2025-03-24'
 draft = false
 title = 'Homework 3: Curation of Documents Questions-Answer Sets for RAG'
 weight = 30

@@ -7,7 +7,9 @@ import ModelSelector from "./ModelSelector";
 import ModelInferenceParameters from "./ModelInferenceParameters";
 import "./AIAssistantWidget.css"
 
-const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, handleAddResponseToArchivement }) => {
+const ai_application_url = process.env.REACT_APP_AI_APPLICATION_BASE_URL ? process.env.REACT_APP_AI_APPLICATION_BASE_URL : 'http://localhost:8000';
+
+const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, handleAddResponseToArchive }) => {
     const [prompt, setPrompt] = useState("");
     const [response, setResponse] = useState("");
     const [userComment, setUserComment] = useState("");
@@ -27,22 +29,14 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
         "max_tokens": 1000
     });
 
-    const [aiResponse, setAiResponse] = useState({
-        // "problem_id": 0,                    // = Column(Integer, ForeignKey("problems.id"), nullable=False)
-        // "user_id": 0,                       // = Column(Integer, ForeignKey("users.id"))
-        // "prompt": "",              // = Column(String, nullable=False)
-        // "llm_answer": "",          // = Column(String, nullable=False)
-        // "ai_provider": "",         // = Column(String, nullable=False)
-        // "ai_model": "",            // = Column(String, nullable=False)
-        // "ai_input_tokens": 0,      // = Column(Integer, nullable=False)
-        // "ai_output_tokens": 0,     //  = Column(Integer, nullable=False)
-        // "ai_seconds": 0,           // = Column(Integer, nullable=False)
-        // "select_for_submission": false,     // = Column(Boolean, default=False)
-        // "submission_time": "",              //  = Column(DateTime(timezone=True))
-    });
+    const [aiResponse, setAiResponse] = useState({});
+    // Add this useEffect to monitor aiResponse changes
+    useEffect(() => {
+        console.log('aiResponse changed:', aiResponse);
+    }, [aiResponse]);
 
-    const {user} = useAuth();
-
+    const {user, accessToken} = useAuth();
+    
     const handleProviderModelChange = (provider, model) => {
         setSelectedProviderModel({ "provider": provider, "model": model });
         console.log(`Selected provider model: ${provider} - ${model}`);
@@ -277,23 +271,26 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
                     },
                     body: JSON.stringify({
                         prompt,
-                        model: "text-davinci-003", // Adjust based on your model
-                        max_tokens: 100,
-                        stream: true,
+                        model: selectedProviderModel.model,
+                        max_tokens: parameters.max_tokens,
+                        temperature: parameters.temperature,
+                        stream: parameters.stream,
                     }),
                 });
             } else if (selectedProviderModel.provider.toLowerCase() === "gsu") {
-                res = await fetch(apiUrl, {
+                res = await fetch(`${ai_application_url}/ai/v1/completions`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
+                        'Authorization': `Bearer ${accessToken}`
+                        // 'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
                     },
                     body: JSON.stringify({
                         prompt,
-                        model: "text-davinci-003", // Adjust based on your model
-                        max_tokens: 100,
-                        stream: true,
+                        model: selectedProviderModel.model,
+                        max_tokens: parameters.max_tokens,
+                        temperature: parameters.temperature,
+                        stream: parameters.stream,
                     }),
                 });
                 
@@ -332,7 +329,38 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
             }
             
             console.log("AI response Metadata:", metadata);
-            setAiResponse({...aiResponse,
+            // setAiResponse({...aiResponse,
+            //     problem_id: problemDetails.problem_id,
+            //     problem_title: problemDetails.title,
+            //     problem_description: problemDetails.description,
+            //     prompt: prompt,
+            //     llm_answer: content,
+            //     ai_provider: selectedProviderModel.provider,
+            //     ai_model: selectedProviderModel.model,
+            //     ai_temperature: parameters.temperature,
+            //     //ai_top_p: parameters.topP,
+            //     ai_max_tokens: parameters.max_tokens,
+            //     ai_stream: parameters.stream,
+            //     ai_stop_sequences: metadata.stop_sequences,
+            //     ai_input_tokens: metadata.usage.prompt_tokens,
+            //     ai_output_tokens: metadata.usage.completion_tokens,
+            //     ai_seconds: (Date.now() - startTime) / 1000,
+            //     ai_timestamp: new Date().toISOString(),
+            //     uuid : crypto.randomUUID(),
+            //     username: user.username,
+            //     user_id: user.user_id,
+            //     user_comment: userComment,
+            //     select_for_submission: true,
+            // });
+            const create_uuid = () => {
+                try {
+                    return crypto.randomUUID();
+                }
+                finally {
+                    return `R${Math.random()}`
+                }
+            }
+            setAiResponse({
                 problem_id: problemDetails.problem_id,
                 problem_title: problemDetails.title,
                 problem_description: problemDetails.description,
@@ -349,13 +377,12 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
                 ai_output_tokens: metadata.usage.completion_tokens,
                 ai_seconds: (Date.now() - startTime) / 1000,
                 ai_timestamp: new Date().toISOString(),
-                uuid : crypto.randomUUID(),
+                uuid : create_uuid(),
                 username: user.username,
                 user_id: user.user_id,
                 user_comment: userComment,
-                select_for_submission: true,
+                select_for_submission: false, // true,
             });
-            
 
             const elapsedTime = Date.now() - startTime;
             setStats({
@@ -373,13 +400,17 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
 
     const handleSaveResponse = () => {
         // const userComment = promptInputRef.current.value;
+        if (!aiResponse) {
+            console.warn('No AI response available to save');
+            return;
+        }
         console.log("Saving AI-Response:", aiResponse);
         // Handle saving the comment (e.g., API call or local storage)
         const responseToSave = {
             ...aiResponse,
             user_comment: userComment,
         };
-        handleAddResponseToArchivement(responseToSave);
+        handleAddResponseToArchive(responseToSave);
     };
 
     useEffect(() => {
@@ -417,6 +448,7 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
                 />
             </div> */}
             {/* Prompt Input */}
+            <h3>Your Prompt:</h3>
             <textarea
                 className="prompt-input"
                 value={prompt}
@@ -461,11 +493,12 @@ const AIAssistantWidget = ({ apiKey, apiUrl, config, userInfo, problemDetails, h
             </div>
 
             {/* User Comment */}
+            <h3>Your Observation:</h3>
             <textarea
                 className="user-comment-input"
                 value={userComment}
                 onChange={(e) => setUserComment(e.target.value)}
-                placeholder="It's required to write your comment here before you can save the response..."
+                placeholder="It's required to write your observation here before you can save the response..."
                 rows="3"
                 style={{ width: "100%", marginTop: "10px" }}
             />

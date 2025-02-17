@@ -72,7 +72,19 @@ const SummaryWidget = ({ completionCount, onRefresh, selectedTab }) => {
                                 )}
                             </tbody>
                         </table>
+                        <label>
+                            <button
+                                style={{ minWidth: "120px", marginTop: "20px"}}
+                                className="submit-grading-button"
+                                onClick={() => {
+                                    alert("Homework submitted for grading!");
+                                }}
+                            >
+                                Submit for Homework
+                            </button>
+                        </label>
                     </div>
+                   
                 )}
             </div>
         </div>

@@ -33,6 +33,17 @@
   /* height: 3em; */
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  /* gap: 1rem; */
+}
+
+.help-button {
+  /* background-color: #07c4a1; */
+  margin-right: 1rem;
+}
+ 
 .chat-container {
   height: 60vh;
   overflow-y: auto;
@@ -423,4 +434,14 @@ pre.response-container-raw {
 
 .completion-stats-title {
    text-align: left;
+}
+
+.due-by-widget {
+    /* padding: 10px; */
+    /*border-radius: 4px;
+    background-color: #f5f5f5; */
+    display: inline-block;
+    /* margin: 10px; */
+    font-size: 1rem;
+    align-content: center;
 }
