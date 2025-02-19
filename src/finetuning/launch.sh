@@ -17,7 +17,7 @@ jupyter)
 	;;
 run)
         podman run -it --rm \
-        --device nvidia.com/gpu=0 \
+        --device nvidia.com/gpu=all \
         --security-opt=label=disable \
         -v $PWD:/myapp/local \
          $CONTAINER_NAME $2 $3 $4 

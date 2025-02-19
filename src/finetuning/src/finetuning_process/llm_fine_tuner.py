@@ -11,7 +11,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 
 class LLMFineTuner:
-    def __init__(self, model_name, dataset, output_dir):
+    def __init__(self, model_name, dataset, output_dir, cache_dir):
         self.model_name = model_name
         self.dataset = dataset
         self.output_dir = output_dir
@@ -24,6 +24,7 @@ class LLMFineTuner:
             max_seq_length=2048,
             dtype=torch.bfloat16 if is_bfloat16_supported() else torch.float16,
             load_in_4bit=True,
+            cache_dir = ""
         )
         tokenizer = get_chat_template(tokenizer, chat_template="unsloth", mapping={"role": "system", "content": "system"})
         return model, tokenizer
