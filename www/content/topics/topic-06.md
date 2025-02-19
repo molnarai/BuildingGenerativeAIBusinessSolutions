@@ -29,7 +29,7 @@ Listen to the podcast:
 
 Read the following:
 1. Perplexity blog: [RAG and Semantic Search](https://www.perplexity.ai/page/rag-and-semantic-search-LwzgO8F2Tym.05Momy.B5A)
-2. Textbook: [Chapter 8: Hands-On Large Language Models](https://learning.oreilly.com/library/view/hands-on-large-language/9781098150952/ch08.html)
+2. Textbook: [Chapter 8: Hands-On Large Language Models](https://go.oreilly.com/georgia-state-university/library/view/hands-on-large-language/9781098150952/ch08.html)
 3. Paper: [Retrieval Augmented Generation (RAG) and Beyond: A Comprehensive Survey on How to Make your LLMs use External Data More Wisely](https://arxiv.org/abs/2409.14924)
 
 
