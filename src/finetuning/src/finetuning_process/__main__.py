@@ -1,5 +1,19 @@
 #!/usr/bin/env python3
 
+import argparse
+import json
+import logging
+import os
+import sys
+from os.path import join as jp
+
+from finetuning_process import (
+    validate_configuration_file,
+    validate_datafile,
+    FineTuner,
+)
+
+DEFAULT_LOG_FILE = jp("logs", "finetuning_process.log")
 
 def main(logger, model_name: str, configuration_file: str, dataset_path: str, save_path: str, model_path: str, 
         hub_token: str, max_runtime_minutes: int = 60) -> None:
