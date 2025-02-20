@@ -1,6 +1,7 @@
 #!/bin/bash
 CONTAINER_NAME="${USER}/ft_hf_unsloth"
 ROOT_DIR=$(dirname $0)
+HF_TOKEN=$(cat ${HOME}/.secrets/huggingface-msa8700b.txt)
 
 case $1 in
 build)
