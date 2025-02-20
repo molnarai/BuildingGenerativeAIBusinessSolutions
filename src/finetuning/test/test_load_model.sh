@@ -58,4 +58,4 @@ podman run -it --rm \
     --hf-token=$HF_TOKEN \
     --max-runtime-minutes=30
 
- echo "Done!"
+ echo "Done."
