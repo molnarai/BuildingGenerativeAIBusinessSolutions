@@ -1,5 +1,6 @@
 #!/bin/bash
 CONTAINER_NAME="${USER}/ft_hf_unsloth"
+ROOT_DIR=$(dirname $0)
 
 case $1 in
 build)
