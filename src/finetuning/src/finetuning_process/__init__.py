@@ -117,6 +117,7 @@ class FineTuner:
         self.model_name = model_name
         self.configuration = configuration
         self.dataset_path = dataset_path
+        self.dataset = None
         self.save_path = save_path
         self.cache_path = cache_path if cache_path[-1] == '/' else f"{cache_path}/"
         self.model_path = model_path
@@ -143,7 +144,7 @@ class FineTuner:
         ]
         df = pd.concat(dataframes)
         print(f"Dataset loaded. Number of records: {df.shape[0]:,}")
-        self.logger.info(f"Dataset loaded. Number of records: {self.dataset.shape[0]:,}")
+        self.logger.info(f"Dataset loaded. Number of records: {df.shape[0]:,}")
         # print(self.dataset)
 
         data_prompt = """Analyze the provided text from a mental health perspective. Identify any indicators of emotional distress, coping mechanisms, or psychological well-being. Highlight any potential concerns or positive aspects related to mental health, and provide a brief explanation for each observation.
