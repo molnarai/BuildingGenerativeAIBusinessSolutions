@@ -24,7 +24,7 @@ finetun*)
                 --security-opt=label=disable \
                 -v ${ROOT_DIR}:/myapp/local \
                 -v /staging/users/$USER/msa8700/finetuning:/staging \
-                $CONTAINER_NAME /bin/bash python3 -m local.src.finetuning_process \
+                $CONTAINER_NAME /usr/bin/python3 -m src.finetuning_process \
                 --config-file=/myapp/local/config.json \
                 --action="test" \
                 --model="unsloth/Llama-3.2-1B-bnb-4bit" \
