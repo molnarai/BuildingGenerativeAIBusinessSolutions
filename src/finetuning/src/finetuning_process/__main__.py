@@ -54,7 +54,6 @@ if __name__ == "__main__":
     parser.add_argument("--cache-dir", type=str, help="cache path")
     parser.add_argument("--output-dir", type=str, help="output path")
     parser.add_argument("--hf-token", type=str, help="Hub token")
-    parser.add_argument("--max-runtime-minutes", type=int, help="Max runtime minutes")
     parser.add_argument("--log-level", type=str, help="Log level")
     parser.add_argument("--log-dir", type=str, default=DEFAULT_LOG_FILE, help="Log file")
     parser.add_argument("--max-runtime-minutes", type=int, default=30, help="Max runtime minutes")
