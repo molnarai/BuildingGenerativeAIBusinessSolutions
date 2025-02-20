@@ -153,7 +153,7 @@ class FineTuner:
             max_seq_length=self.configuration["max_seq_length"],
             dtype=torch.bfloat16 if is_bfloat16_supported() else torch.float16,
             load_in_4bit=True,
-            cache_path=self.cache,
+            cache_path=self.cache_path,
             token=self.hub_token
         )
         print("Model loaded")
