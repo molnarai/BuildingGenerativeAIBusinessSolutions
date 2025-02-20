@@ -110,21 +110,15 @@ def validate_configuration_file(file_path) -> Dict[str, Any]:
 
 class FineTuner:
     def __init__(self, logger: logging.Logger,
-                 model_name: str, configuration_file: str, dataset_path: str, save_path: str, model_path: str,
+                 model_name: str, configuration: Dict, dataset_path: str, save_path: str, model_path: str, cache_path: str,
                  hub_token: str, max_runtime_minutes: int = 60):
         self.model_name = model_name
-        self.configuration_file = configuration_file
+        self.configuration = configuration
         self.dataset_path = dataset_path
         self.save_path = save_path
         self.model_path = model_path
         self.hub_token = hub_token
         self.max_runtime_minutes = max_runtime_minutes
-
-        # Load configuration
-    def load_configuration(self):
-        self.configuration = json.load(open(self.configuration_file, "r", encoding="utf-8"))
-        print("Configuration loaded")
-        print(self.configuration)
 
         # Load dataset
     def load_dataset(self):
@@ -139,6 +133,8 @@ class FineTuner:
             max_seq_length=self.configuration["max_seq_length"],
             dtype=torch.bfloat16 if is_bfloat16_supported() else torch.float16,
             load_in_4bit=True,
+            cache_dir=self.cache,
+            token=self.hub_token
         )
         print("Model loaded")
         print(self.model)

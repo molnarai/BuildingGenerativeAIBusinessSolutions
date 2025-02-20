@@ -10,11 +10,11 @@ import datetime
 T_now = datetime.datetime.now
 from typing import Dict
 
-# from finetuning_process import (
-#     validate_configuration_file,
-#     validate_datafile,
-#     FineTuner,
-# )
+from finetuning_process import (
+    validate_configuration_file,
+    validate_datafile,
+    FineTuner,
+)
 
 DEFAULT_LOG_FILE = jp("logs", "finetuning_process.log")
 
@@ -34,12 +34,20 @@ def main(
     logger.info("Finetuning process started")
     logger.info(f"Action: {action}")
     logger.info(f"Model name: {model_name}")
+    
     logger.info(f"Configuration: {config}")
+
+
     logger.info(f"Dataset path: {dataset_dir}")
     logger.info(f"Save path: {save_dir}")
     logger.info(f"Model path: {model_dir}")
     logger.info(f"Hub token: {hub_token}")
     logger.info(f"Max runtime minutes: {max_runtime_minutes}")
+
+    ft = FineTuner(logger, model_name, config, dataset_dir, save_dir, model_dir, cache_dir, hub_token, max_runtime_minutes)
+    logger.info("Model: %s", ft.model)
+    logger.info("Tokenizer: %s", ft.tokenizer)
+
     logger.info("Done.")
 
 
@@ -68,7 +76,7 @@ if __name__ == "__main__":
     os.makedirs(args.output_dir, exist_ok=True)
 
     logfilename = jp(args.log_dir, f"finetuning_process_{args.model.replace('/', '-')}_{args.tag}.log")
-    logging.basicConfig(filename=logfilename, level=args.log_level, format='%(asctime)s %(levelname)s %(name)s %(message)s')
+    logging.basicConfig(filename=logfilename, level=args.log_level, format='%(asctime)s %(levelname)s %(message)s')
     logger = logging.getLogger(__name__)
     logger.setLevel(args.log_level)
 
@@ -76,6 +84,11 @@ if __name__ == "__main__":
     logger.info(f"Arguments: {args}")
     logger.info(f"Model name: {args.model}")
     logger.info(f"Configuration file: {args.configuration_file}")
+
+    res = validate_configuration_file(args.configuration_file)
+    if not res["valid"]:
+        logger.error(f"Configuration file is not valid: {res['message']}")
+        sys.exit(1)
 
     config = json.load(open(args.configuration_file, "r", encoding="utf-8"))
     logger.info(f"Configuration: {config}")

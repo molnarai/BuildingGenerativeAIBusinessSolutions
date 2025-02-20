@@ -24,6 +24,7 @@ finetun*)
                 --security-opt=label=disable \
                 -v ${ROOT_DIR}:/myapp/local \
                 -v /staging/users/$USER/msa8700/finetuning:/staging \
+                -v "${HOME}/msa8700/finetuning":/home \
                 $CONTAINER_NAME /usr/bin/python3 -m finetuning_process \
                 --action="test" \
                 --model="unsloth/Llama-3.2-1B-bnb-4bit" \
@@ -32,8 +33,8 @@ finetun*)
                 --cache-dir=/staging/cache \
                 --model-dir=/staging/model \
                 --data-dir=/staging/data \
-                --output-dir=/staging/output \
-                --log-dir=/staging/log \
+                --output-dir=/home/output \
+                --log-dir=/home/log \
                 --log-level=DEBUG \
                 --hf-token=$HF_TOKEN \
                 --max-runtime-minutes=30
