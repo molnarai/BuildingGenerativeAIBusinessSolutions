@@ -1,3 +1,19 @@
+#!/usr/bin/env python3
+TITLE = r"""
+  _     _     __  __   _____ _                _____                      
+ | |   | |   |  \/  | |  ___(_)_ __   ___    |_   _|   _ _ __   ___ _ __ 
+ | |   | |   | |\/| | | |_  | | '_ \ / _ \_____| || | | | '_ \ / _ \ '__|
+ | |___| |___| |  | | |  _| | | | | |  __/_____| || |_| | | | |  __/ |   
+ |_____|_____|_|  |_| |_|   |_|_| |_|\___|     |_| \__,_|_| |_|\___|_|   
+                                                                         
+"""
+import os
+import sys
+import json
+import logging
+import time
+import argparse
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 from trl import SFTTrainer
 from transformers import TrainingArguments, TextStreamer, DataCollatorForLanguageModeling
@@ -8,10 +24,11 @@ from unsloth import is_bfloat16_supported
 
 # Saving model
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from typing import List, Dict, Union
 
 
 class LLMFineTuner:
-    def __init__(self, model_name, dataset, output_dir):
+    def __init__(self, tag: str, model_name: str, dataset: str, output_dir: str, cache_dir: str):
         self.model_name = model_name
         self.dataset = dataset
         self.output_dir = output_dir
@@ -60,24 +77,33 @@ class LLMFineTuner:
     def save_model(self):
         self.model.save_pretrained(self.output_dir)
         self.tokenizer.save_pretrained(self.output_dir)
-max_seq_length = 5020
-model, tokenizer = FastLanguageModel.from_pretrained(
-    model_name="unsloth/Llama-3.2-1B-bnb-4bit",
-    max_seq_length=max_seq_length,
-    load_in_4bit=True,
-    dtype=None,
-    trust_remote_code=True,
-)
 
-model = FastLanguageModel.get_peft_model(
-    model,
-    r=16,
-    lora_alpha=16,
-    lora_dropout=0,
-    target_modules=["q_proj", "k_proj", "v_proj", "up_proj", "down_proj", "o_proj", "gate_proj"],
-    use_rslora=True,
-    use_gradient_checkpointing="unsloth",
-    random_state = 32,
-    loftq_config = None,
-)
-print(model.print_trainable_parameters())
+
+def main():
+    model_name = "unsloth/Llama-3.2-1B-bnb-4bit"
+    dataset = Dataset.from_json("data/processed/llm_finetuning_data.json")
+    output_dir = "models/llm_finetuned_model"
+    llm_fine_tuner = LLMFineTuner(model_name, dataset, output_dir)
+    llm_fine_tuner.train()
+
+    max_seq_length = 5020
+    model, tokenizer = FastLanguageModel.from_pretrained(
+        model_name="unsloth/Llama-3.2-1B-bnb-4bit",
+        max_seq_length=max_seq_length,
+        load_in_4bit=True,
+        dtype=None,
+        trust_remote_code=True,
+    )
+
+    model = FastLanguageModel.get_peft_model(
+        model,
+        r=16,
+        lora_alpha=16,
+        lora_dropout=0,
+        target_modules=["q_proj", "k_proj", "v_proj", "up_proj", "down_proj", "o_proj", "gate_proj"],
+        use_rslora=True,
+        use_gradient_checkpointing="unsloth",
+        random_state = 32,
+        loftq_config = None,
+    )
+    print(model.print_trainable_parameters())

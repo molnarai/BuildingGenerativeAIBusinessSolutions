@@ -1,5 +1,4 @@
 FROM huggingface/transformers-pytorch-gpu
-#FROM nvcr.io/nvidia/pytorch:25.01-py3
 RUN mkdir /myapp
 WORKDIR /myapp
 RUN cd /myapp
