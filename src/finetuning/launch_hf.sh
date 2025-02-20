@@ -6,7 +6,7 @@ build)
 	podman build -t $CONTAINER_NAME -f Dockerfile.huggingface .
 	;;
 
-run)
+shell)
         shift
         podman run -it --rm \
         --device nvidia.com/gpu=all \
@@ -15,5 +15,29 @@ run)
         -v /staging/users/$USER:/staging \
          $CONTAINER_NAME $*
         ;;
+
+finetun*)
+        mkdir -p /staging/users/$USER/msa8700/finetuning
+        podman run -it --rm \
+                --device nvidia.com/gpu=all \
+                --security-opt=label=disable \
+                -v ${ROOT_DIR}:/myapp/local \
+                -v /staging/users/$USER/msa8700/finetuning:/staging \
+                -w /myapp \
+                $CONTAINER_NAME /bin/bash python3 -m local.src.finetuning_process \
+                --config-file=/myapp/local/config.json \
+                --action="test" \
+                --model="unsloth/Llama-3.2-1B-bnb-4bit" \
+                --tag="testing_${USER}" \
+                --cache-dir=/staging/cache \
+                --model-dir=/staging/model \
+                --data-dir=/staging/data \
+                --output-dir=/staging/output \
+                --log-dir=/staging/log \
+                --log-level=DEBUG \
+                --hf-token=$HF_TOKEN \
+                --max-runtime-minutes=30
+        ;;
+
 esac
 
