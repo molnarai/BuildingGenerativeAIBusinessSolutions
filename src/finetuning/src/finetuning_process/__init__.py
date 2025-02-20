@@ -142,7 +142,7 @@ class FineTuner:
         ]
         self.dataset = pd.concat(dataframes)
         print(f"Dataset loaded. Number of records: {self.dataset.shape[0]:,}")
-        self.logger.info(f"Dataset loaded. Number of records: {self.dataset.shape[0]:, }")
+        self.logger.info(f"Dataset loaded. Number of records: {self.dataset.shape[0]:,}")
         # print(self.dataset)
 
 
