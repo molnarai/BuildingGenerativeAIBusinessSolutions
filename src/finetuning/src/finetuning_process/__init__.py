@@ -113,6 +113,7 @@ class FineTuner:
     def __init__(self, logger: logging.Logger,
                  model_name: str, configuration: Dict, dataset_path: str, save_path: str, model_path: str, cache_path: str,
                  hub_token: str, max_runtime_minutes: int = 60):
+        self.logger = logger
         self.model_name = model_name
         self.configuration = configuration
         self.dataset_path = dataset_path
