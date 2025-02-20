@@ -46,9 +46,10 @@ def main(
 
     ft = FineTuner(logger, model_name, config, dataset_path, save_path, model_path, cache_path, hub_token, max_runtime_minutes)
     logger.info("FineTuner initialized")
-    
-    ft.load_dataset()
+
     ft.load_model()
+    ft.load_dataset()
+
     ft.load_trainer()
 
 
