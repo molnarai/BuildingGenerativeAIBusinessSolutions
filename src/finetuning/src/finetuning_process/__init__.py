@@ -141,10 +141,32 @@ class FineTuner:
         dataframes = [
             pd.read_json(datafile, lines=True) for datafile in datafiles
         ]
-        self.dataset = pd.concat(dataframes)
-        print(f"Dataset loaded. Number of records: {self.dataset.shape[0]:,}")
+        df = pd.concat(dataframes)
+        print(f"Dataset loaded. Number of records: {df.shape[0]:,}")
         self.logger.info(f"Dataset loaded. Number of records: {self.dataset.shape[0]:,}")
         # print(self.dataset)
+
+        data_prompt = """Analyze the provided text from a mental health perspective. Identify any indicators of emotional distress, coping mechanisms, or psychological well-being. Highlight any potential concerns or positive aspects related to mental health, and provide a brief explanation for each observation.
+
+        ### Input:
+        {}
+
+        ### Response:
+        {}"""
+
+        EOS_TOKEN = self.tokenizer.eos_token
+        def formatting_prompt(examples):
+            inputs       = examples["Context"]
+            outputs      = examples["Response"]
+            texts = []
+            for input_, output in zip(inputs, outputs):
+                text = data_prompt.format(input_, output) + EOS_TOKEN
+                texts.append(text)
+            return { "text" : texts, }
+        
+        training_data = Dataset.from_pandas(df)
+        training_data = training_data.map(formatting_prompt, batched=True)
+        self.dataset = training_data
 
 
         # Load model
@@ -169,6 +191,22 @@ class FineTuner:
             dataset_text_field="text",
             max_seq_length=self.configuration["max_seq_length"],
             dataset_num_proc=2,
+            packing=True,
+            args=TrainingArguments(
+                learning_rate=3e-4,
+                lr_scheduler_type="linear",
+                per_device_train_batch_size=16,
+                gradient_accumulation_steps=8,
+                num_train_epochs=40,
+                fp16=not is_bfloat16_supported(),
+                bf16=is_bfloat16_supported(),
+                logging_steps=1,
+                optim="adamw_8bit",
+                weight_decay=0.01,
+                warmup_steps=10,
+                output_dir="output",
+                seed=0,
+            ),
             cache_dir=self.cache_path,
         )
         print("Trainer loaded")
