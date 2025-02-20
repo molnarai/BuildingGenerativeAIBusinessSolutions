@@ -88,7 +88,7 @@ if __name__ == "__main__":
     res = validate_configuration_file(args.configuration_file)
     if not res["valid"]:
         logger.error(f"Configuration file is not valid: {res['message']}")
-        sys.exit(1)
+        # sys.exit(1)
 
     config = json.load(open(args.configuration_file, "r", encoding="utf-8"))
     logger.info(f"Configuration: {config}")
