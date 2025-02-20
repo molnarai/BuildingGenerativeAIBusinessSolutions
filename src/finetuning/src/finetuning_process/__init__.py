@@ -117,12 +117,18 @@ class FineTuner:
         self.model_name = model_name
         self.configuration = configuration
         self.dataset_path = dataset_path
-        self.dataset = None
+        
         self.save_path = save_path
         self.cache_path = cache_path if cache_path[-1] == '/' else f"{cache_path}/"
         self.model_path = model_path
         self.hub_token = hub_token
         self.max_runtime_minutes = max_runtime_minutes
+
+        # future:
+        self.model = None
+        self.tokenizer = None
+        self.dataset = None
+        self.trainer = None
 
         # Load dataset
     def load_dataset(self):
