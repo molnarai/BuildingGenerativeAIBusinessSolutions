@@ -23,9 +23,11 @@ def main(
         action: str,
         model_name: str,
         config: Dict,
-        dataset_path: str,
-        save_path: str,
-        model_path: str,
+        dataset_dir: str,
+        save_dir: str,
+        model_dir: str,
+        cache_dir: str,
+        output_dir: str,
         hub_token: str,
         max_runtime_minutes: int = 30) -> None:
          
@@ -33,9 +35,9 @@ def main(
     logger.info(f"Action: {action}")
     logger.info(f"Model name: {model_name}")
     logger.info(f"Configuration: {config}")
-    logger.info(f"Dataset path: {dataset_path}")
-    logger.info(f"Save path: {save_path}")
-    logger.info(f"Model path: {model_path}")
+    logger.info(f"Dataset path: {dataset_dir}")
+    logger.info(f"Save path: {save_dir}")
+    logger.info(f"Model path: {model_dir}")
     logger.info(f"Hub token: {hub_token}")
     logger.info(f"Max runtime minutes: {max_runtime_minutes}")
     logger.info("Done.")
@@ -60,8 +62,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     os.makedirs(args.log_dir, exist_ok=True)
-    os.makedirs(args.save_path, exist_ok=True)
-    os.makedirs(args.model_path, exist_ok=True)
+    os.makedirs(args.save_dir, exist_ok=True)
+    os.makedirs(args.model_dir, exist_ok=True)
     os.makedirs(args.cache_dir, exist_ok=True)
     os.makedirs(args.output_dir, exist_ok=True)
 
@@ -82,9 +84,11 @@ if __name__ == "__main__":
         action=args.action,
         model_name=args.model_name,
         config=config,
-        dataset_path=args.data_dir,
-        save_path=args.save_path,
-        model_path=args.model_path,
+        dataset_dir=args.data_dir,
+        save_dir=args.save_dir,
+        model_dir=args.model_dir,
+        cache_dir=args.cache_dir,
+        output_dir=args.output_dir,
         hub_token=args.hf_token,
         max_runtime_minutes=args.max_runtime_minutes
     )
