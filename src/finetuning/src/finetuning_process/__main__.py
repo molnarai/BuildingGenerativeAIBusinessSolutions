@@ -7,11 +7,11 @@ import os
 import sys
 from os.path import join as jp
 
-from finetuning_process import (
-    validate_configuration_file,
-    validate_datafile,
-    FineTuner,
-)
+# from finetuning_process import (
+#     validate_configuration_file,
+#     validate_datafile,
+#     FineTuner,
+# )
 
 DEFAULT_LOG_FILE = jp("logs", "finetuning_process.log")
 
