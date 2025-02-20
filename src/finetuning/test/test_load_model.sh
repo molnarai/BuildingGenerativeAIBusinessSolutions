@@ -44,7 +44,7 @@ podman run -it --rm \
 --security-opt=label=disable \
 -v $(dirname $PWD):/myapp/local \
 -v /staging/users/$USER/msa8700/finetuning:/staging \
-    $CONTAINER_NAME python3 local/src/finetuning_process \
+    $CONTAINER_NAME python3 -m local.src.finetuning_process \
     --config-file=$CONFIG_FILE \
     --action="test" \
     --model="unsloth/Llama-3.2-1B-bnb-4bit" \
