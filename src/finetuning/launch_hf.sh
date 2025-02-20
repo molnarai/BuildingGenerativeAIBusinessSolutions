@@ -23,7 +23,6 @@ finetun*)
                 --security-opt=label=disable \
                 -v ${ROOT_DIR}:/myapp/local \
                 -v /staging/users/$USER/msa8700/finetuning:/staging \
-                -w /myapp \
                 $CONTAINER_NAME /bin/bash python3 -m local.src.finetuning_process \
                 --config-file=/myapp/local/config.json \
                 --action="test" \
