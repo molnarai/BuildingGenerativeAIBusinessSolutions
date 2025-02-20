@@ -74,7 +74,7 @@ if __name__ == "__main__":
 
     logger.info("Starting finetuning process")
     logger.info(f"Arguments: {args}")
-    logger.info(f"Model name: {args.model_name}")
+    logger.info(f"Model name: {args.model}")
     logger.info(f"Configuration file: {args.configuration_file}")
 
     config = json.load(open(args.configuration_file, "r", encoding="utf-8"))
@@ -82,7 +82,7 @@ if __name__ == "__main__":
 
     main(logger=logger,
         action=args.action,
-        model_name=args.model_name,
+        model_name=args.model,
         config=config,
         dataset_dir=args.data_dir,
         save_dir=args.save_dir,
