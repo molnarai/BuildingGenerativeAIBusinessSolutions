@@ -1,9 +1,10 @@
 #!/bin/bash
 CONTAINER_NAME="${USER}/ft_hf_unsloth"
 HF_TOKEN=`cat ${HOME}/.secrets/huggingface-msa8700b.txt
-CONFIG_FILE="./test_config.json"
+
 TEST_DIR=`dirname $0`
 ROOT_DIR=`dirname $TEST_DIR`
+CONFIG_FILE="${ROOT_DIR}/test_config.json"
 
 cat<<EOF > $CONFIG_FILE
 {
@@ -45,7 +46,6 @@ podman run -it --rm \
 --device nvidia.com/gpu=all \
 --security-opt=label=disable \
 -v ${ROOT_DIR}:/myapp/local \
--v $(realpath $CONFIG_FILE):/myapp/local/config.json \
 -v /staging/users/$USER/msa8700/finetuning:/staging \
 -w /myapp \
     $CONTAINER_NAME /bin/bash python3 -m local.src.finetuning_process \
