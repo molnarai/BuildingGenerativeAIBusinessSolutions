@@ -1,5 +1,6 @@
 import os
 jp = os.path.join
+import glob
 import numpy as np
 import pandas as pd
 # import seaborn as sns
@@ -122,9 +123,27 @@ class FineTuner:
 
         # Load dataset
     def load_dataset(self):
-        self.dataset = Dataset.from_parquet(self.dataset_path)
-        print("Dataset loaded")
-        print(self.dataset)
+        if not os.path.exists(self.dataset_path):
+            self.logger.error(f"Dataset path {self.dataset_path} does not exist.")
+            raise ValueError(f"Dataset path {self.dataset_path} does not exist.")
+        
+        datafiles = []
+        if os.path.isdir(self.dataset_path):
+            datafiles = glob.glob(os.path.join(self.dataset_path, "*.json"))
+            if len(datafiles) == 0:
+                self.logger.error(f"No data files found in {self.dataset_path}.")
+                raise ValueError(f"No data files found in {self.dataset_path}.")
+        else:
+            datafiles = [self.dataset_path] 
+
+        dataframes = [
+            pd.read_json(datafile, lines=True) for datafile in datafiles
+        ]
+        self.dataset = pd.concat(dataframes)
+        print(f"Dataset loaded. Number of records: {self.dataset.shape[0]:,}")
+        self.logger.info(f"Dataset loaded. Number of records: {self.dataset.shape[0]:, }")
+        # print(self.dataset)
+
 
         # Load model
     def load_model(self):
@@ -133,7 +152,7 @@ class FineTuner:
             max_seq_length=self.configuration["max_seq_length"],
             dtype=torch.bfloat16 if is_bfloat16_supported() else torch.float16,
             load_in_4bit=True,
-            cache_dir=self.cache,
+            cache_path=self.cache,
             token=self.hub_token
         )
         print("Model loaded")
@@ -160,19 +179,19 @@ class FineTuner:
         self.trainer.save_model(self.save_path)
         print("Model saved")
 
-        # Push model to hub
-        self.model.push_to_hub(
-            self.model_path,
-            use_temp_dir=False,
-            token=self.hub_token,
-        )
-        print("Model pushed to hub")
-        self.tokenizer.push_to_hub(
-            self.model_path,
-            use_temp_dir=False,
-            token=self.hub_token,
-        )
-        print("Tokenizer pushed to hub")
+        # # Push model to hub
+        # self.model.push_to_hub(
+        #     self.model_path,
+        #     use_temp_path=False,
+        #     token=self.hub_token,
+        # )
+        # print("Model pushed to hub")
+        # self.tokenizer.push_to_hub(
+        #     self.model_path,
+        #     use_temp_path=False,
+        #     token=self.hub_token,
+        # )
+        # print("Tokenizer pushed to hub")
 
 
 

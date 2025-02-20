@@ -30,11 +30,11 @@ finetun*)
                 --model="unsloth/Llama-3.2-1B-bnb-4bit" \
                 --tag="testing_${USER}" \
                 --configuration-file=/myapp/local/config.json \
-                --cache-dir=/staging/cache \
-                --model-dir=/staging/model \
-                --data-dir=/staging/data \
-                --output-dir=/home/output \
-                --log-dir=/home/log \
+                --cache-path=/staging/cache \
+                --model-path=/staging/model \
+                --data-path=/staging/data \
+                --output-path=/home/output \
+                --log-path=/home/log \
                 --log-level=DEBUG \
                 --hf-token=$HF_TOKEN \
                 --max-runtime-minutes=30
