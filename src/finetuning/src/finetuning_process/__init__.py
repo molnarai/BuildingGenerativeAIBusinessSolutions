@@ -118,7 +118,7 @@ class FineTuner:
         self.configuration = configuration
         self.dataset_path = dataset_path
         self.save_path = save_path
-        self.cache_path = cache_path
+        self.cache_path = cache_path if cache_path[-1] == '/' else f"{cache_path}/"
         self.model_path = model_path
         self.hub_token = hub_token
         self.max_runtime_minutes = max_runtime_minutes
@@ -154,7 +154,7 @@ class FineTuner:
             max_seq_length=self.configuration["max_seq_length"],
             dtype=torch.bfloat16 if is_bfloat16_supported() else torch.float16,
             load_in_4bit=True,
-            cache_path=self.cache_path,
+            cache_dir=self.cache_path,
             token=self.hub_token
         )
         print("Model loaded")
@@ -169,6 +169,7 @@ class FineTuner:
             dataset_text_field="text",
             max_seq_length=self.configuration["max_seq_length"],
             dataset_num_proc=2,
+            cache_dir=self.cache_path,
         )
         print("Trainer loaded")
         print(self.trainer)
