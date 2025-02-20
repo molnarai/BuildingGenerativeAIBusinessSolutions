@@ -45,7 +45,7 @@ podman run -it --rm \
 -v $(dirname $PWD):/myapp/local \
 -v /staging/users/$USER/msa8700/finetuning:/staging \
 -w /myapp \
-    $CONTAINER_NAME python3 -m local.src.finetuning_process \
+    $CONTAINER_NAME /bin/bash python3 -m local.src.finetuning_process \
     --config-file=$CONFIG_FILE \
     --action="test" \
     --model="unsloth/Llama-3.2-1B-bnb-4bit" \
