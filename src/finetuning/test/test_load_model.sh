@@ -21,26 +21,21 @@ cat<<EOF > $CONFIG_FILE
 }
 EOF
 
-# cat<<'EOT'
+
 #   ____        _ _     _ 
 #  | __ ) _   _(_) | __| |
 #  |  _ \| | | | | |/ _` |
 #  | |_) | |_| | | | (_| |
 #  |____/ \__,_|_|_|\__,_|
                         
-# EOT
-
 podman build -t $CONTAINER_NAME -f ${ROOT_DIR}/Dockerfile.huggingface .
 
-# cat<<'EOT'
 #   ____                _____         _   
 #  |  _ \ _   _ _ __   |_   _|__  ___| |_ 
 #  | |_) | | | | '_ \    | |/ _ \/ __| __|
 #  |  _ <| |_| | | | |   | |  __/\__ \ |_ 
 #  |_| \_\\__,_|_| |_|   |_|\___||___/\__|
                                         
-# EOT
-
 mkdir -p /staging/users/$USER/msa8700/finetuning
 podman run -it --rm \
 --device nvidia.com/gpu=all \
