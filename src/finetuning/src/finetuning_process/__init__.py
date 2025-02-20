@@ -195,7 +195,7 @@ class FineTuner:
             model=self.model,
             tokenizer=self.tokenizer,
             train_dataset=self.dataset,
-            dataset_text_field="text",
+            # dataset_text_field="text",
             max_seq_length=self.configuration["max_seq_length"],
             dataset_num_proc=2,
             packing=True,
