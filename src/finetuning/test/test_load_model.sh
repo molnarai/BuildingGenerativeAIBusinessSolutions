@@ -30,7 +30,7 @@ EOF
                         
 # EOT
 
-podman build -t $CONTAINER_NAME -f ../Dockerfile.huggingface .
+podman build -t $CONTAINER_NAME -f ${ROOT_DIR}/Dockerfile.huggingface .
 
 # cat<<'EOT'
 #   ____                _____         _   
