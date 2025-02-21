@@ -13,7 +13,7 @@ Benchmarking and evaluation play a critical role in assessing the success of fin
 By combining efficient finetuning techniques with rigorous benchmarking and evaluation, frameworks like LoRA and QLoRA enable practitioners to achieve state-of-the-art performance in a cost-effective manner. They address challenges like overfitting and catastrophic forgetting while unlocking LLMs' potential for specialized tasks, from legal document summarization to AI-driven customer support, driving innovation across industries.
 
 ## Required Reading and Listening
-Listen to the [podcast](../../podcasts/podcast-05-frameworks-benchmarks/):
+Listen to the [podcast](../../podcasts/podcast-05-ft-benchmark/):
 <!-- Listen to the podcast: -->
 
  <audio controls>

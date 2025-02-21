@@ -3,11 +3,11 @@
 | 2025-01-13 | 1         | Introduction to Large Language Models                          | AG 1-3           |              |                                  |
 | 2025-01-20 |           | Holiday                                                        |                  |              |                                  |
 | 2025-01-27 | 2         | Prompt Engineering                                             | AG 7             | Q1           |                                  |
-| 2025-02-03 | 3         | Framework for Prompt Evaluation and Optimzation                | KH 3             | Q2           |                                  |
-| 2025-02-10 | 4         | Training and Finetuning of LLMs                                |                  | Q3           |                                  |
-| 2025-02-17 | 5         | LLM Fine-tunig Frameworks, Benchmark Techniques                | AG 11-12, KH 5   | Test 1 (1Hr) | HW 1 Prompt Engineering          |
+| 2025-02-03 | 3         | Framework for Prompt Evaluation and Optimization               | KH 3             | Q2           |                                  |
+| 2025-02-10 | 4         | Training and Finetuning of LLMs                                | AG 11, KH 5.1-3                | Q3           |                                  |
+| 2025-02-17 | 5         | LLM Finetuning Frameworks, Benchmark Techniques                | AG 12, KH 5.4-5   | Test 1 (1Hr) | HW 1 Prompt Engineering          |
 | 2025-02-24 | 6         | Retrieval Augmented Generation (RAG)                           | AG 8             | Q4           |                                  |
-| 2025-03-03 | 7         | Document Porcessing, Vector Data Bases                         | online resources | Q5           | HW 2 LLM Fine Tuning             |
+| 2025-03-03 | 7         | Document Processing, Vector Data Bases                         | AG 7             | Q5           | HW 2 LLM Fine Tuning             |
 | 2025-03-10 | 8         | Agentic AI Applications                                        | KH 4+6           | Q6           |                                  |
 | 2025-03-17 |           | Spring Break                                                   |                  |              |                                  |
 | 2025-03-24 | 9         | AI Agent Frameworks                                            | online resources | Q7           | HW 3 Document Processing for RAG |

@@ -17,7 +17,7 @@ Furthermore, the chapter discusses the integration of LLMs with frameworks like 
 
 ## Required Reading and Listening
 
-Listen to the [podcast](../../podcasts/podcast-07-docu-processing-vector-databases/):
+Listen to the [podcast](../../podcasts/podcast-07-docu-processing-vdbs/):
 
 <!-- Listen to the podcast: -->
 
