@@ -23,7 +23,7 @@ Listen to the [podcast](../../podcasts/podcast-04-fine-tuning/):
 
 Read the following:
 1. Summary Page: [Finetuning of Large Language Models](https://www.perplexity.ai/page/finetuning-of-large-language-m-uYo8ZyfGQdijYrpM6phP_w)
-2. Textbook: **Chapter 11. Fine-Tuning Representation Models for Classification** in Allamar and Grotendorst, "Hands-On Large Language Models", O'Reilly Media Inc., September 2024;
+2. Textbook: [Chapter 11. Fine-Tuning Representation Models for Classification](https://go.oreilly.com/georgia-state-university/library/view/hands-on-large-language/9781098150952/ch11.html) in Allamar and Grotendorst, "Hands-On Large Language Models", O'Reilly Media Inc., September 2024;
 Textbook: **Chapter 5.1, 5.2, 5.3**, Huang, Ken. "Practical Guide for AI Engineers", Ind. published, May 2024.
 3. Paper: [J. Devlin et al., BERT: Pre-training of Deep Bidirectional Transformers for
 Language Understanding](https://arxiv.org/abs/1810.04805)

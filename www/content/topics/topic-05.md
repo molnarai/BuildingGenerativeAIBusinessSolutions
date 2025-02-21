@@ -23,7 +23,7 @@ Listen to the [podcast](../../podcasts/podcast-05-ft-benchmark/):
 
 Read the following:
 1. Summary Page: [LLM Fine-Tuning: Frameworks and Evaluation](https://www.perplexity.ai/page/llm-fine-tuning-frameworks-and-qt9PVw5XSiqXAt.RxUuZVQ)
-2. Textbook: **Chapter 12. Fine-Tuning Generation Models** in Allamar and Grotendorst, "Hands-On Large Language Models", O'Reilly Media Inc., September 2024; 
+2. Textbook: [Chapter 12. Fine-Tuning Generation Models](https://go.oreilly.com/georgia-state-university/library/view/hands-on-large-language/9781098150952/ch12.html) in Allamar and Grotendorst, "Hands-On Large Language Models", O'Reilly Media Inc., September 2024; 
 Textbook: **Chapter 5.4, 5.5**, Huang, Ken. "Practical Guide for AI Engineers", Ind. published, May 2024.
 3. Paper: [L. Tunstall et al., Efficient Few-Shot Learning Without Prompts](https://arxiv.org/abs/2209.11055)
 

@@ -28,8 +28,8 @@ Listen to the [podcast](../../podcasts/podcast-07-docu-processing-vdbs/):
 
 Read the following:
 
-1. Document Processing and Vector Databases Blog: **Document Processing and Vector Databases for LLMs**
-2. Textbook: **Chapter 7. Advanced Text Generation Techniques and Tools** in Allamar and Grotendorst, "Hands-On Large Language Models", O'Reilly Media Inc., September 2024. 
+1. Summary Blog: [Document Processing and Vector Databases for LLMs](https://www.perplexity.ai/page/document-processing-and-vector-V3xHwHyLSaKFEXCrYPg8Hg)
+2. Textbook: [Chapter 7. Advanced Text Generation Techniques and Tools](https://go.oreilly.com/georgia-state-university/library/view/hands-on-large-language/9781098150952/ch07.html) in Allamar and Grotendorst, "Hands-On Large Language Models", O'Reilly Media Inc., September 2024.
 3. Paper: Sanjay Kukreja et al., [Vector Databases and Vector Embeddings-Review, 2023 International Workshop on Artificial Intelligence and Image Processing (IWAIIP),](https://ieeexplore.ieee.org/document/10462847)
 
 ## Study Guide - Questions
