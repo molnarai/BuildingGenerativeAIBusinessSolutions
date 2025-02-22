@@ -165,9 +165,10 @@ class FineTuner:
         # df2 = pd.read_json(new_file_path, lines=True)      
         # print(df2.head())
   
-        # store the response of URL 
-        response = urlopen(url) 
-        data_json = json.loads(response.read()) 
+        # store the response of URL         
+        response = requests.get(url) 
+        data_json = response.json()
+
         with open(new_file_path, "w") as file:
             json.dump(data_json, file, indent=4)
         
