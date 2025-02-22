@@ -64,6 +64,6 @@ if __name__ == "__main__":
     logger = logging.getLogger(__name__)
     logger.info("Starting finetuning process")
     logger.info(f"Arguments: {args}")
-    logger.info(f"Model name: {args.model_name}")
+    logger.info(f"Model name: {args.model}")
     logger.info(f"Configuration file: {args.configuration_file}")
     ## main()
