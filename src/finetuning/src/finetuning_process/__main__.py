@@ -54,7 +54,6 @@ def main(
     logger.info("Done.")
 
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Finetuning process")
     parser.add_argument("--action", type=str, default="info", help="Action to perform")

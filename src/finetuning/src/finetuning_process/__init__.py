@@ -110,7 +110,8 @@ def validate_configuration_file(file_path) -> Dict[str, Any]:
 
 
 class FineTuner:
-    def __init__(self, logger: logging.Logger,
+    def __init__(self, 
+                 logger: logging.Logger,
                  model_name: str, 
                  configuration: Dict, 
                  dataset_path: str, 
