@@ -50,7 +50,6 @@ if __name__ == "__main__":
     os.makedirs(args.model_path, exist_ok=True)
     os.makedirs(args.data_path, exist_ok=True)
     os.makedirs(args.save_path, exist_ok=True)
-    os.makedirs(args.cache_path, exist_ok=True)
        
     if os.path.isfile(args.log_path):
         print("File exists")
