@@ -150,24 +150,15 @@ class FineTuner:
         
         # quick helper statement to add data for testing!!!
         url = "hf://datasets/Amod/mental_health_counseling_conversations/combined_dataset.json"
-        response = requests.get(url)
-        
-        if response.status_code == 200:
-        # Request was successful
-            data = response.json()
-            # Process the json_data
-            print(data)
-        else:
-            print(f"Failed to fetch data. Status code: {response.status_code}")
-        
-        new_file_path = os.path.join(self.dataset_path, "mental_health_counseling_conversations_dataset.json")
-        with open(new_file_path, "w") as file:
-            json.dump(data, file, indent=4)
-            
-            
         df1 = pd.read_json(url, lines=True)
         print(df1.head())
-                            
+        
+        new_file_path = os.path.join(self.dataset_path, "mental_health_counseling_conversations_dataset.json")
+        result = df1.to_json(new_file_path, orient="records")
+        
+        parsed = json.loads(result)
+        print(parsed)
+                                
         df2 = pd.read_json(new_file_path, lines=True)      
         print(df2.head())
         
