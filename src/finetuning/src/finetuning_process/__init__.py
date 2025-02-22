@@ -149,8 +149,11 @@ class FineTuner:
         
         # quick helper statement to add data for testing!!!
         df = pd.read_json("hf://datasets/Amod/mental_health_counseling_conversations/combined_dataset.json", lines=True)      
+        print(df.head())
+        
         df.to_json(os.path.join(self.dataset_path, "mental_health_counseling_conversations_dataset.json"), orient='records')
-  
+        df2 = pd.read_json(os.path.join(self.dataset_path, "mental_health_counseling_conversations_dataset.json"), lines=True) 
+        print(df2.head())
         
         datafiles = []
         if os.path.isdir(self.dataset_path):
