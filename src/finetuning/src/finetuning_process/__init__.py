@@ -175,6 +175,9 @@ class FineTuner:
         
         
         df = pd.concat(dataframes)
+        
+        df = df.head(100)
+        
         print(f"Dataset loaded. Number of records: {df.shape[0]:,}")
         print(df.head())
         
@@ -247,11 +250,13 @@ class FineTuner:
             # dataset_num_proc=2,
             # packing=True,
             args=TrainingArguments(
-                learning_rate=3e-4,
+                # learning_rate=3e-4,
+                learning_rate=1e-2,
                 lr_scheduler_type="linear",
                 per_device_train_batch_size=16,
                 gradient_accumulation_steps=8,
-                num_train_epochs=40,
+                # num_train_epochs=40,
+                num_train_epochs=4,
                 fp16=not is_bfloat16_supported(),
                 bf16=is_bfloat16_supported(),
                 logging_steps=1,
