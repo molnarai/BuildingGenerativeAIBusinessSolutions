@@ -149,43 +149,26 @@ class FineTuner:
             raise ValueError(f"Dataset path {self.dataset_path} does not exist.")
         
         
+        # datafiles = []
+        # if os.path.isdir(self.dataset_path):
+        #     datafiles = glob.glob(os.path.join(self.dataset_path, "*.json"))
+        #     if len(datafiles) == 0:
+        #         self.logger.error(f"No data files found in {self.dataset_path}.")
+        #         raise ValueError(f"No data files found in {self.dataset_path}.")
+        # else:
+        #     datafiles = [self.dataset_path] 
+
+        # dataframes = [
+        #     pd.read_json(datafile, lines=True) for datafile in datafiles
+        # ]
         
         
-        # quick helper statement to add data for testing!!!
-        # url = "hf://datasets/Amod/mental_health_counseling_conversations/combined_dataset.json"
-        url = "https://huggingface.co/datasets/Amod/mental_health_counseling_conversations/raw/main/combined_dataset.json"
-        new_file_path = os.path.join(self.dataset_path, "mental_health_counseling_conversations_dataset.json")
-                
-        # df1 = pd.read_json(url, lines=True)
-        # print(df1.head())
-        
-        # new_file_path = os.path.join(self.dataset_path, "mental_health_counseling_conversations_dataset.json")
-        # df1.to_json(new_file_path, orient="index")
-                                
-        # df2 = pd.read_json(new_file_path, lines=True)      
-        # print(df2.head())
-  
-        # store the response of URL         
-        response = requests.get(url) 
-        data_json = response.json()
-
-        with open(new_file_path, "w") as file:
-            json.dump(data_json, file, indent=4)
-        
-
-
-        datafiles = []
-        if os.path.isdir(self.dataset_path):
-            datafiles = glob.glob(os.path.join(self.dataset_path, "*.json"))
-            if len(datafiles) == 0:
-                self.logger.error(f"No data files found in {self.dataset_path}.")
-                raise ValueError(f"No data files found in {self.dataset_path}.")
-        else:
-            datafiles = [self.dataset_path] 
-
+        # for local testing:
         dataframes = [
-            pd.read_json(datafile, lines=True) for datafile in datafiles
+            pd.read_json("hf://datasets/Amod/mental_health_counseling_conversations/combined_dataset.json", lines=True)
         ]
+        
+        
         df = pd.concat(dataframes)
         print(f"Dataset loaded. Number of records: {df.shape[0]:,}")
         print(df.head())
