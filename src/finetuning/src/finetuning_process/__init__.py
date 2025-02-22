@@ -154,7 +154,7 @@ class FineTuner:
         print(df1.head())
         
         new_file_path = os.path.join(self.dataset_path, "mental_health_counseling_conversations_dataset.json")
-        df1.to_json(new_file_path, orient="columns")
+        df1.to_json(new_file_path, orient="values")
                                 
         df2 = pd.read_json(new_file_path, lines=True)      
         print(df2.head())
