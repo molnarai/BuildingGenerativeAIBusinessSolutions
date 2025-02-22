@@ -250,13 +250,11 @@ class FineTuner:
             # dataset_num_proc=2,
             # packing=True,
             args=TrainingArguments(
-                # learning_rate=3e-4,
-                learning_rate=1e-2,
+                learning_rate=3e-4,
                 lr_scheduler_type="linear",
                 per_device_train_batch_size=16,
                 gradient_accumulation_steps=8,
-                # num_train_epochs=40,
-                num_train_epochs=4,
+                num_train_epochs=1,
                 fp16=not is_bfloat16_supported(),
                 bf16=is_bfloat16_supported(),
                 logging_steps=1,
@@ -286,19 +284,25 @@ class FineTuner:
         self.logger.info(f"Model saved")
         self.logger.info(f"Save path: {self.save_path}")
         
-        # # Push model to hub
-        # self.model.push_to_hub(
-        #     self.model_path,
-        #     use_temp_path=False,
-        #     token=self.hub_token,
-        # )
-        # print("Model pushed to hub")
-        # self.tokenizer.push_to_hub(
-        #     self.model_path,
-        #     use_temp_path=False,
-        #     token=self.hub_token,
-        # )
-        # print("Tokenizer pushed to hub")
-
-
-
+        # Push model to hub
+        self.model.push_to_hub(
+            self.model_path,
+            use_temp_path=False,
+            token=self.hub_token,
+        )
+        print("Model pushed to hub")
+        self.logger.info(f"Model pushed to hub")
+        
+        # Push tokenizer to hub
+        self.tokenizer.push_to_hub(
+            self.model_path,
+            use_temp_path=False,
+            token=self.hub_token,
+        )
+        print("Tokenizer pushed to hub")
+        self.logger.info(f"Tokenizer pushed to hub")
+        self.logger.info(f"HF token used: {self.hub_token}")
+        
+        print("Finetuning completed")
+        self.logger.info(f"Finetuning completed")
+        
