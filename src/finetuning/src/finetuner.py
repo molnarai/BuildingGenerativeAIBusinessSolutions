@@ -13,6 +13,7 @@ from finetuning_process import (
     FineTuner,
 )
 
+LOG_DIR = "./logs"
 DEFAULT_LOG_FILE = jp("logs", "finetuning_process.log")
 
 def main(
@@ -44,19 +45,21 @@ if __name__ == "__main__":
     parser.add_argument("--hf-token", type=str, help="Hub token")
     parser.add_argument("--max-runtime-minutes", type=int, help="Max runtime minutes")
     parser.add_argument("--log-level", type=str, help="Log level")
-    parser.add_argument("--log-path", type=str, default=DEFAULT_LOG_FILE, help="Log file")
+    parser.add_argument("--log-path", type=str, default=LOG_DIR, help="Log directory path")
+    parser.add_argument("--log-file-path", type=str, default=DEFAULT_LOG_FILE, help="Log file")
     args = parser.parse_args()
 
     os.makedirs(args.model_path, exist_ok=True)
     os.makedirs(args.data_path, exist_ok=True)
     os.makedirs(args.save_path, exist_ok=True)
-       
+    os.makedirs(args.log_path, exist_ok=True)   
+     
     if os.path.isfile(args.log_path):
         print("File exists")
     else:
         print("File does not exist!") 
         
-    logfilename = jp(args.log_dir, f"finetuning_process_{args.model.replace('/', '-')}_{args.tag}.log")
+    logfilename = jp(args.log_path, f"finetuning_process_{args.model.replace('/', '-')}_{args.tag}.log")
     logging.basicConfig(filename=logfilename, level=args.log_level, format='%(asctime)s %(levelname)s %(name)s %(message)s')
     logger = logging.getLogger(__name__)
     logger.info("Starting finetuning process")

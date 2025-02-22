@@ -16,6 +16,7 @@ from finetuning_process import (
     FineTuner,
 )
 
+LOG_DIR = "./logs"
 DEFAULT_LOG_FILE = jp("logs", "finetuning_process.log")
 
 def main(
@@ -67,7 +68,8 @@ if __name__ == "__main__":
     parser.add_argument("--output-path", type=str, default="/staging/output", help="Output path")
     parser.add_argument("--hf-token", type=str, default="", help="Hub token")
     parser.add_argument("--log-level", type=str, default="debug", help="Log level")
-    parser.add_argument("--log-path", type=str, default=DEFAULT_LOG_FILE, help="Log file")
+    parser.add_argument("--log-path", type=str, default=LOG_DIR, help="Log directory path")
+    parser.add_argument("--log-file-path", type=str, default=DEFAULT_LOG_FILE, help="Log file")
     parser.add_argument("--max-runtime-minutes", type=int, default=30, help="Max runtime minutes")
     args = parser.parse_args()
 
