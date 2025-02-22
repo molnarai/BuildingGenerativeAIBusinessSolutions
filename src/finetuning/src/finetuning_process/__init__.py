@@ -152,7 +152,8 @@ class FineTuner:
         
         
         # quick helper statement to add data for testing!!!
-        url = "hf://datasets/Amod/mental_health_counseling_conversations/combined_dataset.json"
+        # url = "hf://datasets/Amod/mental_health_counseling_conversations/combined_dataset.json"
+        url = "https://huggingface.co/datasets/Amod/mental_health_counseling_conversations/raw/main/combined_dataset.json"
         new_file_path = os.path.join(self.dataset_path, "mental_health_counseling_conversations_dataset.json")
                 
         # df1 = pd.read_json(url, lines=True)
