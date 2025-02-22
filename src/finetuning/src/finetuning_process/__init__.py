@@ -69,7 +69,10 @@ def validate_datafile(file_path) -> Dict[str, Any]:
     return { "valid": True, "message": f"File {file_path} is valid." }
 
 
-def validate_configuration_file(file_path) -> Dict[str, Any]:
+def validate_configuration_file(
+    logger: logging.Logger,
+    file_path: str
+    ) -> Dict[str, Any]:
     """
     Validate the configuration file.
 
@@ -91,6 +94,8 @@ def validate_configuration_file(file_path) -> Dict[str, Any]:
     if os.path.getsize(file_path) == 0:
         return { "valid": False, "message": f"File {file_path} is empty." }
 
+    logger.info(f"File path: {file_path}")
+    
     # Check if the file is not corrupted
     try:
         configuration = json.load(open(file_path, "r", encoding="utf-8"))
@@ -106,6 +111,8 @@ def validate_configuration_file(file_path) -> Dict[str, Any]:
     except Exception as e:
         return { "valid": False, "message": f"File {file_path} is corrupted." }
 
+    logger.info(f"File path: {file_path}")
+    
     return { "valid": True, "message": f"File {file_path} is valid." }
 
 
