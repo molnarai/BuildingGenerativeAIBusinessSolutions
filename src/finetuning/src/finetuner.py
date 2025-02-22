@@ -53,12 +53,7 @@ if __name__ == "__main__":
     os.makedirs(args.data_path, exist_ok=True)
     os.makedirs(args.save_path, exist_ok=True)
     os.makedirs(args.log_path, exist_ok=True)   
-     
-    if os.path.isfile(args.log_path):
-        print("File exists")
-    else:
-        print("File does not exist!") 
-        
+             
     logfilename = jp(args.log_path, f"finetuning_process_{args.model.replace('/', '-')}_{args.tag}.log")
     logging.basicConfig(filename=logfilename, level=args.log_level, format='%(asctime)s %(levelname)s %(name)s %(message)s')
     logger = logging.getLogger(__name__)
