@@ -14,6 +14,7 @@ from unsloth import FastLanguageModel
 from datasets import Dataset
 from unsloth import is_bfloat16_supported
 import requests
+from urllib.request import urlopen 
 import logging
 import argparse
 import json
@@ -148,17 +149,28 @@ class FineTuner:
             raise ValueError(f"Dataset path {self.dataset_path} does not exist.")
         
         
+        
+        
         # quick helper statement to add data for testing!!!
         url = "hf://datasets/Amod/mental_health_counseling_conversations/combined_dataset.json"
-        df1 = pd.read_json(url, lines=True)
-        print(df1.head())
-        
         new_file_path = os.path.join(self.dataset_path, "mental_health_counseling_conversations_dataset.json")
-        df1.to_json(new_file_path, orient="index")
-                                
-        df2 = pd.read_json(new_file_path, lines=True)      
-        print(df2.head())
+                
+        # df1 = pd.read_json(url, lines=True)
+        # print(df1.head())
         
+        # new_file_path = os.path.join(self.dataset_path, "mental_health_counseling_conversations_dataset.json")
+        # df1.to_json(new_file_path, orient="index")
+                                
+        # df2 = pd.read_json(new_file_path, lines=True)      
+        # print(df2.head())
+  
+        # store the response of URL 
+        response = urlopen(url) 
+        data_json = json.loads(response.read()) 
+        with open(new_file_path, "w") as file:
+            json.dump(data_json, file, indent=4)
+        
+
 
         datafiles = []
         if os.path.isdir(self.dataset_path):
@@ -174,6 +186,8 @@ class FineTuner:
         ]
         df = pd.concat(dataframes)
         print(f"Dataset loaded. Number of records: {df.shape[0]:,}")
+        print(df.head())
+        
         self.logger.info(f"Dataset loaded. Number of records: {df.shape[0]:,}")
         # print(self.dataset)
 
