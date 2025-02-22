@@ -174,7 +174,10 @@ class FineTuner:
         #---------------------------------------------------
         
         
-        df = pd.concat(dataframes)        
+        df = pd.concat(dataframes)   
+        
+        df = df.head(500)     
+        
         print(f"Dataset loaded. Number of records: {df.shape[0]:,}")
         print(df.head())
         
