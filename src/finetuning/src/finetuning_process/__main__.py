@@ -86,9 +86,11 @@ if __name__ == "__main__":
     logger.info("Starting finetuning process")
     logger.info(f"Arguments: {args}")
     logger.info(f"Model name: {args.model}")
-    logger.info(f"Configuration file: {args.configuration_file}")
-
-    res = validate_configuration_file(args.configuration_file)
+    logger.info(f"Configuration file 1: {args.configuration_file}")
+    logger.info(f"Configuration file 2: {args.configuration_file}")
+    logger.info(f"Configuration file 3: {args.configuration_file}")
+        
+    res = validate_configuration_file(logger, args.configuration_file)
     if not res["valid"]:
         logger.error(f"Configuration file is not valid: {res['message']}")
         # sys.exit(1)
