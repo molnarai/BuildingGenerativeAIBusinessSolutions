@@ -34,7 +34,7 @@ finetun*)
                 --cache-path=/staging/cache \
                 --model-path=/staging/model \
                 --data-path=/staging/data \
-                --output-path=/home/output \
+                --save-path=/home/output \
                 --log-path=/home/log \
                 --log-level=DEBUG \
                 --hf-token=$HF_TOKEN \

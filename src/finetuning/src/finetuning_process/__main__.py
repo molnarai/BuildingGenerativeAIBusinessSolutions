@@ -27,17 +27,14 @@ def main(
         save_path: str,
         model_path: str,
         cache_path: str,
-        output_path: str,
         hub_token: str,
-        max_runtime_minutes: int = 30) -> None:
+        max_runtime_minutes: int = 30
+        ) -> None:
          
     logger.info("Finetuning process started")
     logger.info(f"Action: {action}")
     logger.info(f"Model name: {model_name}")
-    
     logger.info(f"Configuration: {config}")
-
-
     logger.info(f"Dataset path: {dataset_path}")
     logger.info(f"Save path: {save_path}")
     logger.info(f"Model path: {model_path}")
@@ -48,10 +45,10 @@ def main(
     logger.info("FineTuner initialized")
 
     ft.load_model()
+    
     ft.load_dataset()
 
     ft.load_trainer()
-
 
     logger.info("Done.")
 
@@ -66,8 +63,8 @@ if __name__ == "__main__":
     parser.add_argument("--data-path", type=str, default="/staging/data", help="Dataset path")
     parser.add_argument("--save-path", type=str, default="/staging/save", help="Save path")
     parser.add_argument("--model-path", type=str, default="/staging/model", help="Model path")
-    parser.add_argument("--cache-path", type=str, default="/staging/cache", help="cache path")
-    parser.add_argument("--output-path", type=str, default="/staging/output", help="output path")
+    parser.add_argument("--cache-path", type=str, default="/staging/cache", help="Cache path")
+    parser.add_argument("--output-path", type=str, default="/staging/output", help="Output path")
     parser.add_argument("--hf-token", type=str, default="", help="Hub token")
     parser.add_argument("--log-level", type=str, default="debug", help="Log level")
     parser.add_argument("--log-path", type=str, default=DEFAULT_LOG_FILE, help="Log file")
@@ -98,7 +95,8 @@ if __name__ == "__main__":
     config = json.load(open(args.configuration_file, "r", encoding="utf-8"))
     logger.info(f"Configuration: {config}")
 
-    main(logger=logger,
+    main(
+        logger=logger,
         action=args.action,
         model_name=args.model,
         config=config,
