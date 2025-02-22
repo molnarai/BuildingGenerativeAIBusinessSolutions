@@ -237,7 +237,7 @@ class FineTuner:
                 output_dir="output",
                 seed=0,
             ),
-            cache_dir=self.cache_path,
+            # cache_dir=self.cache_path,
         )
         
         print("Trainer loaded")
