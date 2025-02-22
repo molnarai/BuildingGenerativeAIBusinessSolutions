@@ -142,7 +142,7 @@ class FineTuner:
         self.dataset = None
         self.trainer = None
 
-        # Load dataset
+    # Load dataset
     def load_dataset(self):
         if not os.path.exists(self.dataset_path):
             self.logger.error(f"Dataset path {self.dataset_path} does not exist.")
@@ -174,10 +174,7 @@ class FineTuner:
         #---------------------------------------------------
         
         
-        df = pd.concat(dataframes)
-        
-        df = df.head(100)
-        
+        df = pd.concat(dataframes)        
         print(f"Dataset loaded. Number of records: {df.shape[0]:,}")
         print(df.head())
         
@@ -207,7 +204,7 @@ class FineTuner:
         self.dataset = training_data
 
 
-        # Load model
+    # Load model
     def load_model(self):
         self.model, self.tokenizer = FastLanguageModel.from_pretrained(
             model_name=self.model_name,
@@ -232,11 +229,14 @@ class FineTuner:
         
         print("Model loaded")
         print(self.model)
-        
+        self.logger.info(f"Model loaded")
+        self.logger.info(f"{self.model}")
+                
         print("Model parameters:")
         print(self.model.print_trainable_parameters())
-
-        # Load trainer
+        self.logger.info(f"Model parameters: {self.model.print_trainable_parameters()}")
+        
+    # Load trainer
     def load_trainer(self):
         
         os.environ['UNSLOTH_RETURN_LOGITS'] = '1'
@@ -271,15 +271,21 @@ class FineTuner:
         
         print("Trainer loaded")
         print(self.trainer)
-
+        self.logger.info(f"Trainer loaded")
+        self.logger.info(f"{self.trainer}")
+        
         # Train model
         self.trainer.train()
         print("Model trained")
-
+        self.logger.info(f"Model trained")
+        
         # Save model
         self.trainer.save_model(self.save_path)
         print("Model saved")
-
+        print(self.save_path)
+        self.logger.info(f"Model saved")
+        self.logger.info(f"Save path: {self.save_path}")
+        
         # # Push model to hub
         # self.model.push_to_hub(
         #     self.model_path,
