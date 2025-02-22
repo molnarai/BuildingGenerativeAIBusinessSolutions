@@ -209,8 +209,24 @@ class FineTuner:
             cache_dir=self.cache_path,
             token=self.hub_token
         )
+        
+        model = FastLanguageModel.get_peft_model(
+            model,
+            r=self.configuration["r"],
+            lora_alpha=self.configuration["lora_alpha"],
+            lora_dropout=self.configuration["lora_dropout"],
+            target_modules=self.configuration["target_modules"],
+            use_rslora=self.configuration["use_rslora"],
+            use_gradient_checkpointing=self.configuration["use_gradient_checkpointing"],
+            random_state=self.configuration["random_state"],
+            loftq_config=None,
+        )
+        
         print("Model loaded")
         print(self.model)
+        
+        print("Model parameters:")
+        print(model.print_trainable_parameters())
 
         # Load trainer
     def load_trainer(self):
@@ -218,10 +234,10 @@ class FineTuner:
             model=self.model,
             tokenizer=self.tokenizer,
             train_dataset=self.dataset,
-            # dataset_text_field="text",
-            # max_seq_length=self.configuration["max_seq_length"],
-            # dataset_num_proc=2,
-            # packing=True,
+            dataset_text_field="text",
+            max_seq_length=self.configuration["max_seq_length"],
+            dataset_num_proc=2,
+            packing=True,
             args=TrainingArguments(
                 learning_rate=3e-4,
                 lr_scheduler_type="linear",
