@@ -83,9 +83,11 @@ if __name__ == "__main__":
     logger = logging.getLogger(__name__)
     logger.setLevel(args.log_level)
 
+    logger.info(f"WTF!!!!")
     logger.info("Starting finetuning process")
     logger.info(f"Arguments: {args}")
     logger.info(f"Model name: {args.model}")
+    logger.info(f"WTF!!!!")
     logger.info(f"Configuration file 1: {args.configuration_file}")
     logger.info(f"Configuration file 2: {args.configuration_file}")
     logger.info(f"Configuration file 3: {args.configuration_file}")
