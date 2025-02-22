@@ -82,6 +82,8 @@ def validate_configuration_file(
     Returns:
         Dict[str, Any]: The configuration file.
     """
+    logger.info(f"File path: {file_path}")
+        
     # Check if the file exists
     if not os.path.exists(file_path):
         return { "valid": False, "message": f"File {file_path} does not exist." }
