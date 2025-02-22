@@ -55,8 +55,7 @@ def validate_datafile(file_path) -> Dict[str, Any]:
 
     # Check if the file is not corrupted
     try:
-        # df = pd.read_json('data/mental_health_counseling_conversations_dataset.json', lines=True)
-        df = pd.read_json("hf://datasets/Amod/mental_health_counseling_conversations/combined_dataset.json", lines=True)
+        df = pd.read_json('data/mental_health_counseling_conversations_dataset.json', lines=True)
         print(f"Number of records: {df.shape[0]:,}")
         assert set(df.columns) == {'Context', 'Response'}, f"Invalid columns: {df.columns}\n\nShould be: ['Context', 'Response']"
         assert df.shape[0]>=10, f"A minimumn of 10 records is required. You provided {df.shape[0]:,}"
@@ -146,6 +145,12 @@ class FineTuner:
         if not os.path.exists(self.dataset_path):
             self.logger.error(f"Dataset path {self.dataset_path} does not exist.")
             raise ValueError(f"Dataset path {self.dataset_path} does not exist.")
+        
+        
+        # quick helper statement to add data for testing!!!
+        df = pd.read_json("hf://datasets/Amod/mental_health_counseling_conversations/combined_dataset.json", lines=True)      
+        df.to_json(os.path.join(self.dataset_path, "mental_health_counseling_conversations_dataset.json"), orient='records')
+  
         
         datafiles = []
         if os.path.isdir(self.dataset_path):
