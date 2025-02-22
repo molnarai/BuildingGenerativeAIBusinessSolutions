@@ -55,7 +55,8 @@ def validate_datafile(file_path) -> Dict[str, Any]:
 
     # Check if the file is not corrupted
     try:
-        df = pd.read_json('data/mental_health_counseling_conversations_dataset.json', lines=True)
+        # df = pd.read_json('data/mental_health_counseling_conversations_dataset.json', lines=True)
+        df = pd.read_json("hf://datasets/Amod/mental_health_counseling_conversations/combined_dataset.json", lines=True)
         print(f"Number of records: {df.shape[0]:,}")
         assert set(df.columns) == {'Context', 'Response'}, f"Invalid columns: {df.columns}\n\nShould be: ['Context', 'Response']"
         assert df.shape[0]>=10, f"A minimumn of 10 records is required. You provided {df.shape[0]:,}"
@@ -82,7 +83,7 @@ def validate_configuration_file(
     Returns:
         Dict[str, Any]: The configuration file.
     """
-    logger.info(f"File path: {file_path}")
+    logger.info(f"File path 1: {file_path}")
         
     # Check if the file exists
     if not os.path.exists(file_path):
@@ -96,7 +97,7 @@ def validate_configuration_file(
     if os.path.getsize(file_path) == 0:
         return { "valid": False, "message": f"File {file_path} is empty." }
 
-    logger.info(f"File path: {file_path}")
+    logger.info(f"File path 2: {file_path}")
     
     # Check if the file is not corrupted
     try:
@@ -113,7 +114,7 @@ def validate_configuration_file(
     except Exception as e:
         return { "valid": False, "message": f"File {file_path} is corrupted." }
 
-    logger.info(f"File path: {file_path}")
+    logger.info(f"File path 3: {file_path}")
     
     return { "valid": True, "message": f"File {file_path} is valid." }
 
