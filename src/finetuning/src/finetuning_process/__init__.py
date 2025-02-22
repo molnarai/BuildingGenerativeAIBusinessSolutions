@@ -1,29 +1,29 @@
+from typing import List, Dict, Any, Optional, Union
+
 import os
 jp = os.path.join
 import glob
 import numpy as np
 import pandas as pd
-# import seaborn as sns
-# import matplotlib.pyplot as plt
 
 import torch
+
 from trl import SFTTrainer
+from datasets import Dataset
 from transformers import TrainingArguments, TextStreamer, DataCollatorForLanguageModeling
+# Saving model
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
 from unsloth.chat_templates import get_chat_template
 from unsloth import FastLanguageModel
-from datasets import Dataset
 from unsloth import is_bfloat16_supported
-import requests
-from urllib.request import urlopen 
+
 import logging
 import argparse
 import json
 
-# Saving model
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
-
-from typing import List, Dict, Any, Optional, Union
-
+import requests
+from urllib.request import urlopen 
 
 # Warnings
 import warnings
@@ -235,7 +235,8 @@ class FineTuner:
 
         # Load trainer
     def load_trainer(self):
-        # os.environ['UNSLOTH_RETURN_LOGITS'] = '1'
+        
+        os.environ['UNSLOTH_RETURN_LOGITS'] = '1'
         
         self.trainer = SFTTrainer(
             model=self.model,
@@ -261,7 +262,6 @@ class FineTuner:
                 seed=0,
             ),
             # cache_dir=self.cache_path,
-            return_logits=True,
         )
         
         print("Trainer loaded")
