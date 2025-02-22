@@ -149,6 +149,9 @@ class FineTuner:
             raise ValueError(f"Dataset path {self.dataset_path} does not exist.")
         
         
+        #---------------------------------------------------
+        # TO BE ADDED BACK!
+        
         # datafiles = []
         # if os.path.isdir(self.dataset_path):
         #     datafiles = glob.glob(os.path.join(self.dataset_path, "*.json"))
@@ -163,10 +166,12 @@ class FineTuner:
         # ]
         
         
-        # for local testing:
+        #---------------------------------------------------
+        # TO BE REMOVED - for local testing only!
         dataframes = [
             pd.read_json("hf://datasets/Amod/mental_health_counseling_conversations/combined_dataset.json", lines=True)
         ]
+        #---------------------------------------------------
         
         
         df = pd.concat(dataframes)
@@ -210,8 +215,8 @@ class FineTuner:
             token=self.hub_token
         )
         
-        model = FastLanguageModel.get_peft_model(
-            model,
+        self.model = FastLanguageModel.get_peft_model(
+            self.model,
             r=self.configuration["r"],
             lora_alpha=self.configuration["lora_alpha"],
             lora_dropout=self.configuration["lora_dropout"],
@@ -226,7 +231,7 @@ class FineTuner:
         print(self.model)
         
         print("Model parameters:")
-        print(model.print_trainable_parameters())
+        print(self.model.print_trainable_parameters())
 
         # Load trainer
     def load_trainer(self):
@@ -253,7 +258,7 @@ class FineTuner:
                 output_dir="output",
                 seed=0,
             ),
-            # cache_dir=self.cache_path,
+            cache_dir=self.cache_path,
         )
         
         print("Trainer loaded")
