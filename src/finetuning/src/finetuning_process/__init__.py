@@ -235,6 +235,8 @@ class FineTuner:
 
         # Load trainer
     def load_trainer(self):
+        # os.environ['UNSLOTH_RETURN_LOGITS'] = '1'
+        
         self.trainer = SFTTrainer(
             model=self.model,
             tokenizer=self.tokenizer,
@@ -258,7 +260,8 @@ class FineTuner:
                 output_dir="output",
                 seed=0,
             ),
-            # cache_dir=self.cache_path,
+            cache_dir=self.cache_path,
+            return_logits=True,
         )
         
         print("Trainer loaded")
