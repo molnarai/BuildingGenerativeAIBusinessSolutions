@@ -174,24 +174,22 @@ class FineTuner:
         #---------------------------------------------------
         
         
-        df = pd.concat(dataframes)   
-        
-        df = df.head(500)     
-        
+        df = pd.concat(dataframes)           
         print(f"Dataset loaded. Number of records: {df.shape[0]:,}")
         print(df.head())
         
         self.logger.info(f"Dataset loaded. Number of records: {df.shape[0]:,}")
-        # print(self.dataset)
 
         data_prompt = """Analyze the provided text from a mental health perspective. Identify any indicators of emotional distress, coping mechanisms, or psychological well-being. Highlight any potential concerns or positive aspects related to mental health, and provide a brief explanation for each observation.
-
+        
         ### Input:
         {}
 
         ### Response:
         {}"""
 
+        self.logger.info(f"Data prompt used: {data_prompt}")
+        
         EOS_TOKEN = self.tokenizer.eos_token
         def formatting_prompt(examples):
             inputs       = examples["Context"]
