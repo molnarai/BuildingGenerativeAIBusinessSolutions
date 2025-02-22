@@ -82,9 +82,7 @@ def validate_configuration_file(
 
     Returns:
         Dict[str, Any]: The configuration file.
-    """
-    logger.info(f"File path 1: {file_path}")
-        
+    """        
     # Check if the file exists
     if not os.path.exists(file_path):
         return { "valid": False, "message": f"File {file_path} does not exist." }
@@ -96,8 +94,6 @@ def validate_configuration_file(
     # Check if the file is not empty
     if os.path.getsize(file_path) == 0:
         return { "valid": False, "message": f"File {file_path} is empty." }
-
-    logger.info(f"File path 2: {file_path}")
     
     # Check if the file is not corrupted
     try:
@@ -113,8 +109,6 @@ def validate_configuration_file(
         assert configuration['batch_size'] > 0, "batch_size is not positive"
     except Exception as e:
         return { "valid": False, "message": f"File {file_path} is corrupted." }
-
-    logger.info(f"File path 3: {file_path}")
     
     return { "valid": True, "message": f"File {file_path} is valid." }
 

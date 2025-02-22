@@ -28,8 +28,9 @@ def main(
         save_path: str,
         model_path: str,
         cache_path: str,
+        output_path: str,
         hub_token: str,
-        max_runtime_minutes: int = 30
+        max_runtime_minutes: int = 30,
         ) -> None:
          
     logger.info("Finetuning process started")
@@ -39,6 +40,7 @@ def main(
     logger.info(f"Dataset path: {dataset_path}")
     logger.info(f"Save path: {save_path}")
     logger.info(f"Model path: {model_path}")
+    logger.info(f"Output path: {output_path}")
     logger.info(f"Hub token: {hub_token}")
     logger.info(f"Max runtime minutes: {max_runtime_minutes}")
 
@@ -107,5 +109,5 @@ if __name__ == "__main__":
         cache_path=args.cache_path,
         output_path=args.output_path,
         hub_token=args.hf_token,
-        max_runtime_minutes=args.max_runtime_minutes
+        max_runtime_minutes=args.max_runtime_minutes,
     )
