@@ -220,8 +220,8 @@ class FineTuner:
             train_dataset=self.dataset,
             # dataset_text_field="text",
             # max_seq_length=self.configuration["max_seq_length"],
-            dataset_num_proc=2,
-            packing=True,
+            # dataset_num_proc=2,
+            # packing=True,
             args=TrainingArguments(
                 learning_rate=3e-4,
                 lr_scheduler_type="linear",
