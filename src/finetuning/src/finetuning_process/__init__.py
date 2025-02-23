@@ -284,9 +284,10 @@ class FineTuner:
         # Save model
         model_tokenizer_save_path  = jp(self.save_path, "model",
                                          self.model_name.split('/')[-1].replace('.', '_'))
-        self.model.save_pretrained(model_tokenizer_save_path)
-        self.tokenizer.save_pretrained(model_tokenizer_save_path)
-        self.model.save_pretrained_gguf(model_tokenizer_save_path, safe_serialization=True)
+        self.model.save_pretrained(jp(model_tokenizer_save_path, "hf"))
+        self.tokenizer.save_pretrained(jp(model_tokenizer_save_path, "hf"))
+        self.model.save_pretrained_gguf(jp(model_tokenizer_save_path, "gguf"),
+                                         tokenizer=self.tokenizer, safe_serialization=True)
         # self.trainer.save_model(model_tokenizer_save_path)
         print("Model saved")
         print(self.save_path)
