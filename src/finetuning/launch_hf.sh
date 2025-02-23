@@ -12,7 +12,7 @@ build)
 shell)
         shift
         podman run -it --rm \
-        --device nvidia.com/gpu=all \
+        --device nvidia.com/gpu=$DEVICE \
         --security-opt=label=disable \
         -v $PWD:/myapp/local \
         -v /staging/users/$USER:/staging \
