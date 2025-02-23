@@ -1,3 +1,4 @@
 trl
 transformers
 unsloth
+gguf
