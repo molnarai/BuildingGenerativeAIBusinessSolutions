@@ -2,6 +2,7 @@
 CONTAINER_NAME="${USER}/ft_hf_unsloth"
 ROOT_DIR=$(dirname $0)
 HF_TOKEN=$(cat ${HOME}/.secrets/huggingface-msa8700b.txt)
+DEVICE=3
 
 case $1 in
 build)
@@ -21,7 +22,7 @@ shell)
 finetun*)
         mkdir -p /staging/users/$USER/msa8700/finetuning
         podman run -it --rm \
-                --device nvidia.com/gpu=all \
+                --device nvidia.com/gpu=$DEVICE \
                 --security-opt=label=disable \
                 -v ${ROOT_DIR}:/myapp/local \
                 -v /staging/users/$USER/msa8700/finetuning:/staging \
