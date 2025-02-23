@@ -44,7 +44,7 @@ def main(
     logger.info(f"Hub token: {hub_token}")
     logger.info(f"Max runtime minutes: {max_runtime_minutes}")
 
-    ft = FineTuner(logger, model_name, config, dataset_path, save_path, model_path, cache_path, hub_token, max_runtime_minutes)
+    ft = FineTuner(logger, model_name, config, dataset_path,model_path,  save_path, output_path, cache_path, hub_token, max_runtime_minutes)
     logger.info("FineTuner initialized")
 
     ft.load_model()

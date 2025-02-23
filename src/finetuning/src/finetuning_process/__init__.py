@@ -111,7 +111,9 @@ def validate_configuration_file(file_path) -> Dict[str, Any]:
 
 class FineTuner:
     def __init__(self, logger: logging.Logger,
-                 model_name: str, configuration: Dict, dataset_path: str, save_path: str, model_path: str, cache_path: str,
+                 model_name: str, configuration: Dict,
+                 dataset_path: str, save_path: str, model_path: str, 
+                 output_path: str, cache_path: str,
                  hub_token: str, max_runtime_minutes: int = 60):
         self.logger = logger
         self.model_name = model_name
@@ -119,6 +121,7 @@ class FineTuner:
         self.dataset_path = dataset_path
         
         self.save_path = save_path
+        self.output_path = output_path
         self.cache_path = cache_path if cache_path[-1] == '/' else f"{cache_path}/"
         self.model_path = model_path
         self.hub_token = hub_token
@@ -196,7 +199,7 @@ class FineTuner:
             tokenizer=self.tokenizer,
             train_dataset=self.dataset,
             # dataset_text_field="text",
-            max_seq_length=self.configuration["max_seq_length"],
+            # max_seq_length=self.configuration["max_seq_length"],
             dataset_num_proc=2,
             packing=True,
             args=TrainingArguments(
@@ -204,14 +207,14 @@ class FineTuner:
                 lr_scheduler_type="linear",
                 per_device_train_batch_size=16,
                 gradient_accumulation_steps=8,
-                num_train_epochs=40,
+                num_train_epochs=1,
                 fp16=not is_bfloat16_supported(),
                 bf16=is_bfloat16_supported(),
                 logging_steps=1,
                 optim="adamw_8bit",
                 weight_decay=0.01,
                 warmup_steps=10,
-                output_dir="output",
+                output_dir=self.output,
                 seed=0,
             ),
             cache_dir=self.cache_path,
