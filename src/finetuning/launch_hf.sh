@@ -12,6 +12,7 @@ build)
 shell)
         shift
         podman run -it --rm \
+        --annotation run.oci.keep_original_groups=1 \
         --device nvidia.com/gpu=$DEVICE \
         --security-opt=label=disable \
         -v $PWD:/myapp/local \
@@ -22,6 +23,7 @@ shell)
 finetun*)
         mkdir -p /staging/users/$USER/msa8700/finetuning
         podman run -it --rm \
+                --annotation run.oci.keep_original_groups=1 \
                 --device nvidia.com/gpu=$DEVICE \
                 --security-opt=label=disable \
                 -v ${ROOT_DIR}:/myapp/local \
