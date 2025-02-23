@@ -273,37 +273,44 @@ class FineTuner:
         self.logger.info(f"Trainer loaded")
         self.logger.info(f"{self.trainer}")
         
+    def finetune(self):
+        print("Finetuning started")
+        self.logger.info(f"Finetuning started")
         # Train model
         self.trainer.train()
         print("Model trained")
         self.logger.info(f"Model trained")
         
         # Save model
-        self.trainer.save_model(self.save_path)
+        model_tokenizer_save_path  = jp(self.save_path, "model",
+                                         self.model_name.split('/')[-1].replace('.', '_'))
+        self.model.save_pretrained(model_tokenizer_save_path)
+        self.tokenizer.save_pretrained(model_tokenizer_save_path)
+        # self.trainer.save_model(model_tokenizer_save_path)
         print("Model saved")
         print(self.save_path)
         self.logger.info(f"Model saved")
-        self.logger.info(f"Save path: {self.save_path}")
+        self.logger.info(f"Save path: {model_tokenizer_save_path}")
         
-        # Push model to hub
-        self.model.push_to_hub(
-            self.model_path,
-            use_temp_path=False,
-            token=self.hub_token,
-        )
-        print("Model pushed to hub")
-        self.logger.info(f"Model pushed to hub")
+        # # Push model to hub
+        # self.model.push_to_hub(
+        #     self.model_path,
+        #     use_temp_path=False,
+        #     token=self.hub_token,
+        # )
+        # print("Model pushed to hub")
+        # self.logger.info(f"Model pushed to hub")
         
-        # Push tokenizer to hub
-        self.tokenizer.push_to_hub(
-            self.model_path,
-            use_temp_path=False,
-            token=self.hub_token,
-        )
-        print("Tokenizer pushed to hub")
-        self.logger.info(f"Tokenizer pushed to hub")
-        self.logger.info(f"HF token used: {self.hub_token}")
+        # # Push tokenizer to hub
+        # self.tokenizer.push_to_hub(
+        #     self.model_path,
+        #     use_temp_path=False,
+        #     token=self.hub_token,
+        # )
+        # print("Tokenizer pushed to hub")
+        # self.logger.info(f"Tokenizer pushed to hub")
+        # self.logger.info(f"HF token used: {self.hub_token}")
         
-        print("Finetuning completed")
-        self.logger.info(f"Finetuning completed")
+        # print("Finetuning completed")
+        # self.logger.info(f"Finetuning completed")
         

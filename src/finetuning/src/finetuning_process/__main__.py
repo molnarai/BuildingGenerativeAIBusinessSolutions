@@ -58,6 +58,8 @@ def main(
 
     ft.load_trainer()
 
+    ft.finetune()
+
     logger.info("Done.")
 
 
@@ -71,7 +73,7 @@ if __name__ == "__main__":
     parser.add_argument("--save-path", type=str, default="/staging/save", help="Save path")
     parser.add_argument("--model-path", type=str, default="/staging/model", help="Model path")
     parser.add_argument("--cache-path", type=str, default="/staging/cache", help="Cache path")
-    parser.add_argument("--output-path", type=str, default="/staging/output", help="Output path")
+    # parser.add_argument("--output-path", type=str, default="/staging/output", help="Output path")
     parser.add_argument("--hf-token", type=str, default="", help="Hub token")
     parser.add_argument("--log-level", type=str, default="debug", help="Log level")
     parser.add_argument("--log-path", type=str, default=LOG_DIR, help="Log directory path")
@@ -79,11 +81,14 @@ if __name__ == "__main__":
     parser.add_argument("--max-runtime-minutes", type=int, default=30, help="Max runtime minutes")
     args = parser.parse_args()
 
+    tag_save_path = jp(args.save_path, args.tag)
+    os.makedirs(tag_save_path, exist_ok=True)
+
     os.makedirs(args.log_path, exist_ok=True)
     os.makedirs(args.save_path, exist_ok=True)
     os.makedirs(args.model_path, exist_ok=True)
     os.makedirs(args.cache_path, exist_ok=True)
-    os.makedirs(args.output_path, exist_ok=True)
+    # os.makedirs(args.output_path, exist_ok=True)
 
     logfilename = jp(args.log_path, f"finetuning_process_{args.model.replace('/', '-')}_{args.tag}.log")
     logging.basicConfig(filename=logfilename, level=args.log_level, format='%(asctime)s %(levelname)s %(message)s')
@@ -111,10 +116,9 @@ if __name__ == "__main__":
         model_name=args.model,
         config=config,
         dataset_path=args.data_path,
-        save_path=args.save_path,
+        save_path=tag_save_path,
         model_path=args.model_path,
         cache_path=args.cache_path,
-        # output_path=args.output_path,
         hub_token=args.hf_token,
         max_runtime_minutes=args.max_runtime_minutes
     )
