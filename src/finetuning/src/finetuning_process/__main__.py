@@ -114,7 +114,7 @@ if __name__ == "__main__":
         save_path=args.save_path,
         model_path=args.model_path,
         cache_path=args.cache_path,
-        output_path=args.output_path,
+        # output_path=args.output_path,
         hub_token=args.hf_token,
         max_runtime_minutes=args.max_runtime_minutes
     )
