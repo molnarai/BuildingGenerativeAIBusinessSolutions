@@ -3,7 +3,7 @@ RUN mkdir /myapp
 WORKDIR /myapp
 RUN cd /myapp
 # Install cmake
-RUN apt-get update && apt-get install -y cmake
+# RUN apt-get update && apt-get install -y cmake
 COPY ./requirements.txt .
 RUN pip3 install  -r ./requirements.txt --root-user-action ignore
 COPY src .

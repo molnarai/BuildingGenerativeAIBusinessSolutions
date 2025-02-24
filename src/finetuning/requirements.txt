@@ -2,3 +2,4 @@ trl
 transformers
 unsloth
 gguf
+protobuf
