@@ -180,7 +180,7 @@ class FineTuner:
         if limit > 0:
             df = df.head(limit)
             print(f"Dataset limited to {limit:,} records.")
-            self.logger(f"Dataset limited to {limit:,} records.")
+            self.logger.warning(f"Dataset limited to {limit:,} records.")
 
         self.logger.info(f"Dataset loaded. Number of records: {df.shape[0]:,}")
 
