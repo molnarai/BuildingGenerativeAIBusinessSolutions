@@ -19,15 +19,17 @@ RUN git clone https://github.com/ggml-org/llama.cpp && \
 
 # Final stage using Hugging Face container as base
 FROM huggingface/transformers-pytorch-gpu
-RUN mkdir -p /myapp/llama.cpp
+# Create a directory for llama.cpp binaries
+RUN mkdir -p /opt/llama.cpp
+COPY --from=builder /build/llama.cpp /opt/llama.cpp
+
+# Add llama.cpp binaries to PATH
+ENV PATH="/opt/llama.cpp/bin:${PATH}"
+
+# Add app 
+RUN mkdir -p /myapp/
 WORKDIR /myapp
 RUN cd /myapp
-
-# COPY --from=builder /build/llama.cpp/build/bin/llama-quantize /usr/local/bin/
-COPY --from=builder /build/llama.cpp .
-
-# Install cmake
-# RUN apt-get update && apt-get install -y cmake
 COPY ./requirements.txt .
 RUN pip3 install  -r ./requirements.txt --root-user-action ignore
 COPY src .
