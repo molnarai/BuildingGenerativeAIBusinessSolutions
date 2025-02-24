@@ -143,7 +143,7 @@ class FineTuner:
         self.trainer = None
 
     # Load dataset
-    def load_dataset(self):
+    def load_dataset(self, limit: int = 0):
         if not os.path.exists(self.dataset_path):
             self.logger.error(f"Dataset path {self.dataset_path} does not exist.")
             raise ValueError(f"Dataset path {self.dataset_path} does not exist.")
@@ -177,7 +177,11 @@ class FineTuner:
         df = pd.concat(dataframes)           
         print(f"Dataset loaded. Number of records: {df.shape[0]:,}")
         print(df.head())
-        
+        if limit > 0:
+            df = df.head(limit)
+            print(f"Dataset limited to {limit:,} records.")
+            self.logger(f"Dataset limited to {limit:, } records.")
+            
         self.logger.info(f"Dataset loaded. Number of records: {df.shape[0]:,}")
 
         data_prompt = """Analyze the provided text from a mental health perspective. Identify any indicators of emotional distress, coping mechanisms, or psychological well-being. Highlight any potential concerns or positive aspects related to mental health, and provide a brief explanation for each observation.

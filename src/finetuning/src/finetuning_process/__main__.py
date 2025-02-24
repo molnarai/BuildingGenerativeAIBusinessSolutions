@@ -54,7 +54,7 @@ def main(
 
     ft.load_model()
     
-    ft.load_dataset()
+    ft.load_dataset(limit=16)
 
     ft.load_trainer()
 
