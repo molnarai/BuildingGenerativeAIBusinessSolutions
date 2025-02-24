@@ -22,6 +22,8 @@ FROM huggingface/transformers-pytorch-gpu
 # Create a directory for llama.cpp binaries
 RUN mkdir -p /opt/llama.cpp
 COPY --from=builder /build/llama.cpp/build /opt/llama.cpp
+COPY --from=builder /build/llama.cpp/build/bin/lib*.so /usr/local/lib/
+RUN ldconfig
 
 # Add llama.cpp binaries to PATH
 ENV PATH="/opt/llama.cpp/bin:${PATH}"
