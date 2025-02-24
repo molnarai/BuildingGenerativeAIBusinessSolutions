@@ -24,7 +24,7 @@ WORKDIR /myapp
 RUN cd /myapp
 
 # COPY --from=builder /build/llama.cpp/build/bin/llama-quantize /usr/local/bin/
-COPY --from=builder /build/llama.cpp/build/* llama.cpp/
+COPY --from=builder /build/llama.cpp .
 
 # Install cmake
 # RUN apt-get update && apt-get install -y cmake
