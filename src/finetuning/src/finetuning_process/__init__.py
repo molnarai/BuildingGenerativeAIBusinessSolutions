@@ -180,8 +180,8 @@ class FineTuner:
         if limit > 0:
             df = df.head(limit)
             print(f"Dataset limited to {limit:,} records.")
-            self.logger(f"Dataset limited to {limit:, } records.")
-            
+            self.logger(f"Dataset limited to {limit:,} records.")
+
         self.logger.info(f"Dataset loaded. Number of records: {df.shape[0]:,}")
 
         data_prompt = """Analyze the provided text from a mental health perspective. Identify any indicators of emotional distress, coping mechanisms, or psychological well-being. Highlight any potential concerns or positive aspects related to mental health, and provide a brief explanation for each observation.
