@@ -32,6 +32,12 @@ Read the following:
 2. Textbook: [Chapter 7. Advanced Text Generation Techniques and Tools](https://go.oreilly.com/georgia-state-university/library/view/hands-on-large-language/9781098150952/ch07.html) in Allamar and Grotendorst, "Hands-On Large Language Models", O'Reilly Media Inc., September 2024.
 3. Paper: Sanjay Kukreja et al., [Vector Databases and Vector Embeddings-Review, 2023 International Workshop on Artificial Intelligence and Image Processing (IWAIIP),](https://ieeexplore.ieee.org/document/10462847)
 
+
+Additional helpful texts:
+
+Chroma DB vs. Pinecone vs. FAISS: Vector Database Showdown, https://risingwave.com/blog/chroma-db-vs-pinecone-vs-faiss-vector-database-showdown/
+
+
 ## Study Guide - Questions
 
 I. Quiz
