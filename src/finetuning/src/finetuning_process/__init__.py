@@ -292,7 +292,7 @@ class FineTuner:
         self.tokenizer.save_pretrained(jp(model_tokenizer_save_path, "hf"))
         self.model.save_pretrained_gguf(jp(model_tokenizer_save_path, "gguf"),
                                         tokenizer=self.tokenizer,
-                                        quantization_method= "q4_k_m",
+                                        quantization_method="q4_k_m",
                                         safe_serialization=True)
         
         # self.trainer.save_model(model_tokenizer_save_path)
