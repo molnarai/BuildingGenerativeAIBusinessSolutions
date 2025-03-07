@@ -40,11 +40,16 @@ This book is available in print and digital on O’Reilly Media.<br />
 2. Mark Purdy, **What Is Agentic AI, and How Will It Change Work?** Harvard Business Review. Dec 2024.<br />
 [Link](https://hbr.org/2024/12/what-is-agentic-ai-and-how-will-it-change-work)
  
-3. Deloitte, **Now devcides next: Deloitte’s State of Generative AI in the Enterprise Quarter four report**. Jan 2025. <br />
+3. Deloitte, **Now decides next: Deloitte’s State of Generative AI in the Enterprise Quarter four report**. Jan 2025. <br />
 [Link](https://www2.deloitte.com/content/dam/Deloitte/us/Documents/consulting/us-state-of-gen-ai-q4.pdf)
 
 
-**Github sites for Agentic AI examples:**
+**Agentic AI code example:**
+Bhavishya Pandit, **Agentic RAG: Step-by-Step Tutorial With Demo Project**. <br /> 
+[Link](https://www.datacamp.com/tutorial/agentic-rag-tutorial)
+
+
+**Github sites for Agentic AI code examples:**
 1. Github: **The Hugging Face Agents Course**. <br />
 [Link](https://github.com/huggingface/agents-course)
 
