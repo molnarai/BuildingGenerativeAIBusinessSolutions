@@ -1,0 +1,18 @@
+Machine A: Bottle Filler
+Machine A is responsible for filling bottles with liquid. It operates at an average speed of 500 bottles
+per minute. Common operating states include Running, Idle, and Maintenance. Failures usually
+involve nozzle clogging and inconsistent filling levels.
+
+Machine B: Labeling Machine
+Machine B applies labels to bottles as they pass along the conveyor. It operates at a speed of 450
+bottles per minute. Operating states include Running, Idle, and Adjustment. Typical failures include
+misaligned labels and adhesive malfunctions.
+
+Machine C: Capping Machine
+Machine C places caps on filled bottles and ensures proper sealing. It works at a speed of 480
+bottles per minute. Failures include loose caps, cross-threading, and cap feeder jams.
+
+Machine D: Quality Control Scanner
+Machine D inspects bottles for defects using an AI-powered vision system. It identifies issues such
+as incorrect labeling, improper sealing, and empty bottles. Failures include sensor malfunctions and
+misclassification errors
