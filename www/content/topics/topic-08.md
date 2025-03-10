@@ -27,9 +27,12 @@ Read the following:
 
 <!-- 1. Summary Blog: [Agentic AI](https://www.perplexity.ai/page/)
 2. Textbook: [Chapter 7. Advanced Text Generation Techniques and Tools](https://go.oreilly.com/georgia-state-university/library/view/hands-on-large-language/9781098150952/ch07.html) in Allamar and Grotendorst, "Hands-On Large Language Models", O'Reilly Media Inc., September 2024. -->
+1. Textbook: Michael Albada, Building Applications with AI Agents, , 1st ed., Published by O’Reilly Media, Inc., ISBN-13 978-1098176495.
+This book is available in print and digital on O’Reilly Media.
+[GSU Library Link](https://go.oreilly.com/georgia-state-university/library/view/building-applications-with/9781098176495/)
 3. Paper: Deepak Bhaskar Acharya, Karthigeyan Kuppan, B. Divya, [Agentic AI: Autonomous Intelligence for Complex Goals—A Comprehensive Survey](https://ieeexplore.ieee.org/document/10849561) [PDF](https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/docs/Agentic_AI_Autonomous_Intelligence_for_Complex_GoalsA_Comprehensive_Survey.pdf)
 
-
+More resources can be found on the resource page [Agentic AI Related Texts](../../resources/resource-agenticai-texts/)
 
 
 
