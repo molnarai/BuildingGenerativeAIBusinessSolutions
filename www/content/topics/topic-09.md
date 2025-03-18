@@ -34,4 +34,11 @@ Read the following:
 This book is available in print and digital on O’Reilly Media.
 [GSU Library Link](https://go.oreilly.com/georgia-state-university/library/view/building-applications-with/9781098176495/)
 
+Additional suggested reading:
+
+1. Lekha Priya, [Agentic RAG: The Next Frontier in Generative AI and Dynamic Intelligence](https://lekha-bhan88.medium.com/agentic-rag-the-next-frontier-in-generative-ai-and-dynamic-intelligence-4902ad3e403f)
+
+2. Kerem Aydin, [Which AI Agent framework should i use? (CrewAI, Langgraph, Majestic-one and pure code)](https://medium.com/@aydinKerem/which-ai-agent-framework-i-should-use-crewai-langgraph-majestic-one-and-pure-code-e16a6e4d9252)
+
+
 More resources can be found on the resource page [Agentic AI Related Texts](../../resources/resource-agenticai-texts/)
