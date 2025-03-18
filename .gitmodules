@@ -1,3 +1,6 @@
 [submodule "www/themes/digitalgarden"]
 	path = www/themes/digitalgarden
 	url = https://github.com/apvarun/digital-garden-hugo-theme.git
+[submodule "AgenticAI/agentic_ai_frameworks_example/crewai/agentic-rag-practical-example"]
+	path = AgenticAI/agentic_ai_frameworks_example/crewai/agentic-rag-practical-example
+	url = git@github.com:lorenzejay/agentic-rag-practical-example.git
