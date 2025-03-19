@@ -12,10 +12,12 @@
 
 
 SUBMISSION="/data/MSA8700/BuildingGenerativeAIBusinessSolutions/S25"
+# SUBMISSION="/data/MSA8700/"
 RLP=`realpath "$0"`
 DIR=`dirname "$RLP"`
 HW=`basename "$DIR"`
 DEST="$SUBMISSION/$USER/$HW"
+# DEST="$SUBMISSION"
 
 if [ "$HW" == "." ]
 then
