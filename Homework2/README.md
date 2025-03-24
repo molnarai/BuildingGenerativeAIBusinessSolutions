@@ -4,7 +4,7 @@
 
 - After logging in to the new IFI cluster git clone the repo to your home directory via:
 
-  **git clone git@github.com:molnarai/BuildingGenerativeAIBusinessSolutions.git**
+  **git clone https://github.com/molnarai/BuildingGenerativeAIBusinessSolutions.git**
 
 - Switch to the **BuildingGenerativeAIBusinessSolutions/Homework2** folder.
 
