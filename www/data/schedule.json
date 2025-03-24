@@ -67,7 +67,7 @@
       "Topic": "Document Porcessing, Vector Data Bases",
       "Reading": "online resources",
       "InClass": "Q5",
-      "DueBeforeClass": "HW 2 LLM Fine Tuning"
+      "DueBeforeClass": ""
     },
     {
       "Day": "2025-03-10",
@@ -91,14 +91,14 @@
       "Topic": "AI Agent Frameworks",
       "Reading": "online resources",
       "InClass": "Q7",
-      "DueBeforeClass": "HW 3 Document Processing for RAG"
+      "DueBeforeClass": "HW 2 + HW 3 (Group)"
     },
     {
       "Day": "2025-03-31",
       "Session": "10",
       "Topic": "Symbolic and Neuro-symbolic AI",
       "Reading": "online resources",
-      "InClass": "Test 2 (1Hr)",
+      "InClass": "Q8",
       "DueBeforeClass": ""
     },
     {
@@ -106,8 +106,8 @@
       "Session": "11",
       "Topic": "Knowledge Graphs",
       "Reading": "online resources",
-      "InClass": "Q8",
-      "DueBeforeClass": "HW 4 AI Agent"
+      "InClass": "Test 2 (1Hr)",
+      "DueBeforeClass": ""
     },
     {
       "Day": "2025-04-14",
@@ -115,7 +115,7 @@
       "Topic": "Image Generation, Multi-modal Generative Models",
       "Reading": "online resources",
       "InClass": "Q9",
-      "DueBeforeClass": ""
+      "DueBeforeClass": "HW 4 (Group)"
     },
     {
       "Day": "2025-04-21",
