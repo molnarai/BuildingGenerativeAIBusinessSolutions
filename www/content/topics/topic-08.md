@@ -12,7 +12,7 @@ At its core, Agentic AI integrates advanced decision-making capabilities, enviro
 
 ## Required Reading and Listening
 
-Listen to the [podcast](../../podcasts/podcast-07-docu-processing-vdbs/):
+Listen to the [podcast](../../podcasts/podcast-08-agentic-ai/):
 
 <!-- Listen to the podcast: -->
 
