@@ -10,7 +10,7 @@
 
 - Make a copy of the homework notebook and rename the copy using your GSU username as suffix:
 
-    **AgenticAI_RAG_Homework2_<YOUR GSU USERNAME>.ipynb**
+    **AgenticAI_RAG_Homework2_\<YOUR GSU USERNAME\>.ipynb**
 
 - Use the **MSA8700 Python 3.12** kernel when you execute your noterbnook cells! This kernel has all the necessary Python packages already installed. You do not have to install any packages. Do **NOT** use any of the other kernels. 
 
