@@ -12,7 +12,7 @@
 | 2025-03-17 |           | Spring Break                                                   |                  |              |                                  |
 | 2025-03-24 | 9         | AI Agent Frameworks                                            | online resources | Q7           | HW 3 Document Processing for RAG |
 | 2025-03-31 | 10        | Symbolic and Neuro-symbolic AI                                 | online resources | Q8  |  HW 2 + HW 3 (Group) |
-| 2025-04-07 | 11        | Knowledge Graphs                                               | online resources | Test 2  (1Hr)   |                     |
+| 2025-04-07 | 11        | Knowledge Graphs                                               | online resources | Test 2  (1Hr)   | |
 | 2025-04-14 | 12        | Image Generation, Multi-modal Generative Models                | online resources | Q9       |  HW 4 (Group) |
 | 2025-04-21 | 13        | Safeguarding LLMS, Detecting BIAS, Privacy, Federated Learning | KH 10            | Q10          | |
 | 2025-04-28 | 14        | Project Presentations |                  |              | |
