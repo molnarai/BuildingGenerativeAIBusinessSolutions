@@ -1,7 +1,7 @@
 ---
 draft: false
 title: Agentic AI Frameworks
-weight: 5
+weight: 12
 description: Below is a list of various open-source frameworks available to you to build your own agentic AI application.
 ---
 A list of various open-source frameworks available to you to build your own agentic AI application:

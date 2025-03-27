@@ -1,7 +1,7 @@
 ---
 draft: false
 title: Knowledge Graphs
-weight: 5
+weight: 40
 description: Below are various resources related to knowledge graphs and their use in LLM applications.
 ---
 
