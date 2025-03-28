@@ -50,3 +50,23 @@ The provided texts collectively explore the integration of knowledge graphs (KGs
 
 8. Kartik Joshi, **LLM Knowledge Graph Builder Front-End Architecture** <br />
 [Link](https://neo4j.com/blog/developer/frontend-architecture-and-integration/)
+
+**Talks and Discussion Groups:**
+
+- Talk: **Systems That Learn and Reason** <br /> 
+[Link](https://www.youtube.com/watch?v=0OnvkuKcGN0) by Frank van Harmelen.
+
+- Talk: **Understanding Graph RAG: Enhancing LLM Applications Through Knowledge Graphs** <br /> 
+[Link](https://app.getcontrast.io/register/senzing-graph-rag-to-enhance-llm-applications) by Paco Nathan.
+
+- GraphGeeks.org, **discord.com/invite/hXyHmvW3Vy** <br /> 
+[Link](https://discord.com/invite/hXyHmvW3Vy)
+
+- ERKG discussion group, **linkedin.com/groups/14426852** <br /> 
+[Link](https://www.linkedin.com/groups/14426852/)
+
+- Hugging Face collection, **KG construction papers** <br /> 
+[Link](https://huggingface.co/collections/pacoid/kg-construction-655a703dda4acab10a9c5e0d)
+
+- GraphRAG Discord, **discord.com/invite/N9A83zuhZu** <br /> 
+[Link](https://discord.com/invite/N9A83zuhZu)
