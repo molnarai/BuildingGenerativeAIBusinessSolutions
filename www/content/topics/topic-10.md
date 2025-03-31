@@ -20,7 +20,7 @@ Listen to the [podcast](../../podcasts/podcast-10-symbolic-ai/):
 <!-- Listen to the podcast: -->
 
 <audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Symbolic_AI.wav" type="audio/wav">
+    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Neuro-Symbolic_AI_Blending_Neural_Networks_and_Symbolic_Reasoning.wav" type="audio/wav">
     Your browser does not support the audio element.
 </audio>
 
