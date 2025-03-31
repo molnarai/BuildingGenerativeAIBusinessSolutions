@@ -4,6 +4,3 @@
 [submodule "AgenticAI/agentic_ai_frameworks_example/crewai/agentic-rag-practical-example"]
 	path = AgenticAI/agentic_ai_frameworks_example/crewai/agentic-rag-practical-example
 	url = git@github.com:lorenzejay/agentic-rag-practical-example.git
-[submodule "KnowledgeGraphs/graphrag_example/example-graphrag"]
-	path = KnowledgeGraphs/graphrag_example/example-graphrag
-	url = https://github.com/stephenc222/example-graphrag.git
