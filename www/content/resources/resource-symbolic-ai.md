@@ -20,3 +20,5 @@ description: Below are various resources related to symbolic AI and Neuro-symbol
    [Link](https://ai.plainenglish.io/neurosymbolic-reasoning-and-personal-knowledge-graphs-for-enhancing-llm-capabilities-9957cba50533)
 7. NoAILabs, **Neuro-Symbolic Learning and Reasoning in the Era of LLMs // papers AAAI 2024** `<br />`
    [Link](https://noailabs.medium.com/neuro-symbolic-learning-and-reasoning-in-the-era-of-llms-papers-aaai-2024-7b4a3c9164bc)
+7. Raphael Mansuy, **Bridging the Gap Between Symbolic AI and Large Language Models** `<br />`
+   [Link](https://pub.aimind.so/bridging-the-gap-between-symbolic-ai-and-large-language-models-ec16c36c7ef5)  
