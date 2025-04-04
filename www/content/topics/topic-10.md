@@ -33,3 +33,5 @@ Read the following:
    Textbook: Alexiei Dingli, David Farrugia, **Neuro-Symbolic AI. Chapters 2, 4, 5, 7.** Published by O’Reilly Media, Inc., ISBN-13 978-1098176495.
    This book is available in print and digital on O’Reilly Media.
    [GSU Library Link](https://go.oreilly.com/georgia-state-university/library/view/neuro-symbolic-ai/9781804617625/)
+
+More resources can be found on the resource page [Symbolic and Neuro-symbolic AI](../../resources/resource-symbolic-ai/)
