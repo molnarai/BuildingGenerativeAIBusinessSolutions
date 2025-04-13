@@ -7,7 +7,7 @@ numsession = 12
 +++
 
 Multimodal models, such as vision-enhanced large language models (LLMs) and diffusion models, are designed to process and integrate different types of data, including text, images, and audio. Vision LLMs combine visual and textual information to perform tasks like image captioning and visual question answering. These models use cross-attention mechanisms to align visual features with textual representations, allowing them to generate text based on images or answer questions about visual content.
-<!-- mode -->
+<!-- more -->
 Diffusion models, in contrast, are primarily used for image generation tasks. They learn to reverse a noise-adding process to create realistic images from noise. While diffusion models are not inherently designed for text generation, they can be adapted for tasks like image-to-text generation by integrating them with text models. The training and fine-tuning processes for these models differ significantly. Vision LLMs require large datasets of paired images and text, while diffusion models rely on large image datasets with optional text descriptions.
 
 In terms of dataset preparation, vision LLMs focus on aligning visual and textual features, emphasizing data cleaning, normalization, and tokenization. Diffusion models, on the other hand, concentrate on image normalization and augmentation to enhance visual diversity. Both models benefit from large and diverse datasets, but diffusion models are particularly sensitive to image quality and variety for generating realistic outputs. Overall, these models demonstrate the potential of multimodal approaches in enhancing performance across various tasks by leveraging the strengths of different data modalities.
