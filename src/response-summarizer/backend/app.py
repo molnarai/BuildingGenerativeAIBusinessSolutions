@@ -7,20 +7,34 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-OLLAMA_API_URL = "http://localhost:11434/api/generate"  # Default Ollama API endpoint
+OLLAMA_API_URL = "http://host.docker.internal:11434/api/generate"
 
 # Database initialization
 def init_db():
-    conn = sqlite3.connect('responses.db')
+    conn = sqlite3.connect('data/responses.db')
     c = conn.cursor()
+    
+    # Create responses table
     c.execute('''
         CREATE TABLE IF NOT EXISTS responses (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             student_id TEXT NOT NULL,
             response_text TEXT NOT NULL,
+            question_id INTEGER,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (question_id) REFERENCES questions (id)
+        )
+    ''')
+    
+    # Create questions table
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS questions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            question_text TEXT NOT NULL,
             timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
         )
     ''')
+    
     conn.commit()
     conn.close()
 
@@ -28,10 +42,79 @@ def init_db():
 init_db()
 
 def get_db_connection():
-    conn = sqlite3.connect('responses.db')
+    conn = sqlite3.connect('data/responses.db')
     conn.row_factory = sqlite3.Row
     return conn
 
+@app.route('/submit_question', methods=['POST'])
+def submit_question():
+    try:
+        data = request.get_json()
+        
+        # Validate required fields
+        if not data or 'question_text' not in data:
+            return jsonify({
+                'error': 'Missing required field: question_text'
+            }), 400
+
+        question_text = data['question_text']
+
+        # Validate input data
+        if not question_text.strip():
+            return jsonify({'error': 'Question text cannot be empty'}), 400
+
+        # Store in database
+        conn = get_db_connection()
+        cur = conn.cursor()
+        cur.execute(
+            'INSERT INTO questions (question_text) VALUES (?)',
+            (question_text,)
+        )
+        question_id = cur.lastrowid
+        conn.commit()
+        conn.close()
+
+        return jsonify({
+            'message': 'Question submitted successfully',
+            'question_id': question_id,
+            'timestamp': datetime.now().isoformat()
+        }), 201
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/get_question', methods=['GET'])
+def get_question():
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor()
+        
+        # Get the most recent question
+        cur.execute('''
+            SELECT id, question_text, timestamp 
+            FROM questions 
+            ORDER BY timestamp DESC 
+            LIMIT 1
+        ''')
+        
+        question = cur.fetchone()
+        conn.close()
+
+        if not question:
+            return jsonify({
+                'message': 'No questions found'
+            }), 404
+
+        return jsonify({
+            'question_id': question['id'],
+            'question_text': question['question_text'],
+            'timestamp': question['timestamp']
+        })
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# Your existing submit_response function, updated to include question_id
 @app.route('/submit_response', methods=['POST'])
 def submit_response():
     try:
@@ -45,6 +128,7 @@ def submit_response():
 
         student_id = data['student_id']
         response_text = data['response_text']
+        question_id = data.get('question_id')  # Optional, but recommended
 
         # Validate input data
         if not response_text.strip():
@@ -54,8 +138,8 @@ def submit_response():
         conn = get_db_connection()
         cur = conn.cursor()
         cur.execute(
-            'INSERT INTO responses (student_id, response_text) VALUES (?, ?)',
-            (student_id, response_text)
+            'INSERT INTO responses (student_id, response_text, question_id) VALUES (?, ?, ?)',
+            (student_id, response_text, question_id)
         )
         conn.commit()
         conn.close()
@@ -68,26 +152,37 @@ def submit_response():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+# Update generate_summary to optionally filter by question_id
 @app.route('/generate_summary', methods=['GET'])
 def generate_summary():
     try:
-        # Get time range parameters (optional)
+        # Get parameters
         start_time = request.args.get('start_time')
         end_time = request.args.get('end_time')
+        question_id = request.args.get('question_id')
 
         # Fetch responses from database
         conn = get_db_connection()
         cur = conn.cursor()
         
+        query = 'SELECT response_text FROM responses'
+        params = []
+        conditions = []
+
         if start_time and end_time:
-            cur.execute('''
-                SELECT response_text FROM responses 
-                WHERE timestamp BETWEEN ? AND ?
-                ORDER BY timestamp DESC
-            ''', (start_time, end_time))
-        else:
-            cur.execute('SELECT response_text FROM responses ORDER BY timestamp DESC')
+            conditions.append('timestamp BETWEEN ? AND ?')
+            params.extend([start_time, end_time])
+
+        if question_id:
+            conditions.append('question_id = ?')
+            params.append(question_id)
+
+        if conditions:
+            query += ' WHERE ' + ' AND '.join(conditions)
+
+        query += ' ORDER BY timestamp DESC'
         
+        cur.execute(query, params)
         responses = cur.fetchall()
         conn.close()
 
@@ -106,7 +201,7 @@ def generate_summary():
             response = requests.post(
                 OLLAMA_API_URL,
                 json={
-                    "model": "mistral",  # or any other model you have pulled in Ollama
+                    "model": "mistral",
                     "prompt": prompt,
                     "stream": False
                 }
@@ -135,4 +230,3 @@ def generate_summary():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
