@@ -201,7 +201,7 @@ def generate_summary():
             response = requests.post(
                 OLLAMA_API_URL,
                 json={
-                    "model": "mistral",
+                    "model": "llama3.1:latest",
                     "prompt": prompt,
                     "stream": False
                 }
