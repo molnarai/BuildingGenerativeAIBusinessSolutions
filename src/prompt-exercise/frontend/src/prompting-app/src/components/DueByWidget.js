@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 const DueByWidget = () => {
     const [timeRemaining, setTimeRemaining] = useState('');
-    const dueDate = new Date('2025-02-17T23:59:00');
+    // const dueDate = new Date('2025-02-17T23:59:00');
+    const dueDate = new Date('2025-04-26T23:59:00');
 
     useEffect(() => {
         const updateTimeRemaining = () => {
@@ -22,7 +23,7 @@ const DueByWidget = () => {
 
             // Format the message based on remaining time
             if (days >= 3) {
-                setTimeRemaining('Due on February 17, 2025 before midnight');
+                setTimeRemaining('Due on April 26, 2025 before midnight');
             } else if (days > 0) {
                 setTimeRemaining(`Due in ${days} day${days > 1 ? 's' : ''} and ${hours} hour${hours !== 1 ? 's' : ''}`);
             } else {
