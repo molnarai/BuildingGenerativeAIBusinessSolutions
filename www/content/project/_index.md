@@ -2,6 +2,7 @@
 title: Project
 description: Instructions for group project
 ---
+**[Guidelines for Final Project Presentation](project-final-presentation/)**
 
 <!-- **Project Assignment: Building an AI-Powered Business Solution** -->
 
