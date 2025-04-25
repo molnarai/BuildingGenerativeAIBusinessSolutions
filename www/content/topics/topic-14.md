@@ -6,5 +6,5 @@ weight = 140
 numsession = 14
 +++
 
-See [Project](../project/) page...
+See [Project](/project/) page...
 
