@@ -2,7 +2,7 @@
 title: Project
 description: Instructions for group project
 ---
-
+**[Guidlines for Final Project Presentation](project-final-presentation/)**
 <!-- **Project Assignment: Building an AI-Powered Business Solution** -->
 
 You will work as a team to design, develop, and deploy an AI-powered business solution that leverages large language models (LLMs) and generative AI technologies. This project is a collaborative effort, where each team will consist of up to six members. The team will work together to identify a real-world business problem, propose an innovative solution, and implement it using the tools and concepts covered in this course.
