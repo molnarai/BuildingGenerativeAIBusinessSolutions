@@ -6,13 +6,14 @@ weight = 1
 
 
 
-# Final Project Presentation
 
 - **Teams need to connect to the WebEx session at the beginning of class. And enable screen sharing.** They must be ready to present their slide deck and demo their project. Please, ensure that your computer is setup to share screens. Practice ahead of time to ensure your technology doesn't fail.
 
 - **Teams have 8 minutes to present their project and respond to questions.** This includes the 3 slides: Project Pitch, Tech Stack, and Team Structure. Target 5 minutes for presentation and 3 minutes for Q&A.
 
 - Submit your slide deck to the "Final Presentation" assignment of iCollege
+
+<!-- more -->
 
 ## Example Slide Deck
 Review [How_To_Create_A_Pitch](https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/docs/How_To_Create_A_Pitch.pptx). Use these examples as inspiration
