@@ -332,3 +332,6 @@ dist
 
 .DISCLAIMER*
 src/*/data/*
+
+.idea/
+.vscode/
