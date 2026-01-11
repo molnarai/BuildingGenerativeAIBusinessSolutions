@@ -11,14 +11,18 @@
     {{ end }}
     
     <hr>
-    <h3>Supporting Documents</h3>
+    <h3>Milestones</h3>
     <table class="table">
         <tr>
-            <th>Title</th><th>Description</th>
+            <th>Title</th><th>Description</th><th>Due Date</th><th>Grade</th>
         </tr>
             {{ range .Pages.ByWeight }}
-                <tr><td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
-                    <td>{{ .Params.description }}</td></tr>
+                <tr>
+                    <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+                    <td>{{ .Params.description }}</td>
+                    <td>{{ .Params.submission }}</td>
+                    <td>{{ .Params.percent }}%</td>
+                </tr>
             {{ end }}
     </table>
     <!-- <p style="margin-bottom: 5rex">

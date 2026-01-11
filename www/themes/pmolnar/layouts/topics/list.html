@@ -20,7 +20,9 @@
     {{ range .Pages.ByWeight }}
     <article class="topic-item">
         <h2 class="listing-title"><a href="{{ .RelPermalink }}">Session {{ .Params.numsession }}: {{ .Title }}</a></h2>
-        {{ if .Params.date }}
+        {{ if .Params.classdates }}
+            <div class="due-date">Class Dates: {{ .Params.classdates }}</div>
+        {{ else if .Params.date }}
             <div class="due-date">Class Date: {{ .Params.date | time.Format "January 2, 2006" }}</div>
         {{ end }}
         <!-- {{ with .Content }}

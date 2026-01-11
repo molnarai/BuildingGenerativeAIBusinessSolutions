@@ -11,11 +11,22 @@ WWW_DIR = os.path.abspath(jp(os.path.dirname(__file__), ".."))
 def main(filename: str, dry_run: bool = False, over_write: bool = False):
     df = pd.read_excel(filename, sheet_name="Sheet1")
     df = df.dropna(subset=['Session'])
+    df = df.fillna("")
+    
+    # Ensure output directory exists
+    output_dir = jp(WWW_DIR, "content", "topics")
+    os.makedirs(output_dir, exist_ok=True)
+    
     for j, row in df.iterrows():
         session = int(row['Session'])
         topic = row['Topic']
-        day = row['Day']
-        dt = day.strftime("%Y-%m-%d")
+        monday = row['Monday'].strftime("%Y-%m-%d") if row['Monday'] != "" and hasattr(row['Monday'], 'strftime') else ""
+        wednesday = row['Wednesday'].strftime("%Y-%m-%d") if row['Wednesday'] != "" and hasattr(row['Wednesday'], 'strftime') else ""
+        dt = f"Monday {monday}, Wednesday {wednesday}"
+        # Use a proper Hugo date format for the first date
+        hugo_date = monday if monday else wednesday
+        if not hugo_date:
+            hugo_date = "2024-01-01"  # fallback date
         output_file = jp(WWW_DIR, "content", "topics", f"topic-{session:02d}.md")
         print(f"Session {session:2d} on {dt}: {topic}")
         if not over_write and os.path.exists(output_file):
@@ -23,14 +34,15 @@ def main(filename: str, dry_run: bool = False, over_write: bool = False):
             continue
         print(f"Writing to {output_file}")
         if not dry_run:
-            with open(output_file, "w") as f:
-                txt = f"""+++
-date = '{dt}'
-draft = false
-title = '{topic}'
-weight = {10*session}
-numsession = {session}
-+++
+            with open(output_file, "w", encoding="utf-8") as f:
+                txt = f"""---
+date: {hugo_date}
+classdates: '{dt}'
+draft: false
+title: '{topic}'
+weight: {10*session}
+numsession: {session}
+---
 
 (Content not yet posted. Please check back.)
 

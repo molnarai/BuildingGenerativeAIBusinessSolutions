@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "title": "Schedule",
+    "source": "../../../P26/MSA8700P26_Schedule.xlsx",
+    "created": "2026-01-11T16:19:17.243222"
+  },
+  "records": [
+    {
+      "Milestone": "M01 Project Definition",
+      "Monday": "Feb 1, 2026",
+      "Wednesday": "Jan 27, 2026"
+    },
+    {
+      "Milestone": "M02 Data Pipeline, CI/CD setup",
+      "Monday": "Feb 15, 2026",
+      "Wednesday": "Feb 10, 2026"
+    },
+    {
+      "Milestone": "M03 Agentic Prototype",
+      "Monday": "Mar 8, 2026",
+      "Wednesday": "Mar 3, 2026"
+    },
+    {
+      "Milestone": "M04 Evaluation Framework Base-line",
+      "Monday": "Apr 5, 2026",
+      "Wednesday": "Mar 31, 2026"
+    },
+    {
+      "Milestone": "M05 Iterative Improvement",
+      "Monday": "Apr 19, 2026",
+      "Wednesday": "Apr 14, 2026"
+    },
+    {
+      "Milestone": "M06 Final Deliverables",
+      "Monday": "May 3, 2026",
+      "Wednesday": "Apr 28, 2026"
+    }
+  ]
+}

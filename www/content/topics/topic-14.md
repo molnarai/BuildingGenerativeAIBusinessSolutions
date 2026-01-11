@@ -1,10 +1,11 @@
-+++
-date = '2025-04-28'
-draft = false
-title = 'Project Presentations'
-weight = 140
-numsession = 14
-+++
+---
+date: 2026-04-27
+classdates: 'Monday 2026-04-27, Wednesday 2026-04-22'
+draft: false
+title: 'Last day of class: Presentations'
+weight: 140
+numsession: 14
+---
 
-See [Project](/project/) page...
+(Content not yet posted. Please check back.)
 

@@ -9,11 +9,13 @@
   <h3>Schedule</h3>
   {{ $events := index site.Data.schedule "records" }} 
   <table class="table">
-    <tr><th>Date</th><th>Session</th><th>Topic</th><th>In Class</th><th>Due Date</th></tr>
-  {{ range sort $events "Day" "asc" }}
+    <tr><th>Session</th><th>Monday</th><th>Wednesday</th><th>Topic</th><th>In Class</th><th>Project Milestone</th></tr>
+  {{ range $events }}
     <tr>
-      <td>{{- .Day }}</td>
-      <td style="text-align: right;">{{- .Session }}</td>
+      <!-- <td>{{- .Day }}</td> -->
+      <td style="text-align: center;">{{- .Session }}</td>
+      <td>{{- .Monday}}</td>
+      <td>{{- .Wednesday}}</td>
       <td>
         {{ if .Session }}
           {{ $sessionNum := 0 }}
@@ -28,7 +30,7 @@
         {{ end }}
       </td>
       <td>{{- .InClass }}</td>
-      <td>{{- .DueBeforeClass }}</td>
+      <td>{{ if .Milestone }}{{ index (split .Milestone ".") 0 }}{{ end }}</td>
     </tr>
   {{ end }}
   </table>
@@ -47,7 +49,7 @@
    {{ end }}
  
   <!-- Assignments -->
-  {{ $assignments := where site.RegularPages "Section" "assignments" }}
+  <!-- {{ $assignments := where site.RegularPages "Section" "assignments" }}
   {{ if $assignments }}
     <h3>Assignments</h3>
     <ul>
@@ -55,18 +57,40 @@
         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
       {{ end }}
     </ul>
-  {{ end }}
+  {{ end }} -->
 
   <!-- Project -->
   {{ $projects := where site.RegularPages "Section" "project" }}
   {{ if $projects }}
     <h3>Project</h3>
-    <ul>
-      {{ range sort $projects "Title" }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    <p>This semester-long project centers on developing a Document-Driven Agentic Intelligence System
+    (DAIS) utilizing a business-relevant document corpus and a multi-agent architecture. 
+    Students will choose from three variations - knowledge graph construction, research advising, or
+    scientific/business discovery - and design the system around a defined user persona.
+    The project involves building a data pipeline for document ingestion and processing, 
+    coupled with interactive and batch query interfaces for human and automated evaluation.
+    Ultimately, students will deliver a fully functional, demonstrably effective DAIS,
+    assessed through a student-constructed test set and culminating in a technical report,
+    demo video, and in-class presentation.</p>
+
+    {{ $milestones := index site.Data.milestones_schedule "records" }} 
+    {{ if $milestones }}
+      <h4>Project Milestones</h4>
+      <table class="table">
+        <tr><th>Milestone</th><th>Monday due</th><th>Wednesday due</th></tr>
+      {{ range $milestones }}
+        <tr>
+          <td>{{- .Milestone }}</td>
+          <td>{{- .Monday}}</td>
+          <td>{{- .Wednesday}}</td>
+        </tr>
       {{ end }}
-    </ul>
+      </table>
+    {{ end }}
+
   {{ end }}
+
+ 
 
   <!-- Resources -->
   {{ $resources := where site.RegularPages "Section" "resources" }}
@@ -79,3 +103,4 @@
     </ul>
   {{ end }}
 {{ end }}
+

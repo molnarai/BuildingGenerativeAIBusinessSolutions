@@ -12,11 +12,24 @@ WWW_DIR = os.path.abspath(jp(os.path.dirname(__file__), ".."))
 
 def main(filename: str, dry_run: bool = False, over_write: bool = False):
     df = pd.read_excel(filename, sheet_name="Sheet1")
-    df['Session'] = df['Session'].map(lambda x: str(int(x)), na_action="ignore")
+    
+    # Select only the specified columns that exist in the dataframe
+    columns_to_keep = ["Session", "Monday", "Wednesday", "Topic", "InClass", "Milestone"]
+    available_columns = [col for col in columns_to_keep if col in df.columns]
+    df = df[available_columns]
+    
+    # Fill all NaN values with empty strings before any processing
+    df = df.fillna("")
+    
+    df['Session'] = df['Session'].map(lambda x: str(int(float(x))) if x != "" else "", na_action="ignore")
     markdown = df.rename(lambda s: s.replace(' ', ''), axis=1).to_markdown(index=False)
     html = df.to_html(index=False, classes="table table-striped table-hover")
-    df.fillna("", inplace=True)
-    df["Day"] = df["Day"].map(lambda x: x.strftime("%Y-%m-%d"))
+    
+    # Handle date columns safely
+    if "Monday" in df.columns:
+        df["Monday"] = df["Monday"].map(lambda x: x.strftime("%Y-%m-%d") if x != "" and hasattr(x, 'strftime') else "")
+    if "Wednesday" in df.columns:
+        df["Wednesday"] = df["Wednesday"].map(lambda x: x.strftime("%Y-%m-%d") if x != "" and hasattr(x, 'strftime') else "")
     data = df.to_dict(orient='records')
     
     markdown = df.to_markdown(index=False)

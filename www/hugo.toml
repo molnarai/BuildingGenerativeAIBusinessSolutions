@@ -2,6 +2,7 @@ baseURL = 'http://www.insight.gsu.edu'
 languageCode = 'en-us'
 title = 'MSA 8700'
 theme = 'pmolnar'
+buildFuture = true
 
 [services]
   [services.googleAnalytics]
@@ -21,14 +22,14 @@ theme = 'pmolnar'
   name = 'Topics'
   url = '/topics'
   weight = 2
-[[menu.main]]
-  name = 'Readings'
-   url = '/readings'
-  weight = 3
-[[menu.main]]
-  name = 'Homework'
-  url = '/assignments'
-  weight = 4
+#[[menu.main]]
+#  name = 'Readings'
+#   url = '/readings'
+#  weight = 3
+#[[menu.main]]
+#  name = 'Homework'
+#  url = '/assignments'
+#  weight = 4
 [[menu.main]]
   name = 'Project'
   url = '/project'

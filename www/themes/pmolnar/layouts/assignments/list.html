@@ -30,7 +30,8 @@
         <h2 class="listing-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         {{ if .Params.due_date }}
             <div class="due-date" >
-                <span style="font-weight: bold;">Due: {{ .Params.due_date | time.Format "January 2, 2006" }}</span>
+                <!-- <span style="font-weight: bold;">Due: {{ .Params.due_date | time.Format "January 2, 2006" }}</span> -->
+                <span style="font-weight: bold;">Due: {{ .Params.due_date }}</span>
                  {{- if .Params.status }}&nbsp;( {{- .Params.status | markdownify }}){{ end }}
             </div>
         {{ end }}
