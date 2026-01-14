@@ -13,7 +13,7 @@ The topics in this session include foundational elements of logic and its applic
 Slide deck posted on the [iCollege](https://icollege.gsu.edu/) class site.
 
 <audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Symbolic_Artificial_Intelligence.m4a" type="audio/m4a">
+    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Symbolic_Artificial_Intelligence.m4a" type="audio/mp4" />
     Your browser does not support the audio element.
 </audio>
 
@@ -24,7 +24,8 @@ Slide deck posted on the [iCollege](https://icollege.gsu.edu/) class site.
 - Textbook: [Principles of Expert Systems](https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/docs/Principles+of+Expert+Systems.pdf) by Peter J.F. Lucas and Linda C. van der Gaag, 1991.
 
 
-
+## Other Resource
+- [Web-based Prolog Environment](https://swish.swi-prolog.org/)
 
 
 ### Formal Logic as a Foundation for AI:
