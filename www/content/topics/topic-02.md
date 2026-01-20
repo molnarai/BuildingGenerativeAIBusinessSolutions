@@ -22,6 +22,14 @@ Slide deck posted on the [iCollege](https://icollege.gsu.edu/) class site.
 
 <!-- Listen to the [AI-generated podcast](https://notebooklm.google.com/notebook/075a14f0-3dc5-4965-bb03-8cd9650f4f7b/audio) (Compare the content to the slides to the AI-generated podcast). -->
 
+### Suggested Reading
+- Textbook [**Hands-On Large Language Models**](https://go.oreilly.com/georgia-state-university/library/view/hands-on-large-language/9781098150952/) by Jay Alammar and Maarten Grootendorst
+    - [Chapter 1. An Introduction to Large Language Models](https://go.oreilly.com/georgia-state-university/library/view/hands-on-large-language/9781098150952/ch01.html)
+    - [Chapter 6. Prompt Engineering](https://go.oreilly.com/georgia-state-university/library/view/hands-on-large-language/9781098150952/ch06.html#choosing_a_text_generation_model)
+- Textbook [**Fundamentals of Machine Learning for Predictive Data Analytics**](https://research.ebsco.com/c/niwdz3/ebook-viewer/pdf/ijxy5p6dqn/section/lp_Cover) by John D. Kelleher, Brian Mac Namee and Aoife D'Arcy
+    - [Chapter 8. Deep Learning](https://research.ebsco.com/c/niwdz3/ebook-viewer/pdf/ijxy5p6dqn/section/lp_381)
+
+
 ### Highlights
 This session emphasizes several key insights about Generative AI:
 

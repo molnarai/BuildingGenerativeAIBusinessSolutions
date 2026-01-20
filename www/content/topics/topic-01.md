@@ -18,7 +18,7 @@ Slide deck posted on the [iCollege](https://icollege.gsu.edu/) class site.
 </audio>
 
 ## Reading
-- Textbook: [Artificial Intelligence A New Synthesis](https://learning.oreilly.com/library/view/artificial-intelligence/9781558604674/) by Nils J. Nilsson, 1998.
+- Textbook: [Artificial Intelligence A New Synthesis](https://go.oreilly.com/georgia-state-university/library/view/artificial-intelligence/9781558604674/) by Nils J. Nilsson, 1998.
 - Textbook: [Machine Learning - An Artificial Intellegence Approach](https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/docs/Machine+Learning_+An+Artificial+Intelligence+Approach+(+PDFDrive+).pdf) edited by R. S. Michalski and J. G. Carbonell T. M. Mitchell, 1984.
 - Paper: [Inductive Logic Programming At 30: A New Introduction](https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/docs/Inductive+logic+programming+at+30.pdf) by Andrew Cropper and Sebastijan Dumančić, 2022.
 - Textbook: [Principles of Expert Systems](https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/docs/Principles+of+Expert+Systems.pdf) by Peter J.F. Lucas and Linda C. van der Gaag, 1991.
