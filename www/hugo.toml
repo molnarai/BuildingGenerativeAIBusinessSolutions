@@ -1,5 +1,6 @@
 #baseURL = 'http://www.insight.gsu.edu'
-baseURL = 'https://molnarai.github.io/BuildingGenerativeAIBusinessSolutions/'
+#baseURL = 'https://molnarai.github.io/BuildingGenerativeAIBusinessSolutions/'
+baseURL = 'https://msa8700.molnar.ai'
 
 languageCode = 'en-us'
 title = 'MSA 8700'
