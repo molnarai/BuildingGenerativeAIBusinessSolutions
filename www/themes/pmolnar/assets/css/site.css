@@ -17,3 +17,8 @@
 .assignment-content {
     line-height: 1.6;
 }
+
+
+article.assignment {
+    max-width: 960px;
+}

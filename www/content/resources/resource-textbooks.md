@@ -1,7 +1,7 @@
 ---
 draft: false
 title: Textbooks
-weight: 5
+weight: 10
 description: The two textbooks recommended for this class were chosen for their complementary focus on both theoretical foundations and practical applications of large language models (LLMs) in real-world scenarios.
 ---
 The two textbooks recommended for this class were chosen for their complementary focus on both theoretical foundations and practical applications of large language models (LLMs) in real-world scenarios.

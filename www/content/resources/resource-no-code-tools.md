@@ -1,7 +1,7 @@
 ---
 draft: false
 title: No-code Tools
-weight: 10
+weight: 20
 description: No-code tools allow users to build AI applications without (or with little) coding.
 ---
 No-code tools empower users to create autonomous AI systems without requiring programming expertise.

@@ -1,3 +1,11 @@
+  /*
+ _____ _                           ____  __  __  ___  _     _   _    _    ____  
+ |_   _| |__   ___ _ __ ___   ___  |  _ \|  \/  |/ _ \| |   | \ | |  / \  |  _ \ 
+   | | | '_ \ / _ \ '_ ` _ \ / _ \ | |_) | |\/| | | | | |   |  \| | / _ \ | |_) |
+   | | | | | |  __/ | | | | |  __/ |  __/| |  | | |_| | |___| |\  |/ ___ \|  _ < 
+   |_| |_| |_|\___|_| |_| |_|\___| |_|   |_|  |_|\___/|_____|_| \_/_/   \_\_| \_\
+                                                                                  */
+
 body {
   color: #222;
   font-family: sans-serif;
@@ -239,4 +247,56 @@ table {
 
 table td,th {
   padding: 2px 2px;  
+}
+
+pre {
+  border-radius: 4px;
+  padding: 8px;
+}
+
+/* Enhanced table styles */
+table {
+  border-collapse: collapse;
+  border-color: #eee;
+  border-width: 1px;
+  width: 100%;
+  margin: 1rem 0;
+  font-size: 0.95em;
+}
+
+table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  text-align: left;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+}
+
+table td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+}
+
+/* Striped rows */
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover effect */
+table tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Responsive tables */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.85em;
+  }
+}
+
+
+article {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }

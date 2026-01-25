@@ -48,7 +48,10 @@ buildFuture = true
 # syntax highlight settings
 [markup]
   [markup.highlight]
-    style = "dracula"
+    # style = "dracula"
+    style = "friendly"  # or github, dracula, etc."monokai"
+    lineNos = false
+    lineNumbersInTable = false
   [markup.goldmark.renderer]
     # Enable to include inline HTML
     unsafe = true

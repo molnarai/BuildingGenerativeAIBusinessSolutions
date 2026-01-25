@@ -1,7 +1,7 @@
 ---
-draft: false
+draft: true
 title: Agentic AI Related Texts
-weight: 5
+weight: 1005
 description: Below are various texts with introductions to Agentic AI
 ---
 A good textbook on Agentic AI is listed below together with various introductory texts, business reviews and collections of example code for Agentic AI applications.
