@@ -60,7 +60,7 @@ For Windows:[^1_3][^1_4][^1_5]
 These steps cover the standard GUI installation on Mac.[^1_6][^1_2]
 
 1. Download Docker Desktop for Mac
-    - Go to the Docker Desktop product page and choose the Mac download that matches your chip (Apple Silicon or Intel).[^1_7][^1_6]
+    - Go to the Docker Desktop <https://docs.docker.com/desktop/> product page and choose the Mac download that matches your chip (Apple Silicon or Intel).[^1_7][^1_6]
     - Save the `Docker.dmg` file to your Downloads folder.[^1_6]
 2. Run the installer
     - Double‑click `Docker.dmg` to mount the image.[^1_6][^1_2]
