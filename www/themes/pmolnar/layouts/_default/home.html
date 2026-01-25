@@ -1,6 +1,6 @@
 {{ define "main" }}
   {{ partial "breadcrumbs.html" . }}
-
+  <article class="home-index">
   <h1>{{ .Params.extended_title }}</h1>
   <div class="main-description">
     {{ .Params.description | markdownify }}
@@ -102,5 +102,6 @@
       {{ end }}
     </ul>
   {{ end }}
+  </article>
 {{ end }}
 

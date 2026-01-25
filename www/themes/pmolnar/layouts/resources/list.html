@@ -1,17 +1,18 @@
 {{ define "main" }}
 {{ partial "breadcrumbs.html" . }}
 <div class="resources-list">
-    <h1>{{ .Params.title }}</h1>
-    
-    <!-- Add the _index.md content at the top -->
-    {{ with .Content }}
-    <div class="section-description">
-        {{ . }}
-    </div>
-    {{ end }}
-    
+    <article class="resource-index">
+        <h1>{{ .Params.title }}</h1>
+        
+        <!-- Add the _index.md content at the top -->
+        {{ with .Content }}
+        <div class="section-description">
+            {{ . }}
+        </div>
+        {{ end }}
+    </article>
     {{ range .Pages.ByDate }}
-    <article class="assignment-item">
+    <article class="resource-item">
         <h2 class="listing-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
         {{ if .Params.due_date }}
             <div class="due-date">Due: {{ .Params.due_date | time.Format "January 2, 2006" }}</div>
