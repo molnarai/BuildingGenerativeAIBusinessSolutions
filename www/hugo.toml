@@ -1,4 +1,6 @@
-baseURL = 'http://www.insight.gsu.edu'
+#baseURL = 'http://www.insight.gsu.edu'
+baseURL = 'https://molnarai.github.io/BuildingGenerativeAIBusinessSolutions/'
+
 languageCode = 'en-us'
 title = 'MSA 8700'
 theme = 'pmolnar'

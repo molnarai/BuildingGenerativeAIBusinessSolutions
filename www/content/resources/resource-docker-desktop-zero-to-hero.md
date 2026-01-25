@@ -21,11 +21,8 @@ Beyond setup, the text explains how containers function as isolated environments
 
 Docker Desktop is the easiest way to run containers locally on both macOS and Windows, and the installation is mostly a point-and-click process on each platform. This tutorial walks through prerequisites, installation, and basic verification for both operating systems so you can be ready to run your first container.[^1_1]
 
-
-
-
 <!-- ### What Docker Desktop Gives You -->
-{{<figure src="/imgs/Docker_Desktop_Zero_to_Hero-1.png" width="800" alt="Figure 2" >}}
+{{<figure src="imgs/Docker_Desktop_Zero_to_Hero-1.png" width="800" alt="Figure 2" >}}
 
 Docker Desktop bundles everything you need for local container development.[^1_1]
 
@@ -38,7 +35,7 @@ Docker Desktop bundles everything you need for local container development.[^1_1
 
 <!-- ## Prerequisites and System Requirements -->
 
-{{<figure src="/imgs/Docker_Desktop_Zero_to_Hero-3.png" width="800" alt="Figure 4" >}}
+{{<figure src="imgs/Docker_Desktop_Zero_to_Hero-3.png" width="800" alt="Figure 4" >}}
 
 Before installing, confirm that your machine meets the minimum requirements.[^1_3][^1_2]
 
@@ -55,10 +52,10 @@ For Windows:[^1_3][^1_4][^1_5]
 - 64‑bit Windows 10 or 11, latest updates recommended.[^1_4][^1_5]
 - Hardware virtualization enabled, WSL 2 or Hyper‑V available depending on edition.[^1_5][^1_3]
 
-***
+
 
 <!-- ## Install Docker Desktop on macOS -->
-{{<figure src="/imgs/Docker_Desktop_Zero_to_Hero-4.png" width="800" alt="Figure 5" >}}
+{{<figure src="imgs/Docker_Desktop_Zero_to_Hero-4.png" width="800" alt="Figure 5" >}}
 
 These steps cover the standard GUI installation on Mac.[^1_6][^1_2]
 
@@ -92,7 +89,7 @@ These steps cover the standard GUI installation on Mac.[^1_6][^1_2]
 
 
 <!-- ## Install Docker Desktop on Windows -->
-{{<figure src="/imgs/Docker_Desktop_Zero_to_Hero-5.png" width="800" alt="Figure 6" >}}
+{{<figure src="imgs/Docker_Desktop_Zero_to_Hero-5.png" width="800" alt="Figure 6" >}}
 
 
 On Windows, Docker Desktop integrates with WSL 2 or Hyper‑V; the interactive installer handles most configuration.[^1_3][^1_4]
@@ -139,7 +136,7 @@ On Windows, Docker Desktop integrates with WSL 2 or Hyper‑V; the interactive i
 
 
 <!-- ## Quick Next Steps After Installation -->
-{{<figure src="/imgs/Docker_Desktop_Zero_to_Hero-6.png" width="800" alt="Figure 7" >}}
+{{<figure src="imgs/Docker_Desktop_Zero_to_Hero-6.png" width="800" alt="Figure 7" >}}
 Once Docker Desktop is up and running, you can do a few simple tasks to get comfortable.[^1_7][^1_1]
 
 - Pull a public image:
@@ -201,7 +198,7 @@ explain how to use the Docker Desktop app to monitor and manage containers. -->
 
 Docker containers provide lightweight, isolated environments for running applications by packaging code with its dependencies, sharing the host's OS kernel for efficiency. They connect to the host via filesystem volumes and port mappings, allowing seamless data access and network communication without needing a full virtual machine.[^2_1][^2_2][^2_3][^2_4]
 
-{{<figure src="/imgs/Docker_Desktop_Zero_to_Hero-2.png" width="800" alt="Figure 3" >}}
+{{<figure src="imgs/Docker_Desktop_Zero_to_Hero-2.png" width="800" alt="Figure 3" >}}
 
 Containers work by using Linux kernel features like namespaces and cgroups to isolate processes, filesystems, networks, and resources from the host.[^2_3][^2_5]
 
@@ -223,7 +220,7 @@ Containers access host data through **volumes** or **bind mounts**, which map ho
 Example: `docker run -v ~/mydata:/app/data myimage` lets the app inside treat `/app/data` as local storage.
 
 <!-- ## Servers, Ports, and Container Networking -->
-{{<figure src="/imgs/Docker_Desktop_Zero_to_Hero-7.png" width="800" alt="Figure 8" >}}
+{{<figure src="imgs/Docker_Desktop_Zero_to_Hero-7.png" width="800" alt="Figure 8" >}}
 
 A **server** is software that listens for incoming connections on a **port** (a numbered endpoint, like 80 for HTTP or 5432 for PostgreSQL).[^2_4][^2_9]
 
@@ -233,14 +230,14 @@ A **server** is software that listens for incoming connections on a **port** (a 
 
 
 <!-- ## Three Ways to Run Containerized Apps -->
-{{<figure src="/imgs/Docker_Desktop_Zero_to_Hero-9.png" width="800" alt="Figure 10" >}}
+{{<figure src="imgs/Docker_Desktop_Zero_to_Hero-9.png" width="800" alt="Figure 10" >}}
 
 1. **Foreground CLI mode**: Run interactively like a local program (e.g., `docker run -it -v /host/data:/data mydb psql`). Access via terminal, manipulating host files directly.[^2_8]
 2. **Remote server connection**: Run detached (`-d`), connect via CLI tools (e.g., `docker exec -it container psql`)—behaves like SSH to a remote service.[^2_12]
 3. **Background web server**: Map ports and access via browser (e.g., `docker run -d -p 8080:80 nginx`). Users hit `localhost:8080` to interact with the web app.[^2_4][^2_9]
 
 <!-- ## Managing Containers in Docker Desktop -->
-{{<figure src="/imgs/Docker_Desktop_Zero_to_Hero-10.png" width="800" alt="Figure 11" >}}
+{{<figure src="imgs/Docker_Desktop_Zero_to_Hero-10.png" width="800" alt="Figure 11" >}}
 
 Docker Desktop's dashboard offers a visual interface to monitor and control all containers without CLI commands.[^2_13][^2_12]
 
@@ -253,12 +250,12 @@ Docker Desktop's dashboard offers a visual interface to monitor and control all 
 | Open ports/apps | Click "Open in Browser" for mapped ports or "Open in VS Code." | Direct browser access; editor integration.[^2_12] |
 | Delete/Copy command | Delete button or copy `docker run` snippet for reuse. | Cleanup and scripting aid.[^2_12] |
 
-{{<figure src="/imgs/Docker_Desktop_Zero_to_Hero-13.png" width="800" alt="Figure 14" >}}
+{{<figure src="imgs/Docker_Desktop_Zero_to_Hero-13.png" width="800" alt="Figure 14" >}}
 
 Use the **Stats** tab for live CPU/memory/network graphs and **Logs** for troubleshooting output.[^2_13][^2_12]
 <span style="display:none">[^2_14][^2_15]</span>
 
-{{<figure src="/imgs/Docker_Desktop_Zero_to_Hero-11.png" width="800" alt="Figure 12" >}}
+{{<figure src="imgs/Docker_Desktop_Zero_to_Hero-11.png" width="800" alt="Figure 12" >}}
 
 
 
@@ -293,7 +290,6 @@ Use the **Stats** tab for live CPU/memory/network graphs and **Logs** for troubl
 [^2_15]: https://www.youtube.com/watch?v=EfXgCkIAaVg
 
 
----
 
 <!-- # Give a simple docker run command example with port mapping and volume mount -->
 
@@ -315,7 +311,7 @@ docker run -d \
 - `nginx:latest` is the image being run.
 <span style="display:none">[^3_1][^3_2][^3_3][^3_4][^3_5][^3_6][^3_7][^3_8][^3_9]</span>
 
-{{<figure src="/imgs/Docker_Desktop_Zero_to_Hero-12.png" width="800" alt="Figure 13" >}}
+{{<figure src="imgs/Docker_Desktop_Zero_to_Hero-12.png" width="800" alt="Figure 13" >}}
 <div align="center">⁂</div>
 
 [^3_1]: https://docs.docker.com/engine/storage/volumes/
