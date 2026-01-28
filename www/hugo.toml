@@ -42,10 +42,18 @@ buildFuture = true
   url = '/resources'
   weight = 6
 [[menu.main]]
+  name = 'Blog'
+  url = '/blog'
+  weight = 7
+# [[menu.main]]
+#  name = 'Wiki'
+#  url = '/wiki'
+#  weight = 7
+[[menu.main]]
   name = 'GitHub'
   url = 'https://github.com/molnarai/BuildingGenerativeAIBusinessSolutions'
   html = '<i class="fab fa-github" style="font-size:24px"></i>'
-  weight = 7
+  weight = 8
 
 
 # syntax highlight settings

@@ -1,0 +1,55 @@
+{{ define "main" }}
+<script>
+    // Simple search implementation
+const searchWiki = (query) => {
+    const articles = document.querySelectorAll('.wiki-nav li');
+    query = query.toLowerCase();
+    
+    articles.forEach(article => {
+        const text = article.textContent.toLowerCase();
+        article.style.display = text.includes(query) ? '' : 'none';
+    });
+}
+</script>
+<div class="wiki-container">
+    <div class="wiki-sidebar">
+        <!-- Wiki Navigation -->
+        <div class="wiki-nav">
+            <h3>Contents</h3>
+            {{ $wikis := where .Site.RegularPages "Section" "blog" }}
+            <ul>
+                {{ range $wikis.ByTitle }}
+                <li>
+                    <a href="{{ .RelPermalink }}"{{ if eq . $ }} class="active"{{ end }}>
+                        {{ .Title }}
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+    
+    <div class="wiki-content">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+        
+        <!-- Table of Contents for current page -->
+        {{ if .TableOfContents }}
+        <div class="toc">
+            <h4>On this page</h4>
+            {{ .TableOfContents }}
+        </div>
+        {{ end }}
+        
+        <!-- Main Content -->
+        {{ .Content }}
+        
+        <!-- Metadata -->
+        <div class="wiki-metadata">
+            {{ if .Lastmod }}
+            <p>Last modified: {{ .Lastmod.Format "January 2, 2006" }}</p>
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}
