@@ -1,17 +1,21 @@
 {{ define "main" }}
-<article class="assignment">
+
     {{ partial "breadcrumbs.html" . }}
-    <header class="assignment-header">
-        <h1>{{ .Title }}</h1>
-        {{ if .Params.due_date }}
-        <div class="due-date">
-            <strong>Due Date:</strong> {{ .Params.due_date | time.Format "January 2, 2006" }}
-        </div>
-        {{ end }}
+    <header class="blog-header">
+        <article class="blog">
+            <h1>{{ .Title }}</h1>
+            {{ if .Params.due_date }}
+            <div class="due-date">
+                <strong>Due Date:</strong> {{ .Params.due_date | time.Format "January 2, 2006" }}
+            </div>
+            {{ end }}
+        </article>
     </header>
     
-    <div class="assignment-content">
+    <div class="blog-content">
+        <article><
         {{ .Content }}
+        </article>
     </div>
-</article>
+
 {{ end }}
