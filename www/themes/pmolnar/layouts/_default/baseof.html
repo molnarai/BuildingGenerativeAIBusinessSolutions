@@ -11,7 +11,9 @@
     {{ partial "header.html" . }}
   </header>
   <main>
-    {{ block "main" . }}{{ end }}
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      {{ block "main" . }}{{ end }}
+    </div>
   </main>
   <footer>
     {{ partial "footer.html" . }}
