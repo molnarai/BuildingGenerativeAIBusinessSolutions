@@ -1,0 +1,811 @@
+{
+  "name": "AI Papers Organizer Loop",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        -128
+      ],
+      "id": "abf28e1c-e3f8-4496-bdf0-46fa74d2bc88",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        64
+      ],
+      "id": "bcfb87ed-1b94-44c4-a54e-daaaadf85e3f",
+      "name": "Extract from File",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2528,
+        64
+      ],
+      "id": "8b78da98-cb2e-4399-b671-37e11fc5bae5",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a9061cc1-2be5-4518-9d0d-8edb89805440",
+              "name": "Abstract",
+              "value": "={{ $json.content.replaceSpecialChars() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2304,
+        208
+      ],
+      "id": "727df19d-04ce-4763-a656-a33ad0a09086",
+      "name": "Rename field to \"abstract\""
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7811efd6-8484-4844-b103-23faadc02ca7",
+              "name": "Title",
+              "value": "={{ $json.info.Title }}",
+              "type": "string"
+            },
+            {
+              "id": "1045cca5-405e-4bdb-a1d6-d3025ab87107",
+              "name": "Author",
+              "value": "={{ $json.info.Author }}",
+              "type": "string"
+            },
+            {
+              "id": "bed8bd23-ef53-4e26-8865-6a317f339341",
+              "name": "Custom.arXivID",
+              "value": "={{ $json.info.Custom.arXivID }}",
+              "type": "string"
+            },
+            {
+              "id": "c400b234-34bf-457c-bf2d-ac5125103ebd",
+              "name": "Custom.DOI",
+              "value": "={{ $json.info.Custom.DOI }}",
+              "type": "string"
+            },
+            {
+              "id": "afe243b2-8d65-4195-8b95-fb27436fc080",
+              "name": "numpages",
+              "value": "={{ $json.numpages }}",
+              "type": "number"
+            },
+            {
+              "id": "3ad7a376-e37c-40fd-a48c-0f6a58f77b52",
+              "name": "fileName",
+              "value": "={{ $('Read PDF Files from Disk').item.json.fileName }}",
+              "type": "string"
+            },
+            {
+              "id": "752e46a2-f888-4a53-9f36-e1e3a17fb68e",
+              "name": "text",
+              "value": "={{ $json.text.substring(0, 2000) }}",
+              "type": "string"
+            },
+            {
+              "id": "bf501f0a-d45c-4bc8-a716-2321e1bc578e",
+              "name": "Title2",
+              "value": "={{ $json.metadata['dc:title'] }}",
+              "type": "string"
+            },
+            {
+              "id": "e7102caa-4c48-43f9-b453-9e7ed6794580",
+              "name": "Author2",
+              "value": "={{ $json.metadata['dc:creator'].join() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1648,
+        64
+      ],
+      "id": "233143bf-f489-4de8-8fa1-19a643703ba3",
+      "name": "Select Fields"
+    },
+    {
+      "parameters": {
+        "fileSelector": "={{ $json.fileName }}",
+        "options": {
+          "dataPropertyName": "data"
+        }
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        1232,
+        64
+      ],
+      "id": "6362f9bf-c33a-48eb-b4ec-39cd43c88ac4",
+      "name": "Read PDF Files from Disk",
+      "notesInFlow": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "command": "=SRC_STEM=`basename \"{{ $json.fileName }}\" .pdf`\nDST_STEM=`basename {{ $json.NewFilename}} .pdf`\nSRC_PDF=\"/data/ai-papers-staging/${SRC_STEM}.pdf\"\nDST_PDF=\"/data/ai-papers/${DST_STEM}.pdf\"\nmv \"$SRC_PDF\" \"$DST_PDF\"\necho \"$SRC_STEM\" >> /data/ai-papers/_processed_files.txt\n"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        2944,
+        64
+      ],
+      "id": "c0bf5579-8308-471d-b1a5-137f90039ee9",
+      "name": "Move Files from Staging"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "llama3.1:latest",
+          "mode": "list",
+          "cachedResultName": "llama3.1:latest"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Extract the abstract from the text below and summarize in a succinct technical neutral tone. Only output the text of the abstract, nothing else:\n"
+            },
+            {
+              "content": "={{ $json.text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.ollama",
+      "typeVersion": 1,
+      "position": [
+        1952,
+        208
+      ],
+      "id": "7633cb06-27b2-4515-bc56-d9bcc6acb323",
+      "name": "Generate Abstract",
+      "credentials": {
+        "ollamaApi": {
+          "id": "z3tLeqUAAXZJdqtJ",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "\n\n// Define the cleaning function first\n\nfunction cleanString(text) {\n  if (!text) return \"noname\";\n  return text\n    .toLowerCase()\n    .replace(/[^a-z0-9]+/g, '_') // Replace special chars/spaces with _\n    .replace(/^_+|_+$/g, '');     // Trim underscores from ends\n};\n\nfunction generateHex(length = 8) {\n  let result = '';\n  const characters = '0123456789abcdef';\n  for (let i = 0; i < length; i++) {\n    result += characters.charAt(Math.floor(Math.random() * 16));\n  }\n  return result;\n}\n\n// Loop over input items\nfor (const item of $input.all()) {\n  // 1. Get the title from the JSON (falling back to 'untitled' if missing)\n  var title = item.json.Title || item.json.Title2 || \"untitled\";\n  \n  // 2. Get the filename\n  var file_name = item.json.fileName || \"\";\n  file_name = file_name.replace(\".pdf\", \"\");\n  const hash = item.json.fileNameHash || generateHex(8);\n  \n  // 3. Create the new filename\n  // We clean the combined string, then append .pdf\n  const baseName = cleanString(title.substring(0,24)) + \"_\" + hash;\n  \n  item.json.NewFilename = baseName + \".pdf\";\n  item.json.NewFileStem = baseName;\n}\n\nreturn $input.all();\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2304,
+        0
+      ],
+      "id": "a49e0554-90b5-4a49-aea0-3a82dbd4221e",
+      "name": "Create New Filename"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "options": {
+          "addBOM": false,
+          "format": true,
+          "encoding": "utf8"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2784,
+        304
+      ],
+      "id": "8f30382e-67bc-4513-8203-8895b0222197",
+      "name": "Convert to JSON FIle"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "options": {
+          "addBOM": false,
+          "format": true,
+          "encoding": "utf8"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1040,
+        -144
+      ],
+      "id": "73b04965-568d-4c21-be94-5c44f8ba109e",
+      "name": "Create Completion File"
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "/data/ai-papers/_job_completed.json",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        1264,
+        -144
+      ],
+      "id": "8f54ac6c-589e-422d-b7b0-8fc1ca2a13e3",
+      "name": "Read/Write Files from Disk"
+    },
+    {
+      "parameters": {
+        "command": "touch /data/ai-papers/_processed_files.txt && ( [ -s /data/ai-papers/_processed_files.txt ] && find /data/ai-papers-staging -name \"*.pdf\" | grep -v -F -f /data/ai-papers/_processed_files.txt || find /data/ai-papers-staging -name \"*.pdf\" )\n"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        192,
+        -128
+      ],
+      "id": "9b69ae6c-1734-4322-b6ec-6bf39b3f198e",
+      "name": "Execute Command"
+    },
+    {
+      "parameters": {
+        "jsCode": "const stdout = $input.first().json.stdout;\nconst fileList = stdout.split('\\n').filter(name => name.trim() !== '');\nconst numFiles = fileList.length;\n\n// Map each filename to the standard n8n item structure\nreturn fileList.map((fileName, index) => {\n  return {\n    json: {\n      fileName: fileName,\n      number: index + 1,      // Current file position (1-based)\n      totalNumber: numFiles   // Total count from the array length\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        464,
+        -128
+      ],
+      "id": "396a83ba-3b14-4909-9c0f-93868e97969a",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        736,
+        -128
+      ],
+      "id": "87673d38-e998-47aa-8ccc-a8b20ccca492",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {
+              "key": "Iteration",
+              "value": "={{ $json.number }}"
+            },
+            {
+              "key": "FileName",
+              "value": "={{ $json.fileName }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        880,
+        64
+      ],
+      "id": "aee5d460-2d3e-4754-8229-9db2f1ef7405",
+      "name": "Execution Data"
+    },
+    {
+      "parameters": {
+        "value": "={{ $json.fileName }}",
+        "dataPropertyName": "fileNameHash"
+      },
+      "type": "n8n-nodes-base.crypto",
+      "typeVersion": 1,
+      "position": [
+        1952,
+        0
+      ],
+      "id": "580ac2e4-93a2-446d-ae8a-5a9ba1062af8",
+      "name": "Crypto"
+    },
+    {
+      "parameters": {
+        "jsCode": "const fileName = $('Read PDF Files from Disk').first().json.fileName;\nconsole.log(`${$now.toISO()} ERROR processing ${fileName}`)\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1664,
+        368
+      ],
+      "id": "faae6647-d617-4494-a67b-82ba7388e30f",
+      "name": "Notify Problems with PDF File"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "numberInputs": 3,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        3280,
+        544
+      ],
+      "id": "d3071c86-6adc-4efe-a728-eb9b0e77ce50",
+      "name": "Wait for Parallel Tasks"
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "XoWjR6bsnMD6gAbh",
+          "mode": "list",
+          "cachedResultName": "ai_papers_processing",
+          "cachedResultUrl": "/projects/VqJ25ZDSENJ6b8r7/datatables/XoWjR6bsnMD6gAbh"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "NumberOfPages": "={{ $json.numpages }}",
+            "Title": "={{ $json.Title }}",
+            "Author": "={{ $json.Author || $json.Author2 }}",
+            "arXivID": "={{ $json.Custom.arXivID }}",
+            "DOI": "={{ $json.Custom.DOI }}",
+            "Abstract": "={{ $json.Abstract }}",
+            "Text": "={{ $json.text }}",
+            "FileName": "={{ $json.fileName }}",
+            "NewFileName": "={{ $json.NewFilename }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Author",
+              "displayName": "Author",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "arXivID",
+              "displayName": "arXivID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "DOI",
+              "displayName": "DOI",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Abstract",
+              "displayName": "Abstract",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Text",
+              "displayName": "Text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "FileName",
+              "displayName": "FileName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "NewFileName",
+              "displayName": "NewFileName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "NumberOfPages",
+              "displayName": "NumberOfPages",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        3024,
+        -96
+      ],
+      "id": "64a981b0-7cde-43d2-9e8d-bc29b74ba777",
+      "name": "Insert row"
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "=/data/ai-papers/{{ $('Merge').item.json.NewFilename.replace('.pdf', '') }}.json",
+        "options": {
+          "append": false
+        }
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        2960,
+        304
+      ],
+      "id": "a690d888-b9c7-4ff1-a87e-296f028a02f7",
+      "name": "Save JSON File"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nconst filename = $input.first().json.fileName\nconst n = $('Execution Data').first().json.number\nconst nTotal = $('Execution Data').first().json.totalNumber\nconsole.log(`Processing file ${n} of ${nTotal}: ${filename} ...`)\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1056,
+        64
+      ],
+      "id": "74235faf-ce84-4ed9-8bfb-4be6391b57e8",
+      "name": "Console Log"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Execute Command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Select Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Convert to JSON FIle",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Move Files from Staging",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Insert row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rename field to \"abstract\"": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Select Fields": {
+      "main": [
+        [
+          {
+            "node": "Generate Abstract",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Crypto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read PDF Files from Disk": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Notify Problems with PDF File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Move Files from Staging": {
+      "main": [
+        [
+          {
+            "node": "Wait for Parallel Tasks",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Generate Abstract": {
+      "main": [
+        [
+          {
+            "node": "Rename field to \"abstract\"",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create New Filename": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to JSON FIle": {
+      "main": [
+        [
+          {
+            "node": "Save JSON File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Completion File": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Create Completion File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Execution Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crypto": {
+      "main": [
+        [
+          {
+            "node": "Create New Filename",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notify Problems with PDF File": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for Parallel Tasks": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert row": {
+      "main": [
+        [
+          {
+            "node": "Wait for Parallel Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data": {
+      "main": [
+        [
+          {
+            "node": "Console Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save JSON File": {
+      "main": [
+        [
+          {
+            "node": "Wait for Parallel Tasks",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Console Log": {
+      "main": [
+        [
+          {
+            "node": "Read PDF Files from Disk",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d78b3d91-7ce8-4002-a33c-5ba7ba774132",
+  "meta": {
+    "templateId": "self-building-ai-agent",
+    "templateCredsSetupCompleted": true,
+    "instanceId": "472ed27932b2207cf76ea17222259afdc87d59eaac858a95927dc7e602e2ecf5"
+  },
+  "id": "CsBbZpQtBKN8teI5",
+  "tags": []
+}

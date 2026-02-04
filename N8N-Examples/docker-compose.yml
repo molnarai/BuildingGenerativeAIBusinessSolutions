@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  n8n:
+    image: docker.io/n8nio/n8n:latest
+    container_name: ${USER}-n8n-experiments
+    restart: unless-stopped
+    ports:
+      - "${CONSOLE_PORT:-23010}:5678"
+    volumes:
+      - ../n8n-experiments-system-store/data/vol:/home/node/.n8n
+      - ../n8n-experiments-system-store/logs/vol:/logs
+      - ../n8n-experiments-data:/data
+    environment:
+      - N8N_HOST=0.0.0.0
+      - N8N_PORT=5678
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=${ADMIN_PASSWORD}
+      - N8N_USER_MANAGEMENT_DISABLED=true
+      - N8N_DIAGNOSTICS_ENABLED=false
+      - N8N_VERSION_NOTIFICATIONS_ENABLED=false
+      - N8N_TEMPLATES_ENABLED=false
+      - N8N_ONBOARDING_FLOW_DISABLED=true
+      - N8N_PERSONALIZATION_ENABLED=false
+      - N8N_SECURE_COOKIE=false
+      - CODE_ENABLE_STDOUT=true
+      - N8N_LOG_FILE=/logs/${USER}-n8n-experiments.log
+      - N8N_LOG_LEVEL=debug
+      - WEBHOOK_URL=http://${SERVER_IP:-localhost}:${CONSOLE_PORT:-23010}
+    user: "${UID:-1000}:${GID:-1000}"

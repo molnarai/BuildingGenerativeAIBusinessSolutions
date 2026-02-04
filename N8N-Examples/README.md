@@ -22,3 +22,62 @@
 
 ![get chat url](image-5.png)
 
+# n8n Experiments
+
+## Quick Start
+
+### Using Docker Compose
+
+1. Create a `.env` file from the example:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Set your admin password in `.env` or source it from your secrets:
+   ```bash
+   echo "ADMIN_PASSWORD=$(cat ~/.secrets/n8n-experiments-passwd.txt)" >> .env
+   echo "UID=$(id -u)" >> .env
+   echo "GID=$(id -g)" >> .env
+   ```
+
+3. Start the service:
+   ```bash
+   docker-compose up -d
+   ```
+
+4. Access n8n at http://localhost:23010
+
+5. View logs:
+   ```bash
+   docker-compose logs -f
+   ```
+
+6. Stop the service:
+   ```bash
+   docker-compose down
+   ```
+
+### Using Launch Scripts
+
+**Bash (Linux/Mac):**
+```bash
+./launch.sh start
+./launch.sh stop
+./launch.sh logs
+```
+
+**PowerShell (Windows/Mac/Linux):**
+```powershell
+./launch.ps1 start
+./launch.ps1 stop
+./launch.ps1 logs
+```
+
+## Configuration
+
+- **Port**: Default is 23010 (configurable via CONSOLE_PORT)
+- **Username**: admin
+- **Password**: Stored in `~/.secrets/n8n-experiments-passwd.txt`
+- **Data Directory**: `../n8n-experiments-data`
+- **System Store**: `../n8n-experiments-system-store`
+
