@@ -1,0 +1,22 @@
+services:
+  pdf-extractor:
+    build: .
+    platform: linux/amd64
+    # platform: linux/arm64 # use this for Apple Silicon (M1...) machines
+    container_name: pdf-extraction-service
+    volumes:
+      - ../data/input:/data/input:ro  # Read-only input
+      - ../data/output:/data/output    # Writeable output
+    environment:
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://localhost:11434}
+      - OLLAMA_API_KEY=${OLLAMA_API_KEY}
+      - OLLAMA_GENERATION_MODEL_NAME=${OLLAMA_GENERATION_MODEL_NAME:-gpt-oss:20b-cloud}
+      - OLLAMA_EMBEDDING_MODEL_NAME=${OLLAMA_EMBEDDING_MODEL_NAME:-mxbai-embed-large}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    # restart: unless-stopped
+    networks:
+      - document-processing
+
+networks:
+  document-processing:
+    driver: bridge

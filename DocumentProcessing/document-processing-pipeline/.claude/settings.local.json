@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd PDF extraction document processing pipeline\n\nImplement the first example pipeline with:\n- Docker-based containerization using slim Python image\n- Support for PDF, DOCX, PPTX, text, and image files \\(OCR\\)\n- Ollama integration for AI-powered document analysis\n- Standard /data/input and /data/output directories\n- Environment variables for external service configuration\n- Comprehensive extraction and processing modules\n- Docker Compose orchestration for easy deployment\n\nResolves #1\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(~/scoop/shims/glab.exe issue close --help)",
+      "Bash(~/scoop/shims/glab.exe issue close 1)"
+    ]
+  }
+}

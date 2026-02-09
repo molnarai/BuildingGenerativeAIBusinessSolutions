@@ -1,0 +1,14 @@
+# Unstructured
+# requirements for unstructured content extraction and partitioning
+# are already included in the base image, 
+# so we only need to add additional dependencies here.  
+unstructured[all-docs]
+
+# HTTP client for Ollama
+requests==2.31.0
+
+# Logging and utilities
+python-dotenv==1.0.0
+tqdm==4.66.1
+
+# File handling (mimetypes is built-in, no need to install)

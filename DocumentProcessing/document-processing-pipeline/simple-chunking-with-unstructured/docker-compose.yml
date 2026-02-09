@@ -1,0 +1,16 @@
+services:
+  chunking-with-unstructured:
+    build: .
+    container_name: chunking-with-unstructured-service
+    volumes:
+      - ../data/input:/data/input:ro  # Read-only input
+      - ../data/output:/data/output    # Writeable output
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    # restart: unless-stopped
+    networks:
+      - document-processing
+
+networks:
+  document-processing:
+    driver: bridge
