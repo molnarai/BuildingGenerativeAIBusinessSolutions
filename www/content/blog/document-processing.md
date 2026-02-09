@@ -7,8 +7,10 @@ weight: 7
 ---
 <!-- # Document Processing in Python: Two Approaches for AI-Ready Pipelines -->
 
-This tutorial walks through two complementary approaches for transforming raw documents—PDFs, Word files, PowerPoints, images, and plain text—into structured, machine-readable formats suitable for AI systems such as Retrieval-Augmented Generation (RAG), knowledge bases, and document summarization engines. Both implementations are available in the [document-processing-pipeline](https://github.com/molnarai/BuildingGenerativeAIBusinessSolutions/tree/main/DocumentProcessing/document-processing-pipeline) repository[^1].
+This tutorial walks through two complementary approaches for transforming raw documents—PDFs, Word files, PowerPoints, images, and plain text—into structured, machine-readable formats suitable for AI systems such as Retrieval-Augmented Generation (RAG), knowledge bases, and document summarization engines. 
 <!-- more -->
+
+Both implementations are available in the [document-processing-pipeline](https://github.com/molnarai/BuildingGenerativeAIBusinessSolutions/tree/main/DocumentProcessing/document-processing-pipeline) repository[^1].
 
 <audio controls>
     <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/PDFs_Are_Ruining_Your_RAG_System.m4a" type="audio/mp4" />
