@@ -6,9 +6,9 @@ lastmod: 2026-01-24
 weight: 3
 ---
 
-## AI Papers Workflow
 
 I got into the habit of browsing my LinkedIn feed on my smart phone. Every time I see a post about an interesting paper, I download it onto a cloud drive for later reading. Many of these papers were posted on arXiv.org, the open-access digital archive and distribution server for scholarly, non-peer-reviewed preprints (or postprints) in physics, mathematics, computer science, quantitative biology, quantitative finance, statistics, and related fields.
+<!--more-->
 
 There are two challenges:
 
@@ -29,7 +29,7 @@ The diagram below shows the complete workflow. You can find the diagram and the 
 
 <!-- ![Workflow diagram](imgs/Screenshot%202026-01-24%20at%2018.29.05.png) -->
 <!-- ![Workflow diagram](imgs/n8n-ai-papers-loop-full-workflow.png) -->
-{{<figure src="imgs/n8n-ai-papers-loop-full-workflow.png" width="800" alt="Complete Workflow" >}}
+{{<figure src="imgs/n8n-ai-papers-loop-full-workflow.png" width="100%" alt="Complete Workflow" >}}
 
 I implemented this project on a self-hosted, containerized n8n instance. You may also follow the steps to implement the workflow in the cloud version of n8n, though you need to change operations on the local file system with the respective nodes for cloud storage, such as Amazon S3.
 
@@ -42,14 +42,14 @@ You start out with the trigger for the workflow. Choose "When clicking 'Execute 
 You can load multiple files at once with the "Read/Write Files from Disk" node. However, this took a long time with just a bit over 100 files. Loading all at once before any further steps are processed also bears the risk of having to process everything all over again.
 
 <!-- ![Manual trigger and read files](imgs/n8n-manual-trigger-read-files.png) -->
-{{<figure src="imgs/n8n-manual-trigger-read-files.png" width="800" alt="Read Files" >}}
+{{<figure src="imgs/n8n-manual-trigger-read-files.png" width="100%" alt="Read Files" >}}
 
 Instead, you build a workflow that pulls a listing of the files and then processes each PDF file in a loop. If a step fails and terminates the workfow, you will be able restart it and process the remaining documents.
 
 There is no n8n node for listing files, so you have to create the file listing task in two nodes:
 
 <!-- ![Manual trigger list files](imgs/n8n-manual-trigger-list-files.png) -->
-{{<figure src="imgs/n8n-manual-trigger-list-files.png" width="800" alt="List Files" >}}
+{{<figure src="imgs/n8n-manual-trigger-list-files.png" width="100%" alt="List Files" >}}
 
 
 The first node, "Execute Command", executes an shell command like
@@ -88,12 +88,12 @@ The payload, that is carried throughout the workflow from one node to the other,
 Enter the code snippets into the respective nodes and execute the workflow after you populated the staging folder `/data/ai-papers-staging`
 
 <!-- ![JavaScript file listing](imgs/n8n-javascript-file-listing.png) -->
-{{<figure src="imgs/n8n-javascript-file-listing.png" width="800" alt="List Files" >}}
+{{<figure src="imgs/n8n-javascript-file-listing.png" width="100%" alt="List Files" >}}
 
 After the workflow has completed, double click on the "Code in JavaScript" node to see the results.
 
 <!-- ![Loop process PDF](imgs/n8n-manual-trigger-loop-process-pdf.png) -->
-{{<figure src="imgs/n8n-manual-trigger-loop-process-pdf.png" width="800" alt="List Files" >}}
+{{<figure src="imgs/n8n-manual-trigger-loop-process-pdf.png" width="100%" alt="List Files" >}}
 
 ```javascript
 // Define the cleaning function first
@@ -136,12 +136,15 @@ for (const item of $input.all()) {
 return $input.all();
 ```
 
-<!-- ![Loop body](imgs/n8n-manual-trigger-loop-body.png) -->
-{{<figure src="imgs/n8n-manual-trigger-loop-body.png" width="800" alt="List Files" >}}
+In the body of the loop executes two independent tasks. The one on the top comprised of the "Crypto" and "Create New Filename" nodes forms a new filename for the document from its title and a hash of the original name. Most of the logic is in the code block. However, the build-in JavaScript does not provide a package for hashing alforithms. That's why you need to use the "Crypto" node.
 
-lorem
+The branch below uses Ollama to generate an abstract from the text of the first page of the document.
+<!-- ![Loop body](imgs/n8n-manual-trigger-loop-body.png) -->
+{{<figure src="imgs/n8n-manual-trigger-loop-body.png" width="100%" alt="List Files" >}}
+
+Both tasks create fields that you need to merged. Finally the data objects inserted into a data table, saved into a JSON file. The original file is renamed to the new name.
 
 <!-- ![Loop end](imgs/n8n-manual-trigger-loop-end.png) -->
-{{<figure src="imgs/n8n-manual-trigger-loop-end.png" width="800" alt="List Files" >}}
+{{<figure src="imgs/n8n-manual-trigger-loop-end.png" width="100%" alt="List Files" >}}
 
-lorem
+This workflow turned what used to be a messy, manual process into a structured and fully automated pipeline. By combining file system operations, metadata extraction, and lightweight AI processing in n8n, I now have a searchable, consistently named collection of research papers ready for further analysis. Beyond arXiv papers, the same pattern can automate academic literature curation, internal documentation management, or data ingestion for knowledge graph construction. It’s a simple example of how low-code automation can bridge the gap between research workflows and reproducible, scalable systems.

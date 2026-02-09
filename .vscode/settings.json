@@ -1,5 +1,6 @@
 {
     "hugo-runner.showDrafts": true,
     "hugo-runner.siteFolder": "www",
-    "hugo-runner.hugoExecutablePath": ""
+    "hugo-runner.hugoExecutablePath": "",
+    "github-actions.workflows.pinned.workflows": []
 }
