@@ -117,7 +117,7 @@ def main(filename: str, dry_run: bool = False, over_write: bool = False):
         
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Process some files.")
+    parser = argparse.ArgumentParser(description="Create milestones from Excel schedule.")
     parser.add_argument("filename", type=str, help="The name of the file to process")
     parser.add_argument("--test", action="store_true", help="Enable dry run mode")
     parser.add_argument("--force", action="store_true", help="Force overwriting existing files")
