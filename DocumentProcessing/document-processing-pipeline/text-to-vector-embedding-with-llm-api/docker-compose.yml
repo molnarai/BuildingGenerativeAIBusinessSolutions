@@ -1,0 +1,39 @@
+services:
+  text-embedder:
+    build: .
+    platform: linux/amd64
+    # platform: linux/arm64 # use this for Apple Silicon (M1...) machines
+    container_name: text-embedder-service
+    volumes:
+      - ../data/input:/data/input:ro  # Read-only input
+      - ../data/output:/data/output    # Writeable output
+    environment:
+      - EMBEDDING_MODEL="all-MiniLM-L6-v2"
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    # restart: unless-stopped
+    networks:
+      - document-processing
+
+  open_search:
+    image: opensearchproject/opensearch:2.7.0
+    container_name: opensearch
+    environment:
+      - cluster.name=opensearch-cluster
+      - node.name=opensearch-node
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "9200:9200"
+      - "9600:9600"
+    networks:
+      - document-processing
+
+
+networks:
+  document-processing:
+    driver: bridge

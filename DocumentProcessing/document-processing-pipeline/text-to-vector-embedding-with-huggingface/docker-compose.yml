@@ -1,0 +1,44 @@
+services:
+  vector-embedder:
+    build: .
+    platform: linux/amd64
+    # platform: linux/arm64 # use this for Apple Silicon (M1...) machines
+    container_name: vector-embedder
+    volumes:
+      - ../data/input:/data/input:ro  # Read-only input
+      - ../data/output:/data/output    # Writeable output
+    environment:
+      - OPENSEARCH_ENDPOINT=${OPENSEARCH_ENDPOINT}
+      - OPENSEARCH_USERNAME=${OPENSEARCH_USERNAME}
+      - OPENSEARCH_PASSWORD=${OPENSEARCH_PASSWORD}
+      - OPENSEARCH_INDEX=${OPENSEARCH_INDEX}
+      - OPENSEARCH_REGION=${OPENSEARCH_REGION}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    # restart: unless-stopped
+    networks:
+      - document-processing
+  opensearch:
+    image: opensearchproject/opensearch:2.9.0
+    container_name: opensearch
+    environment:
+      - OPENSEARCH_ENDPOINT=${OPENSEARCH_ENDPOINT}
+      - OPENSEARCH_USERNAME=${OPENSEARCH_USERNAME}
+      - OPENSEARCH_PASSWORD=${OPENSEARCH_PASSWORD}
+      - OPENSEARCH_INDEX=${OPENSEARCH_INDEX}
+      - OPENSEARCH_REGION=${OPENSEARCH_REGION}
+      - discovery.type=single-node
+      - plugins.security.disabled=true
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "9200:9200"
+    networks:
+      - document-processing
+
+networks:
+  document-processing:
+    driver: bridge
