@@ -8,12 +8,14 @@ services:
       - ../data/input:/data/input:ro  # Read-only input
       - ../data/output:/data/output    # Writeable output
     environment:
-      - OPENSEARCH_ENDPOINT=${OPENSEARCH_ENDPOINT}
+      - OPENSEARCH_HOST=opensearch
+      - OPENSEARCH_PORT=9200
       - OPENSEARCH_USERNAME=${OPENSEARCH_USERNAME}
       - OPENSEARCH_PASSWORD=${OPENSEARCH_PASSWORD}
       - OPENSEARCH_INDEX=${OPENSEARCH_INDEX}
-      - OPENSEARCH_REGION=${OPENSEARCH_REGION}
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    depends_on:
+      - opensearch
     # restart: unless-stopped
     networks:
       - document-processing
@@ -21,11 +23,9 @@ services:
     image: opensearchproject/opensearch:2.9.0
     container_name: opensearch
     environment:
-      - OPENSEARCH_ENDPOINT=${OPENSEARCH_ENDPOINT}
       - OPENSEARCH_USERNAME=${OPENSEARCH_USERNAME}
       - OPENSEARCH_PASSWORD=${OPENSEARCH_PASSWORD}
       - OPENSEARCH_INDEX=${OPENSEARCH_INDEX}
-      - OPENSEARCH_REGION=${OPENSEARCH_REGION}
       - discovery.type=single-node
       - plugins.security.disabled=true
       - bootstrap.memory_lock=true
@@ -34,6 +34,8 @@ services:
       memlock:
         soft: -1
         hard: -1
+    volumes:
+      - ../data/opensearch:/usr/share/opensearch/data
     ports:
       - "9200:9200"
     networks:
