@@ -1,0 +1,32 @@
+Acme Robotics - Company FAQ
+============================
+
+Q: What does Acme Robotics do?
+A: Acme Robotics designs and manufactures autonomous delivery robots for last-mile logistics. Our robots operate on sidewalks and bike lanes to deliver packages within a 3-mile radius.
+
+Q: When was Acme Robotics founded?
+A: Acme Robotics was founded in 2019 by Dr. Sarah Chen and Marcus Rivera in Austin, Texas.
+
+Q: What is the flagship product?
+A: Our flagship product is the AcmeBot X1, a six-wheeled autonomous delivery robot capable of carrying up to 40 pounds. It uses LiDAR, cameras, and ultrasonic sensors for navigation.
+
+Q: How does the AcmeBot X1 navigate?
+A: The X1 uses a combination of GPS, LiDAR mapping, computer vision, and ultrasonic proximity sensors. It builds a real-time 3D map of its surroundings and plans optimal routes using our proprietary PathFinder algorithm.
+
+Q: What is the battery life of the AcmeBot X1?
+A: The X1 has a battery life of approximately 8 hours of continuous operation, covering up to 25 miles on a single charge. Charging takes about 2 hours.
+
+Q: How much does the AcmeBot X1 cost?
+A: The AcmeBot X1 is available through a subscription model starting at $2,500/month per robot. This includes maintenance, software updates, and 24/7 remote monitoring.
+
+Q: What cities does Acme Robotics currently operate in?
+A: As of 2025, we operate in Austin TX, San Francisco CA, Miami FL, Denver CO, and Portland OR. We plan to expand to 10 additional cities by end of 2026.
+
+Q: What safety features does the X1 have?
+A: The X1 includes automatic emergency braking, 360-degree obstacle detection, pedestrian-aware navigation, anti-theft locking mechanism, and a remote kill switch accessible by operators.
+
+Q: Does Acme Robotics offer an API?
+A: Yes, we offer a RESTful API for integration with e-commerce platforms, fleet management systems, and logistics software. API documentation is available at docs.acmerobotics.example.com.
+
+Q: What is the company's return policy?
+A: Subscriptions can be canceled with 30 days notice. There is a 90-day trial period for new customers with a full refund guarantee if the service does not meet expectations.

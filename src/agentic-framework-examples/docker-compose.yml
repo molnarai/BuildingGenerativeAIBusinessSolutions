@@ -1,0 +1,14 @@
+services:
+  agentic-rag:
+    build: .
+    network_mode: host
+    volumes:
+      - ./sample_docs:/app/sample_docs
+    environment:
+      - OLLAMA_BASE_URL=${CONTAINER_OLLAMA_BASE_URL}
+      - OLLAMA_API_KEY=${OLLAMA_API_KEY}
+      - OLLAMA_CHAT_MODEL=${OLLAMA_CHAT_MODEL}
+      - OLLAMA_EMBEDDING_MODEL=${OLLAMA_EMBEDDING_MODEL}
+    stdin_open: true
+    tty: true
+    command: ./test_ollama_connection.py

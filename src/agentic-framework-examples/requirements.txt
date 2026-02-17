@@ -1,0 +1,34 @@
+# =============================================================
+# Shared / Ollama prerequisite
+# =============================================================
+# Install and run Ollama locally: https://ollama.com
+# Then pull the required models:
+#   ollama pull llama3.2
+#   ollama pull nomic-embed-text
+
+# =============================================================
+# LangChain Agentic RAG
+# =============================================================
+langchain-ollama
+langchain-community
+langchain-core
+langgraph
+faiss-cpu
+
+# =============================================================
+# Strands Agents Agentic RAG
+# =============================================================
+strands-agents[ollama]
+
+# =============================================================
+# Microsoft AutoGen Agentic RAG
+# =============================================================
+autogen-agentchat
+autogen-ext[ollama,chromadb]
+
+# =============================================================
+# LlamaIndex Agentic RAG
+# =============================================================
+llama-index
+llama-index-llms-ollama
+llama-index-embeddings-ollama
