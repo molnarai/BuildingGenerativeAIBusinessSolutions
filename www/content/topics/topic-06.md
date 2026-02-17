@@ -46,6 +46,6 @@ This session evaluates leading Python-based agentic AI frameworks. The guide hig
 
 
 ### Code Examples:
-- [Examples of Agentic Frameworks](https://github.com/molnarai/BuildingGenerativeAIBusinessSolutions/tree/main/src/agentic-framework-examples) Agentic RAG with simple text document as knowledge source (LangGraph, Strands, AutoGen, LlamaIndex)
+- [Examples of Agentic Frameworks](https://github.com/molnarai/BuildingGenerativeAIBusinessSolutions/tree/main/AgenticAI/agentic-framework-examples) Agentic RAG with simple text document as knowledge source (LangGraph, Strands, AutoGen, LlamaIndex)
 - [Examples of n8n](https://github.com/molnarai/BuildingGenerativeAIBusinessSolutions/tree/main/N8N-Examples) 
 Demonstration of using n8n built-in AI Agent
