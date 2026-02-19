@@ -19,10 +19,17 @@ from autogen_agentchat.agents import AssistantAgent
 from autogen_agentchat.ui import Console
 from autogen_ext.memory.chromadb import ChromaDBVectorMemory, PersistentChromaDBVectorMemoryConfig
 from autogen_ext.models.ollama import OllamaChatCompletionClient
+from autogen_ext.models.openai import OpenAIChatCompletionClient
+from autogen_ext.models.openai._openai_client import ModelInfo
 from autogen_core.memory import MemoryContent, MemoryMimeType
 
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 OLLAMA_CHAT_MODEL = os.getenv("OLLAMA_CHAT_MODEL", "llama3.1")
+#-----------------------------------------------------------------------#
+#-- AutoGen currently doesn't support API keys for the OllamaClient   --#
+#-- you may use a local Ollama instances with API key to Ollama Cloud --#
+#-----------------------------------------------------------------------#
+# OLLAMA_API_KEY = os.getenv("OLLAMA_API_KEY", "")
 
 # ---------------------------------------------------------------------------
 # Step 1: Load documents
@@ -68,10 +75,12 @@ async def populate_memory():
 # Step 4: Create the AutoGen agent with Ollama and memory
 # ---------------------------------------------------------------------------
 
+
 model_client = OllamaChatCompletionClient(
     model=OLLAMA_CHAT_MODEL,
-    base_url=OLLAMA_BASE_URL,
+    host=OLLAMA_BASE_URL,
 )
+
 
 agent = AssistantAgent(
     name="acme_assistant",
