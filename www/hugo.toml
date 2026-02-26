@@ -4,7 +4,7 @@ baseURL = 'https://msa8700.molnar.ai'
 
 languageCode = 'en-us'
 title = 'MSA 8700'
-theme = 'pmolnar'
+theme = ['reveal-hugo', 'pmolnar']
 buildFuture = true
 
 [services]
@@ -25,6 +25,10 @@ buildFuture = true
   name = 'Topics'
   url = '/topics'
   weight = 2
+[[menu.main]]
+  name = 'Presentations'
+  url = '/slides'
+  weight = 3
 #[[menu.main]]
 #  name = 'Readings'
 #   url = '/readings'
@@ -67,6 +71,18 @@ buildFuture = true
     # Enable to include inline HTML
     unsafe = true
 
+
+[outputFormats.Reveal]
+baseName = "index"
+mediaType = "text/html"
+isHTML = true
+
+[params.reveal_hugo]
+theme = "black"
+highlight_theme = "monokai"
+slide_number = true
+history = true
+transition = "slide"
 
 [sitemap]
   changeFreq = ''

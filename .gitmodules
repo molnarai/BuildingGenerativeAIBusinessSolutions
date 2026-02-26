@@ -4,3 +4,6 @@
 [submodule "AgenticAI/agentic_ai_frameworks_example/crewai/agentic-rag-practical-example"]
 	path = AgenticAI/agentic_ai_frameworks_example/crewai/agentic-rag-practical-example
 	url = git@github.com:lorenzejay/agentic-rag-practical-example.git
+[submodule "www/themes/reveal-hugo"]
+	path = www/themes/reveal-hugo
+	url = https://github.com/joshed-io/reveal-hugo.git

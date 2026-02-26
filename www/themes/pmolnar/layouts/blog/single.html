@@ -1,19 +1,14 @@
 {{ define "main" }}
     {{ partial "breadcrumbs.html" . }}
-    <header class="blog-header">
-        <div class="blog-title">
+    <article class="blog-article">
+        <header class="blog-header">
             <h1>{{ .Title }}</h1>
             {{ if .Params.due_date }}
             <div class="due-date">
                 <strong>Due Date:</strong> {{ .Params.due_date | time.Format "January 2, 2006" }}
             </div>
             {{ end }}
-        </div>
-    </header>
-    
-    <div class="blog-content">
-        <article class="blog-article">
+        </header>
         {{ .Content }}
-        </article>
-    </div>
+    </article>
 {{ end }}

@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{ partial "breadcrumbs.html" . }}
+<div class="slides-list">
+    <article class="slides-index">
+        <h1>{{ .Title }}</h1>
+        {{ with .Content }}
+        <div class="section-description">
+            {{ . }}
+        </div>
+        {{ end }}
+    </article>
+    <div class="slides-grid">
+        {{ range .Pages.ByWeight }}
+        <a href="{{ .RelPermalink }}" class="slide-card" aria-label="View {{ .Title }}">
+            <div class="slide-card-preview">
+                {{ if .Params.thumbnail }}
+                <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
+                {{ else }}
+                <div class="slide-card-placeholder">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="48" height="48">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                </div>
+                {{ end }}
+            </div>
+            <div class="slide-card-info">
+                <h2>{{ .Title }}</h2>
+                {{ with .Description }}
+                <p>{{ . }}</p>
+                {{ end }}
+            </div>
+        </a>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,14 @@
+{{- $theme := .Param "reveal_hugo.custom_theme" | default "" -}}
+
+<a href="/slides/" class="back-to-index" title="Back to Presentations">&#9664; Slides</a>
+
+{{- if in $theme "robinson" -}}
+<div class="slide-footer">
+  <div class="footer-left">
+    <img src="/imgs/logos/gsu-robinson-logo.png" alt="Georgia State University - J. Mack Robinson College of Business">
+  </div>
+  <div class="footer-right">
+    <img src="/imgs/logos/robinson-logo.png" alt="Robinson">
+  </div>
+</div>
+{{- end -}}
