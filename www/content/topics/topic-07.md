@@ -32,13 +32,29 @@ Listen to the podcast ([transcription](../../podcasts/podcast-03-prompt-optimiza
     Your browser does not support the audio element.
 </audio>
 
-Read the following:
+
+### Presentations
+ - [NLP and Text Processing](../../slides/slide-07-rag-evaluation/)
+  - [NLP and Text Processing](../../slides/slide-07-rag-retrieval-evaluation/)
+
+
+### Notebooks
+1. **Response Evaluation** based on the comparison of RAG responses to given questions to the ground truth answer
+    - Example notebook [RAG_Evaluation](https://github.com/molnarai/BuildingGenerativeAIBusinessSolutions/tree/main/RAG/RAG-Evaluation/notebooks/RAG_Evaluation.ipynb)
+    - Example code in [response_evaluation](https://github.com/molnarai/BuildingGenerativeAIBusinessSolutions/tree/main/RAG/RAG-Evaluation/response_evaluation/__init__.py)
+2. **Retrieval Evaluation** assess the tech-chunnk retrieval and ranking of the RAG system
+    - Example notebook [RAG_Retrieval_Evaluation](https://github.com/molnarai/BuildingGenerativeAIBusinessSolutions/tree/main/RAG/RAG-Evaluation/notebooks/RAG_Retrieval_Evaluation.ipynb)
+    - Example code in [retrieval_evaluation](https://github.com/molnarai/BuildingGenerativeAIBusinessSolutions/tree/main/RAG/RAG-Evaluation/retrieval_evaluation/__init__.py)
+
+### Reading
 
 <!-- 1. Summary Page: [Prompt Evaluation and Optimization](https://www.perplexity.ai/page/prompt-evaluation-and-optimiza-Og6LEkBpTPCCJhZdQ7qHRw)
 2. Textbook: **Chapter 5.4**, Huang, Ken. "Practical Guide for AI Engineers" -->
 3. Paper: [ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems](https://arxiv.org/pdf/2311.09476)
 
-## Additional Resources
+
+
+### Additional Resources
 
 - [ARES](https://ares-ai.vercel.app/getting_started.html) is a framework for evaluating Retrieval-Augmented Generation (RAG) models.
 - [G-Eval](https://docs.confident-ai.com/docs/metrics-llm-evals) is a framework that uses LLMs with chain-of-thoughts (CoT) to evaluate LLM outputs based on ANY custom criteria. The G-Eval metric is the most versatile type of metric deepeval has to offer, and is capable of evaluating almost any use case with human-like accuracy.
