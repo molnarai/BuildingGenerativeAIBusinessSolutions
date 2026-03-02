@@ -1,0 +1,34 @@
+services:
+  mcp-server:
+    build: .
+    container_name: adventure-mcp-server
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: python adventure_mcp_server.py http
+    networks:
+      - adventure-net
+
+  agent:
+    build: .
+    container_name: adventure-agent
+    ports:
+      - "8001:8001"
+    volumes:
+      - .:/app
+    environment:
+      - OLLAMA_BASE_URL=${CONTAINER_OLLAMA_BASE_URL}
+      - OLLAMA_CHAT_MODEL=${OLLAMA_CHAT_MODEL}
+      - MCP_SERVER_URL=http://mcp-server:8000
+    depends_on:
+      - mcp-server
+    command: python adventure_chat_api.py
+    networks:
+      - adventure-net
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+networks:
+  adventure-net:
+    driver: bridge

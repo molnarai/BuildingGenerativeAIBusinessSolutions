@@ -1,0 +1,7 @@
+fastmcp
+pyswip
+httpx
+python-dotenv
+strands-agents[ollama]
+fastapi
+uvicorn[standard]
