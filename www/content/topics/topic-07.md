@@ -34,8 +34,8 @@ Listen to the podcast ([transcription](../../podcasts/podcast-03-prompt-optimiza
 
 
 ### Presentations
- - [NLP and Text Processing](../../slides/slide-07-rag-evaluation/)
-  - [NLP and Text Processing](../../slides/slide-07-rag-retrieval-evaluation/)
+- [RAG Response Evaluation](../../slides/slide-07-rag-evaluation/)
+- [RAG Retrieval Evaluation](../../slides/slide-07-rag-retrieval-evaluation/)
 
 
 ### Notebooks
