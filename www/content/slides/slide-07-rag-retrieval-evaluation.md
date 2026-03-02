@@ -1,7 +1,7 @@
 +++
 title = "RAG Retrieval Evaluation"
 description = "Ranking metrics for evaluating retrieved chunks in RAG systems"
-weight = 8
+weight = 75
 outputs = ["Reveal"]
 math = true
 thumbnail = "/imgs/slides/rag-retrieval-evaluation.png"

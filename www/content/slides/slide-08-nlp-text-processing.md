@@ -1,7 +1,7 @@
 +++
 title = "NLP and Text Processing"
 description = "Overview of classical NLP and text processing techniques"
-weight = 8
+weight = 80
 outputs = ["Reveal"]
 math = true
 thumbnail = "/imgs/slides/nlp-text-processing.png"

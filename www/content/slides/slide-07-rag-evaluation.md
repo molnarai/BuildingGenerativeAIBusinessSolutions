@@ -1,7 +1,7 @@
 +++
 title = "RAG Evaluation"
 description = "Evaluating Retrieval-Augmented Generation systems"
-weight = 7
+weight = 70
 outputs = ["Reveal"]
 math = true
 thumbnail = "/imgs/slides/rag-evaluation.png"
