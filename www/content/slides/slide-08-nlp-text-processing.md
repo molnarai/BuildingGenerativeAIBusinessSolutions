@@ -12,13 +12,14 @@ slide_number = true
 transition = "convex"
 
 +++
+{{< slide background-image="/imgs/slides/nlp-text-processing.png" >}}
 
+<h1 style="color:white; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);" >End-to-End Example<br />Deal Intelligence Agent</h1>
 
-# End-to-End Example: Deal Intelligence Agent
-
-### Bringing Every Technique Together
-
+<h3 style="color:white; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);" >Bringing Every Technique Together</h3>
+<p style="color:white; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);" >
 MSA 8700 — Module 8: NLP and Text Processing
+</p>
 
 ***
 
