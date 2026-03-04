@@ -9,7 +9,7 @@ thumbnail = "/imgs/slides/nlp-text-processing.png"
 [reveal_hugo]
 custom_theme = "css/reveal-robinson.css"
 slide_number = true
-transition = "convex"
+transition = "none"
 
 +++
 {{< slide background-image="/imgs/slides/nlp-text-processing.png" >}}
