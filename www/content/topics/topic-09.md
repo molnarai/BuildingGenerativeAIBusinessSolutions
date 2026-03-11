@@ -43,3 +43,26 @@ Finally, a practical merger and acquisition use case illustrates a multi-layered
 
 
 
+### References
+
+#### Foundational Knowledge Graphs & Semantic Web
+
+- [Hogan, A. et al. (2021). Knowledge Graphs. ACM Computing Surveys.](https://arxiv.org/pdf/2003.02320)
+- [Auer, S. et al. (2007). DBpedia: A Nucleus for a Web of Open Data. ISWC.](https://www.researchgate.net/publication/221466796_DBpedia_A_Nucleus_for_a_Web_of_Open_Data)
+[Ehrlinger, L. & Wöß, W. (2016). Towards a Definition of Knowledge Graphs. SEMANTiCS.](https://www.researchgate.net/publication/323316736_Towards_a_Definition_of_Knowledge_Graphs)
+
+#### Ontologies & Reasoning
+
+- [Gruber, T. (1995). Toward Principles for the Design of Ontologies.](https://www.researchgate.net/publication/2626138_Toward_Principles_for_the_Design_of_Ontologies_Used_for_Knowledge_Sharing)
+- [Studer, R., Benjamins, V., Fensel, D. (1998). Knowledge Engineering Principles.](https://www.sciencedirect.com/science/article/pii/S0169023X97000566)
+- [Baader, F. et al. (2010). The Description Logic Handbook.](https://www.researchgate.net/publication/230745455_The_Description_Logic_Handbook_Theory_Implementation_and_Applications)
+
+#### Graph Query & Modeling
+
+- [Wood, P.T. (2012). Query Languages for Graph Databases. ACM SIGMOD.](https://dl.acm.org/doi/10.1145/2206869.2206879)
+- [Pérez, J. et al. (2006). Semantics and Complexity of SPARQL. ISWC.](https://dl.acm.org/doi/10.1145/1567274.1567278)
+
+#### Agentic AI, Neuro-Symbolic, Workflow AI
+
+- [Davis, E. & Marcus, G. (2015). Commonsense Reasoning and Knowledge Representation.](https://dl.acm.org/doi/10.1145/2701413)
+- [Garcez, A., Besold, T. et al. (2018). Neuro‑Symbolic AI: The State of the Art.](https://arxiv.org/pdf/2509.06921v1)

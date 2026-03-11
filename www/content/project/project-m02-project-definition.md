@@ -25,6 +25,25 @@ The goal of milestone M02 is to establish a foundation for the document processi
 4. First data (metadata and vector embeddings) written to database (PostgreSQL, QDrant, Neo4j, or OpenSearch)
 5. Updated architecture diagram -->
 
+# Update:
+
+## Steps to resubmit for evaluation:
+
+1. Address any requirements that are were not labeled "complete" and resubmit for review. Create a file `M02_MILESTONE.md` for your notes.
+    - Include a statment in `M02_MILESTONE.md` if a requirement does not apply to your solution (e.g. processing PDF files if the solution uses SEC filings).
+    - Complete the requirement. State `M02_MILESTONE.md` what you have done.
+1. Commit your code and the file `M02_MILESTONE.md` into your project repository. 
+2. Create a branch `uat` if you don't have one yet. The acronym stands for "User Acceptance Testing". This is your review version that will be evaluated. Meanwhile you may continue on your development branch.
+3. Create a "Merge Request" on the GitLab web interface:
+    1. Select your working branch with the code that you intend to submit for review as "Source".
+    2. Select `uat` as "Target".
+    3. You may write an optional commment for this submission.
+    4. Select the professor of your class as "Reviewer". They will be notified.
+    5. Carefully review any of the other options. E.g. "Delete source branch when merge request is accepted." is checked, you may want to un-check it.
+    6. Click on "Create merge request"
+
+---
+
 **Requirements:**
 
 The pipeline should be able to read PDFs and text files from a specified input directory, extract relevant metadata, tokenize the extracted text into individual words or phrases, remove stop words, punctuation, and special characters, generate vector embeddings for each text chunk, and write the extracted data to a chosen database.
