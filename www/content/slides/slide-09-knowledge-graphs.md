@@ -4,7 +4,7 @@ description = "Overview of classical NLP and text processing techniques"
 weight = 80
 outputs = ["Reveal"]
 math = true
-thumbnail = "/imgs/slides/nlp-text-processing.png"
+thumbnail = "/imgs/slides/more_futuristic_quantum_ai_t.png"
 
 [reveal_hugo]
 custom_theme = "css/reveal-robinson.css"
@@ -12,14 +12,22 @@ slide_number = true
 transition = "none"
 
 +++
-{{< slide background-image="/imgs/slides/nlp-text-processing.png" >}}
+{{< slide background-image="/imgs/slides/more_futuristic_quantum_ai_t.png" >}}
+<div style="margin:0; padding: 50; background-color: rgba(0,0,0,0.5); min-hight:100%; min-width:100%" >
 
 <h1 style="color:white; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);" >End-to-End Example<br />Deal Intelligence Agent</h1>
 
 <h3 style="color:white; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);" >Bringing Every Technique Together</h3>
 <p style="color:white; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);" >
+
 MSA 8700 — Module 9: Knowledge Graphs
 </p>
+</div>
+
+***
+
+{{< slide background-image="/imgs/Structuring_Agentic_AI00.png" >}}
+<h1></h1>
 
 ***
 
@@ -32,20 +40,6 @@ Every day, hundreds of raw documents arrive — HTML pages, plain-text emails, a
 ***
 
 
-
-### Using *Structuring\_Agentic\_AI.pdf* as the Outline
-
-### Expanded with content from *Knowledge\_Graphs\_for\_Agentic\_AI.md*
-
-### References cleaned, curated & foundational
-
-***
-
-{{< slide background-image="/imgs/Structuring_Agentic_AI00.png" >}}
-<!-- <h1 style="color:white; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);" >End-to-End Example<br />SECTION I — The Missing Link in Agentic AI</h1> -->
-
-***
-
 ## **1.1 Motivation: Why Agentic AI Needs Structure**
 
 Large Language Models (LLMs) excel at **probabilistic text generation**, but they lack:
@@ -57,7 +51,11 @@ Large Language Models (LLMs) excel at **probabilistic text generation**, but the
 
 This limitation becomes critical for *agentic* systems — AI systems that perform multi‑step tasks, collaborate with tools, and make autonomous decisions.
 
---- 
+*** 
+
+{{< slide background-image="/imgs/Structuring_Agentic_AI01.png" >}}
+
+*** 
 
 ### The Gap
 
@@ -78,24 +76,23 @@ Knowledge Graphs (KGs) provide:
 *   **Long-term, inspectable memory**
 *   **A stable substrate for multiple agents to coordinate**
 
+
+
 <!-- This section frames the entire course: KGs transform LLM-based agents from *pattern mimickers* into *semantic reasoners*. -->
+
 
 ***
 
-{{< slide background-image="/imgs/Structuring_Agentic_AI01.png" >}}
-<!-- <h1 style="color:white; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);" >End-to-End Example<br />SECTION I — The Missing Link in Agentic AI</h1> -->
-<!-- 
 # **SECTION II — Foundations: Graphs, Knowledge Graphs, and Ontologies**
 
-### *(Slides 2–6)*
+*   Reasoning Bottleneck
+*   Graphs vs. Relational Tables
+*   Semantic Triples
+*   Ontology vs. Schema
+*   Power & Pitfalls of Ontologies
 
-**Slide references include:**
-
-*   Slide 2: Reasoning Bottleneck
-*   Slide 3: Graphs vs. Relational Tables
-*   Slide 4: Semantic Triples
-*   Slide 5: Ontology vs. Schema
-*   Slide 6: Power & Pitfalls of Ontologies -->
+***
+{{< slide background-image="/imgs/Structuring_Agentic_AI02.png" >}}
 
 ***
 
@@ -119,6 +116,11 @@ Graphs allow you to encode confidence, causality, chronology, and strength of re
 
 ***
 
+{{< slide background-image="/imgs/Structuring_Agentic_AI03.png" >}}
+
+***
+
+
 ## **2.2 From Graphs to Knowledge Graphs (KGs)**
 
 A Knowledge Graph becomes *semantic* when relationships are labeled with **meaning**.
@@ -141,6 +143,10 @@ Triples create a **machine-readable, language-independent backbone** that can su
 
 ***
 
+{{< slide background-image="/imgs/Structuring_Agentic_AI04.png" >}}
+
+***
+
 ## **2.3 Ontologies: The Semantic Blueprint**
 
 An **ontology** defines:
@@ -151,6 +157,12 @@ An **ontology** defines:
 *   Inference rules (e.g., “every CEO is an Executive”)
 
 *** 
+
+{{< slide background-image="/imgs/Structuring_Agentic_AI05.png" >}}
+
+***
+
+<!-- 
 ### Why ontologies matter for agents
 
 *   Shared vocabulary → multi-agent interoperability
@@ -165,15 +177,17 @@ An **ontology** defines:
 *   Requires governance
 *   Must balance expressivity vs. complexity
 
-***
+-->
 
 
 
 # **SECTION III — Knowledge Bases: Reasoning Beyond Storage**
 
-### *(Slide 7: “Synthesizing the Knowledge Base”)*
 
 ***
+{{< slide background-image="/imgs/Structuring_Agentic_AI06.png" >}}
+***
+
 
 ## **3.1 From Knowledge Graph to Knowledge Base**
 
@@ -209,12 +223,12 @@ A KB turns agents into **deliberate reasoners**, not passive pattern matchers.
 
 ***
 
-***
 
 # **SECTION IV — Querying Structured Knowledge**
 
-### *(Slide 8: “A Paradigm Shift in Querying”)*
 
+***
+{{< slide background-image="/imgs/Structuring_Agentic_AI07.png" >}}
 ***
 
 ## **4.1 SQL vs. Vector Search vs. Graph Querying**
@@ -242,8 +256,10 @@ Graph languages unlock this reasoning capability.
 
 # **SECTION V — Agentic Systems and the Shared World Model**
 
-### *(Slide 9: “The Shared World Model for Multi-Agent Systems”)*
 
+
+***
+{{< slide background-image="/imgs/Structuring_Agentic_AI08.png" >}}
 ***
 
 ## **5.1 Agents Need Shared Memory**
@@ -310,8 +326,9 @@ Agent types interacting with a KG:
 
 # **SECTION VI — The Future: Structured, Grounded Agentic AI**
 
-### *(Slide 10: “The Future of AI is Structured”)*
 
+***
+{{< slide background-image="/imgs/Structuring_Agentic_AI09.png" >}}
 ***
 
 ## **6.1 The Core Argument**
@@ -337,23 +354,30 @@ Agentic AI of the next generation will integrate:
 
 ## **6.2 Why This Matters for Real-World Applications**
 
-Critical domains require:
-
-*   auditability
-*   provenance
-*   compliance
-*   long-term consistency
-*   multi-stakeholder semantics
-*   modularity across teams and tools
-
-Examples:
-
-*   Healthcare
-*   Finance
-*   Legal AI
-*   Multi-agent orchestration
-*   Enterprise knowledge systems
-*   Safety-critical autonomous systems
+<div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto; gap: 20px; font-size: 0.7em;">
+    <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 20px; text-align: left;">
+        <h3>Critical domains require:</h3>
+        <ul>
+            <li>auditability</li>
+            <li>provenance</li>
+            <li>compliance</li>
+            <li>long-term consistency</li>
+            <li>multi-stakeholder semantics</li>
+            <li>modularity across teams and tools</li>
+        </ul>
+    </div>
+    <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 20px; text-align: left;">
+        <h3>Examples:</h3>
+        <ul>
+            <li>Healthcare</li>
+            <li>Finance</li>
+            <li>Legal AI</li>
+            <li>Multi-agent orchestration</li>
+            <li>Enterprise knowledge systems</li>
+            <li>Safety-critical autonomous systems</li>
+        </ul>
+    </div>
+</div>
 
 Only structured, explainable, grounded reasoning architectures can scale into these domains.
 
