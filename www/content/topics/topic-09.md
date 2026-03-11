@@ -31,6 +31,9 @@ Finally, a practical merger and acquisition use case illustrates a multi-layered
 ### Presentation
  - [Knowledge Graphs](../../slides/slide-09-knowledge-graphs/)
 
+### Lecture Notes
+- [Knowledge Graphs for Agents](../..//blog/knowledge-graphs-for-agents/)
+
 ### Notebooks
 
 1. [01_Graph_Basics.ipynb](https://github.com/molnarai/BuildingGenerativeAIBusinessSolutions/blob/main/NLP-Textprocessing/notebooks/01_Graph_Basics.ipynb) — Introduction to directed, undirected, and weighted graphs using NetworkX, with graph algorithms (centrality, PageRank, shortest paths) applied to an agentic AI scenario.
