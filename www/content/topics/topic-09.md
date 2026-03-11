@@ -32,7 +32,8 @@ Finally, a practical merger and acquisition use case illustrates a multi-layered
  - [Knowledge Graphs](../../slides/slide-09-knowledge-graphs/)
 
 ### Lecture Notes
-- [Knowledge Graphs for Agents](../..//blog/knowledge-graphs-for-agents/)
+- [Knowledge Graphs for Agents](../../blog/knowledge-graphs-for-agents/)
+- [Example Pizza Ontology](../../blog/pizza-ontology/)
 
 ### Notebooks
 
