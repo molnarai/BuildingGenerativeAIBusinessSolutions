@@ -7,14 +7,12 @@ date: 2024-01-01
 lastmod: 2024-01-01
 ---
 
-# Knowledge Graphs for Agentic Systems - Overview
 
-### 1. Introduction: Why Knowledge Graphs Matter
 
 Modern AI agents often generate fluent but shallow responses. Knowledge graphs (KGs) introduce **structured, semantically grounded knowledge** that enables agents to reason, check consistency, and retrieve facts — all grounded in explicit relationships.
 In agentic systems, KGs play a role similar to a **semantic memory**: a persistent, queryable structure that captures *entities*, *relationships*, and *context* over time.
 
-***
+
 
 ### 2. Core Graph Concepts
 
@@ -38,7 +36,7 @@ If we take the sentence *“Alan Turing worked at Bletchley Park during WWII,”
     - *(Alan Turing) —worked_at→ (Bletchley Park)*
     - *(Alan Turing) —active_during→ (WWII)*
 
-***
+
 
 ### 3. Building a Knowledge Graph
 
@@ -67,7 +65,7 @@ Example: SQL `employees` table → *(Alice, works_at, Google)*.
 *“Extract entities and their relationships as subject–predicate–object triples.”*
 - Store extracted triples in a **graph database** such as Neo4j, GraphDB, or RDF-based store.
 
-***
+
 
 ### 4. Ontologies and Schema Design
 
@@ -79,7 +77,7 @@ A **knowledge graph** is not just a collection of triples — it also has a **sc
 
 This allows **semantic reasoning** — inferring new facts from known ones (e.g., via RDF Schema or OWL reasoning).
 
-***
+
 
 ### 5. Using Knowledge Graphs in Agentic AI Systems
 
@@ -109,7 +107,7 @@ Agentic AI systems orchestrate multiple tools or reasoning steps. KGs empower th
 - Logical reasoners can infer new relationships:
 If *(Turing, worked_at, Bletchley Park)* and *(Bletchley Park, located_in, UK)* ⇒ *(Turing, worked_in, UK)*.
 
-***
+
 
 ### 6. Integrating LLMs and Knowledge Graphs
 
@@ -120,7 +118,7 @@ The modern fusion of LLMs and KGs can take several patterns:
 - **Graph Embeddings**: Use algorithms like Node2Vec, TransE, or Graph Neural Networks to represent nodes and edges in vector space for similarity search.
 - **KG as Context Builder**: LLM injects KG-derived relational context into prompts to improve coherence and factuality.
 
-***
+
 
 ### 7. Example: Agentic Workflow with a Knowledge Graph
 
@@ -132,7 +130,7 @@ The modern fusion of LLMs and KGs can take several patterns:
 the agent traverses relationships in the KG to find co-authorship or shared projects.
 4. **Answer generation**: The agent cites results with grounding retrieved from the graph.
 
-***
+
 
 ### 8. Tools and Frameworks
 
@@ -141,7 +139,7 @@ the agent traverses relationships in the KG to find co-authorship or shared proj
 - **Extraction Pipelines**: spaCy, OpenIE, Stanford CoreNLP, LLM-based wrappers (LangChain, Haystack).
 - **Visualization**: Graphistry, Gephi, Neo4j Bloom, or custom D3.js tools.
 
-***
+
 
 ### 9. Key Takeaways
 
@@ -156,7 +154,7 @@ the agent traverses relationships in the KG to find co-authorship or shared proj
 
 Triples from text can be created with fairly different pipelines depending on whether you rely on “classic” NLP (e.g., spaCy + RE models) or prompt an LLM directly; in practice, the best systems often hybridize both.[^2_1][^2_2][^2_3]
 
-***
+
 
 ## What a “triple extraction” pipeline does
 
@@ -172,7 +170,7 @@ Canonical stages:
 
 These stages are implemented differently in an NLP-centric vs LLM-centric stack.
 
-***
+
 
 ## Traditional NLP / spaCy-based pipelines
 
@@ -213,7 +211,7 @@ $(\text{subject\_ID}, \text{relation\_URI}, \text{object\_ID})$ plus provenance 
 - **Limited abstraction**
     - Models struggle with long-range dependencies, discourse-level relations, or relations not signaled by simple local patterns.[^2_7][^2_6]
 
-***
+
 
 ## LLM-centric triple extraction
 
@@ -255,7 +253,7 @@ $(\text{subject\_ID}, \text{relation\_URI}, \text{object\_ID})$ plus provenance 
 - **Schema enforcement is indirect**
     - You constrain the model via prompts; hard guarantees require a downstream validation step (often with additional rules or models).[^2_12][^2_10]
 
-***
+
 
 ## Direct comparison: spaCy-style NLP vs LLMs
 
@@ -272,7 +270,7 @@ $(\text{subject\_ID}, \text{relation\_URI}, \text{object\_ID})$ plus provenance 
 | Interpretability | Transparent rules and limited models [^2_5][^2_3] | Black-box; behavior guided by prompts but hard to fully predict [^2_6][^2_12] |
 
 
-***
+
 
 ## Hybrid pipelines (often best for agentic systems)
 
@@ -299,7 +297,7 @@ Common hybrid patterns:
 
 For agentic systems, the hybrid pattern also lets different **agents specialize**: a parsing agent using spaCy, an extraction agent using an LLM, and a curation agent validating triples.
 
-***
+
 
 ## How choice of method impacts agentic QA over a KG
 
@@ -368,7 +366,7 @@ The more “surgical” and high-precision your triple extraction (spaCy-heavy),
 
 An ontology is the **formal semantic blueprint** of a domain: it defines the classes of things that exist, their properties, and the admissible relationships and constraints between them, providing shared meaning for a knowledge graph.[^3_1][^3_2]
 
-***
+
 
 ## What an ontology is (and is not)
 
@@ -390,7 +388,7 @@ An ontology is the **formal semantic blueprint** of a domain: it defines the cla
 - Object properties: `placesOrder(Customer → Order)`, `containsProduct(Order → Product)`.
 - Data properties: `hasPrice(Product → decimal)`, `orderDate(Order → date)`.[^3_1][^3_4]
 
-***
+
 
 ## Examples of ontologies
 
@@ -405,7 +403,7 @@ An ontology is the **formal semantic blueprint** of a domain: it defines the cla
 
 These ontologies are usually expressed in OWL/RDF or similar formalisms to support machine reasoning.[^3_5][^3_1]
 
-***
+
 
 ## Process of creating an ontology
 
@@ -434,7 +432,7 @@ A practical ontology engineering process usually follows these steps.[^3_8][^3_5
 8. **Iterative refinement and governance**
     - Review with domain experts, capture change requests, manage versions, and set up governance processes for ongoing extension.[^3_6][^3_8]
 
-***
+
 
 ## What to focus on (and common pitfalls)
 
@@ -467,7 +465,7 @@ Analyses of ontologies and tools like OOPS! highlight recurring mistakes.[^3_10]
 - **Over-modeling / ontological bloat**
     - Modeling every edge case, making the ontology too complex for practical use and hard to evolve.[^3_12][^3_8]
 
-***
+
 
 ## Creating ontologies with LLMs
 
@@ -506,7 +504,7 @@ LLMs are increasingly used to reduce the manual burden of ontology design and cu
 
 A pragmatic pattern is: experts define scope and core concepts, LLMs propose draft hierarchies and axioms, and automated tools plus experts refine and validate.[^3_9][^3_7]
 
-***
+
 
 ## Optimizing ontologies with graph algorithms and other techniques
 
@@ -583,7 +581,7 @@ Once an ontology is represented as a graph (classes and properties as nodes/edge
 
 RDF/SPARQL (e.g., Apache Jena) and labeled‑property graphs with Cypher (e.g., Neo4j) both store nodes and edges, but they optimize for different things: RDF for **semantic interoperability and reasoning**, LPG for **developer ergonomics and high‑performance traversals**.[^4_1][^4_2][^4_3]
 
-***
+
 
 ## RDF + SPARQL + Apache Jena: overview
 
@@ -627,7 +625,7 @@ WHERE {
 
 This can drive an agent scheduler that picks pending tasks for the summarization agent.
 
-***
+
 
 ## LPG + Cypher + Neo4j: overview
 
@@ -661,7 +659,7 @@ RETURN t.id AS taskId, d.id AS docId;
 ```
 
 
-***
+
 
 ## Side‑by‑side comparison
 
@@ -694,7 +692,7 @@ RETURN t.id AS taskId, d.id AS docId;
 | AI/agent integration | Strong with ontologies and explicit constraints [^4_15][^4_12] | Strong with traversal‑based context retrieval and graph analytics [^4_2] |
 
 
-***
+
 
 ## Agentic AI: when to use which
 
@@ -748,7 +746,7 @@ LIMIT 3;
 - **Graph algorithms for routing and coordination**
     - Use Neo4j GDS to run PageRank, community detection, shortest paths on the agent‑tool graph, then use results to guide which agents collaborate on a complex query.[^4_2][^4_9]
 
-***
+
 
 ## Similarities and complementarity for agentic KG
 
@@ -816,7 +814,7 @@ This combination lets you give your agentic system both a **formal world model (
 
 Inductive logic programming (ILP) and graph neural networks (GNNs) both enrich a knowledge graph, but in complementary ways: ILP adds **explicit, symbolic rules**, while GNNs add **learned, distributed representations** and powerful pattern completion. Together they support more accurate, explainable, and adaptive agentic KGs.[^5_1][^5_2][^5_3]
 
-***
+
 
 ## Inductive Logic Programming over knowledge graphs
 
@@ -843,7 +841,7 @@ $\text{collaboratesWith}(X,Y) \leftarrow \text{coAuthor}(X,Z) \wedge \text{coAut
 $\text{suitableForQuery}(A,Q) \leftarrow \text{hasSkill}(A,S) \wedge \text{requiresSkill}(Q,S)$.
 - The agent orchestrator uses these rules to propose candidate agents for new tasks, even when there is no direct historical link.
 
-***
+
 
 ## Graph neural networks over knowledge graphs
 
@@ -869,7 +867,7 @@ $\text{suitableForQuery}(A,Q) \leftarrow \text{hasSkill}(A,S) \wedge \text{requi
 - A GNN trained on a KG of past tasks predicts `ASSISTS` or `DELEGATES_TO` edges between agents, enabling automatic discovery of cooperation patterns for complex tasks.
 - A completion model fills in `HAS_CAPABILITY` or `RELEVANT_TO_TOPIC` edges, which are then used to guide retrieval and planning.[^5_10][^5_11]
 
-***
+
 
 ## How ILP and GNNs complement each other
 
@@ -977,7 +975,7 @@ The system is a **seven-layer agentic AI pipeline** that continuously ingests an
 ```
 
 
-***
+
 
 ## Layer ① — Data Ingestion
 
@@ -994,7 +992,7 @@ All documents receive:
 - `sourceType`, `timestamp`, `entityMention` metadata tags.
 - A **provenance hash** linking every triple to its exact source sentence — critical for analyst trust and compliance.
 
-***
+
 
 ## Layer ② — NLP \& Extraction Pipeline
 
@@ -1038,7 +1036,7 @@ with Google's cloud division last quarter."
 - **Confidence scoring**: Each triple receives a score from the extraction model.
 - Low-confidence triples are flagged for human review rather than auto-committed.[^6_3]
 
-***
+
 
 ## Layer ③ — M\&A Domain Ontology and Human Review
 
@@ -1088,7 +1086,7 @@ Human involvement is not optional — it is a **core architectural component**, 
 - **Feedback-driven KG updates**: When an analyst adds intelligence ("I know that Company X is actively looking to divest this division"), it is added as a high-provenance triple with the analyst as source.
 - **Red-teaming and bias review**: Periodic review to check whether the KG over-represents certain geographies, sectors, or data sources, which would skew agent recommendations.
 
-***
+
 
 ## Layer ④ — Knowledge Graph Store (Dual + Vector)
 
@@ -1123,7 +1121,7 @@ RETURN c.name, signals ORDER BY signals DESC;
 - Used by agents when structured KG traversal does not find an answer — semantic fallback.
 - Bridges the gap between structured and unstructured knowledge.[^6_1]
 
-***
+
 
 ## Layer ⑤ — KG Enhancement Engine
 
@@ -1181,7 +1179,7 @@ A **GraphSAGE** or **INDIGO** model is trained on the KG to predict missing or f
 - The GNN handles noisy, implicit signals (social media, news sentiment); ILP handles structural, rule-based patterns (shared investors, board overlaps).
 - An LLM-as-Judge validator receives candidate triples from both and assigns a final confidence score before committing to the KG.[^6_3]
 
-***
+
 
 ## Layer ⑥ — Agentic Reasoning Layer
 
@@ -1236,7 +1234,7 @@ Five specialized agents operate over the shared KG, coordinated by an orchestrat
     - GNN score is presented with feature attributions (SHAP values over graph features).
     - Confidence intervals are shown for extracted financial data.[^6_18][^6_3]
 
-***
+
 
 ## Layer ⑦ — Analyst Interface and Feedback Loop
 
@@ -1250,7 +1248,7 @@ The interface is not just an output screen — it is a **knowledge refinement en
     - Analyst adds domain knowledge ("This company is quietly shopping itself") → high-provenance triple injected directly into KG.
     - Aggregate feedback retrains: spaCy NER/RE models, GNN link prediction weights, ILP rule thresholds, and LLM extraction prompts — **closing the learning loop**.
 
-***
+
 
 ## Key Design Principles
 
@@ -1320,7 +1318,7 @@ The interface is not just an output screen — it is a **knowledge refinement en
 
 A real-world implementation of a 10-K-to-knowledge-graph pipeline requires six concrete phases: EDGAR access and document parsing, section decomposition, NLP/LLM triple extraction, entity linking and ontology alignment, KG loading, and validation.  Recent open-source work on all 101 S\&P 100 companies produced nearly 600,000 triples from 2024 10-K filings using 24 entity types and 27 relation types — a useful benchmark for what the pipeline should produce.[^7_1][^7_2][^7_3]
 
-***
+
 
 ## Step 1 — Acquire filings from EDGAR
 
@@ -1357,7 +1355,7 @@ Key points:[^7_4]
 - Filings are in **HTML (iXBRL)** format post-2020; older ones are ASCII/SGML.
 - The EDGAR bulk download `https://efts.sec.gov/LATEST/search-index?q=...` lets you pull by form type, date range, or SIC code to target specific sectors.
 
-***
+
 
 ## Step 2 — Parse and section-split documents
 
@@ -1424,7 +1422,7 @@ def split_sections(text: str) -> dict:
 ```
 
 
-***
+
 
 ## Step 3 — spaCy NER on each section
 
@@ -1495,7 +1493,7 @@ def extract_relations_from_sentence(sent, entities_in_sent: list) -> list:
 ```
 
 
-***
+
 
 ## Step 4 — LLM triple extraction (complementary pass)
 
@@ -1554,7 +1552,7 @@ def chunk_section(text: str, chunk_size: int = 2000,
 ```
 
 
-***
+
 
 ## Step 5 — Financial table extraction
 
@@ -1587,7 +1585,7 @@ def extract_financial_tables(pdf_path: str) -> list:
 ```
 
 
-***
+
 
 ## Step 6 — Entity linking and ontology alignment
 
@@ -1624,7 +1622,7 @@ PREDICATE_MAP = {
 ```
 
 
-***
+
 
 ## Step 7 — Triple validation pipeline
 
@@ -1669,7 +1667,7 @@ ex:triple_001 a rdf:Statement ;
 ```
 
 
-***
+
 
 ## Step 8 — Load into KG stores
 
@@ -1718,7 +1716,7 @@ g.serialize("ma_kg.ttl", format="turtle")
 ```
 
 
-***
+
 
 ## Step 9 — Iterative quality cycle
 
@@ -1740,7 +1738,7 @@ WHERE {
 4. **Active learning queue**: Low-confidence triples surface to analysts, who label them; labels retrain the spaCy RE model and LLM extraction prompts.[^7_8][^7_5]
 5. **Incremental updates**: On each new 10-K filing (quarterly earnings trigger 10-Q), re-run the pipeline for that company only, diff new triples against existing ones, and apply a temporal update (add timestamped version, do not overwrite).[^7_10][^7_2]
 
-***
+
 
 ## Tools summary
 
@@ -1800,7 +1798,7 @@ WHERE {
 
 Here is a complete, runnable code example covering the full pipeline from EDGAR download through Jodie NER extraction to a structured entity output. Since the Jodie model is an older spaCy v2 package, the example shows how to use it directly **and** how to replicate its approach with a modern spaCy v3 fine-tuned model when needed.
 
-***
+
 
 ## Installation
 
@@ -1823,7 +1821,7 @@ pip install spacy-legacy
 
 > **Note:** The Jodie model was built on spaCy v2.  For spaCy v3+ environments (recommended for production), see the fine-tuning section at the bottom of this page.[^8_1]
 
-***
+
 
 ## Step 1 — Download a 10-K from EDGAR
 
@@ -1859,7 +1857,7 @@ print(f"Downloaded {len(filing_paths)} files")
 ```
 
 
-***
+
 
 ## Step 2 — Parse HTML and extract clean text
 
@@ -1927,7 +1925,7 @@ def split_into_sections(text: str) -> dict:
 ```
 
 
-***
+
 
 ## Step 3 — Load the Jodie NER model
 
@@ -1956,7 +1954,7 @@ nlp = load_ner_model(use_jodie=True)
 ```
 
 
-***
+
 
 ## Step 4 — Run NER extraction with provenance
 
@@ -2012,7 +2010,7 @@ def extract_entities_from_section(
 ```
 
 
-***
+
 
 ## Step 5 — Post-process: deduplicate and normalize
 
@@ -2086,7 +2084,7 @@ def filter_and_deduplicate(
 ```
 
 
-***
+
 
 ## Step 6 — Full pipeline runner
 
@@ -2184,7 +2182,7 @@ for ent in results["entities"][:10]:
 ```
 
 
-***
+
 
 ## Step 7 — Fine-tuning for spaCy v3 (modern alternative to Jodie)
 
