@@ -1,0 +1,4 @@
+# Notebooks
+- [01_NL_to_SQL.ipynb](01_NL_to_SQL.ipynb) — Translates natural language to PostgreSQL using Ollama + Pydantic structured output + sqlglot validation. Uses a customers/orders/products schema with few-shot examples.
+- [02_NL_to_SPARQL.ipynb](02_NL_to_SPARQL.ipynb) — Translates natural language to SPARQL 1.1 using OWL/Turtle TBox injection + RDFLib prepareQuery() validation. Uses a research ontology (Person, Researcher, Organization, Publication).
+- [03_NL_to_Cypher.ipynb](03_NL_to_Cypher.ipynb) — Translates natural language to Neo4j Cypher using LPG schema injection + Neo4j EXPLAIN validation (with offline fallback). Uses the same domain as the SPARQL notebook but in LPG form.
