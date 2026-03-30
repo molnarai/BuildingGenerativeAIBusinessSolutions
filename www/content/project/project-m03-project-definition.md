@@ -24,10 +24,18 @@ percent = 20
     6. Click on "Create merge request"
 
 
-**Milestone Dcoument:**
+**Milestone Document:**
 
 | Goal | Requirements|
 |------|--------------|
 | Document Pipeline| Briefly describe how the pipeline works: Type of documents? Where does the output go? Format of output? Include instructions on how to run the pipeline. |
-| Chat Interface | Describe how you chat (i.e. ask questions) with your solution: Type of interface, command line? web? nclude instructions on how to run the chart. |
+| Chat Interface | Describe how you chat (i.e. ask questions) with your solution: Type of interface, command line? web? Include instructions on how to run the chat. |
 | Batch Query | Describe how your solution processes a batch (file) of multiple questions and how the responses are stored. Include instructions on how to run batch queries. |
+
+**Evaluation:**
+| # | Criterion                      | Description| Points |
+| - | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 1 | Multi-Agent Pipeline           | A functional multi-agent pipeline is established that processes documents, orchestrates agent roles, and produces structured text and data. The agent design is appropriate for the chosen project variation.                       | 50     |
+| 2 | Document Ingestion & Storage   | The extracted text and structured data produced by the pipeline are ingested and persisted to the appropriate databases in a queryable form.                                                                                        | 40     |
+| 3 | Dual Interface Implementation  | Both a chat interface for human interaction and a batch query interface for automated evaluation are functional and accessible. The interfaces correctly route queries through the agent pipeline and return meaningful responses. | 40     |
+| 4 | Architecture & Reproducibility | The system architecture is documented (diagram or written description), the repository is well-organized, and the application can be deployed and run from the provided instructions without manual intervention.                  | 30     |

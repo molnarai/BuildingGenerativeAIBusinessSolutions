@@ -1,0 +1,35 @@
+#,Criterion,Points
+,M01 - Project Definition,
+1.1,Variation and Corpus Selection,40
+1.2,User Persona and Key Use Cases,40
+,M01 Subtotal,80
+,M02 - Data Pipeline CI/CD Setup,
+2.1,Code Quality,30
+2.2,Pipeline Functionality,30
+2.3,Architecture Diagram,30
+2.4,Documentation & Reproducibility,30
+,M02 Subtotal,120
+,M03 - Agentic Prototype,
+3.1,Multi-Agent Pipeline,40
+3.2,Document Ingestion & Storage,40
+3.3,Dual Interface Implementation,40
+3.4,Architecture & Reproducibility,40
+,M03 Subtotal,160
+,M04 - Evaluation Framework Baseline,
+4.1,Evaluation Test Set Execution,40
+4.2,Quantitative Performance Analysis,40
+4.3,Error Analysis & Failure Identification,40
+4.4,Improvement Strategy Proposals,40
+,M04 Subtotal,160
+,M05 - Iterative Improvement,
+5.1,System Refinements Implementation,40
+5.2,Ablation Study,40
+5.3,Comparative Results & Impact Assessment,40
+5.4,Iteration Report,40
+,M05 Subtotal,160
+,M06 - Final Deliverables,
+6.1,Deployed DAIS System,40
+6.2,Technical Report,40
+6.3,Demo Video & In-Class Presentation,40
+,M06 Subtotal,120
+,Grand Total,800
