@@ -24,7 +24,7 @@ From there, we turn to two concrete applications. The first is natural language 
 
 
 ### Presentation
- - [Knowledge Graphs](../../slides/slide-10-query-languages/)
+ - [LLMs for Query Languages](../../slides/slide-10-query-languages/)
 
 ### Reading
 - [Structured Output from Large Language Models](../../blog/structured_llm_output/): Large language models are remarkably good at producing human-readable prose, but production software systems rarely consume prose. They consume JSON payloads, SQL queries, API responses, and typed data structures. The gap between what an LLM naturally produces and what a downstream system can parse is the central engineering challenge of structured output.
