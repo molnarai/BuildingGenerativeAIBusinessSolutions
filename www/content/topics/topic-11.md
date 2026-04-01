@@ -29,6 +29,9 @@ Through a detailed mapping of classic analytics to AI-specific challenges - incl
 ### Presentation
  - [Data Science for Agentic AI](../../slides/slide-11-data-science-agentic-ai/)
 
+### Lecture Notes
+- [Data Science for Agentic AI: Managing, Monitoring, and Evaluating Intelligent Agent Systems](../../blog/data-science-for-agentic-ai/)
+
 ### Mapping Classic Data Science Techniques to Agentic AI Management
 
 | Classic Analytics Problem | Agentic AI Equivalent | Key Technique | Business Analogy | Primary Metrics |
