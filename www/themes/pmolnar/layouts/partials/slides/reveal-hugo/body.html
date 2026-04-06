@@ -1,0 +1,72 @@
+<style>
+/*
+ * content-image layer
+ * Layer 1 (bottom): background-image via reveal.js data-background-image
+ * Layer 2 (middle): .content-image — always shows the full image (contain),
+ *                   sized to the browser viewport
+ * Layer 3 (top):    HTML / Markdown slide content
+ */
+.content-image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 8;
+  pointer-events: none;
+  display: none;
+}
+.content-image-layer.visible {
+  display: block;
+}
+/* Elevate slide text above the content-image layer */
+.reveal .slides section:has(.content-image) > :not(.content-image) {
+  position: relative;
+  z-index: 2;
+}
+/* Hide the in-slide placeholder (the div is only used to carry the URL) */
+.content-image {
+  display: none;
+}
+</style>
+<script>
+// Move content-images out of the scaled .slides container so they can
+// fill the full browser viewport, then show/hide on slide change.
+document.addEventListener('DOMContentLoaded', function () {
+  var reveal = document.querySelector('.reveal');
+  if (!reveal) return;
+
+  var layers = [];
+
+  document.querySelectorAll('.content-image').forEach(function (placeholder) {
+    var section = placeholder.closest('section');
+    var bg = placeholder.style.backgroundImage;
+
+    var layer = document.createElement('div');
+    layer.className = 'content-image-layer';
+    layer.style.backgroundImage = bg;
+    // Insert layers right before .slides so they sit between
+    // reveal backgrounds (z-index 1) and slide content (z-index 10+)
+    reveal.insertBefore(layer, reveal.querySelector('.slides'));
+
+    layers.push({ layer: layer, section: section });
+  });
+
+  if (layers.length === 0) return;
+
+  function sync() {
+    var current = document.querySelector('.reveal .slides section.present');
+    layers.forEach(function (item) {
+      item.layer.classList.toggle('visible', item.section === current);
+    });
+  }
+
+  if (typeof Reveal !== 'undefined') {
+    Reveal.on('slidechanged', sync);
+    Reveal.on('ready', sync);
+  }
+});
+</script>

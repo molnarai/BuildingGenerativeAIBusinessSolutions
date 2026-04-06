@@ -4,7 +4,7 @@ baseURL = 'https://msa8700.molnar.ai'
 
 languageCode = 'en-us'
 title = 'MSA 8700'
-theme = ['reveal-hugo', 'pmolnar']
+theme = ['pmolnar', 'reveal-hugo']
 buildFuture = true
 
 [services]

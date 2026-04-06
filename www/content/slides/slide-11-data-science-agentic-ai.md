@@ -25,19 +25,19 @@ transition = "none"
 
 ***
 
-{{< slide background-image="/imgs/Agentic_AI_Engineering_Blueprint_00.png" >}}
+{{< slide content-image="/imgs/Agentic_AI_Engineering_Blueprint_00.png" >}}
 <h1></h1>
 <!-- Title -->
 
 ***
 
-{{< slide background-image="/imgs/Agentic_AI_Engineering_Blueprint_01.png" >}}
+{{< slide content-image="/imgs/Agentic_AI_Engineering_Blueprint_01.png" >}}
 <h1></h1>
 <!-- Silent Degradation -->
 
 ***
 
-{{< slide background-image="/imgs/Agentic_AI_Engineering_Blueprint_02.png" >}}
+{{< slide content-image="/imgs/Agentic_AI_Engineering_Blueprint_02.png" >}}
 <h1></h1>
 <!--
 An agentic AI system is a business process. It receives inputs, executes a sequence of operations, consumes resources, produces outputs, and fails in predictable, measurable ways. Every data science technique you have learned — from funnel analysis to queueing theory to A/B testing — applies directly. You do not need new methods. You need new mappings.
@@ -50,7 +50,7 @@ An agentic AI system is a business process. It receives inputs, executes a seque
 
 ***
 
-{{< slide background-image="/imgs/Agentic_AI_Engineering_Blueprint_03.png" >}}
+{{< slide content-image="/imgs/Agentic_AI_Engineering_Blueprint_03.png" >}}
 <h1>&nbsp;</h1>
 <!-- Topic 1 - Agent Logs as Event Data -->
 
@@ -65,7 +65,7 @@ An agentic AI system is a business process. It receives inputs, executes a seque
 
 ***
 
-{{< slide background-image="/imgs/Agentic_AI_Engineering_Blueprint_04.png" >}}
+{{< slide content-image="/imgs/Agentic_AI_Engineering_Blueprint_04.png" >}}
 <h1></h1>
 <!-- Topic 2 — Performance Monitoring & Degradation Detection -->
 
@@ -120,7 +120,7 @@ Algorithms like PELT (Pruned Exact Linear Time) or Bayesian Online Change-Point 
 
 ***
 
-{{< slide background-image="/imgs/Agentic_AI_Engineering_Blueprint_05.png" >}}
+{{< slide content-image="/imgs/Agentic_AI_Engineering_Blueprint_05.png" >}}
 <h1></h1>
 <!-- Topic 3 — Classifying Agent Failures -->
 
@@ -200,7 +200,7 @@ Consider a binary "hallucination detector" evaluated on 500 agent outputs:
 
 ***
 
-{{< slide background-image="/imgs/Agentic_AI_Engineering_Blueprint_06.png" >}}
+{{< slide content-image="/imgs/Agentic_AI_Engineering_Blueprint_06.png" >}}
 <h1></h1>
 <!-- Topic 4 — Retrieval Quality Analytics -->
 
@@ -246,7 +246,7 @@ This is identical to identifying **underserved customer segments** in retail ana
 
 ***
 
-{{< slide background-image="/imgs/Agentic_AI_Engineering_Blueprint_07.png" >}}
+{{< slide content-image="/imgs/Agentic_AI_Engineering_Blueprint_07.png" >}}
 <h1></h1>
 <!-- Topic 5 — Multi-Agent Coordination as Operations Analytics -->
 
@@ -399,7 +399,7 @@ This is identical to **critical path analysis** in project management.
 
 ***
 
-{{< slide background-image="/imgs/Agentic_AI_Engineering_Blueprint_08.png" >}}
+{{< slide content-image="/imgs/Agentic_AI_Engineering_Blueprint_08.png" >}}
 <h1></h1>
 <!-- Topic 6 — Evaluation as Experimental Design -->
 
@@ -467,7 +467,7 @@ When using an LLM to judge agent output quality, treat the LLM-judge as a **meas
 
 ***
 
-{{< slide background-image="/imgs/Agentic_AI_Engineering_Blueprint_09.png" >}}
+{{< slide content-image="/imgs/Agentic_AI_Engineering_Blueprint_09.png" >}}
 <h1></h1>
 
 ***
@@ -571,7 +571,7 @@ This is the same anomaly detection pipeline used in **fraud analytics**, **netwo
 
 ***
 
-{{< slide background-image="/imgs/Agentic_AI_Engineering_Blueprint_11.png" >}}
+{{< slide content-image="/imgs/Agentic_AI_Engineering_Blueprint_11.png" >}}
 <h1></h1>
 
 ***

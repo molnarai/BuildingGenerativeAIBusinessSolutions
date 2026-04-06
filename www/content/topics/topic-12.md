@@ -41,10 +41,11 @@ https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.co
  -->
 
 ## Presentation
+- [Architecting Multi-modal LLMs](../../slides/slide-12-multi-modal-llms/) - How to add vision, audio and other cognitive perceptions to AI agents
 
 
 ## Read
-- [Multimodal Large Language Models - Images, Audio, Video & Vector Retrieval Across Modalities]()
+- [Multimodal Large Language Models - Images, Audio, Video & Vector Retrieval Across Modalities](https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/docs/multimodal_llm_lecture_notes.pdf)
 
 ### Additional Reading
  1.	Radford, A., Kim, J. W., Hallacy, C., et al. (2021). "Learning Transferable Visual ModelsFrom Natural Language Supervision." OpenAI. https://arxiv.org/abs/2103.00020
