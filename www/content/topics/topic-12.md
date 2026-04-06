@@ -15,7 +15,6 @@ Specialized fusion strategies and visual grounding mechanisms are discussed as t
     alt="Figure: Infrographic that summarizes the content of this session" >}}
 
 
-
 ## Listen
 
 {{<podcast
@@ -23,22 +22,10 @@ Specialized fusion strategies and visual grounding mechanisms are discussed as t
     title="Session Overview: Multi-modal LLMs"
 >}}
 
-
 {{<podcast
     src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/from_blind_agents_to_perceptual_reasoners.m4a"
     title="Deep Dive: Multi-modal LLMs"
 >}}
-<!-- https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/turning_language_models_into_perceptual_reasoners.m4a
-
-https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/from_blind_agents_to_perceptual_reasoners.m4a
-
-
-### Deep Dive
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/forcing_structured_outputs_with_constrained_decoding.m4a">
-    Your browser does not support the audio element.
-</audio>
- -->
 
 ## Presentation
 - [Architecting Multi-modal LLMs](../../slides/slide-12-multi-modal-llms/) - How to add vision, audio and other cognitive perceptions to AI agents
