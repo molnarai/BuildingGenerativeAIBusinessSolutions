@@ -24,10 +24,7 @@ The technical implementation of RAG often relies on **vector databases to store 
 <!-- Listen to the podcast ((../../podcasts/podcast-05-frameworks-benchmarks/)): -->
 Listen to the podcast:
 
- <audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/RAG+and+Beyond_+Augmenting+LLMs+with+External+Data.wav" type="audio/wav">
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/rag_and_beyond_augmenting_llms_with_external_data.wav" title="RAG and Beyond: Augmenting LLMs with External Data" >}}
 
 Read the following:
 1. Perplexity blog: [RAG and Semantic Search](https://www.perplexity.ai/page/rag-and-semantic-search-LwzgO8F2Tym.05Momy.B5A)

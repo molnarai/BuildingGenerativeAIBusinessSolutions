@@ -17,10 +17,7 @@ From there, we turn to two concrete applications. The first is natural language 
 
 
 
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Forcing_structured_outputs_with_constrained_decoding.m4a">
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/forcing_structured_outputs_with_constrained_decoding.m4a" title="Forcing Structured Outputs with Constrained Decoding" >}}
 
 
 ### Presentation

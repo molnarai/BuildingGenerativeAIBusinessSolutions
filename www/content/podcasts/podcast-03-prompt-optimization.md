@@ -11,10 +11,7 @@ The podcast explores the intricacies of prompt engineering for large language mo
 The discussion highlights frameworks like ARES, which uses smaller LLMs as evaluators, and LLMA, which focuses on instruction-following capabilities. Techniques such as chain-of-thought prompting, few-shot prompting, and retrieval-augmented generation are presented as effective strategies to guide LLMs in reasoning, learning from examples, and leveraging external information.
 The podcast also underscores the role of public datasets like KILT and SuperGLUE, along with task-specific datasets such as Natural Questions, HotpotQA, and FEVER. These datasets provide standardized benchmarks to test and refine prompt engineering approaches. The hosts emphasize the need for creativity and experimentation in this evolving field, blending technical expertise with an intuitive understanding of language and machine learning.
 
- <audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Evaluating+Large+Language+Models_2.wav" type="audio/wav">
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/evaluating_large_language_models_2.wav" title="Evaluating Large Language Models" >}}
 
 ## Transcript of LM-Notebook Podcast
 

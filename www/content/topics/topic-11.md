@@ -13,17 +13,10 @@ Through a detailed mapping of classic analytics to AI-specific challenges - incl
 
 {{<figure src="imgs/Manage_Agentic_AI_with_Traditional_Analytics.png" width="800" alt="Figure 1" >}}
 
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Manage_Agentic_AI_with_Traditional_Analytics.m4a">
-    Your browser does not support the audio element.
-</audio>
-
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/manage_agentic_ai_with_traditional_analytics.m4a" title="Manage Agentic AI with Traditional Analytics" >}}
 
 ### Deep Dive
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Forcing_structured_outputs_with_constrained_decoding.m4a">
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/forcing_structured_outputs_with_constrained_decoding.m4a" title="Forcing Structured Outputs with Constrained Decoding" >}}
 
 
 ### Presentation

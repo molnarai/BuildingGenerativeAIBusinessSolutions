@@ -12,10 +12,7 @@ This tutorial walks through two complementary approaches for transforming raw do
 
 Both implementations are available in the [document-processing-pipeline](https://github.com/molnarai/BuildingGenerativeAIBusinessSolutions/tree/main/DocumentProcessing/document-processing-pipeline) repository[^1].
 
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/PDFs_Are_Ruining_Your_RAG_System.m4a" type="audio/mp4" />
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/pdfs_are_ruining_your_rag_system.m4a" title="PDFs Are Ruining Your RAG System" >}}
 
 ## Why Documents Need to Be Processed
 

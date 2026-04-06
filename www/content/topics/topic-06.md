@@ -9,10 +9,7 @@ numsession: 6
 This session evaluates leading Python-based agentic AI frameworks. The guide highlights LangGraph, Microsoft AutoGen, Strands Agents, and LlamaIndex as the most durable and pedagogically distinct tools for building intelligent systems. These frameworks are categorized into four schools of thought: graph-based workflows, multi-agent conversations, model-driven orchestration, and data-centric retrieval. Furthermore, the sources compare how these libraries implement core agent functions like memory, perception, and reasoning. The material also contrasts these code-first Python SDKs with visual automation platforms like n8n, while emphasizing emerging interoperability standards such as MCP and A2A.
 <!--more-->
 
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/The_Four_Philosophies_Of_Agentic_AI.m4a" type="audio/mp4" />
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/the_four_philosophies_of_agentic_ai.m4a" title="The Four Philosophies of Agentic AI" >}}
 
 
 

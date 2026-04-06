@@ -1,5 +1,5 @@
 <figure>
-  <img src="{{ .Get "src" | relURL }}" 
-       width="{{ .Get "width" }}" 
+  <img src="{{ .Get "src" | relURL }}"
+       width="{{ with .Get "width" }}{{ . }}{{ else }}100%{{ end }}"
        alt="{{ .Get "alt" }}">
 </figure>

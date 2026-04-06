@@ -14,18 +14,9 @@ It outlines a hybrid approach where deterministic tools like regular expressions
 The session emphasizes that while LLMs excel at complex reasoning and synthesis, classical methods ensure data integrity and enforce business logic. Ultimately, the material advocates for an orchestrated architecture that combines the precision of symbolic programming with the flexible understanding of generative AI.
 
 
-##### Why AI Agents Need Classical NLP
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Why_AI_Agents_Need_Classical_NLP.m4a" type="audio/mp4">
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/why_ai_agents_need_classical_nlp.m4a" title="Why AI Agents Need Classical NLP" >}}
 
-
-##### Classical NLP Guardrails for LLM Agents
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Classical_NLP_Guardrails_for_LLM_Agents.m4a" type="audio/mp4">
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/classical_nlp_guardrails_for_llm_agents.m4a" title="Classical NLP Guardrails for LLM Agents" >}}
 
 ### Presentation
  - [NLP and Text Processing](../../slides/slide-08-nlp-text-processing/)

@@ -7,10 +7,7 @@ tags: [reinforcement learning, goal-oriented, planning]
 ---
 This session explores the emerging field of Agentic AI, focusing on autonomous systems designed for complex tasks. It differentiates Agentic AI from traditional and generative AI by emphasizing its adaptability, decision-making, and self-sufficiency. The authors, Acharya, Kuppan, and Divya, examine Agentic AI's foundational concepts, methodologies, and applications across healthcare, finance, and adaptive software. The study also addresses ethical considerations, advocating for the safe and responsible integration of Agentic AI into society. The paper aims to provide a structured understanding of Agentic AI for researchers, developers, and policymakers. Ultimately, the survey serves as a guide for navigating the transformative potential of this advanced AI paradigm.
 
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Agentic+AI_+Autonomous+Intelligence+for+Complex+Goals%E2%80%94A+Comprehensive+Survey.wav" type="audio/wav">
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/agentic-ai-autonomous-intelligence-for-complex-goals-a-comprehensive-survey.wav" title="Agentic AI: Autonomous Intelligence for Complex Goals" >}}
 
 | Speaker | Transcript |
 |----|----|

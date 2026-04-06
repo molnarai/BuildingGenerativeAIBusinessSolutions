@@ -9,10 +9,7 @@ This document provides a practical overview for data science teams implementing 
 <!--more-->
 Furthermore, it explains the lifecycle of a merge request, highlighting the capabilities of GitLab in facilitating code review and maintaining stable release processes. The text also outlines practical commands and integrates these tools to ensure traceability and project stability throughout the entire development process.
 
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Git_Staging_Branching_and_Merge_Requests.m4a" type="audio/mp4" />
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/git_staging_branching_and_merge_requests.m4a" title="Git Staging, Branching, and Merge Requests" >}}
 
 {{<figure src="imgs/gitlab_workflow_handbook00.png" width="800" alt="Title" >}}
 

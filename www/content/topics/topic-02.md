@@ -15,10 +15,7 @@ This session provides a comprehensive overview of artificial intelligence (AI), 
 
 Slide deck posted on the [iCollege](https://icollege.gsu.edu/) class site.
 
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Evaluating+Large+Language+Models_2.wav" type="audio/wav">
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/evaluating_large_language_models_2.wav" title="Evaluating Large Language Models" >}}
 
 <!-- Listen to the [AI-generated podcast](https://notebooklm.google.com/notebook/075a14f0-3dc5-4965-bb03-8cd9650f4f7b/audio) (Compare the content to the slides to the AI-generated podcast). -->
 

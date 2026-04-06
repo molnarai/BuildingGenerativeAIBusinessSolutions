@@ -17,10 +17,7 @@ Furthermore, it explains the lifecycle of a merge request, highlighting the capa
 
 *Listen to the introduction:*
 
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Git_Staging_Branching_and_Merge_Requests.m4a" type="audio/mp4" />
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/git_staging_branching_and_merge_requests.m4a" title="Git Staging, Branching, and Merge Requests" >}}
 
 *Resources:*
 - [Pro Git book](https://git-scm.com/book/en/v2), a free e-book.

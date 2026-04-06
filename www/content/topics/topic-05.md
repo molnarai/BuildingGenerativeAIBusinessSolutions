@@ -9,10 +9,7 @@ numsession: 5
 The session frames agentic AI as an evolution of basic RAG for business workflows. It starts by contrasting a static RAG pipeline—query, retrieve, answer—with an AI agent that interprets goals, plans multi-step processes, chooses among tools (including RAG), and iterates based on feedback until the goal is satisfied.
 <!--more-->
 
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/From_Prompt_Engineering_to_Flow_Engineering.m4a" type="audio/mp4" />
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/from_prompt_engineering_to_flow_engineering.m4a" title="From Prompt Engineering to Flow Engineering" >}}
 
 
 Core agent components appear as a loop: a foundation model for reasoning and decisions, planning and control logic to break goals into subtasks, tool interfaces to external systems and RAG, memory for context and history, explicit state and policies expressing constraints, and observation/feedback to evaluate tool outputs and decide when to retry, adjust, or escalate. A customer support example shows how an agent not only explains refund policy but also verifies accounts, calls CRM and billing APIs, applies rules, and coordinates the end-to-end resolution.

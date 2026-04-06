@@ -13,17 +13,9 @@ Furthermore, it compares RDF/SPARQL and LPG/Cypher database architectures, highl
 
 Finally, a practical merger and acquisition use case illustrates a multi-layered architecture where specialized agents utilize these technologies to identify and evaluate corporate targets.
 
-##### Knowledge Graphs for Agentic AI Reasoning
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Knowledge_Graphs_for_Agentic_AI_Reasoning.m4a" type="audio/mp4">
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/knowledge_graphs_for_agentic_ai_reasoning.m4a" title="Knowledge Graphs for Agentic AI Reasoning" >}}
 
-##### Knowledge Graphs for M&A AI Agents
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Knowledge_Graphs_for_MandA_AI_Agents.m4a" type="audio/mp4">
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/knowledge_graphs_for_manda_ai_agents.m4a" title="Knowledge Graphs for M&A AI Agents" >}}
 
 
 

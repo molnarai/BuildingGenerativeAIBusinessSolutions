@@ -22,15 +22,12 @@ Listen to the podcast ([transcription](../../podcasts/podcast-03-prompt-optimiza
 <!-- Listen to the podcast: -->
 
 <!-- <audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Evaluating+Large+Language+Models_2.wav" type="audio/wav">
+    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/evaluating_large_language_models_2.wav" type="audio/wav">
     Your browser does not support the audio element.
 </audio> -->
 
 
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Replacing_Vibe_Checks_With_Rigorous_Evaluation.m4a" type="audio/mp4">
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/replacing_vibe_checks_with_rigorous_evaluation.m4a" title="Replacing Vibe Checks with Rigorous Evaluation" >}}
 
 
 ### Presentations

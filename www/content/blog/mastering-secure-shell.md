@@ -33,10 +33,7 @@ Practical instructions are included for generating keys, installing them on remo
 
 *Listen to the NotebookLM intro before you start.*
 
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Passwordless_Login_and_Tunneling_With_SSH.m4a" type="audio/mp4" />
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/passwordless_login_and_tunneling_with_ssh.m4a" title="Passwordless Login and Tunneling with SSH" >}}
 
 *Watch these videos to see the use of SSH keys in action.*
 

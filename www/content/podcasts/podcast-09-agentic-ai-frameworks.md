@@ -111,10 +111,7 @@ Importance of clear communication about agent capabilities, limitations, and ope
 
 - Buzz Aldrin: Mentioned as an example in the context of a Wikipedia search skill. An American former astronaut and pilot of the Lunar Module Eagle on Apollo 11, the first crewed landing on the Moon.
 
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Agentic_AI_frameworks.wav" type="audio/wav">
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Agentic_AI_frameworks.wav" title="Agentic AI Frameworks" >}}
 
 | Speaker | Transcript |
 | ------- | ---------- |

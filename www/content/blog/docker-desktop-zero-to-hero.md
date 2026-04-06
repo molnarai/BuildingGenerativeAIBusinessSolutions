@@ -13,10 +13,7 @@ Beyond setup, the text explains how containers function as isolated environments
 
 *Listen to the NotebookLM podcast before or while you're reading this post.*
 
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/How_Docker_Desktop_Actually_Works.m4a" type="audio/mp4" />
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/how_docker_desktop_actually_works.m4a" title="How Docker Desktop Actually Works" >}}
 
 *Resources:*
 - [Install Docker Desktop](https://docs.docker.com/desktop/#next-steps) for [Mac](https://docs.docker.com/desktop/setup/install/mac-install/), [Windows](https://docs.docker.com/desktop/setup/install/windows-install/), or [Linux](https://docs.docker.com/desktop/setup/install/linux/)

@@ -1,0 +1,45 @@
+{{- $src := .Get "src" -}}
+{{- $title := .Get "title" | default "Podcast" -}}
+{{- /* Derive transcript URL: replace audio extension with .md */ -}}
+{{- $transcriptURL := replaceRE `\.[^.]+$` ".md" $src -}}
+
+<div class="podcast-player">
+  <div class="podcast-title">{{ $title }}</div>
+  <div class="podcast-audio">
+    <audio controls aria-label="{{ $title }}">
+      <source src="{{ $src }}">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  {{- with resources.GetRemote $transcriptURL -}}
+    {{- with .Err -}}
+      <!-- Transcript not available -->
+    {{- else -}}
+      {{- $id := delimit (slice "transcript" (md5 $src)) "-" -}}
+      <button
+        type="button"
+        class="podcast-transcript-toggle"
+        aria-expanded="false"
+        aria-controls="{{ $id }}"
+        onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'); document.getElementById('{{ $id }}').hidden = !document.getElementById('{{ $id }}').hidden;">
+        Show transcript
+      </button>
+      <div id="{{ $id }}" class="podcast-transcript" hidden role="region" aria-label="Transcript for {{ $title }}">
+        <div class="podcast-transcript-header">
+          <strong>Transcript</strong>
+          <button
+            type="button"
+            class="podcast-transcript-close"
+            aria-label="Close transcript"
+            onclick="var panel = this.closest('.podcast-transcript'); panel.hidden = true; panel.previousElementSibling.setAttribute('aria-expanded', 'false'); panel.previousElementSibling.focus();">
+            &times;
+          </button>
+        </div>
+        <div class="podcast-transcript-body">
+          {{ .Content | markdownify }}
+        </div>
+      </div>
+    {{- end -}}
+  {{- end -}}
+</div>

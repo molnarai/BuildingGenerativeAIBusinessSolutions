@@ -1,0 +1,8 @@
+{{ $url := .Get "url" }}
+{{ with resources.GetRemote $url }}
+  {{ with .Err }}
+    {{ errorf "Failed to fetch %s: %s" $url . }}
+  {{ else }}
+    {{ .Content | markdownify }}
+  {{ end }}
+{{ end }}

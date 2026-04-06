@@ -12,10 +12,7 @@ The topics in this session include foundational elements of logic and its applic
 
 Slide deck posted on the [iCollege](https://icollege.gsu.edu/) class site.
 
-<audio controls>
-    <source src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/Symbolic_Artificial_Intelligence.m4a" type="audio/mp4" />
-    Your browser does not support the audio element.
-</audio>
+{{< podcast src="https://insight-gsu-edu-msa8700-public-files-us-east-1.s3.us-east-1.amazonaws.com/podcast/symbolic_artificial_intelligence.m4a" title="Symbolic Artificial Intelligence" >}}
 
 ## Reading
 - Textbook: [Artificial Intelligence A New Synthesis](https://go.oreilly.com/georgia-state-university/library/view/artificial-intelligence/9781558604674/) by Nils J. Nilsson, 1998.
