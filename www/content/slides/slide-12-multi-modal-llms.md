@@ -88,6 +88,10 @@ Beyond the primary modalities, multimodal systems increasingly incorporate struc
 
 ***
 
+{{ < slide content-image="/imgs/MMLLM-SFTP.png" >}}
+
+***
+
 {{< slide content-image="/imgs/Engineering_Multimodal_Intelligence_03.png" >}}
 <h1></h1>
 
@@ -103,7 +107,21 @@ Modern vision language models (VLMs) share a common three-stage architecture: a 
 The training procedure typically follows a two-phase approach. Phase 1: Pre-training alignment — the vision encoder is frozen and only the projection layer is trained on large-scale image-caption pairs (e.g., 558K filtered pairs from CC3M in LLaVA). The objective is to align the visual feature space with the LLM's token space. Phase 2: Visual instruction tuning — the projection layer and LLM (or LoRA adapters on the LLM) are jointly fine-tuned on curated instruction-following datasets that pair images with multi-turn question-answer conversations.
 {{% /note %}}
 
+
 ***
+
+## Stage 1: Vision Encoder (ViT / CLIP)
+
+The vision encoder transforms a raw image into a sequence of dense feature vectors. The dominant architecture is the Vision Transformer (ViT), which operates by splitting an input image of resolution H × W into a grid of non-overlapping patches, each of size P × P pixels. For a standard ViT-L/14 configuration with input resolution 224 × 224 and patch size P = 14, this produces N = (H/P) × (W/P) = 16 × 16 = 256 patches. Each patch is flattened into a vector of dimension P² × C = 14² × 3 = 588 and linearly projected to a d-dimensional embedding (1024 for ViT-L). Learnable position embeddings are added to each patch token to encode spatial location. A special [CLS] token is prepended to the sequence to aggregate global image semantics. The resulting sequence of N + 1 tokens is processed through L transformer encoder layers with multi-head self-attention.
+
+***
+
+## Stage 2: Projection / Adapter Layer
+
+The vision encoder outputs embeddings in its own dimensionality (e.g., 1024d for ViT-L/14, 1408d for EVA-CLIP), which must be projected to match the LLM backbone's token embedding space (e.g., 4096d for LLaMA-7B, 5120d for LLaMA-13B). Two dominant approaches exist for this alignment — Linear MLP Projection and Q-Former — which we will examine in detail on the next slides.
+
+***
+
 
 {{< slide content-image="/imgs/Engineering_Multimodal_Intelligence_04.png" >}}
 <h1></h1>
