@@ -88,7 +88,7 @@ Beyond the primary modalities, multimodal systems increasingly incorporate struc
 
 ***
 
-{{ < slide content-image="/imgs/MMLLM-SFTP.png" >}}
+{{< slide content-image="/imgs/MMLLM-SFTP.png" >}}
 
 ***
 
@@ -122,6 +122,23 @@ The vision encoder outputs embeddings in its own dimensionality (e.g., 1024d for
 
 ***
 
+## Stage 3: LLM Backbone and Token Fusion
+
+ The projected visual tokens are introduced into the LLM's input sequence alongside text tokens. 
+ 
+ In the simplest formulation, visual tokens are prepended to the text token sequence: the LLM receives $[V₁, V₂, ..., V_N, T₁, T₂, ..., T_M]$ as its input, where $V_i$ are visual tokens and $T_j$ are text tokens. 
+ 
+ The LLM's causal self-attention mechanism then operates over this unified sequence — every text token can attend to all visual tokens and all preceding text tokens. Generation is autoregressive: the model predicts the next text token conditioned on all visual tokens and all previously generated text tokens. This fusion mechanism requires no architectural modification to the LLM itself — only the input representation changes.
+
+***
+
+## Stage 3: LLM Backbone and Token Fusion (cont'd)
+
+The training procedure typically follows a two-phase approach.
+- Phase 1: Pre-training alignment — the vision encoder is frozen and only the projection layer is trained on large-scale image-caption pairs (e.g., 558K filtered pairs from CC3M in LLaVA). The objective is to align the visual feature space with the LLM's token space.
+- Phase 2: Visual instruction tuning — the projection layer and LLM (or LoRA adapters on the LLM) are jointly fine-tuned on curated instruction-following datasets that pair images with multi-turn question-answer conversations.
+
+***
 
 {{< slide content-image="/imgs/Engineering_Multimodal_Intelligence_04.png" >}}
 <h1></h1>
