@@ -6,10 +6,14 @@
     {{ .Params.description | markdownify }}
   </div>
   <hr />
-  <h3>Schedule</h3>
+  <h2>Schedule</h2>
   {{ $events := index site.Data.schedule "records" }} 
   <table class="table">
-    <tr><th>Session</th><th>Monday</th><th>Wednesday</th><th>Topic</th><th>In Class</th><th>Project Milestone</th></tr>
+    <caption>Class Schedule</caption>
+    <thead>
+      <tr><th scope="col">Session</th><th scope="col">Monday</th><th scope="col">Wednesday</th><th scope="col">Topic</th><th scope="col">In Class</th><th scope="col">Project Milestone</th></tr>
+    </thead>
+    <tbody>
   {{ range $events }}
     <tr>
       <!-- <td>{{- .Day }}</td> -->
@@ -33,6 +37,7 @@
       <td>{{ if .Milestone }}{{ index (split .Milestone ".") 0 }}{{ end }}</td>
     </tr>
   {{ end }}
+    </tbody>
   </table>
 
   {{ .Content }}
@@ -40,7 +45,7 @@
    <!-- Topics -->
    {{ $topics := where site.RegularPages "Section" "topics" }}
    {{ if $topics }}
-     <h3>Topics</h3>
+     <h2>Topics</h2>
      <ul>
        {{ range sort $topics "Title" }}
          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
@@ -62,7 +67,7 @@
   <!-- Project -->
   {{ $projects := where site.RegularPages "Section" "project" }}
   {{ if $projects }}
-    <h3>Project</h3>
+    <h2>Project</h2>
     <p>This semester-long project centers on developing a Document-Driven Agentic Intelligence System
     (DAIS) utilizing a business-relevant document corpus and a multi-agent architecture. 
     Students will choose from three variations - knowledge graph construction, research advising, or
@@ -75,9 +80,13 @@
 
     {{ $milestones := index site.Data.milestones_schedule "records" }} 
     {{ if $milestones }}
-      <h4>Project Milestones</h4>
+      <h3>Project Milestones</h3>
       <table class="table">
-        <tr><th>Milestone</th><th>Monday due</th><th>Wednesday due</th></tr>
+        <caption>Project Milestones</caption>
+        <thead>
+          <tr><th scope="col">Milestone</th><th scope="col">Monday due</th><th scope="col">Wednesday due</th></tr>
+        </thead>
+        <tbody>
       {{ range $milestones }}
         <tr>
           <td>{{- .Milestone }}</td>
@@ -85,6 +94,7 @@
           <td>{{- .Wednesday}}</td>
         </tr>
       {{ end }}
+        </tbody>
       </table>
     {{ end }}
 
@@ -95,7 +105,7 @@
   <!-- Resources -->
   {{ $resources := where site.RegularPages "Section" "resources" }}
   {{ if $resources }}
-    <h3>Resources</h3>
+    <h2>Resources</h2>
     <ul>
       {{ range sort $resources "Title" }}
         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>

@@ -7,10 +7,11 @@
   {{ end }}
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <header>
     {{ partial "header.html" . }}
   </header>
-  <main>
+  <main id="main-content">
     <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
       {{ block "main" . }}{{ end }}
     </div>

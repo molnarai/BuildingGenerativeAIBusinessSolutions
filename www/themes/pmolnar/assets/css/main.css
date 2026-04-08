@@ -7,6 +7,44 @@
                                                                                   */
                                                                                   
 
+/* Skip navigation link (WCAG 2.4.1 Bypass Blocks) */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  padding: 8px 16px;
+  background: #003478;
+  color: #fff;
+  z-index: 9999;
+  border-radius: 0 0 4px 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Visible focus indicators (WCAG 2.4.7 Focus Visible) */
+:focus-visible {
+  outline: 3px solid #003478;
+  outline-offset: 2px;
+}
+
+a:focus-visible {
+  outline: 3px solid #003478;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 3px solid #003478;
+  outline-offset: 2px;
+}
+
 body {
   color: #222;
   font-family: sans-serif;

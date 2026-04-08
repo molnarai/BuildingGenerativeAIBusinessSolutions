@@ -11,9 +11,13 @@
     {{ end }}
     
     <table class="table">
-        <tr>
-            <th>Due Date</th><th>Assignment</th><th>Status</th>
-        </tr>
+        <caption>Assignments</caption>
+        <thead>
+            <tr>
+                <th scope="col">Due Date</th><th scope="col">Assignment</th><th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
             {{ range .Pages.ByWeight }}
                 <tr>
                     <td>{{ .Params.due_date }}</td>
@@ -21,6 +25,7 @@
                     <td>{{ .Params.status | markdownify }}</td>
                 </tr>
             {{ end }}
+        </tbody>
     </table>
     <p style="margin-bottom: 5rex">
         Please review instructions for completing and submitting each of the assigments. 

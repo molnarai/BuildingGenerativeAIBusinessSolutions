@@ -14,9 +14,13 @@
     <hr>
     <h3>Milestones</h3>
     <table class="table">
-        <tr>
-            <th>Title</th><th>Description</th><th>Due Date</th><th>Grade</th>
-        </tr>
+        <caption>Project Milestones</caption>
+        <thead>
+            <tr>
+                <th scope="col">Title</th><th scope="col">Description</th><th scope="col">Due Date</th><th scope="col">Grade</th>
+            </tr>
+        </thead>
+        <tbody>
             {{ range .Pages.ByWeight }}
                 <tr>
                     <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
@@ -25,6 +29,7 @@
                     <td>{{ .Params.percent }}%</td>
                 </tr>
             {{ end }}
+        </tbody>
     </table>
     <!-- <p style="margin-bottom: 5rex">
         Please review instructions for completing and submitting each of the assigments. 
