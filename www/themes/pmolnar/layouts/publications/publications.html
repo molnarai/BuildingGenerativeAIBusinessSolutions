@@ -7,6 +7,7 @@
 
     {{/* Filter controls */}}
     <div class="filter-controls">
+        <label for="type-filter">Filter by type:</label>
         <select id="type-filter">
             <option value="">All Types</option>
             {{ range $pub := $publications }}
@@ -16,6 +17,7 @@
             {{ end }}
         </select>
 
+        <label for="year-filter">Filter by year:</label>
         <select id="year-filter">
             <option value="">All Years</option>
             {{ range $pub := $publications }}
@@ -25,6 +27,8 @@
             {{ end }}
         </select>
     </div>
+
+    <div aria-live="polite" aria-atomic="true" class="sr-only" id="filter-status"></div>
 
     {{/* Group by type */}}
     {{ $types := dict "article" "Journal Articles" "book" "Books" "inproceedings" "Conference Papers" "techreport" "Technical Reports" "misc" "Other Publications" }}
@@ -64,11 +68,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Hide section headers if no visible publications
+        var visibleCount = 0;
         document.querySelectorAll('.publication-type').forEach(section => {
-            const hasVisiblePubs = [...section.querySelectorAll('.publication-item')]
-                .some(pub => pub.style.display !== 'none');
-            section.style.display = hasVisiblePubs ? '' : 'none';
+            const visiblePubs = [...section.querySelectorAll('.publication-item')]
+                .filter(pub => pub.style.display !== 'none');
+            visibleCount += visiblePubs.length;
+            section.style.display = visiblePubs.length > 0 ? '' : 'none';
         });
+
+        document.getElementById('filter-status').textContent =
+            'Showing ' + visibleCount + ' publication' + (visibleCount !== 1 ? 's' : '');
     }
 
     typeFilter.addEventListener('change', filterPublications);

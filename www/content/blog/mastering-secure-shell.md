@@ -7,24 +7,6 @@ date: 2024-01-01
 lastmod: 2024-01-01
 ---
 
-<!-- # Write a instruction guide for SSH. 
-
-*Prompt used for perplexity.com:*
-The audience are data scientists who need to work on remote linux servers to access the remote command line interface or transfer files, use GitLab and use SSH to tunnel network connections to private database servers or other applications.
-Briefly illustrate how SSH works and the concept of private and public key pairs.
-Explain how this can be used to connect to remote servers without password. Among other things, SSH can be used to run commands on remote systems, it can also be used with SCP and SFTP to transfer files.
-Explain that each computer, laptop or UNIX user account need to create their own private/public key pair and share the public key with the remote server.
-Given examples.
-Demonstrate how to use ssh-keygen, ssh-copy-id, and how to copy the public key to the remote authorized keys if ssh-copy-id is not available like on Windows.
-Next explain how the ssh key pair can be used to authenticate with git servers, like GitLab and GitHub. Demonstrate how the user copy/pastes their public key into the respective profiles.
-Lastly, explain how SSH tunneling works and how it can be used to connect to a private database server. Mention that many desktop clients like DBeaver support SSH tunneling.
-
-Write the guide in a technical, neutral tone. Use step by step instruction, e.g. "You enter..."
-
-SSH lets you open a secure command-line session or tunnel network traffic to a remote Linux server, typically without retyping passwords once you set up keys.[^1_1]
-
-*** -->
-
 A comprehensive guide to Secure Shell (SSH), a vital protocol for establishing encrypted connections over networks. It details the mechanics of key-based authentication, explaining how a private and public key pair allows for secure access without traditional passwords.
 <!--more -->
 Practical instructions are included for generating keys, installing them on remote servers, and integrating them with platforms like GitHub and GitLab. Beyond basic logins, the source describes how to perform remote command execution and secure file transfers using SCP and SFTP. Finally, it highlights advanced workflows like SSH tunneling, which enables data scientists to access private databases securely through local port forwarding.
@@ -37,58 +19,65 @@ Practical instructions are included for generating keys, installing them on remo
 
 *Watch these videos to see the use of SSH keys in action.*
 
-<!-- <div style="margin: 20px 0;">
-    <img src="https://img.youtube.com/vi/RfolgB-rVe8/mqdefault.jpg" 
-         alt="SSH Tutorial Video" 
-         style="width: 240px; cursor: pointer; border: 2px solid #ccc; border-radius: 4px;"
-         onclick="openVideoModal('RfolgB-rVe8')" />
-</div> -->
-
-<!-- <div id="videoModal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8);" onclick="closeVideoModal()">
-    <div style="position: relative; margin: 5% auto; width: 80%; max-width: 900px;">
-        <span style="position: absolute; top: -40px; right: 0; color: white; font-size: 35px; font-weight: bold; cursor: pointer;" onclick="closeVideoModal()">&times;</span>
-        <div id="videoContainer"></div>
-    </div>
-</div>
-<div style="margin: 20px 0;">
-    <img src="https://img.youtube.com/vi/wBQxOveSFO8/mqdefault.jpg" 
-         alt="SSH Additional Tutorial" 
-         style="width: 240px; cursor: pointer; border: 2px solid #ccc; border-radius: 4px;"
-         onclick="openVideoModal('wBQxOveSFO8')" />
-</div> -->
-
 <div style="display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
-    <img src="https://img.youtube.com/vi/RfolgB-rVe8/mqdefault.jpg" 
-         alt="SSH Tutorial Video" 
-         style="width: 240px; cursor: pointer; border: 2px solid #ccc; border-radius: 4px;"
-         onclick="openVideoModal('RfolgB-rVe8')" />
-    <img src="https://img.youtube.com/vi/wBQxOveSFO8/mqdefault.jpg" 
-         alt="SSH Additional Tutorial" 
-         style="width: 240px; cursor: pointer; border: 2px solid #ccc; border-radius: 4px;"
-         onclick="openVideoModal('wBQxOveSFO8')" />
+    <button type="button" onclick="openVideoModal('RfolgB-rVe8', this)" aria-label="Play SSH Tutorial Video" style="padding: 0; border: 2px solid #ccc; border-radius: 4px; cursor: pointer; background: none;">
+        <img src="https://img.youtube.com/vi/RfolgB-rVe8/mqdefault.jpg" alt="SSH Tutorial Video thumbnail" style="width: 240px; display: block; border-radius: 2px;" />
+    </button>
+    <button type="button" onclick="openVideoModal('wBQxOveSFO8', this)" aria-label="Play SSH Additional Tutorial Video" style="padding: 0; border: 2px solid #ccc; border-radius: 4px; cursor: pointer; background: none;">
+        <img src="https://img.youtube.com/vi/wBQxOveSFO8/mqdefault.jpg" alt="SSH Additional Tutorial thumbnail" style="width: 240px; display: block; border-radius: 2px;" />
+    </button>
 </div>
 
-<div id="videoModal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8);" onclick="closeVideoModal()">
+<div id="videoModal" role="dialog" aria-modal="true" aria-label="Video player" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8);" onclick="if(event.target===this)closeVideoModal()">
     <div style="position: relative; margin: 5% auto; width: 80%; max-width: 900px;">
-        <span style="position: absolute; top: -40px; right: 0; color: white; font-size: 35px; font-weight: bold; cursor: pointer;" onclick="closeVideoModal()">&times;</span>
+        <button type="button" onclick="closeVideoModal()" aria-label="Close video" style="position: absolute; top: -40px; right: 0; color: white; font-size: 35px; font-weight: bold; cursor: pointer; background: none; border: none; padding: 0; line-height: 1;">&times;</button>
         <div id="videoContainer"></div>
     </div>
 </div>
 
 <script>
-function openVideoModal(videoId) {
-    document.getElementById('videoModal').style.display = 'block';
-    document.getElementById('videoContainer').innerHTML = 
-        '<iframe width="100%" height="500" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+var _videoTriggerBtn = null;
+
+function openVideoModal(videoId, triggerBtn) {
+    _videoTriggerBtn = triggerBtn;
+    var modal = document.getElementById('videoModal');
+    modal.style.display = 'block';
+    document.getElementById('videoContainer').innerHTML =
+        '<iframe width="100%" height="500" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="YouTube video player"></iframe>';
+    var closeBtn = modal.querySelector('button');
+    closeBtn.focus();
+    document.addEventListener('keydown', _videoModalKeyHandler);
 }
 
 function closeVideoModal() {
     document.getElementById('videoModal').style.display = 'none';
     document.getElementById('videoContainer').innerHTML = '';
+    document.removeEventListener('keydown', _videoModalKeyHandler);
+    if (_videoTriggerBtn) {
+        _videoTriggerBtn.focus();
+        _videoTriggerBtn = null;
+    }
+}
+
+function _videoModalKeyHandler(e) {
+    if (e.key === 'Escape') {
+        closeVideoModal();
+        return;
+    }
+    if (e.key === 'Tab') {
+        var modal = document.getElementById('videoModal');
+        var focusable = modal.querySelectorAll('button, iframe, [tabindex]:not([tabindex="-1"])');
+        if (focusable.length === 0) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+            if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+            if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+    }
 }
 </script>
-
-<!-- https://youtu.be/RfolgB-rVe8 -->
 
 ***
 
@@ -492,30 +481,3 @@ Once keys are in place, almost all of this works without re-entering passwords, 
 
 [^1_15]: https://www.youtube.com/watch?v=L2QM9qQ6JDg
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- {{<figure src="imgs/Mastering_SSH_for_Data_Science_02.png" width="800" alt="Key Pairs" >}}
-{{<figure src="imgs/Mastering_SSH_for_Data_Science_03.png" width="800" alt="Step 1: Generating Key" >}}
-{{<figure src="imgs/Mastering_SSH_for_Data_Science_04.png" width="800" alt="Step 2: Installling Key" >}}
-{{<figure src="imgs/Mastering_SSH_for_Data_Science_05.png" width="800" alt="Step 2: Alternative" >}}
-{{<figure src="imgs/Mastering_SSH_for_Data_Science_06.png" width="800" alt="Remote Shell Execution" >}}
-{{<figure src="imgs/Mastering_SSH_for_Data_Science_07.png" width="800" alt="Moving Files" >}}
-{{<figure src="imgs/Mastering_SSH_for_Data_Science_08.png" width="800" alt="Figure 9" >}}
-{{<figure src="imgs/Mastering_SSH_for_Data_Science_09.png" width="800" alt="Figure 10" >}}
-{{<figure src="imgs/Mastering_SSH_for_Data_Science_10.png" width="800" alt="Figure 11" >}}
-{{<figure src="imgs/Mastering_SSH_for_Data_Science_11.png" width="800" alt="Figure 12" >}}
-{{<figure src="imgs/Mastering_SSH_for_Data_Science_12.png" width="800" alt="Figure 13" >}}
-{{<figure src="imgs/Mastering_SSH_for_Data_Science_13.png" width="800" alt="Figure 14" >}}
-{{<figure src="imgs/Mastering_SSH_for_Data_Science_14.png" width="800" alt="Figure 15" >}} -->

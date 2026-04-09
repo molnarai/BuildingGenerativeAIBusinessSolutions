@@ -23,75 +23,75 @@ transition = "none"
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI000.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI000.png" >}}
 <h1></h1>
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI001.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI001.png" >}}
 <h1></h1>
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI002.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI002.png" >}}
 <h1></h1>
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI003.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI003.png" >}}
 <h1></h1>
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI004.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI004.png" >}}
 <h1></h1>
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI005.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI005.png" >}}
 <h1></h1>
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI006.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI006.png" >}}
 <h1></h1>
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI007.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI007.png" >}}
 <h1></h1>
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI008.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI008.png" >}}
 <h1></h1>
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI009.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI009.png" >}}
 <h1></h1>
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI010.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI010.png" >}}
 <h1></h1>
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI011.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI011.png" >}}
 <h1></h1>
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI012.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI012.png" >}}
 <h1></h1>
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI013.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI013.png" >}}
 <h1></h1>
 
 ***
 
-{{< slide background-image="/imgs/Architecting_Structured_AI014.png" >}}
+{{< slide content-image="/imgs/Architecting_Structured_AI014.png" >}}
 <h1></h1>

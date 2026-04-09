@@ -26,7 +26,7 @@ MSA 8700 — Module 9: Knowledge Graphs
 
 ***
 
-{{< slide background-image="/imgs/Structuring_Agentic_AI00.png" >}}
+{{< slide content-image="/imgs/Structuring_Agentic_AI00.png" >}}
 <h1></h1>
 
 ***
@@ -53,7 +53,7 @@ This limitation becomes critical for *agentic* systems — AI systems that perfo
 
 *** 
 
-{{< slide background-image="/imgs/Structuring_Agentic_AI01.png" >}}
+{{< slide content-image="/imgs/Structuring_Agentic_AI01.png" >}}
 
 *** 
 
@@ -92,7 +92,7 @@ Knowledge Graphs (KGs) provide:
 *   Power & Pitfalls of Ontologies
 
 ***
-{{< slide background-image="/imgs/Structuring_Agentic_AI02.png" >}}
+{{< slide content-image="/imgs/Structuring_Agentic_AI02.png" >}}
 
 ***
 
@@ -116,7 +116,7 @@ Graphs allow you to encode confidence, causality, chronology, and strength of re
 
 ***
 
-{{< slide background-image="/imgs/Structuring_Agentic_AI03.png" >}}
+{{< slide content-image="/imgs/Structuring_Agentic_AI03.png" >}}
 
 ***
 
@@ -143,7 +143,7 @@ Triples create a **machine-readable, language-independent backbone** that can su
 
 ***
 
-{{< slide background-image="/imgs/Structuring_Agentic_AI04.png" >}}
+{{< slide content-image="/imgs/Structuring_Agentic_AI04.png" >}}
 
 ***
 
@@ -158,7 +158,7 @@ An **ontology** defines:
 
 *** 
 
-{{< slide background-image="/imgs/Structuring_Agentic_AI05.png" >}}
+{{< slide content-image="/imgs/Structuring_Agentic_AI05.png" >}}
 
 ***
 
@@ -185,7 +185,7 @@ An **ontology** defines:
 
 
 ***
-{{< slide background-image="/imgs/Structuring_Agentic_AI06.png" >}}
+{{< slide content-image="/imgs/Structuring_Agentic_AI06.png" >}}
 ***
 
 
@@ -228,7 +228,7 @@ A KB turns agents into **deliberate reasoners**, not passive pattern matchers.
 
 
 ***
-{{< slide background-image="/imgs/Structuring_Agentic_AI07.png" >}}
+{{< slide content-image="/imgs/Structuring_Agentic_AI07.png" >}}
 ***
 
 ## **4.1 SQL vs. Vector Search vs. Graph Querying**
@@ -259,7 +259,7 @@ Graph languages unlock this reasoning capability.
 
 
 ***
-{{< slide background-image="/imgs/Structuring_Agentic_AI08.png" >}}
+{{< slide content-image="/imgs/Structuring_Agentic_AI08.png" >}}
 ***
 
 ## **5.1 Agents Need Shared Memory**
@@ -328,7 +328,7 @@ Agent types interacting with a KG:
 
 
 ***
-{{< slide background-image="/imgs/Structuring_Agentic_AI09.png" >}}
+{{< slide content-image="/imgs/Structuring_Agentic_AI09.png" >}}
 ***
 
 ## **6.1 The Core Argument**
