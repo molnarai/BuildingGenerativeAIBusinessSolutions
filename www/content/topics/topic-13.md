@@ -26,7 +26,7 @@ This session examines the intersection of ethical frameworks and operational gov
 
 ## Presentation
 
-- []() - 
+- [Responsible AI](../../slides/slide-13-responsible-ai/) - How to govern Agentic AI systems
 
 
 ## Read
