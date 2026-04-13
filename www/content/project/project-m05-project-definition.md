@@ -2,7 +2,7 @@
 title = 'M05 Iterative Improvement'
 description = "Building on the initial evaluation, students will iteratively refine the DAIS system - through architectural or agent modifications - and conduct an ablation study comparing different approaches, ultimately documenting these changes and their impact in a concise iteration report."
 weight = 50
-submission = 'Monday Apr 26, 2026, Wednesday Apr 21, 2026'
+submission = 'Anytime til April 27, 2026'
 percent = 20
 +++
 **Goals:**
@@ -14,14 +14,8 @@ percent = 20
 **Deliverables:**
 0. Create a document `M05_MILESTONE.md` where you briefly describe parts of your project according to the directions below. (Use the exact filename, it's case sensitive).
 1. Commit your code and the file `M05_MILESTONE.md` into your project repository.
-2. Create a branch `uat` if you don't have one yet. The acronym stands for "User Acceptance Testing". This is your review version that will be evaluated. Meanwhile you may continue on your development branch.
-3. Create a "Merge Request" on the GitLab web interface:
-    1. Select your working branch with the code that you intend to submit for review as "Source".
-    2. Select `uat` as "Target".
-    3. You may write an optional comment for this submission.
-    4. Select the professor of your class as "Reviewer". They will be notified.
-    5. Carefully review any of the other options. E.g. "Delete source branch when merge request is accepted." is checked, you may want to un-check it.
-    6. Click on "Create merge request"
+2. **Merge** to your branch `uat`. (You don't need to notify the instructor or add them as reviewer.) This is your review version that will be evaluated. Meanwhile you may continue on your development branch.
+
 
 
 **Milestone Document:**

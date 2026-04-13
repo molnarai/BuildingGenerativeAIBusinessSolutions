@@ -7,6 +7,26 @@ weight = 70
 This document consolidates the evaluation criteria from all project milestones into a single rubric. Each milestone is weighted according to its contribution to the final project grade. Use this rubric for self-evaluation before each submission and as a reference throughout the semester.
 
 ---
+## AI Evaluation and Feedback Schedule
+
+The table below shows the schedule of the AI evaluation runs.
+Any changes that are **committed** or **merged** to the `uat` branch before the evaluation process starts will be reviewed.
+
+**You are not required to have updates for every evaluation run.** Wait until you have meaningful updates before merging to `uat`.
+
+
+|	Date	|	Evaluation Start Time	|	Number	|
+|-----------|---------------------------|-----------|
+|	Monday, April 13, 2026	|	1:00 AM	|	1	|
+|	Friday, April 17, 2026	|	1:00 AM	|	2	|
+|	Monday, April 20, 2026	|	1:00 AM	|	3	|
+|	Friday, April 24, 2026	|	1:00 AM	|	4	|
+|	Monday, April 27, 2026	|	1:00 AM	|	5	|
+|	Friday, May 1, 2026	|	1:00 AM	|	6	|
+|	Monday, May 4, 2026	|	1:00 AM	|	Final	|
+
+
+---
 
 ## Grade Allocation
 
