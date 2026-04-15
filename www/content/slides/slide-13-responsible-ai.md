@@ -38,7 +38,7 @@ transition = "none"
 <h1></h1>
 
 ***
-### Core Principle
+### Core Principles
 
 <p style="font-size: small; text-align: right">as established in the EU's Ethics Guidelines for Trustworthy AI
 </p>
