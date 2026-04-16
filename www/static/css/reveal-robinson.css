@@ -380,6 +380,134 @@
 }
 
 /*********************************************
+ * BACKGROUND JITTER — subtle occasional jitter on break slides
+ *********************************************/
+@keyframes bg-jitter {
+  0%, 88%, 100% {
+    transform: scale(1.03);
+    filter: brightness(1) contrast(1) saturate(1);
+  }
+  89% {
+    transform: scale(1.03);
+    filter: brightness(1.15) contrast(1.2) saturate(1.3);
+  }
+  90% {
+    transform: translate(3px, -2px) scale(1.03);
+    filter: brightness(0.85) contrast(1.3) saturate(0.7);
+  }
+  91% {
+    transform: translate(1px, 1px) scale(1.03);
+    filter: brightness(1.25) contrast(0.9) saturate(1.4);
+  }
+  92% {
+    transform: translate(-2px, 3px) scale(1.03);
+    filter: brightness(0.9) contrast(1.2) saturate(0.8);
+  }
+  93% {
+    transform: translate(0px, -1px) scale(1.03);
+    filter: brightness(1.1) contrast(1.1) saturate(1.2);
+  }
+  94% {
+    transform: translate(-3px, -2px) scale(1.03);
+    filter: brightness(0.8) contrast(1.4) saturate(0.6);
+  }
+  96% {
+    transform: translate(2px, 2px) scale(1.03);
+    filter: brightness(1.2) contrast(1.15) saturate(1.1);
+  }
+  98% {
+    transform: translate(-1px, -3px) scale(1.03);
+    filter: brightness(0.95) contrast(1.1) saturate(0.9);
+  }
+}
+
+/* TV static snow — dense grayscale noise */
+@keyframes static-snow {
+  0%, 88%, 100% { opacity: 0; }
+  89%           { opacity: 0.5;  background-position: 0 0; }
+  89.5%         { opacity: 0.65; background-position: -50px -30px; }
+  90%           { opacity: 0.55; background-position: 20px -60px; }
+  90.5%         { opacity: 0.7;  background-position: -70px 40px; }
+  91%           { opacity: 0.6;  background-position: 40px 10px; }
+  91.5%         { opacity: 0.45; background-position: -20px -50px; }
+  92%           { opacity: 0.55; background-position: 60px 30px; }
+  93%           { opacity: 0.7;  background-position: -40px -20px; }
+  94%           { opacity: 0.5;  background-position: 30px 50px; }
+  95%           { opacity: 0.65; background-position: -10px -40px; }
+  96%           { opacity: 0.4;  background-position: 50px 20px; }
+  97%           { opacity: 0.3;  background-position: -30px 10px; }
+  98%           { opacity: 0.15; background-position: 10px -10px; }
+  99%           { opacity: 0; }
+}
+
+/* Horizontal scanline distortion */
+@keyframes scanline-glitch {
+  0%, 88%, 100% { opacity: 0; }
+  89%           { opacity: 0.3; background-position: 0 0; }
+  90%           { opacity: 0.5; background-position: 0 3px; }
+  91%           { opacity: 0.4; background-position: 0 -2px; }
+  92%           { opacity: 0.6; background-position: 0 5px; }
+  93%           { opacity: 0.35; background-position: 0 -1px; }
+  94%           { opacity: 0.55; background-position: 0 4px; }
+  95%           { opacity: 0.45; background-position: 0 -3px; }
+  96%           { opacity: 0.3; background-position: 0 2px; }
+  97%           { opacity: 0.2; background-position: 0 0; }
+  99%           { opacity: 0; }
+}
+
+.jitter .slide-background.present .slide-background-content {
+  animation: bg-jitter 12s ease-in-out infinite;
+}
+
+/* Dense TV snow overlay */
+.jitter .slide-background.present .slide-background-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='discrete' tableValues='0 1'/%3E%3CfeFuncG type='discrete' tableValues='0 1'/%3E%3CfeFuncB type='discrete' tableValues='0 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  background-repeat: repeat;
+  opacity: 0;
+  animation: static-snow 12s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Horizontal scanlines */
+.jitter .slide-background.present .slide-background-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.3) 2px,
+    rgba(0, 0, 0, 0.3) 4px
+  );
+  opacity: 0;
+  animation: scanline-glitch 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/*********************************************
+ * BACKGROUND BOX — centered overlay for break slides
+ *********************************************/
+.reveal .slides section:has(.background-box) {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: 100%;
+}
+
+.reveal .background-box {
+  padding: 42px;
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+/*********************************************
  * PRINT
  *********************************************/
 @media print {
