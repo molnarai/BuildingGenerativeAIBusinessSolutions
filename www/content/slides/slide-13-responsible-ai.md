@@ -136,7 +136,7 @@ AI behavior must be understandable and auditable by the relevant stakeholders �
 
 # Class Discussion
 
-Open the discussion forum on iCollege
+
 
 ***
 
@@ -161,7 +161,7 @@ You have three options: (A) train on the data as-is, (B) remove protected attrib
 ### Discussion Question 3
 # Accountability &amp; Oversight
 
-Building Agentic AI Business Solutions · Graduate Course · Session: Ethics &amp; Responsible AI in Agentic Systems 29 You are designing an agentic customer service system for a financial services firm. The system can autonomously resolve disputes, issue refunds up to $\$500$, and escalate to human agents.
+You are designing an agentic customer service system for a financial services firm. The system can autonomously resolve disputes, issue refunds up to $\$500$, and escalate to human agents.
 
 A proposal is made to raise the autonomous refund threshold to $\$5,000$ to reduce human workload by 80%. What autonomy level would you recommend for this new threshold, and what safeguards would you require before approval?
 
